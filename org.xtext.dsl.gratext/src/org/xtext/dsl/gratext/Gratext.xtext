@@ -1,0 +1,46 @@
+grammar org.xtext.dsl.gratext.Gratext with org.eclipse.xtext.common.Terminals
+
+generate gratext "http://www.xtext.org/dsl/gratext/Gratext"
+
+Granja:
+	'GRANJA' name=STRING
+	'CENTRALITA:' tipo=Tipo
+	'Usuario:' usuario= usuario
+	'Contraseña:' contrasena = contrasena
+	'Dispositivos{'dispositivos+= Dispositivos* '}'
+	
+;
+
+Dispositivos:
+	'Codigo:' codigo=ID  'Sensor'  nombre=TiposDispositivo (temperatura=Estado)? accion=accion
+	;
+
+accion:
+	
+'quiero' nombreAccion=NombreAccion  (numero=numero)? (descripcion=STRING)? 
+;
+
+numero:
+	(INT)+ ('.')? (INT)*
+;
+
+usuario:
+	usuario=ID 
+;
+
+contrasena:
+	contrasena=STRING	
+;
+
+
+enum Tipo : DELAVAL | SIEMENS | TABLET | MOVIL | ORDENADOR;
+enum TiposDispositivo : CAMARA | TEMPERATURA | FUEGO_HUMO | CO2 | GAS | PRESENCIA | MAGNETICO| ROTURA_CRISTAL
+	| BARRERA_SEGURIDAD | LUMINOSIDAD | EMERGENCIA | INUNDACION | VIENTO | LLUVIA | ESTACION_METEOROLOGICA |
+	SISTEMA_IDENTIFICACION | INFRARROJOS | RADIOFRECUENCIA | MECEDORA | PULSOMETRO_GANADO | DEPOSITO_LECHE | 
+	ROBOT_LIMPIADOR | NEVERAS   
+;
+enum NombreAccion : ABRIR | ENVIAR | SACAR | CERRAR | ESTADO | GRABAR |DETECTAR | ENCENDER | APAGAR | AUMENTAR | DISMINUIR 
+	| COMPROBAR | ACTIVAR | DESACTIVAR 
+;
+
+enum Estado: AMBIENTE | INTERNA | NEVERA |MECEDORA |DEPOSITO_LECHE;
