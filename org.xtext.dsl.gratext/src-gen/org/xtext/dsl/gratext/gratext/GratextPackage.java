@@ -309,16 +309,6 @@ public interface GratextPackage extends EPackage
    */
   int NOMBRE_ACCION = 7;
 
-  /**
-   * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.Estado <em>Estado</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.dsl.gratext.gratext.Estado
-   * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getEstado()
-   * @generated
-   */
-  int ESTADO = 8;
-
 
   /**
    * Returns the meta object for class '{@link org.xtext.dsl.gratext.gratext.Granja <em>Granja</em>}'.
@@ -555,16 +545,6 @@ public interface GratextPackage extends EPackage
   EEnum getNombreAccion();
 
   /**
-   * Returns the meta object for enum '{@link org.xtext.dsl.gratext.gratext.Estado <em>Estado</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Estado</em>'.
-   * @see org.xtext.dsl.gratext.gratext.Estado
-   * @generated
-   */
-  EEnum getEstado();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -778,16 +758,6 @@ public interface GratextPackage extends EPackage
      * @generated
      */
     EEnum NOMBRE_ACCION = eINSTANCE.getNombreAccion();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.Estado <em>Estado</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.dsl.gratext.gratext.Estado
-     * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getEstado()
-     * @generated
-     */
-    EEnum ESTADO = eINSTANCE.getEstado();
 
   }
 

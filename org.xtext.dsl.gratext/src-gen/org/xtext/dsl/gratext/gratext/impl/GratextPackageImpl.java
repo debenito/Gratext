@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.dsl.gratext.gratext.Dispositivos;
-import org.xtext.dsl.gratext.gratext.Estado;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.GratextFactory;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
@@ -86,13 +85,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * @generated
    */
   private EEnum nombreAccionEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum estadoEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -382,16 +374,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getEstado()
-  {
-    return estadoEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public GratextFactory getGratextFactory()
   {
     return (GratextFactory)getEFactoryInstance();
@@ -445,7 +427,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
     tipoEEnum = createEEnum(TIPO);
     tiposDispositivoEEnum = createEEnum(TIPOS_DISPOSITIVO);
     nombreAccionEEnum = createEEnum(NOMBRE_ACCION);
-    estadoEEnum = createEEnum(ESTADO);
   }
 
   /**
@@ -489,7 +470,7 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
     initEClass(dispositivosEClass, Dispositivos.class, "Dispositivos", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDispositivos_Codigo(), ecorePackage.getEString(), "codigo", null, 0, 1, Dispositivos.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDispositivos_Nombre(), this.getTiposDispositivo(), "nombre", null, 0, 1, Dispositivos.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDispositivos_Temperatura(), this.getEstado(), "temperatura", null, 0, 1, Dispositivos.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDispositivos_Temperatura(), ecorePackage.getEString(), "temperatura", null, 0, 1, Dispositivos.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDispositivos_Accion(), this.getaccion(), null, "accion", null, 0, 1, Dispositivos.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(accionEClass, accion.class, "accion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -551,13 +532,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
     addEEnumLiteral(nombreAccionEEnum, NombreAccion.COMPROBAR);
     addEEnumLiteral(nombreAccionEEnum, NombreAccion.ACTIVAR);
     addEEnumLiteral(nombreAccionEEnum, NombreAccion.DESACTIVAR);
-
-    initEEnum(estadoEEnum, Estado.class, "Estado");
-    addEEnumLiteral(estadoEEnum, Estado.AMBIENTE);
-    addEEnumLiteral(estadoEEnum, Estado.INTERNA);
-    addEEnumLiteral(estadoEEnum, Estado.NEVERA);
-    addEEnumLiteral(estadoEEnum, Estado.MECEDORA);
-    addEEnumLiteral(estadoEEnum, Estado.DEPOSITO_LECHE);
 
     // Create resource
     createResource(eNS_URI);

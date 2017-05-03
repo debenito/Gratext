@@ -12,7 +12,7 @@ Granja:
 ;
 
 Dispositivos:
-	'Codigo:' codigo=ID  'Sensor'  nombre=TiposDispositivo (temperatura=Estado)? accion=accion
+	'Codigo:' codigo=ID  'Sensor'  nombre=TiposDispositivo (temperatura=STRING)? accion=accion
 	;
 
 accion:
@@ -43,4 +43,3 @@ enum NombreAccion : ABRIR | ENVIAR | SACAR | CERRAR | ESTADO | GRABAR |DETECTAR 
 	| COMPROBAR | ACTIVAR | DESACTIVAR 
 ;
 
-enum Estado: AMBIENTE | INTERNA | NEVERA |MECEDORA |DEPOSITO_LECHE;

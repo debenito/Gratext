@@ -61,7 +61,7 @@ public class GratextSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Dispositivos returns Dispositivos
 	 *
 	 * Constraint:
-	 *     (codigo=ID nombre=TiposDispositivo temperatura=Estado? accion=accion)
+	 *     (codigo=ID nombre=TiposDispositivo temperatura=STRING? accion=accion)
 	 */
 	protected void sequence_Dispositivos(ISerializationContext context, Dispositivos semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

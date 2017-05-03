@@ -87,7 +87,4 @@ public abstract class AbstractGratextProposalProvider extends TerminalsProposalP
 	public void complete_NombreAccion(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	public void complete_Estado(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
 }

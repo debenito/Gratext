@@ -247,22 +247,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Rule Estado
-ruleEstado
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEstadoAccess().getAlternatives()); }
-		(rule__Estado__Alternatives)
-		{ after(grammarAccess.getEstadoAccess().getAlternatives()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__Tipo__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -536,45 +520,6 @@ rule__NombreAccion__Alternatives
 		{ before(grammarAccess.getNombreAccionAccess().getDESACTIVAREnumLiteralDeclaration_13()); }
 		('DESACTIVAR')
 		{ after(grammarAccess.getNombreAccionAccess().getDESACTIVAREnumLiteralDeclaration_13()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Estado__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEstadoAccess().getAMBIENTEEnumLiteralDeclaration_0()); }
-		('AMBIENTE')
-		{ after(grammarAccess.getEstadoAccess().getAMBIENTEEnumLiteralDeclaration_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getEstadoAccess().getINTERNAEnumLiteralDeclaration_1()); }
-		('INTERNA')
-		{ after(grammarAccess.getEstadoAccess().getINTERNAEnumLiteralDeclaration_1()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getEstadoAccess().getNEVERAEnumLiteralDeclaration_2()); }
-		('NEVERA')
-		{ after(grammarAccess.getEstadoAccess().getNEVERAEnumLiteralDeclaration_2()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getEstadoAccess().getMECEDORAEnumLiteralDeclaration_3()); }
-		('MECEDORA')
-		{ after(grammarAccess.getEstadoAccess().getMECEDORAEnumLiteralDeclaration_3()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getEstadoAccess().getDEPOSITO_LECHEEnumLiteralDeclaration_4()); }
-		('DEPOSITO_LECHE')
-		{ after(grammarAccess.getEstadoAccess().getDEPOSITO_LECHEEnumLiteralDeclaration_4()); }
 	)
 ;
 finally {
@@ -1347,9 +1292,9 @@ rule__Dispositivos__TemperaturaAssignment_4
 	}
 :
 	(
-		{ before(grammarAccess.getDispositivosAccess().getTemperaturaEstadoEnumRuleCall_4_0()); }
-		ruleEstado
-		{ after(grammarAccess.getDispositivosAccess().getTemperaturaEstadoEnumRuleCall_4_0()); }
+		{ before(grammarAccess.getDispositivosAccess().getTemperaturaSTRINGTerminalRuleCall_4_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getDispositivosAccess().getTemperaturaSTRINGTerminalRuleCall_4_0()); }
 	)
 ;
 finally {

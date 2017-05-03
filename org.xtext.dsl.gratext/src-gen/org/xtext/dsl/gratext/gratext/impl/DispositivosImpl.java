@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.dsl.gratext.gratext.Dispositivos;
-import org.xtext.dsl.gratext.gratext.Estado;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
@@ -84,7 +83,7 @@ public class DispositivosImpl extends MinimalEObjectImpl.Container implements Di
    * @generated
    * @ordered
    */
-  protected static final Estado TEMPERATURA_EDEFAULT = Estado.AMBIENTE;
+  protected static final String TEMPERATURA_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getTemperatura() <em>Temperatura</em>}' attribute.
@@ -94,7 +93,7 @@ public class DispositivosImpl extends MinimalEObjectImpl.Container implements Di
    * @generated
    * @ordered
    */
-  protected Estado temperatura = TEMPERATURA_EDEFAULT;
+  protected String temperatura = TEMPERATURA_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAccion() <em>Accion</em>}' containment reference.
@@ -178,7 +177,7 @@ public class DispositivosImpl extends MinimalEObjectImpl.Container implements Di
    * <!-- end-user-doc -->
    * @generated
    */
-  public Estado getTemperatura()
+  public String getTemperatura()
   {
     return temperatura;
   }
@@ -188,10 +187,10 @@ public class DispositivosImpl extends MinimalEObjectImpl.Container implements Di
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTemperatura(Estado newTemperatura)
+  public void setTemperatura(String newTemperatura)
   {
-    Estado oldTemperatura = temperatura;
-    temperatura = newTemperatura == null ? TEMPERATURA_EDEFAULT : newTemperatura;
+    String oldTemperatura = temperatura;
+    temperatura = newTemperatura;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.DISPOSITIVOS__TEMPERATURA, oldTemperatura, temperatura));
   }
@@ -299,7 +298,7 @@ public class DispositivosImpl extends MinimalEObjectImpl.Container implements Di
         setNombre((TiposDispositivo)newValue);
         return;
       case GratextPackage.DISPOSITIVOS__TEMPERATURA:
-        setTemperatura((Estado)newValue);
+        setTemperatura((String)newValue);
         return;
       case GratextPackage.DISPOSITIVOS__ACCION:
         setAccion((accion)newValue);
@@ -349,7 +348,7 @@ public class DispositivosImpl extends MinimalEObjectImpl.Container implements Di
       case GratextPackage.DISPOSITIVOS__NOMBRE:
         return nombre != NOMBRE_EDEFAULT;
       case GratextPackage.DISPOSITIVOS__TEMPERATURA:
-        return temperatura != TEMPERATURA_EDEFAULT;
+        return TEMPERATURA_EDEFAULT == null ? temperatura != null : !TEMPERATURA_EDEFAULT.equals(temperatura);
       case GratextPackage.DISPOSITIVOS__ACCION:
         return accion != null;
     }

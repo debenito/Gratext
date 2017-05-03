@@ -54,13 +54,6 @@
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//NombreAccion/ACTIVAR"/>
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//NombreAccion/DESACTIVAR"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gratext.ecore#//Estado">
-      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Estado/AMBIENTE"/>
-      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Estado/INTERNA"/>
-      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Estado/NEVERA"/>
-      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Estado/MECEDORA"/>
-      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Estado/DEPOSITO_LECHE"/>
-    </genEnums>
     <genClasses ecoreClass="Gratext.ecore#//Granja">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//Granja/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//Granja/tipo"/>

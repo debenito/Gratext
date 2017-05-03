@@ -92,8 +92,6 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
         return createTiposDispositivoFromString(eDataType, initialValue);
       case GratextPackage.NOMBRE_ACCION:
         return createNombreAccionFromString(eDataType, initialValue);
-      case GratextPackage.ESTADO:
-        return createEstadoFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -115,8 +113,6 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
         return convertTiposDispositivoToString(eDataType, instanceValue);
       case GratextPackage.NOMBRE_ACCION:
         return convertNombreAccionToString(eDataType, instanceValue);
-      case GratextPackage.ESTADO:
-        return convertEstadoToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -239,28 +235,6 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
    * @generated
    */
   public String convertNombreAccionToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Estado createEstadoFromString(EDataType eDataType, String initialValue)
-  {
-    Estado result = Estado.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertEstadoToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

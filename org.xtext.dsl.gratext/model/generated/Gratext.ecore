@@ -14,7 +14,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Dispositivos">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="codigo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="#//TiposDispositivo"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperatura" eType="#//Estado"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperatura" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="accion" eType="#//accion"
         containment="true"/>
   </eClassifiers>
@@ -76,12 +76,5 @@
     <eLiterals name="COMPROBAR" value="11" literal="COMPROBAR"/>
     <eLiterals name="ACTIVAR" value="12" literal="ACTIVAR"/>
     <eLiterals name="DESACTIVAR" value="13" literal="DESACTIVAR"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Estado">
-    <eLiterals name="AMBIENTE" literal="AMBIENTE"/>
-    <eLiterals name="INTERNA" value="1" literal="INTERNA"/>
-    <eLiterals name="NEVERA" value="2" literal="NEVERA"/>
-    <eLiterals name="MECEDORA" value="3" literal="MECEDORA"/>
-    <eLiterals name="DEPOSITO_LECHE" value="4" literal="DEPOSITO_LECHE"/>
   </eClassifiers>
 </ecore:EPackage>

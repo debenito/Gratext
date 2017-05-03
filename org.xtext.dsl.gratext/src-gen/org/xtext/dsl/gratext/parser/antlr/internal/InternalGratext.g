@@ -261,20 +261,19 @@ ruleDispositivos returns [EObject current=null]
 		)
 		(
 			(
+				lv_temperatura_4_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getDispositivosAccess().getTemperaturaEstadoEnumRuleCall_4_0());
+					newLeafNode(lv_temperatura_4_0, grammarAccess.getDispositivosAccess().getTemperaturaSTRINGTerminalRuleCall_4_0());
 				}
-				lv_temperatura_4_0=ruleEstado
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDispositivosRule());
+						$current = createModelElement(grammarAccess.getDispositivosRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"temperatura",
 						lv_temperatura_4_0,
-						"org.xtext.dsl.gratext.Gratext.Estado");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)?
@@ -857,57 +856,6 @@ ruleNombreAccion returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getNombreAccionAccess().getDESACTIVAREnumLiteralDeclaration_13().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_13, grammarAccess.getNombreAccionAccess().getDESACTIVAREnumLiteralDeclaration_13());
-			}
-		)
-	)
-;
-
-// Rule Estado
-ruleEstado returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='AMBIENTE'
-			{
-				$current = grammarAccess.getEstadoAccess().getAMBIENTEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getEstadoAccess().getAMBIENTEEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='INTERNA'
-			{
-				$current = grammarAccess.getEstadoAccess().getINTERNAEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getEstadoAccess().getINTERNAEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='NEVERA'
-			{
-				$current = grammarAccess.getEstadoAccess().getNEVERAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getEstadoAccess().getNEVERAEnumLiteralDeclaration_2());
-			}
-		)
-		    |
-		(
-			enumLiteral_3='MECEDORA'
-			{
-				$current = grammarAccess.getEstadoAccess().getMECEDORAEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getEstadoAccess().getMECEDORAEnumLiteralDeclaration_3());
-			}
-		)
-		    |
-		(
-			enumLiteral_4='DEPOSITO_LECHE'
-			{
-				$current = grammarAccess.getEstadoAccess().getDEPOSITO_LECHEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getEstadoAccess().getDEPOSITO_LECHEEnumLiteralDeclaration_4());
 			}
 		)
 	)

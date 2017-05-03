@@ -83,7 +83,6 @@ public interface Dispositivos extends EObject
 
   /**
    * Returns the value of the '<em><b>Temperatura</b></em>' attribute.
-   * The literals are from the enumeration {@link org.xtext.dsl.gratext.gratext.Estado}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Temperatura</em>' attribute isn't clear,
@@ -91,24 +90,22 @@ public interface Dispositivos extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Temperatura</em>' attribute.
-   * @see org.xtext.dsl.gratext.gratext.Estado
-   * @see #setTemperatura(Estado)
+   * @see #setTemperatura(String)
    * @see org.xtext.dsl.gratext.gratext.GratextPackage#getDispositivos_Temperatura()
    * @model
    * @generated
    */
-  Estado getTemperatura();
+  String getTemperatura();
 
   /**
    * Sets the value of the '{@link org.xtext.dsl.gratext.gratext.Dispositivos#getTemperatura <em>Temperatura</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Temperatura</em>' attribute.
-   * @see org.xtext.dsl.gratext.gratext.Estado
    * @see #getTemperatura()
    * @generated
    */
-  void setTemperatura(Estado value);
+  void setTemperatura(String value);
 
   /**
    * Returns the value of the '<em><b>Accion</b></em>' containment reference.

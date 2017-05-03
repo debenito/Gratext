@@ -38,7 +38,6 @@ public class GratextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTipoAccess().getAlternatives(), "rule__Tipo__Alternatives");
 					put(grammarAccess.getTiposDispositivoAccess().getAlternatives(), "rule__TiposDispositivo__Alternatives");
 					put(grammarAccess.getNombreAccionAccess().getAlternatives(), "rule__NombreAccion__Alternatives");
-					put(grammarAccess.getEstadoAccess().getAlternatives(), "rule__Estado__Alternatives");
 					put(grammarAccess.getGranjaAccess().getGroup(), "rule__Granja__Group__0");
 					put(grammarAccess.getDispositivosAccess().getGroup(), "rule__Dispositivos__Group__0");
 					put(grammarAccess.getAccionAccess().getGroup(), "rule__Accion__Group__0");

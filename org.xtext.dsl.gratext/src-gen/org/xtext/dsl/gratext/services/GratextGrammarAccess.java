@@ -115,15 +115,15 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNombreAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNombreTiposDispositivoEnumRuleCall_3_0 = (RuleCall)cNombreAssignment_3.eContents().get(0);
 		private final Assignment cTemperaturaAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTemperaturaEstadoEnumRuleCall_4_0 = (RuleCall)cTemperaturaAssignment_4.eContents().get(0);
+		private final RuleCall cTemperaturaSTRINGTerminalRuleCall_4_0 = (RuleCall)cTemperaturaAssignment_4.eContents().get(0);
 		private final Assignment cAccionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cAccionAccionParserRuleCall_5_0 = (RuleCall)cAccionAssignment_5.eContents().get(0);
 		
 		//Dispositivos:
-		//	'Codigo:' codigo=ID 'Sensor' nombre=TiposDispositivo temperatura=Estado? accion=accion;
+		//	'Codigo:' codigo=ID 'Sensor' nombre=TiposDispositivo temperatura=STRING? accion=accion;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Codigo:' codigo=ID 'Sensor' nombre=TiposDispositivo temperatura=Estado? accion=accion
+		//'Codigo:' codigo=ID 'Sensor' nombre=TiposDispositivo temperatura=STRING? accion=accion
 		public Group getGroup() { return cGroup; }
 		
 		//'Codigo:'
@@ -144,11 +144,11 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		//TiposDispositivo
 		public RuleCall getNombreTiposDispositivoEnumRuleCall_3_0() { return cNombreTiposDispositivoEnumRuleCall_3_0; }
 		
-		//temperatura=Estado?
+		//temperatura=STRING?
 		public Assignment getTemperaturaAssignment_4() { return cTemperaturaAssignment_4; }
 		
-		//Estado
-		public RuleCall getTemperaturaEstadoEnumRuleCall_4_0() { return cTemperaturaEstadoEnumRuleCall_4_0; }
+		//STRING
+		public RuleCall getTemperaturaSTRINGTerminalRuleCall_4_0() { return cTemperaturaSTRINGTerminalRuleCall_4_0; }
 		
 		//accion=accion
 		public Assignment getAccionAssignment_5() { return cAccionAssignment_5; }
@@ -625,57 +625,6 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		//"DESACTIVAR"
 		public Keyword getDESACTIVARDESACTIVARKeyword_13_0() { return cDESACTIVARDESACTIVARKeyword_13_0; }
 	}
-	public class EstadoElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.Estado");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cAMBIENTEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cAMBIENTEAMBIENTEKeyword_0_0 = (Keyword)cAMBIENTEEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cINTERNAEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cINTERNAINTERNAKeyword_1_0 = (Keyword)cINTERNAEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cNEVERAEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cNEVERANEVERAKeyword_2_0 = (Keyword)cNEVERAEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cMECEDORAEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cMECEDORAMECEDORAKeyword_3_0 = (Keyword)cMECEDORAEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cDEPOSITO_LECHEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cDEPOSITO_LECHEDEPOSITO_LECHEKeyword_4_0 = (Keyword)cDEPOSITO_LECHEEnumLiteralDeclaration_4.eContents().get(0);
-		
-		//enum Estado:
-		//	AMBIENTE | INTERNA | NEVERA | MECEDORA | DEPOSITO_LECHE;
-		public EnumRule getRule() { return rule; }
-		
-		//AMBIENTE | INTERNA | NEVERA | MECEDORA | DEPOSITO_LECHE
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//AMBIENTE
-		public EnumLiteralDeclaration getAMBIENTEEnumLiteralDeclaration_0() { return cAMBIENTEEnumLiteralDeclaration_0; }
-		
-		//"AMBIENTE"
-		public Keyword getAMBIENTEAMBIENTEKeyword_0_0() { return cAMBIENTEAMBIENTEKeyword_0_0; }
-		
-		//INTERNA
-		public EnumLiteralDeclaration getINTERNAEnumLiteralDeclaration_1() { return cINTERNAEnumLiteralDeclaration_1; }
-		
-		//"INTERNA"
-		public Keyword getINTERNAINTERNAKeyword_1_0() { return cINTERNAINTERNAKeyword_1_0; }
-		
-		//NEVERA
-		public EnumLiteralDeclaration getNEVERAEnumLiteralDeclaration_2() { return cNEVERAEnumLiteralDeclaration_2; }
-		
-		//"NEVERA"
-		public Keyword getNEVERANEVERAKeyword_2_0() { return cNEVERANEVERAKeyword_2_0; }
-		
-		//MECEDORA
-		public EnumLiteralDeclaration getMECEDORAEnumLiteralDeclaration_3() { return cMECEDORAEnumLiteralDeclaration_3; }
-		
-		//"MECEDORA"
-		public Keyword getMECEDORAMECEDORAKeyword_3_0() { return cMECEDORAMECEDORAKeyword_3_0; }
-		
-		//DEPOSITO_LECHE
-		public EnumLiteralDeclaration getDEPOSITO_LECHEEnumLiteralDeclaration_4() { return cDEPOSITO_LECHEEnumLiteralDeclaration_4; }
-		
-		//"DEPOSITO_LECHE"
-		public Keyword getDEPOSITO_LECHEDEPOSITO_LECHEKeyword_4_0() { return cDEPOSITO_LECHEDEPOSITO_LECHEKeyword_4_0; }
-	}
 	
 	private final GranjaElements pGranja;
 	private final DispositivosElements pDispositivos;
@@ -686,7 +635,6 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	private final TipoElements eTipo;
 	private final TiposDispositivoElements eTiposDispositivo;
 	private final NombreAccionElements eNombreAccion;
-	private final EstadoElements eEstado;
 	
 	private final Grammar grammar;
 	
@@ -706,7 +654,6 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		this.eTipo = new TipoElements();
 		this.eTiposDispositivo = new TiposDispositivoElements();
 		this.eNombreAccion = new NombreAccionElements();
-		this.eEstado = new EstadoElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -751,7 +698,7 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Dispositivos:
-	//	'Codigo:' codigo=ID 'Sensor' nombre=TiposDispositivo temperatura=Estado? accion=accion;
+	//	'Codigo:' codigo=ID 'Sensor' nombre=TiposDispositivo temperatura=STRING? accion=accion;
 	public DispositivosElements getDispositivosAccess() {
 		return pDispositivos;
 	}
@@ -832,16 +779,6 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getNombreAccionRule() {
 		return getNombreAccionAccess().getRule();
-	}
-	
-	//enum Estado:
-	//	AMBIENTE | INTERNA | NEVERA | MECEDORA | DEPOSITO_LECHE;
-	public EstadoElements getEstadoAccess() {
-		return eEstado;
-	}
-	
-	public EnumRule getEstadoRule() {
-		return getEstadoAccess().getRule();
 	}
 	
 	//terminal ID:
