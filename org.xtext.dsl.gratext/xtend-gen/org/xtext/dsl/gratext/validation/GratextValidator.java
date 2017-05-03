@@ -4,6 +4,7 @@
 package org.xtext.dsl.gratext.validation;
 
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
@@ -26,6 +27,8 @@ public class GratextValidator extends AbstractGratextValidator {
   public final static String ACCION_INCORRECTA = "Accion_incorrecta";
   
   public final static String TEMPERATURA_INCORRECTA = "Temperatura_incorrecta";
+  
+  public final static String NUMERO_INCORRECTO = "Numero_incorrecto";
   
   @Check
   public void checkGreetingStartsWithCapital(final Granja granja) {
@@ -132,23 +135,93 @@ public class GratextValidator extends AbstractGratextValidator {
   @Check
   public void checkDispositivoTemperatura(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("TEMPERATURA") && (!this.checkTemperatura(dispositivo.getTemperatura())))) {
-      this.warning("Recuerde que necesita el lugar AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE", GratextPackage.Literals.DISPOSITIVOS__NOMBRE, 
-        GratextValidator.TEMPERATURA_INCORRECTA);
+      this.warning("Recuerde que necesita el lugar AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE", 
+        GratextPackage.Literals.DISPOSITIVOS__NOMBRE, GratextValidator.TEMPERATURA_INCORRECTA);
     } else {
       if (((!dispositivo.getNombre().getName().equals("TEMPERATURA")) && this.checkTemperatura(dispositivo.getTemperatura()))) {
         TiposDispositivo _nombre = dispositivo.getNombre();
         String _plus = ("No es posible poner estos valores para " + _nombre);
-        this.error(_plus, GratextPackage.Literals.DISPOSITIVOS__NOMBRE, 
-          GratextValidator.TEMPERATURA_INCORRECTA);
+        this.error(_plus, 
+          GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, GratextValidator.TEMPERATURA_INCORRECTA);
       }
     }
   }
   
   public boolean checkTemperatura(final String estado) {
-    if ((((((estado.equalsIgnoreCase("AMBIENTE") || estado.equalsIgnoreCase("INTERNA")) || estado.equalsIgnoreCase("NEVERA")) || 
-      estado.equalsIgnoreCase("MECEDORA")) || estado.equalsIgnoreCase("DEPOSITO_LECHE")) || estado.equalsIgnoreCase("EXTERNA"))) {
+    if ((((((estado.equalsIgnoreCase("AMBIENTE") || estado.equalsIgnoreCase("INTERNA")) || 
+      estado.equalsIgnoreCase("NEVERA")) || estado.equalsIgnoreCase("MECEDORA")) || 
+      estado.equalsIgnoreCase("DEPOSITO_LECHE")) || estado.equalsIgnoreCase("EXTERNA"))) {
       return true;
     }
     return false;
+  }
+  
+  @Check
+  public void checkDispositivosNumerosEnteros(final Dispositivos dispositivo) {
+    if (((!this.comprobarDispositivosNumericos(dispositivo)) && 
+      (!StringExtensions.isNullOrEmpty(dispositivo.getAccion().getNumero())))) {
+      TiposDispositivo _nombre = dispositivo.getNombre();
+      String _plus = ("No se pueden poner valores numericos " + _nombre);
+      this.error(_plus, 
+        GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.NUMERO_INCORRECTO);
+    } else {
+      if ((dispositivo.getNombre().getName().equals("CAMARA") && 
+        this.checkNumeroDouble(dispositivo.getAccion().getNumero()))) {
+        TiposDispositivo _nombre_1 = dispositivo.getNombre();
+        String _plus_1 = ("El dispositivo " + _nombre_1);
+        String _plus_2 = (_plus_1 + " no admite valores decimales");
+        this.error(_plus_2, 
+          GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.NUMERO_INCORRECTO);
+      }
+    }
+  }
+  
+  public boolean comprobarDispositivosNumericos(final Dispositivos dispositivo) {
+    boolean _xifexpression = false;
+    if (((dispositivo.getNombre().getName().equals("TEMPERATURA") || 
+      dispositivo.getNombre().getName().equals("CAMARA")) || 
+      dispositivo.getNombre().getName().equals("LUMINOSIDAD"))) {
+      _xifexpression = true;
+    }
+    return _xifexpression;
+  }
+  
+  public boolean checkNumeroDouble(final String numero) {
+    boolean _xifexpression = false;
+    double _parseDouble = Double.parseDouble(numero);
+    boolean _notEquals = (_parseDouble != 0.0);
+    if (_notEquals) {
+      _xifexpression = true;
+    }
+    return _xifexpression;
+  }
+  
+  @Check
+  public void checkAumentarDisminuir(final Dispositivos dispositivo) {
+    if (((!dispositivo.getNombre().getName().equals("TEMPERATURA")) || 
+      ((!dispositivo.getNombre().getName().equals("LUMINOSIDAD")) && 
+        this.checkAumentoDisminu(dispositivo.getAccion())))) {
+      TiposDispositivo _nombre = dispositivo.getNombre();
+      String _plus = ("Error al realizar la accion solo es posible para temperatura y luminosidad" + _nombre);
+      this.error(_plus, 
+        GratextPackage.Literals.ACCION__NOMBRE_ACCION, GratextValidator.ACCION_INCORRECTA);
+    } else {
+      if ((dispositivo.getNombre().getName().equals("TEMPERATURA") || 
+        (dispositivo.getNombre().getName().equals("LUMINOSIDAD") && 
+          this.checkAumentoDisminu(dispositivo.getAccion())))) {
+        TiposDispositivo _nombre_1 = dispositivo.getNombre();
+        String _plus_1 = ("Acuerdese del valor que quiere AUMENTAR/ DISMINUIR" + _nombre_1);
+        this.warning(_plus_1, 
+          GratextPackage.Literals.ACCION__NOMBRE_ACCION, GratextValidator.ACCION_INCORRECTA);
+      }
+    }
+  }
+  
+  public boolean checkAumentoDisminu(final accion accion) {
+    boolean _xifexpression = false;
+    if ((accion.getNombreAccion().getName().equals("AUMENTAR") || accion.getNombreAccion().getName().equals("DISMINUIR"))) {
+      _xifexpression = true;
+    }
+    return _xifexpression;
   }
 }
