@@ -30,6 +30,8 @@ public class GratextValidator extends AbstractGratextValidator {
   
   public final static String NUMERO_INCORRECTO = "Numero_incorrecto";
   
+  protected int i = 0;
+  
   @Check
   public void checkGreetingStartsWithCapital(final Granja granja) {
     String _name = granja.getName();
@@ -166,7 +168,7 @@ public class GratextValidator extends AbstractGratextValidator {
         GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.NUMERO_INCORRECTO);
     } else {
       if ((dispositivo.getNombre().getName().equals("CAMARA") && 
-        this.checkNumeroDouble(dispositivo.getAccion().getNumero()))) {
+        this.comprobarNumero(dispositivo.getAccion().getNumero()).equals("float"))) {
         TiposDispositivo _nombre_1 = dispositivo.getNombre();
         String _plus_1 = ("El dispositivo " + _nombre_1);
         String _plus_2 = (_plus_1 + " no admite valores decimales");
@@ -174,6 +176,28 @@ public class GratextValidator extends AbstractGratextValidator {
           GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.NUMERO_INCORRECTO);
       }
     }
+  }
+  
+  public String comprobarNumero(final String numero) {
+    while ((this.i < numero.length())) {
+      {
+        char _charAt = numero.charAt(this.i);
+        boolean _equals = Character.valueOf(_charAt).equals(".");
+        if (_equals) {
+          return "float";
+        } else {
+          char _charAt_1 = numero.charAt(this.i);
+          boolean _isDigit = Character.isDigit(_charAt_1);
+          boolean _not = (!_isDigit);
+          if (_not) {
+            return "-";
+          }
+        }
+        this.i++;
+      }
+    }
+    this.i = 0;
+    return "int";
   }
   
   public boolean comprobarDispositivosNumericos(final Dispositivos dispositivo) {
@@ -186,33 +210,21 @@ public class GratextValidator extends AbstractGratextValidator {
     return _xifexpression;
   }
   
-  public boolean checkNumeroDouble(final String numero) {
-    boolean _xifexpression = false;
-    double _parseDouble = Double.parseDouble(numero);
-    boolean _notEquals = (_parseDouble != 0.0);
-    if (_notEquals) {
-      _xifexpression = true;
-    }
-    return _xifexpression;
-  }
-  
   @Check
   public void checkAumentarDisminuir(final Dispositivos dispositivo) {
-    if (((!dispositivo.getNombre().getName().equals("TEMPERATURA")) || 
-      ((!dispositivo.getNombre().getName().equals("LUMINOSIDAD")) && 
+    if ((dispositivo.getNombre().getName().equals("TEMPERATURA") || 
+      (dispositivo.getNombre().getName().equals("LUMINOSIDAD") && 
         this.checkAumentoDisminu(dispositivo.getAccion())))) {
       TiposDispositivo _nombre = dispositivo.getNombre();
-      String _plus = ("Error al realizar la accion solo es posible para temperatura y luminosidad" + _nombre);
-      this.error(_plus, 
-        GratextPackage.Literals.ACCION__NOMBRE_ACCION, GratextValidator.ACCION_INCORRECTA);
+      String _plus = ("Acuerdese del valor que quiere AUMENTAR/ DISMINUIR" + _nombre);
+      this.warning(_plus, 
+        GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_INCORRECTA);
     } else {
-      if ((dispositivo.getNombre().getName().equals("TEMPERATURA") || 
-        (dispositivo.getNombre().getName().equals("LUMINOSIDAD") && 
-          this.checkAumentoDisminu(dispositivo.getAccion())))) {
-        TiposDispositivo _nombre_1 = dispositivo.getNombre();
-        String _plus_1 = ("Acuerdese del valor que quiere AUMENTAR/ DISMINUIR" + _nombre_1);
-        this.warning(_plus_1, 
-          GratextPackage.Literals.ACCION__NOMBRE_ACCION, GratextValidator.ACCION_INCORRECTA);
+      accion _accion = dispositivo.getAccion();
+      boolean _checkAumentoDisminu = this.checkAumentoDisminu(_accion);
+      if (_checkAumentoDisminu) {
+        this.error("Error al realizar la accion solo es posible para temperatura y luminosidad", 
+          GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_INCORRECTA);
       }
     }
   }

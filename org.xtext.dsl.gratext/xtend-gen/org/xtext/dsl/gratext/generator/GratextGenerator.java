@@ -3,17 +3,12 @@
  */
 package org.xtext.dsl.gratext.generator;
 
-import com.google.common.collect.Iterators;
-import java.util.Iterator;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.xtext.dsl.gratext.gratext.Granja;
+import org.xtext.dsl.gratext.generator.GeneradorTexto;
+import org.xtext.dsl.gratext.generator.GeneradorWeb;
 
 /**
  * Generates code from your model files on save.
@@ -24,14 +19,9 @@ import org.xtext.dsl.gratext.gratext.Granja;
 public class GratextGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    TreeIterator<EObject> _allContents = resource.getAllContents();
-    Iterator<Granja> _filter = Iterators.<Granja>filter(_allContents, Granja.class);
-    final Function1<Granja, String> _function = (Granja it) -> {
-      return it.getName();
-    };
-    Iterator<String> _map = IteratorExtensions.<Granja, String>map(_filter, _function);
-    String _join = IteratorExtensions.join(_map, ", ");
-    String _plus = ("Dispositivos de la granja: " + _join);
-    fsa.generateFile("granja.txt", _plus);
+    GeneradorTexto generatorTexto = new GeneradorTexto(resource, fsa);
+    generatorTexto.compilar();
+    GeneradorWeb generatorWeb = new GeneradorWeb(resource, fsa);
+    generatorWeb.compilar();
   }
 }
