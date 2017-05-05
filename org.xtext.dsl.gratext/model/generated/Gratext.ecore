@@ -60,6 +60,7 @@
     <eLiterals name="DEPOSITO_LECHE" value="20" literal="DEPOSITO_LECHE"/>
     <eLiterals name="ROBOT_LIMPIADOR" value="21" literal="ROBOT_LIMPIADOR"/>
     <eLiterals name="NEVERAS" value="22" literal="NEVERAS"/>
+    <eLiterals name="LUZ" value="23" literal="LUZ"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NombreAccion">
     <eLiterals name="ABRIR" literal="ABRIR"/>

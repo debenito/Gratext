@@ -735,6 +735,14 @@ ruleTiposDispositivo returns [Enumerator current=null]
 				newLeafNode(enumLiteral_22, grammarAccess.getTiposDispositivoAccess().getNEVERASEnumLiteralDeclaration_22());
 			}
 		)
+		    |
+		(
+			enumLiteral_23='LUZ'
+			{
+				$current = grammarAccess.getTiposDispositivoAccess().getLUZEnumLiteralDeclaration_23().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_23, grammarAccess.getTiposDispositivoAccess().getLUZEnumLiteralDeclaration_23());
+			}
+		)
 	)
 ;
 

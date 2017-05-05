@@ -349,17 +349,19 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cROBOT_LIMPIADORROBOT_LIMPIADORKeyword_21_0 = (Keyword)cROBOT_LIMPIADOREnumLiteralDeclaration_21.eContents().get(0);
 		private final EnumLiteralDeclaration cNEVERASEnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
 		private final Keyword cNEVERASNEVERASKeyword_22_0 = (Keyword)cNEVERASEnumLiteralDeclaration_22.eContents().get(0);
+		private final EnumLiteralDeclaration cLUZEnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
+		private final Keyword cLUZLUZKeyword_23_0 = (Keyword)cLUZEnumLiteralDeclaration_23.eContents().get(0);
 		
 		//enum TiposDispositivo:
 		//	CAMARA | TEMPERATURA | FUEGO_HUMO | CO2 | GAS | PRESENCIA | MAGNETICO | ROTURA_CRISTAL
 		//	| BARRERA_SEGURIDAD | LUMINOSIDAD | EMERGENCIA | INUNDACION | VIENTO | LLUVIA | ESTACION_METEOROLOGICA |
 		//	SISTEMA_IDENTIFICACION | INFRARROJOS | RADIOFRECUENCIA | MECEDORA | PULSOMETRO_GANADO | DEPOSITO_LECHE |
-		//	ROBOT_LIMPIADOR | NEVERAS;
+		//	ROBOT_LIMPIADOR | NEVERAS | LUZ;
 		public EnumRule getRule() { return rule; }
 		
 		//CAMARA | TEMPERATURA | FUEGO_HUMO | CO2 | GAS | PRESENCIA | MAGNETICO | ROTURA_CRISTAL | BARRERA_SEGURIDAD | LUMINOSIDAD
 		//| EMERGENCIA | INUNDACION | VIENTO | LLUVIA | ESTACION_METEOROLOGICA | SISTEMA_IDENTIFICACION | INFRARROJOS |
-		//RADIOFRECUENCIA | MECEDORA | PULSOMETRO_GANADO | DEPOSITO_LECHE | ROBOT_LIMPIADOR | NEVERAS
+		//RADIOFRECUENCIA | MECEDORA | PULSOMETRO_GANADO | DEPOSITO_LECHE | ROBOT_LIMPIADOR | NEVERAS | LUZ
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//CAMARA
@@ -499,6 +501,12 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"NEVERAS"
 		public Keyword getNEVERASNEVERASKeyword_22_0() { return cNEVERASNEVERASKeyword_22_0; }
+		
+		//LUZ
+		public EnumLiteralDeclaration getLUZEnumLiteralDeclaration_23() { return cLUZEnumLiteralDeclaration_23; }
+		
+		//"LUZ"
+		public Keyword getLUZLUZKeyword_23_0() { return cLUZLUZKeyword_23_0; }
 	}
 	public class NombreAccionElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.NombreAccion");
@@ -761,7 +769,7 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	//	CAMARA | TEMPERATURA | FUEGO_HUMO | CO2 | GAS | PRESENCIA | MAGNETICO | ROTURA_CRISTAL
 	//	| BARRERA_SEGURIDAD | LUMINOSIDAD | EMERGENCIA | INUNDACION | VIENTO | LLUVIA | ESTACION_METEOROLOGICA |
 	//	SISTEMA_IDENTIFICACION | INFRARROJOS | RADIOFRECUENCIA | MECEDORA | PULSOMETRO_GANADO | DEPOSITO_LECHE |
-	//	ROBOT_LIMPIADOR | NEVERAS;
+	//	ROBOT_LIMPIADOR | NEVERAS | LUZ;
 	public TiposDispositivoElements getTiposDispositivoAccess() {
 		return eTiposDispositivo;
 	}

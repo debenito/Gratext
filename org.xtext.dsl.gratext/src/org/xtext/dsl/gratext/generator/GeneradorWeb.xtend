@@ -3,7 +3,6 @@ package org.xtext.dsl.gratext.generator
 import java.util.List
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess2
-import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.dsl.gratext.gratext.Dispositivos
 import org.xtext.dsl.gratext.gratext.Granja
 

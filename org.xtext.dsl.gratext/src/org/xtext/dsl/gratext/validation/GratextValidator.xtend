@@ -31,7 +31,7 @@ def checkGreetingStartsWithCapital(Granja granja) {
 @Check
 def checkDispositvoBarrerar(Dispositivos dispositivo) {
 	if (dispositivo.nombre.getName.equals("BARRERA_SEGURIDAD") && !checkBarrera(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION,
+		error("La accion no es la correcta para este dispositivo barrera", GratextPackage.Literals.DISPOSITIVOS__ACCION,
 			ACCION_INCORRECTA)
 
 	}
@@ -53,7 +53,7 @@ def checkCodigo(Dispositivos dispositivo) {
 @Check
 def checkDispositivoCamara(Dispositivos dispositivo) {
 	if (dispositivo.nombre.getName.equals("CAMARA") && !checkCamara(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION,
+		error("La accion no es la correcta para este dispositivo solo camara", GratextPackage.Literals.DISPOSITIVOS__ACCION,
 			ACCION_INCORRECTA)
 
 	}
@@ -73,7 +73,7 @@ def checkDispositivoEstado(Dispositivos dispositivo) {
 		dispositivo.nombre.getName.equals("VIENTO") || dispositivo.nombre.getName.equals("ROTURA_CRISTAL") ||
 		dispositivo.nombre.getName.equals("CO2") || dispositivo.nombre.getName.equals("LLUVIA") ||
 		dispositivo.nombre.getName.equals("ESTACION_METEOROLOGICA") ) && !checkEstado(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION,
+		error("La accion no es la correcta para este dispositivo estados", GratextPackage.Literals.DISPOSITIVOS__ACCION,
 			ACCION_INCORRECTA)
 
 	}
@@ -89,7 +89,7 @@ def checkDispositivoADE(Dispositivos dispositivo) {
 	if ((dispositivo.nombre.getName.equals("ROBOT_LIMPIADOR") || dispositivo.nombre.getName.equals("LUMINOSIDAD") ||
 		dispositivo.nombre.getName.equals("NEVERAS") || dispositivo.nombre.getName.equals("RADIOFRECUENCIA") ) &&
 		!checkADE(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION,
+		error("La accion no es la correcta para este dispositivo ADE", GratextPackage.Literals.DISPOSITIVOS__ACCION,
 			ACCION_INCORRECTA)
 
 	}
@@ -172,14 +172,16 @@ def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
 	
 @Check
 def checkAumentarDisminuir(Dispositivos dispositivo){
-		 if(dispositivo.nombre.getName.equals("TEMPERATURA")||
-			dispositivo.nombre.getName.equals("LUMINOSIDAD") &&
-			checkAumentoDisminu(dispositivo.accion))
+	if(checkDispositivosAumento(dispositivo) && !checkAumentoDisminu(dispositivo.accion)){
 			warning("Acuerdese del valor que quiere AUMENTAR/ DISMINUIR" + dispositivo.nombre,
 			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
-			else if(checkAumentoDisminu(dispositivo.accion))
+			}
+			
+			else if(!checkDispositivosAumento(dispositivo) == false && checkAumentoDisminu(dispositivo.accion)){
 			error("Error al realizar la accion solo es posible para temperatura y luminosidad",
 			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
+			
+			}
 }
 
 def checkAumentoDisminu(accion accion){
@@ -187,5 +189,12 @@ def checkAumentoDisminu(accion accion){
 		|| accion.nombreAccion.getName.equals("DISMINUIR")
 	)
 	true
+}
+
+def checkDispositivosAumento(Dispositivos dispositivo){
+	 if(dispositivo.nombre.getName.equals("TEMPERATURA")||
+			dispositivo.nombre.getName.equals("LUZ"))
+			true
+			
 }
 }

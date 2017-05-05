@@ -37,6 +37,7 @@
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//TiposDispositivo/DEPOSITO_LECHE"/>
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//TiposDispositivo/ROBOT_LIMPIADOR"/>
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//TiposDispositivo/NEVERAS"/>
+      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//TiposDispositivo/LUZ"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gratext.ecore#//NombreAccion">
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//NombreAccion/ABRIR"/>

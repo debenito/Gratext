@@ -516,6 +516,7 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
     addEEnumLiteral(tiposDispositivoEEnum, TiposDispositivo.DEPOSITO_LECHE);
     addEEnumLiteral(tiposDispositivoEEnum, TiposDispositivo.ROBOT_LIMPIADOR);
     addEEnumLiteral(tiposDispositivoEEnum, TiposDispositivo.NEVERAS);
+    addEEnumLiteral(tiposDispositivoEEnum, TiposDispositivo.LUZ);
 
     initEEnum(nombreAccionEEnum, NombreAccion.class, "NombreAccion");
     addEEnumLiteral(nombreAccionEEnum, NombreAccion.ABRIR);

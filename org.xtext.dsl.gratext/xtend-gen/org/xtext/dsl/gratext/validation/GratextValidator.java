@@ -46,7 +46,7 @@ public class GratextValidator extends AbstractGratextValidator {
   @Check
   public void checkDispositvoBarrerar(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("BARRERA_SEGURIDAD") && (!this.checkBarrera(dispositivo.getAccion())))) {
-      this.error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
+      this.error("La accion no es la correcta para este dispositivo barrera", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
         GratextValidator.ACCION_INCORRECTA);
     }
   }
@@ -67,7 +67,7 @@ public class GratextValidator extends AbstractGratextValidator {
   @Check
   public void checkDispositivoCamara(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("CAMARA") && (!this.checkCamara(dispositivo.getAccion())))) {
-      this.error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
+      this.error("La accion no es la correcta para este dispositivo solo camara", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
         GratextValidator.ACCION_INCORRECTA);
     }
   }
@@ -89,7 +89,7 @@ public class GratextValidator extends AbstractGratextValidator {
       dispositivo.getNombre().getName().equals("VIENTO")) || dispositivo.getNombre().getName().equals("ROTURA_CRISTAL")) || 
       dispositivo.getNombre().getName().equals("CO2")) || dispositivo.getNombre().getName().equals("LLUVIA")) || 
       dispositivo.getNombre().getName().equals("ESTACION_METEOROLOGICA")) && (!this.checkEstado(dispositivo.getAccion())))) {
-      this.error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
+      this.error("La accion no es la correcta para este dispositivo estados", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
         GratextValidator.ACCION_INCORRECTA);
     }
   }
@@ -110,7 +110,7 @@ public class GratextValidator extends AbstractGratextValidator {
     if (((((dispositivo.getNombre().getName().equals("ROBOT_LIMPIADOR") || dispositivo.getNombre().getName().equals("LUMINOSIDAD")) || 
       dispositivo.getNombre().getName().equals("NEVERAS")) || dispositivo.getNombre().getName().equals("RADIOFRECUENCIA")) && 
       (!this.checkADE(dispositivo.getAccion())))) {
-      this.error("La accion no es la correcta para este dispositivo", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
+      this.error("La accion no es la correcta para este dispositivo ADE", GratextPackage.Literals.DISPOSITIVOS__ACCION, 
         GratextValidator.ACCION_INCORRECTA);
     }
   }
@@ -212,17 +212,13 @@ public class GratextValidator extends AbstractGratextValidator {
   
   @Check
   public void checkAumentarDisminuir(final Dispositivos dispositivo) {
-    if ((dispositivo.getNombre().getName().equals("TEMPERATURA") || 
-      (dispositivo.getNombre().getName().equals("LUMINOSIDAD") && 
-        this.checkAumentoDisminu(dispositivo.getAccion())))) {
+    if ((this.checkDispositivosAumento(dispositivo) && (!this.checkAumentoDisminu(dispositivo.getAccion())))) {
       TiposDispositivo _nombre = dispositivo.getNombre();
       String _plus = ("Acuerdese del valor que quiere AUMENTAR/ DISMINUIR" + _nombre);
       this.warning(_plus, 
         GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_INCORRECTA);
     } else {
-      accion _accion = dispositivo.getAccion();
-      boolean _checkAumentoDisminu = this.checkAumentoDisminu(_accion);
-      if (_checkAumentoDisminu) {
+      if ((((!this.checkDispositivosAumento(dispositivo)) == false) && this.checkAumentoDisminu(dispositivo.getAccion()))) {
         this.error("Error al realizar la accion solo es posible para temperatura y luminosidad", 
           GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_INCORRECTA);
       }
@@ -232,6 +228,15 @@ public class GratextValidator extends AbstractGratextValidator {
   public boolean checkAumentoDisminu(final accion accion) {
     boolean _xifexpression = false;
     if ((accion.getNombreAccion().getName().equals("AUMENTAR") || accion.getNombreAccion().getName().equals("DISMINUIR"))) {
+      _xifexpression = true;
+    }
+    return _xifexpression;
+  }
+  
+  public boolean checkDispositivosAumento(final Dispositivos dispositivo) {
+    boolean _xifexpression = false;
+    if ((dispositivo.getNombre().getName().equals("TEMPERATURA") || 
+      dispositivo.getNombre().getName().equals("LUZ"))) {
       _xifexpression = true;
     }
     return _xifexpression;

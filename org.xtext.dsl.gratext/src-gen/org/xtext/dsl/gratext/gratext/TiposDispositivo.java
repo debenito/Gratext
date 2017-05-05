@@ -248,7 +248,17 @@ public enum TiposDispositivo implements Enumerator
    * @generated
    * @ordered
    */
-  NEVERAS(22, "NEVERAS", "NEVERAS");
+  NEVERAS(22, "NEVERAS", "NEVERAS"),
+
+  /**
+   * The '<em><b>LUZ</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LUZ_VALUE
+   * @generated
+   * @ordered
+   */
+  LUZ(23, "LUZ", "LUZ");
 
   /**
    * The '<em><b>CAMARA</b></em>' literal value.
@@ -596,6 +606,21 @@ public enum TiposDispositivo implements Enumerator
   public static final int NEVERAS_VALUE = 22;
 
   /**
+   * The '<em><b>LUZ</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>LUZ</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #LUZ
+   * @model
+   * @generated
+   * @ordered
+   */
+  public static final int LUZ_VALUE = 23;
+
+  /**
    * An array of all the '<em><b>Tipos Dispositivo</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -627,6 +652,7 @@ public enum TiposDispositivo implements Enumerator
       DEPOSITO_LECHE,
       ROBOT_LIMPIADOR,
       NEVERAS,
+      LUZ,
     };
 
   /**
@@ -714,6 +740,7 @@ public enum TiposDispositivo implements Enumerator
       case DEPOSITO_LECHE_VALUE: return DEPOSITO_LECHE;
       case ROBOT_LIMPIADOR_VALUE: return ROBOT_LIMPIADOR;
       case NEVERAS_VALUE: return NEVERAS;
+      case LUZ_VALUE: return LUZ;
     }
     return null;
   }
