@@ -6,6 +6,12 @@ package org.xtext.dsl.gratext.ui.labeling;
 import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.xtext.dsl.gratext.gratext.Dispositivos;
+import org.xtext.dsl.gratext.gratext.Granja;
+import org.xtext.dsl.gratext.gratext.NombreAccion;
+import org.xtext.dsl.gratext.gratext.TiposDispositivo;
+import org.xtext.dsl.gratext.gratext.accion;
+import org.xtext.dsl.gratext.gratext.login;
 
 /**
  * Provides labels for EObjects.
@@ -17,5 +23,45 @@ public class GratextLabelProvider extends DefaultEObjectLabelProvider {
   @Inject
   public GratextLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
+  }
+  
+  public String image(final Granja gr) {
+    return "granja.GIF";
+  }
+  
+  public String text(final Granja gr) {
+    String _nombreGranja = gr.getNombreGranja();
+    return ("Granja de" + _nombreGranja);
+  }
+  
+  public String text(final Dispositivos i) {
+    TiposDispositivo _nombre = i.getNombre();
+    String _plus = ("Dispositivos" + _nombre);
+    String _plus_1 = (_plus + "(");
+    String _codigo = i.getCodigo();
+    String _plus_2 = (_plus_1 + _codigo);
+    return (_plus_2 + ")");
+  }
+  
+  public String image(final Dispositivos i) {
+    return "dispositivos.GIF";
+  }
+  
+  public String image(final accion numero) {
+    return "acciones.gif";
+  }
+  
+  public String text(final accion accion) {
+    NombreAccion _nombreAccion = accion.getNombreAccion();
+    return ("Accion :" + _nombreAccion);
+  }
+  
+  public String image(final login user) {
+    return "usuario.gif";
+  }
+  
+  public String text(final login user) {
+    String _usuario = user.getUsuario();
+    return ("Usuario:" + _usuario);
   }
 }

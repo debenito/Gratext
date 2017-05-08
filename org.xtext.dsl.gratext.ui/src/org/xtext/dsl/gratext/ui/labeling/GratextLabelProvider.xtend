@@ -6,6 +6,10 @@ package org.xtext.dsl.gratext.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import org.xtext.dsl.gratext.gratext.Dispositivos
+import org.xtext.dsl.gratext.gratext.Granja
+import org.xtext.dsl.gratext.gratext.accion
+import org.xtext.dsl.gratext.gratext.login
 
 /**
  * Provides labels for EObjects.
@@ -20,6 +24,35 @@ class GratextLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	// Labels and icons can be computed like this:
+	def image(Granja gr) {
+		'granja.GIF'
+	}
+	def text(Granja gr){
+		'Granja de'+ gr.nombreGranja
+	}
+
+	def text(Dispositivos i) {
+		'Dispositivos' + i.nombre + '(' + i.codigo + ')'
+	}
+	def image(Dispositivos i) {
+		'dispositivos.GIF'
+	}
+	
+	def image(accion numero){
+		'acciones.gif'
+	}
+	
+	def text(accion accion){
+		'Accion :' + accion.nombreAccion
+	}
+	
+	def image(login user){
+		'usuario.gif'
+	}
+	
+	def text(login user){
+		'Usuario:'+user.usuario
+	}
 	
 //	def text(Greeting ele) {
 //		'A greeting to ' + ele.name
