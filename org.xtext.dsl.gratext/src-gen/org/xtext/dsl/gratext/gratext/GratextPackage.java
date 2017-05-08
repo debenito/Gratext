@@ -69,13 +69,13 @@ public interface GratextPackage extends EPackage
   int GRANJA = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Nombre Granja</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GRANJA__NAME = 0;
+  int GRANJA__NOMBRE_GRANJA = 0;
 
   /**
    * The feature id for the '<em><b>Tipo</b></em>' attribute.
@@ -87,22 +87,13 @@ public interface GratextPackage extends EPackage
   int GRANJA__TIPO = 1;
 
   /**
-   * The feature id for the '<em><b>Usuario</b></em>' containment reference.
+   * The feature id for the '<em><b>Login</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GRANJA__USUARIO = 2;
-
-  /**
-   * The feature id for the '<em><b>Contrasena</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GRANJA__CONTRASENA = 3;
+  int GRANJA__LOGIN = 2;
 
   /**
    * The feature id for the '<em><b>Dispositivos</b></em>' containment reference list.
@@ -111,7 +102,7 @@ public interface GratextPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GRANJA__DISPOSITIVOS = 4;
+  int GRANJA__DISPOSITIVOS = 3;
 
   /**
    * The number of structural features of the '<em>Granja</em>' class.
@@ -120,7 +111,44 @@ public interface GratextPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GRANJA_FEATURE_COUNT = 5;
+  int GRANJA_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.impl.loginImpl <em>login</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.dsl.gratext.gratext.impl.loginImpl
+   * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getlogin()
+   * @generated
+   */
+  int LOGIN = 1;
+
+  /**
+   * The feature id for the '<em><b>Usuario</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIN__USUARIO = 0;
+
+  /**
+   * The feature id for the '<em><b>Contrasena</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIN__CONTRASENA = 1;
+
+  /**
+   * The number of structural features of the '<em>login</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIN_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.impl.DispositivosImpl <em>Dispositivos</em>}' class.
@@ -130,7 +158,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getDispositivos()
    * @generated
    */
-  int DISPOSITIVOS = 1;
+  int DISPOSITIVOS = 2;
 
   /**
    * The feature id for the '<em><b>Codigo</b></em>' attribute.
@@ -185,7 +213,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getaccion()
    * @generated
    */
-  int ACCION = 2;
+  int ACCION = 3;
 
   /**
    * The feature id for the '<em><b>Nombre Accion</b></em>' attribute.
@@ -224,62 +252,6 @@ public interface GratextPackage extends EPackage
   int ACCION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.impl.usuarioImpl <em>usuario</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.dsl.gratext.gratext.impl.usuarioImpl
-   * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getusuario()
-   * @generated
-   */
-  int USUARIO = 3;
-
-  /**
-   * The feature id for the '<em><b>Usuario</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USUARIO__USUARIO = 0;
-
-  /**
-   * The number of structural features of the '<em>usuario</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USUARIO_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.impl.contrasenaImpl <em>contrasena</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.dsl.gratext.gratext.impl.contrasenaImpl
-   * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getcontrasena()
-   * @generated
-   */
-  int CONTRASENA = 4;
-
-  /**
-   * The feature id for the '<em><b>Contrasena</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTRASENA__CONTRASENA = 0;
-
-  /**
-   * The number of structural features of the '<em>contrasena</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTRASENA_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.Tipo <em>Tipo</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -287,7 +259,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getTipo()
    * @generated
    */
-  int TIPO = 5;
+  int TIPO = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.TiposDispositivo <em>Tipos Dispositivo</em>}' enum.
@@ -297,7 +269,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getTiposDispositivo()
    * @generated
    */
-  int TIPOS_DISPOSITIVO = 6;
+  int TIPOS_DISPOSITIVO = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.NombreAccion <em>Nombre Accion</em>}' enum.
@@ -307,7 +279,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getNombreAccion()
    * @generated
    */
-  int NOMBRE_ACCION = 7;
+  int NOMBRE_ACCION = 6;
 
 
   /**
@@ -321,15 +293,15 @@ public interface GratextPackage extends EPackage
   EClass getGranja();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.Granja#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.Granja#getNombreGranja <em>Nombre Granja</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.dsl.gratext.gratext.Granja#getName()
+   * @return the meta object for the attribute '<em>Nombre Granja</em>'.
+   * @see org.xtext.dsl.gratext.gratext.Granja#getNombreGranja()
    * @see #getGranja()
    * @generated
    */
-  EAttribute getGranja_Name();
+  EAttribute getGranja_NombreGranja();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.Granja#getTipo <em>Tipo</em>}'.
@@ -343,26 +315,15 @@ public interface GratextPackage extends EPackage
   EAttribute getGranja_Tipo();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.dsl.gratext.gratext.Granja#getUsuario <em>Usuario</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.dsl.gratext.gratext.Granja#getLogin <em>Login</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Usuario</em>'.
-   * @see org.xtext.dsl.gratext.gratext.Granja#getUsuario()
+   * @return the meta object for the containment reference '<em>Login</em>'.
+   * @see org.xtext.dsl.gratext.gratext.Granja#getLogin()
    * @see #getGranja()
    * @generated
    */
-  EReference getGranja_Usuario();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.dsl.gratext.gratext.Granja#getContrasena <em>Contrasena</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Contrasena</em>'.
-   * @see org.xtext.dsl.gratext.gratext.Granja#getContrasena()
-   * @see #getGranja()
-   * @generated
-   */
-  EReference getGranja_Contrasena();
+  EReference getGranja_Login();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.dsl.gratext.gratext.Granja#getDispositivos <em>Dispositivos</em>}'.
@@ -374,6 +335,38 @@ public interface GratextPackage extends EPackage
    * @generated
    */
   EReference getGranja_Dispositivos();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.dsl.gratext.gratext.login <em>login</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>login</em>'.
+   * @see org.xtext.dsl.gratext.gratext.login
+   * @generated
+   */
+  EClass getlogin();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.login#getUsuario <em>Usuario</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Usuario</em>'.
+   * @see org.xtext.dsl.gratext.gratext.login#getUsuario()
+   * @see #getlogin()
+   * @generated
+   */
+  EAttribute getlogin_Usuario();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.login#getContrasena <em>Contrasena</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Contrasena</em>'.
+   * @see org.xtext.dsl.gratext.gratext.login#getContrasena()
+   * @see #getlogin()
+   * @generated
+   */
+  EAttribute getlogin_Contrasena();
 
   /**
    * Returns the meta object for class '{@link org.xtext.dsl.gratext.gratext.Dispositivos <em>Dispositivos</em>}'.
@@ -473,48 +466,6 @@ public interface GratextPackage extends EPackage
   EAttribute getaccion_Descripcion();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.dsl.gratext.gratext.usuario <em>usuario</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>usuario</em>'.
-   * @see org.xtext.dsl.gratext.gratext.usuario
-   * @generated
-   */
-  EClass getusuario();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.usuario#getUsuario <em>Usuario</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Usuario</em>'.
-   * @see org.xtext.dsl.gratext.gratext.usuario#getUsuario()
-   * @see #getusuario()
-   * @generated
-   */
-  EAttribute getusuario_Usuario();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.dsl.gratext.gratext.contrasena <em>contrasena</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>contrasena</em>'.
-   * @see org.xtext.dsl.gratext.gratext.contrasena
-   * @generated
-   */
-  EClass getcontrasena();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.contrasena#getContrasena <em>Contrasena</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Contrasena</em>'.
-   * @see org.xtext.dsl.gratext.gratext.contrasena#getContrasena()
-   * @see #getcontrasena()
-   * @generated
-   */
-  EAttribute getcontrasena_Contrasena();
-
-  /**
    * Returns the meta object for enum '{@link org.xtext.dsl.gratext.gratext.Tipo <em>Tipo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -578,12 +529,12 @@ public interface GratextPackage extends EPackage
     EClass GRANJA = eINSTANCE.getGranja();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Nombre Granja</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GRANJA__NAME = eINSTANCE.getGranja_Name();
+    EAttribute GRANJA__NOMBRE_GRANJA = eINSTANCE.getGranja_NombreGranja();
 
     /**
      * The meta object literal for the '<em><b>Tipo</b></em>' attribute feature.
@@ -594,20 +545,12 @@ public interface GratextPackage extends EPackage
     EAttribute GRANJA__TIPO = eINSTANCE.getGranja_Tipo();
 
     /**
-     * The meta object literal for the '<em><b>Usuario</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Login</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GRANJA__USUARIO = eINSTANCE.getGranja_Usuario();
-
-    /**
-     * The meta object literal for the '<em><b>Contrasena</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference GRANJA__CONTRASENA = eINSTANCE.getGranja_Contrasena();
+    EReference GRANJA__LOGIN = eINSTANCE.getGranja_Login();
 
     /**
      * The meta object literal for the '<em><b>Dispositivos</b></em>' containment reference list feature.
@@ -616,6 +559,32 @@ public interface GratextPackage extends EPackage
      * @generated
      */
     EReference GRANJA__DISPOSITIVOS = eINSTANCE.getGranja_Dispositivos();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.impl.loginImpl <em>login</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.dsl.gratext.gratext.impl.loginImpl
+     * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getlogin()
+     * @generated
+     */
+    EClass LOGIN = eINSTANCE.getlogin();
+
+    /**
+     * The meta object literal for the '<em><b>Usuario</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIN__USUARIO = eINSTANCE.getlogin_Usuario();
+
+    /**
+     * The meta object literal for the '<em><b>Contrasena</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIN__CONTRASENA = eINSTANCE.getlogin_Contrasena();
 
     /**
      * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.impl.DispositivosImpl <em>Dispositivos</em>}' class.
@@ -692,42 +661,6 @@ public interface GratextPackage extends EPackage
      * @generated
      */
     EAttribute ACCION__DESCRIPCION = eINSTANCE.getaccion_Descripcion();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.impl.usuarioImpl <em>usuario</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.dsl.gratext.gratext.impl.usuarioImpl
-     * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getusuario()
-     * @generated
-     */
-    EClass USUARIO = eINSTANCE.getusuario();
-
-    /**
-     * The meta object literal for the '<em><b>Usuario</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute USUARIO__USUARIO = eINSTANCE.getusuario_Usuario();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.impl.contrasenaImpl <em>contrasena</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.dsl.gratext.gratext.impl.contrasenaImpl
-     * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getcontrasena()
-     * @generated
-     */
-    EClass CONTRASENA = eINSTANCE.getcontrasena();
-
-    /**
-     * The meta object literal for the '<em><b>Contrasena</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONTRASENA__CONTRASENA = eINSTANCE.getcontrasena_Contrasena();
 
     /**
      * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.Tipo <em>Tipo</em>}' enum.

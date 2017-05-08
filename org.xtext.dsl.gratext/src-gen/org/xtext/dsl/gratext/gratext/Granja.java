@@ -16,10 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.dsl.gratext.gratext.Granja#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.dsl.gratext.gratext.Granja#getNombreGranja <em>Nombre Granja</em>}</li>
  *   <li>{@link org.xtext.dsl.gratext.gratext.Granja#getTipo <em>Tipo</em>}</li>
- *   <li>{@link org.xtext.dsl.gratext.gratext.Granja#getUsuario <em>Usuario</em>}</li>
- *   <li>{@link org.xtext.dsl.gratext.gratext.Granja#getContrasena <em>Contrasena</em>}</li>
+ *   <li>{@link org.xtext.dsl.gratext.gratext.Granja#getLogin <em>Login</em>}</li>
  *   <li>{@link org.xtext.dsl.gratext.gratext.Granja#getDispositivos <em>Dispositivos</em>}</li>
  * </ul>
  *
@@ -30,30 +29,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Granja extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Nombre Granja</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Nombre Granja</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.dsl.gratext.gratext.GratextPackage#getGranja_Name()
+   * @return the value of the '<em>Nombre Granja</em>' attribute.
+   * @see #setNombreGranja(String)
+   * @see org.xtext.dsl.gratext.gratext.GratextPackage#getGranja_NombreGranja()
    * @model
    * @generated
    */
-  String getName();
+  String getNombreGranja();
 
   /**
-   * Sets the value of the '{@link org.xtext.dsl.gratext.gratext.Granja#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.dsl.gratext.gratext.Granja#getNombreGranja <em>Nombre Granja</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Nombre Granja</em>' attribute.
+   * @see #getNombreGranja()
    * @generated
    */
-  void setName(String value);
+  void setNombreGranja(String value);
 
   /**
    * Returns the value of the '<em><b>Tipo</b></em>' attribute.
@@ -85,56 +84,30 @@ public interface Granja extends EObject
   void setTipo(Tipo value);
 
   /**
-   * Returns the value of the '<em><b>Usuario</b></em>' containment reference.
+   * Returns the value of the '<em><b>Login</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Usuario</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Login</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Usuario</em>' containment reference.
-   * @see #setUsuario(usuario)
-   * @see org.xtext.dsl.gratext.gratext.GratextPackage#getGranja_Usuario()
+   * @return the value of the '<em>Login</em>' containment reference.
+   * @see #setLogin(login)
+   * @see org.xtext.dsl.gratext.gratext.GratextPackage#getGranja_Login()
    * @model containment="true"
    * @generated
    */
-  usuario getUsuario();
+  login getLogin();
 
   /**
-   * Sets the value of the '{@link org.xtext.dsl.gratext.gratext.Granja#getUsuario <em>Usuario</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.dsl.gratext.gratext.Granja#getLogin <em>Login</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Usuario</em>' containment reference.
-   * @see #getUsuario()
+   * @param value the new value of the '<em>Login</em>' containment reference.
+   * @see #getLogin()
    * @generated
    */
-  void setUsuario(usuario value);
-
-  /**
-   * Returns the value of the '<em><b>Contrasena</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Contrasena</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Contrasena</em>' containment reference.
-   * @see #setContrasena(contrasena)
-   * @see org.xtext.dsl.gratext.gratext.GratextPackage#getGranja_Contrasena()
-   * @model containment="true"
-   * @generated
-   */
-  contrasena getContrasena();
-
-  /**
-   * Sets the value of the '{@link org.xtext.dsl.gratext.gratext.Granja#getContrasena <em>Contrasena</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Contrasena</em>' containment reference.
-   * @see #getContrasena()
-   * @generated
-   */
-  void setContrasena(contrasena value);
+  void setLogin(login value);
 
   /**
    * Returns the value of the '<em><b>Dispositivos</b></em>' containment reference list.

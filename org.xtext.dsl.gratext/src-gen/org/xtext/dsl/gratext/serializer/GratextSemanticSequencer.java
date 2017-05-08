@@ -18,8 +18,7 @@ import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
 import org.xtext.dsl.gratext.gratext.accion;
-import org.xtext.dsl.gratext.gratext.contrasena;
-import org.xtext.dsl.gratext.gratext.usuario;
+import org.xtext.dsl.gratext.gratext.login;
 import org.xtext.dsl.gratext.services.GratextGrammarAccess;
 
 @SuppressWarnings("all")
@@ -45,11 +44,8 @@ public class GratextSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case GratextPackage.ACCION:
 				sequence_accion(context, (accion) semanticObject); 
 				return; 
-			case GratextPackage.CONTRASENA:
-				sequence_contrasena(context, (contrasena) semanticObject); 
-				return; 
-			case GratextPackage.USUARIO:
-				sequence_usuario(context, (usuario) semanticObject); 
+			case GratextPackage.LOGIN:
+				sequence_login(context, (login) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -73,7 +69,7 @@ public class GratextSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Granja returns Granja
 	 *
 	 * Constraint:
-	 *     (name=STRING tipo=Tipo usuario=usuario contrasena=contrasena dispositivos+=Dispositivos*)
+	 *     (nombreGranja=ID tipo=Tipo login=login? dispositivos+=Dispositivos*)
 	 */
 	protected void sequence_Granja(ISerializationContext context, Granja semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -94,36 +90,21 @@ public class GratextSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     contrasena returns contrasena
+	 *     login returns login
 	 *
 	 * Constraint:
-	 *     contrasena=STRING
+	 *     (usuario=ID contrasena=STRING)
 	 */
-	protected void sequence_contrasena(ISerializationContext context, contrasena semanticObject) {
+	protected void sequence_login(ISerializationContext context, login semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GratextPackage.Literals.CONTRASENA__CONTRASENA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GratextPackage.Literals.CONTRASENA__CONTRASENA));
+			if (transientValues.isValueTransient(semanticObject, GratextPackage.Literals.LOGIN__USUARIO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GratextPackage.Literals.LOGIN__USUARIO));
+			if (transientValues.isValueTransient(semanticObject, GratextPackage.Literals.LOGIN__CONTRASENA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GratextPackage.Literals.LOGIN__CONTRASENA));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getContrasenaAccess().getContrasenaSTRINGTerminalRuleCall_0(), semanticObject.getContrasena());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     usuario returns usuario
-	 *
-	 * Constraint:
-	 *     usuario=ID
-	 */
-	protected void sequence_usuario(ISerializationContext context, usuario semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GratextPackage.Literals.USUARIO__USUARIO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GratextPackage.Literals.USUARIO__USUARIO));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUsuarioAccess().getUsuarioIDTerminalRuleCall_0(), semanticObject.getUsuario());
+		feeder.accept(grammarAccess.getLoginAccess().getUsuarioIDTerminalRuleCall_1_0(), semanticObject.getUsuario());
+		feeder.accept(grammarAccess.getLoginAccess().getContrasenaSTRINGTerminalRuleCall_3_0(), semanticObject.getContrasena());
 		feeder.finish();
 	}
 	

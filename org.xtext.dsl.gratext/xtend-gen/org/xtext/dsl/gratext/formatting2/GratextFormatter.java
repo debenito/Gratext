@@ -18,8 +18,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.accion;
-import org.xtext.dsl.gratext.gratext.contrasena;
-import org.xtext.dsl.gratext.gratext.usuario;
+import org.xtext.dsl.gratext.gratext.login;
 import org.xtext.dsl.gratext.services.GratextGrammarAccess;
 
 @SuppressWarnings("all")
@@ -33,10 +32,12 @@ public class GratextFormatter extends AbstractFormatter2 {
       it.autowrap(30);
     };
     document.<Granja>append(granja, _function);
-    usuario _usuario = granja.getUsuario();
-    document.<usuario>format(_usuario);
-    contrasena _contrasena = granja.getContrasena();
-    document.<contrasena>format(_contrasena);
+    login _login = granja.getLogin();
+    String _usuario = _login.getUsuario();
+    document.<String>format(_usuario);
+    login _login_1 = granja.getLogin();
+    String _contrasena = _login_1.getContrasena();
+    document.<String>format(_contrasena);
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       this._gratextGrammarAccess.getML_COMMENTRule();
     };

@@ -19,8 +19,7 @@ import org.xtext.dsl.gratext.gratext.NombreAccion;
 import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
-import org.xtext.dsl.gratext.gratext.contrasena;
-import org.xtext.dsl.gratext.gratext.usuario;
+import org.xtext.dsl.gratext.gratext.login;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +41,13 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass loginEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass dispositivosEClass = null;
 
   /**
@@ -50,20 +56,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * @generated
    */
   private EClass accionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass usuarioEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass contrasenaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -164,7 +156,7 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGranja_Name()
+  public EAttribute getGranja_NombreGranja()
   {
     return (EAttribute)granjaEClass.getEStructuralFeatures().get(0);
   }
@@ -184,7 +176,7 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGranja_Usuario()
+  public EReference getGranja_Login()
   {
     return (EReference)granjaEClass.getEStructuralFeatures().get(2);
   }
@@ -194,7 +186,7 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGranja_Contrasena()
+  public EReference getGranja_Dispositivos()
   {
     return (EReference)granjaEClass.getEStructuralFeatures().get(3);
   }
@@ -204,9 +196,29 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGranja_Dispositivos()
+  public EClass getlogin()
   {
-    return (EReference)granjaEClass.getEStructuralFeatures().get(4);
+    return loginEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getlogin_Usuario()
+  {
+    return (EAttribute)loginEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getlogin_Contrasena()
+  {
+    return (EAttribute)loginEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -304,46 +316,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getusuario()
-  {
-    return usuarioEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getusuario_Usuario()
-  {
-    return (EAttribute)usuarioEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getcontrasena()
-  {
-    return contrasenaEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getcontrasena_Contrasena()
-  {
-    return (EAttribute)contrasenaEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EEnum getTipo()
   {
     return tipoEEnum;
@@ -400,11 +372,14 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
 
     // Create classes and their features
     granjaEClass = createEClass(GRANJA);
-    createEAttribute(granjaEClass, GRANJA__NAME);
+    createEAttribute(granjaEClass, GRANJA__NOMBRE_GRANJA);
     createEAttribute(granjaEClass, GRANJA__TIPO);
-    createEReference(granjaEClass, GRANJA__USUARIO);
-    createEReference(granjaEClass, GRANJA__CONTRASENA);
+    createEReference(granjaEClass, GRANJA__LOGIN);
     createEReference(granjaEClass, GRANJA__DISPOSITIVOS);
+
+    loginEClass = createEClass(LOGIN);
+    createEAttribute(loginEClass, LOGIN__USUARIO);
+    createEAttribute(loginEClass, LOGIN__CONTRASENA);
 
     dispositivosEClass = createEClass(DISPOSITIVOS);
     createEAttribute(dispositivosEClass, DISPOSITIVOS__CODIGO);
@@ -416,12 +391,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
     createEAttribute(accionEClass, ACCION__NOMBRE_ACCION);
     createEAttribute(accionEClass, ACCION__NUMERO);
     createEAttribute(accionEClass, ACCION__DESCRIPCION);
-
-    usuarioEClass = createEClass(USUARIO);
-    createEAttribute(usuarioEClass, USUARIO__USUARIO);
-
-    contrasenaEClass = createEClass(CONTRASENA);
-    createEAttribute(contrasenaEClass, CONTRASENA__CONTRASENA);
 
     // Create enums
     tipoEEnum = createEEnum(TIPO);
@@ -461,11 +430,14 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(granjaEClass, Granja.class, "Granja", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGranja_Name(), ecorePackage.getEString(), "name", null, 0, 1, Granja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGranja_NombreGranja(), ecorePackage.getEString(), "nombreGranja", null, 0, 1, Granja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGranja_Tipo(), this.getTipo(), "tipo", null, 0, 1, Granja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGranja_Usuario(), this.getusuario(), null, "usuario", null, 0, 1, Granja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGranja_Contrasena(), this.getcontrasena(), null, "contrasena", null, 0, 1, Granja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGranja_Login(), this.getlogin(), null, "login", null, 0, 1, Granja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGranja_Dispositivos(), this.getDispositivos(), null, "dispositivos", null, 0, -1, Granja.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(loginEClass, login.class, "login", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getlogin_Usuario(), ecorePackage.getEString(), "usuario", null, 0, 1, login.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getlogin_Contrasena(), ecorePackage.getEString(), "contrasena", null, 0, 1, login.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dispositivosEClass, Dispositivos.class, "Dispositivos", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDispositivos_Codigo(), ecorePackage.getEString(), "codigo", null, 0, 1, Dispositivos.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -477,12 +449,6 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
     initEAttribute(getaccion_NombreAccion(), this.getNombreAccion(), "nombreAccion", null, 0, 1, accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getaccion_Numero(), ecorePackage.getEString(), "numero", null, 0, 1, accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getaccion_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(usuarioEClass, usuario.class, "usuario", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getusuario_Usuario(), ecorePackage.getEString(), "usuario", null, 0, 1, usuario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(contrasenaEClass, contrasena.class, "contrasena", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getcontrasena_Contrasena(), ecorePackage.getEString(), "contrasena", null, 0, 1, contrasena.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(tipoEEnum, Tipo.class, "Tipo");

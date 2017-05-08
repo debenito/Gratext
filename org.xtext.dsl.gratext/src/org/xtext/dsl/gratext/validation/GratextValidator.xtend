@@ -4,7 +4,6 @@ package org.xtext.dsl.gratext.validation
 
 import org.eclipse.xtext.validation.Check
 import org.xtext.dsl.gratext.gratext.Dispositivos
-import org.xtext.dsl.gratext.gratext.Granja
 import org.xtext.dsl.gratext.gratext.GratextPackage
 import org.xtext.dsl.gratext.gratext.accion
 
@@ -21,12 +20,7 @@ public static val TEMPERATURA_INCORRECTA = 'Temperatura_incorrecta'
 public static val NUMERO_INCORRECTO = 'Numero_incorrecto'
 protected int i = 0;
 
-@Check
-def checkGreetingStartsWithCapital(Granja granja) {
-	if (!Character.isUpperCase(granja.name.charAt(0))) {
-		warning('Nombre de la granja demasiado largo', GratextPackage.Literals.GRANJA__NAME, INVALID_NAME)
-	}
-}
+
 
 @Check
 def checkDispositvoBarrerar(Dispositivos dispositivo) {
@@ -144,21 +138,19 @@ def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
 	}
 	
 	def comprobarNumero(String numero) {
-	
-	while(i< numero.length){
-		if(numero.charAt(i).equals(".")){
-			return "float"	;
-		}else if(!Character.isDigit(numero.charAt(i))){
-			
-			return "-";
+		
+		while (i < numero.length) {
+			 if (!Character.isDigit(numero.charAt(i))) {
+
+				return "float";
+			}
+			i++;
 		}
-		i++;	
+		i = 0;
+
+		return "int"
 	}
-	i=0;
-	
-	return "int"
-	}
-	
+ 
 	
 	def comprobarDispositivosNumericos(Dispositivos dispositivo){
 		if( dispositivo.nombre.getName.equals("TEMPERATURA")||

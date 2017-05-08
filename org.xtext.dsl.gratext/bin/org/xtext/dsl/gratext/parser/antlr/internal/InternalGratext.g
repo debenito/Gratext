@@ -77,15 +77,15 @@ ruleGranja returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='GRANJA'
+		otherlv_0='Granja:'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getGranjaAccess().getGRANJAKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getGranjaAccess().getGranjaKeyword_0());
 		}
 		(
 			(
-				lv_name_1_0=RULE_STRING
+				lv_nombreGranja_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getGranjaAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_nombreGranja_1_0, grammarAccess.getGranjaAccess().getNombreGranjaIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -93,15 +93,15 @@ ruleGranja returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"nombreGranja",
+						lv_nombreGranja_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
-		otherlv_2='CENTRALITA:'
+		otherlv_2='Centralita:'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getGranjaAccess().getCENTRALITAKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getGranjaAccess().getCentralitaKeyword_2());
 		}
 		(
 			(
@@ -122,62 +122,35 @@ ruleGranja returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4='Usuario:'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getGranjaAccess().getUsuarioKeyword_4());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGranjaAccess().getUsuarioUsuarioParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getGranjaAccess().getLoginLoginParserRuleCall_4_0());
 				}
-				lv_usuario_5_0=ruleusuario
+				lv_login_4_0=rulelogin
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGranjaRule());
 					}
 					set(
 						$current,
-						"usuario",
-						lv_usuario_5_0,
-						"org.xtext.dsl.gratext.Gratext.usuario");
+						"login",
+						lv_login_4_0,
+						"org.xtext.dsl.gratext.Gratext.login");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
-		otherlv_6='Contrase\u00F1a:'
+		)?
+		otherlv_5='Dispositivos{'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getGranjaAccess().getContraseAKeyword_6());
+			newLeafNode(otherlv_5, grammarAccess.getGranjaAccess().getDispositivosKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGranjaAccess().getContrasenaContrasenaParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getGranjaAccess().getDispositivosDispositivosParserRuleCall_6_0());
 				}
-				lv_contrasena_7_0=rulecontrasena
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGranjaRule());
-					}
-					set(
-						$current,
-						"contrasena",
-						lv_contrasena_7_0,
-						"org.xtext.dsl.gratext.Gratext.contrasena");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_8='Dispositivos{'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getGranjaAccess().getDispositivosKeyword_8());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGranjaAccess().getDispositivosDispositivosParserRuleCall_9_0());
-				}
-				lv_dispositivos_9_0=ruleDispositivos
+				lv_dispositivos_6_0=ruleDispositivos
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGranjaRule());
@@ -185,16 +158,79 @@ ruleGranja returns [EObject current=null]
 					add(
 						$current,
 						"dispositivos",
-						lv_dispositivos_9_0,
+						lv_dispositivos_6_0,
 						"org.xtext.dsl.gratext.Gratext.Dispositivos");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_10='}'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getGranjaAccess().getRightCurlyBracketKeyword_10());
+			newLeafNode(otherlv_7, grammarAccess.getGranjaAccess().getRightCurlyBracketKeyword_7());
 		}
+	)
+;
+
+// Entry rule entryRulelogin
+entryRulelogin returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLoginRule()); }
+	iv_rulelogin=rulelogin
+	{ $current=$iv_rulelogin.current; }
+	EOF;
+
+// Rule login
+rulelogin returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Usuario:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLoginAccess().getUsuarioKeyword_0());
+		}
+		(
+			(
+				lv_usuario_1_0=RULE_ID
+				{
+					newLeafNode(lv_usuario_1_0, grammarAccess.getLoginAccess().getUsuarioIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLoginRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"usuario",
+						lv_usuario_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='Contrase\u00F1a:'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLoginAccess().getContraseAKeyword_2());
+		}
+		(
+			(
+				lv_contrasena_3_0=RULE_STRING
+				{
+					newLeafNode(lv_contrasena_3_0, grammarAccess.getLoginAccess().getContrasenaSTRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLoginRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"contrasena",
+						lv_contrasena_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 
@@ -419,76 +455,6 @@ rulenumero returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				newLeafNode(this_INT_2, grammarAccess.getNumeroAccess().getINTTerminalRuleCall_2());
 			}
 		)*
-	)
-;
-
-// Entry rule entryRuleusuario
-entryRuleusuario returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getUsuarioRule()); }
-	iv_ruleusuario=ruleusuario
-	{ $current=$iv_ruleusuario.current; }
-	EOF;
-
-// Rule usuario
-ruleusuario returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_usuario_0_0=RULE_ID
-			{
-				newLeafNode(lv_usuario_0_0, grammarAccess.getUsuarioAccess().getUsuarioIDTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getUsuarioRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"usuario",
-					lv_usuario_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
-			}
-		)
-	)
-;
-
-// Entry rule entryRulecontrasena
-entryRulecontrasena returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getContrasenaRule()); }
-	iv_rulecontrasena=rulecontrasena
-	{ $current=$iv_rulecontrasena.current; }
-	EOF;
-
-// Rule contrasena
-rulecontrasena returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_contrasena_0_0=RULE_STRING
-			{
-				newLeafNode(lv_contrasena_0_0, grammarAccess.getContrasenaAccess().getContrasenaSTRINGTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getContrasenaRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"contrasena",
-					lv_contrasena_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
-			}
-		)
 	)
 ;
 

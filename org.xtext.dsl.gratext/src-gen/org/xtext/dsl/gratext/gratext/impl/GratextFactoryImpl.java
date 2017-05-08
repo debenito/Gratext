@@ -67,10 +67,9 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
     switch (eClass.getClassifierID())
     {
       case GratextPackage.GRANJA: return createGranja();
+      case GratextPackage.LOGIN: return createlogin();
       case GratextPackage.DISPOSITIVOS: return createDispositivos();
       case GratextPackage.ACCION: return createaccion();
-      case GratextPackage.USUARIO: return createusuario();
-      case GratextPackage.CONTRASENA: return createcontrasena();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -134,6 +133,17 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public login createlogin()
+  {
+    loginImpl login = new loginImpl();
+    return login;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Dispositivos createDispositivos()
   {
     DispositivosImpl dispositivos = new DispositivosImpl();
@@ -149,28 +159,6 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
   {
     accionImpl accion = new accionImpl();
     return accion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public usuario createusuario()
-  {
-    usuarioImpl usuario = new usuarioImpl();
-    return usuario;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public contrasena createcontrasena()
-  {
-    contrasenaImpl contrasena = new contrasenaImpl();
-    return contrasena;
   }
 
   /**

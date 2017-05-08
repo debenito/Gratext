@@ -56,11 +56,14 @@
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//NombreAccion/DESACTIVAR"/>
     </genEnums>
     <genClasses ecoreClass="Gratext.ecore#//Granja">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//Granja/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//Granja/nombreGranja"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//Granja/tipo"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gratext.ecore#//Granja/usuario"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gratext.ecore#//Granja/contrasena"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gratext.ecore#//Granja/login"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gratext.ecore#//Granja/dispositivos"/>
+    </genClasses>
+    <genClasses ecoreClass="Gratext.ecore#//login">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//login/usuario"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//login/contrasena"/>
     </genClasses>
     <genClasses ecoreClass="Gratext.ecore#//Dispositivos">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//Dispositivos/codigo"/>
@@ -72,12 +75,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//accion/nombreAccion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//accion/numero"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//accion/descripcion"/>
-    </genClasses>
-    <genClasses ecoreClass="Gratext.ecore#//usuario">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//usuario/usuario"/>
-    </genClasses>
-    <genClasses ecoreClass="Gratext.ecore#//contrasena">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//contrasena/contrasena"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

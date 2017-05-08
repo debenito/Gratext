@@ -3,12 +3,17 @@ grammar org.xtext.dsl.gratext.Gratext with org.eclipse.xtext.common.Terminals
 generate gratext "http://www.xtext.org/dsl/gratext/Gratext"
 
 Granja:
-	'GRANJA' name=STRING
-	'CENTRALITA:' tipo=Tipo
-	'Usuario:' usuario= usuario
-	'Contraseña:' contrasena = contrasena
+	'Granja:' nombreGranja=ID
+	'Centralita:' tipo=Tipo
+	(login= login)?
 	'Dispositivos{'dispositivos+= Dispositivos* '}'
 	
+;
+
+
+login:
+	'Usuario:' usuario= ID
+	'Contraseña:' contrasena = STRING
 ;
 
 Dispositivos:
@@ -24,13 +29,6 @@ numero:
 	(INT)+ ('.')? (INT)*
 ;
 
-usuario:
-	usuario=ID 
-;
-
-contrasena:
-	contrasena=STRING	
-;
 
 
 enum Tipo : DELAVAL | SIEMENS | TABLET | MOVIL | ORDENADOR;

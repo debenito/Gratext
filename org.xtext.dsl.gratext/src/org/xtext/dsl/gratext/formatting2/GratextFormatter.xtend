@@ -17,8 +17,8 @@ class GratextFormatter extends AbstractFormatter2 {
 	def dispatch void format(Granja granja, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		granja.append[autowrap(30)]
-		granja.getUsuario.format;
-		granja.getContrasena.format;
+		granja.login.usuario.format		
+		granja.login.getContrasena.format;
 		granja.append[ML_COMMENTRule].append[newLines = 2];
 		for (Dispositivos dispositivos : granja.getDispositivos()) {
 			dispositivos.format;

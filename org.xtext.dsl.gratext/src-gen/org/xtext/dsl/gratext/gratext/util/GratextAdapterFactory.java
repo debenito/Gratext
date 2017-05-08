@@ -81,6 +81,11 @@ public class GratextAdapterFactory extends AdapterFactoryImpl
         return createGranjaAdapter();
       }
       @Override
+      public Adapter caselogin(login object)
+      {
+        return createloginAdapter();
+      }
+      @Override
       public Adapter caseDispositivos(Dispositivos object)
       {
         return createDispositivosAdapter();
@@ -89,16 +94,6 @@ public class GratextAdapterFactory extends AdapterFactoryImpl
       public Adapter caseaccion(accion object)
       {
         return createaccionAdapter();
-      }
-      @Override
-      public Adapter caseusuario(usuario object)
-      {
-        return createusuarioAdapter();
-      }
-      @Override
-      public Adapter casecontrasena(contrasena object)
-      {
-        return createcontrasenaAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -138,6 +133,21 @@ public class GratextAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.dsl.gratext.gratext.login <em>login</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.dsl.gratext.gratext.login
+   * @generated
+   */
+  public Adapter createloginAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.dsl.gratext.gratext.Dispositivos <em>Dispositivos</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -163,36 +173,6 @@ public class GratextAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createaccionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.dsl.gratext.gratext.usuario <em>usuario</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.dsl.gratext.gratext.usuario
-   * @generated
-   */
-  public Adapter createusuarioAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.dsl.gratext.gratext.contrasena <em>contrasena</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.dsl.gratext.gratext.contrasena
-   * @generated
-   */
-  public Adapter createcontrasenaAdapter()
   {
     return null;
   }

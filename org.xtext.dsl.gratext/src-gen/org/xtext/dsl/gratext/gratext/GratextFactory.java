@@ -33,6 +33,15 @@ public interface GratextFactory extends EFactory
   Granja createGranja();
 
   /**
+   * Returns a new object of class '<em>login</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>login</em>'.
+   * @generated
+   */
+  login createlogin();
+
+  /**
    * Returns a new object of class '<em>Dispositivos</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,24 +58,6 @@ public interface GratextFactory extends EFactory
    * @generated
    */
   accion createaccion();
-
-  /**
-   * Returns a new object of class '<em>usuario</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>usuario</em>'.
-   * @generated
-   */
-  usuario createusuario();
-
-  /**
-   * Returns a new object of class '<em>contrasena</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>contrasena</em>'.
-   * @generated
-   */
-  contrasena createcontrasena();
 
   /**
    * Returns the package supported by this factory.

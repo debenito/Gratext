@@ -28,46 +28,40 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	public class GranjaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.Granja");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cGRANJAKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cCENTRALITAKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cGranjaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNombreGranjaAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNombreGranjaIDTerminalRuleCall_1_0 = (RuleCall)cNombreGranjaAssignment_1.eContents().get(0);
+		private final Keyword cCentralitaKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTipoAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTipoTipoEnumRuleCall_3_0 = (RuleCall)cTipoAssignment_3.eContents().get(0);
-		private final Keyword cUsuarioKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cUsuarioAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cUsuarioUsuarioParserRuleCall_5_0 = (RuleCall)cUsuarioAssignment_5.eContents().get(0);
-		private final Keyword cContraseAKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cContrasenaAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cContrasenaContrasenaParserRuleCall_7_0 = (RuleCall)cContrasenaAssignment_7.eContents().get(0);
-		private final Keyword cDispositivosKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cDispositivosAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cDispositivosDispositivosParserRuleCall_9_0 = (RuleCall)cDispositivosAssignment_9.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cLoginAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cLoginLoginParserRuleCall_4_0 = (RuleCall)cLoginAssignment_4.eContents().get(0);
+		private final Keyword cDispositivosKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cDispositivosAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cDispositivosDispositivosParserRuleCall_6_0 = (RuleCall)cDispositivosAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Granja:
-		//	'GRANJA' name=STRING
-		//	'CENTRALITA:' tipo=Tipo
-		//	'Usuario:' usuario=usuario
-		//	'Contraseña:' contrasena=contrasena
+		//	'Granja:' nombreGranja=ID
+		//	'Centralita:' tipo=Tipo
+		//	login=login?
 		//	'Dispositivos{' dispositivos+=Dispositivos* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'GRANJA' name=STRING 'CENTRALITA:' tipo=Tipo 'Usuario:' usuario=usuario 'Contraseña:' contrasena=contrasena
-		//'Dispositivos{' dispositivos+=Dispositivos* '}'
+		//'Granja:' nombreGranja=ID 'Centralita:' tipo=Tipo login=login? 'Dispositivos{' dispositivos+=Dispositivos* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'GRANJA'
-		public Keyword getGRANJAKeyword_0() { return cGRANJAKeyword_0; }
+		//'Granja:'
+		public Keyword getGranjaKeyword_0() { return cGranjaKeyword_0; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//nombreGranja=ID
+		public Assignment getNombreGranjaAssignment_1() { return cNombreGranjaAssignment_1; }
 		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		//ID
+		public RuleCall getNombreGranjaIDTerminalRuleCall_1_0() { return cNombreGranjaIDTerminalRuleCall_1_0; }
 		
-		//'CENTRALITA:'
-		public Keyword getCENTRALITAKeyword_2() { return cCENTRALITAKeyword_2; }
+		//'Centralita:'
+		public Keyword getCentralitaKeyword_2() { return cCentralitaKeyword_2; }
 		
 		//tipo=Tipo
 		public Assignment getTipoAssignment_3() { return cTipoAssignment_3; }
@@ -75,35 +69,59 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		//Tipo
 		public RuleCall getTipoTipoEnumRuleCall_3_0() { return cTipoTipoEnumRuleCall_3_0; }
 		
-		//'Usuario:'
-		public Keyword getUsuarioKeyword_4() { return cUsuarioKeyword_4; }
+		//login=login?
+		public Assignment getLoginAssignment_4() { return cLoginAssignment_4; }
 		
-		//usuario=usuario
-		public Assignment getUsuarioAssignment_5() { return cUsuarioAssignment_5; }
-		
-		//usuario
-		public RuleCall getUsuarioUsuarioParserRuleCall_5_0() { return cUsuarioUsuarioParserRuleCall_5_0; }
-		
-		//'Contraseña:'
-		public Keyword getContraseAKeyword_6() { return cContraseAKeyword_6; }
-		
-		//contrasena=contrasena
-		public Assignment getContrasenaAssignment_7() { return cContrasenaAssignment_7; }
-		
-		//contrasena
-		public RuleCall getContrasenaContrasenaParserRuleCall_7_0() { return cContrasenaContrasenaParserRuleCall_7_0; }
+		//login
+		public RuleCall getLoginLoginParserRuleCall_4_0() { return cLoginLoginParserRuleCall_4_0; }
 		
 		//'Dispositivos{'
-		public Keyword getDispositivosKeyword_8() { return cDispositivosKeyword_8; }
+		public Keyword getDispositivosKeyword_5() { return cDispositivosKeyword_5; }
 		
 		//dispositivos+=Dispositivos*
-		public Assignment getDispositivosAssignment_9() { return cDispositivosAssignment_9; }
+		public Assignment getDispositivosAssignment_6() { return cDispositivosAssignment_6; }
 		
 		//Dispositivos
-		public RuleCall getDispositivosDispositivosParserRuleCall_9_0() { return cDispositivosDispositivosParserRuleCall_9_0; }
+		public RuleCall getDispositivosDispositivosParserRuleCall_6_0() { return cDispositivosDispositivosParserRuleCall_6_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+	public class LoginElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.login");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cUsuarioKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cUsuarioAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cUsuarioIDTerminalRuleCall_1_0 = (RuleCall)cUsuarioAssignment_1.eContents().get(0);
+		private final Keyword cContraseAKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cContrasenaAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cContrasenaSTRINGTerminalRuleCall_3_0 = (RuleCall)cContrasenaAssignment_3.eContents().get(0);
+		
+		//login:
+		//	'Usuario:' usuario=ID
+		//	'Contraseña:' contrasena=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Usuario:' usuario=ID 'Contraseña:' contrasena=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'Usuario:'
+		public Keyword getUsuarioKeyword_0() { return cUsuarioKeyword_0; }
+		
+		//usuario=ID
+		public Assignment getUsuarioAssignment_1() { return cUsuarioAssignment_1; }
+		
+		//ID
+		public RuleCall getUsuarioIDTerminalRuleCall_1_0() { return cUsuarioIDTerminalRuleCall_1_0; }
+		
+		//'Contraseña:'
+		public Keyword getContraseAKeyword_2() { return cContraseAKeyword_2; }
+		
+		//contrasena=STRING
+		public Assignment getContrasenaAssignment_3() { return cContrasenaAssignment_3; }
+		
+		//STRING
+		public RuleCall getContrasenaSTRINGTerminalRuleCall_3_0() { return cContrasenaSTRINGTerminalRuleCall_3_0; }
 	}
 	public class DispositivosElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.Dispositivos");
@@ -217,36 +235,6 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//INT*
 		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
-	}
-	public class UsuarioElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.usuario");
-		private final Assignment cUsuarioAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cUsuarioIDTerminalRuleCall_0 = (RuleCall)cUsuarioAssignment.eContents().get(0);
-		
-		//usuario:
-		//	usuario=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//usuario=ID
-		public Assignment getUsuarioAssignment() { return cUsuarioAssignment; }
-		
-		//ID
-		public RuleCall getUsuarioIDTerminalRuleCall_0() { return cUsuarioIDTerminalRuleCall_0; }
-	}
-	public class ContrasenaElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.contrasena");
-		private final Assignment cContrasenaAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cContrasenaSTRINGTerminalRuleCall_0 = (RuleCall)cContrasenaAssignment.eContents().get(0);
-		
-		//contrasena:
-		//	contrasena=STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//contrasena=STRING
-		public Assignment getContrasenaAssignment() { return cContrasenaAssignment; }
-		
-		//STRING
-		public RuleCall getContrasenaSTRINGTerminalRuleCall_0() { return cContrasenaSTRINGTerminalRuleCall_0; }
 	}
 	
 	public class TipoElements extends AbstractEnumRuleElementFinder {
@@ -635,11 +623,10 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final GranjaElements pGranja;
+	private final LoginElements pLogin;
 	private final DispositivosElements pDispositivos;
 	private final AccionElements pAccion;
 	private final NumeroElements pNumero;
-	private final UsuarioElements pUsuario;
-	private final ContrasenaElements pContrasena;
 	private final TipoElements eTipo;
 	private final TiposDispositivoElements eTiposDispositivo;
 	private final NombreAccionElements eNombreAccion;
@@ -654,11 +641,10 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pGranja = new GranjaElements();
+		this.pLogin = new LoginElements();
 		this.pDispositivos = new DispositivosElements();
 		this.pAccion = new AccionElements();
 		this.pNumero = new NumeroElements();
-		this.pUsuario = new UsuarioElements();
-		this.pContrasena = new ContrasenaElements();
 		this.eTipo = new TipoElements();
 		this.eTiposDispositivo = new TiposDispositivoElements();
 		this.eNombreAccion = new NombreAccionElements();
@@ -692,10 +678,9 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Granja:
-	//	'GRANJA' name=STRING
-	//	'CENTRALITA:' tipo=Tipo
-	//	'Usuario:' usuario=usuario
-	//	'Contraseña:' contrasena=contrasena
+	//	'Granja:' nombreGranja=ID
+	//	'Centralita:' tipo=Tipo
+	//	login=login?
 	//	'Dispositivos{' dispositivos+=Dispositivos* '}';
 	public GranjaElements getGranjaAccess() {
 		return pGranja;
@@ -703,6 +688,17 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getGranjaRule() {
 		return getGranjaAccess().getRule();
+	}
+	
+	//login:
+	//	'Usuario:' usuario=ID
+	//	'Contraseña:' contrasena=STRING;
+	public LoginElements getLoginAccess() {
+		return pLogin;
+	}
+	
+	public ParserRule getLoginRule() {
+		return getLoginAccess().getRule();
 	}
 	
 	//Dispositivos:
@@ -733,26 +729,6 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getNumeroRule() {
 		return getNumeroAccess().getRule();
-	}
-	
-	//usuario:
-	//	usuario=ID;
-	public UsuarioElements getUsuarioAccess() {
-		return pUsuario;
-	}
-	
-	public ParserRule getUsuarioRule() {
-		return getUsuarioAccess().getRule();
-	}
-	
-	//contrasena:
-	//	contrasena=STRING;
-	public ContrasenaElements getContrasenaAccess() {
-		return pContrasena;
-	}
-	
-	public ParserRule getContrasenaRule() {
-		return getContrasenaAccess().getRule();
 	}
 	
 	//enum Tipo:

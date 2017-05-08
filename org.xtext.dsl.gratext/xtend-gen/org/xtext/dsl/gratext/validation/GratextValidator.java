@@ -6,7 +6,6 @@ package org.xtext.dsl.gratext.validation;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
-import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
@@ -31,17 +30,6 @@ public class GratextValidator extends AbstractGratextValidator {
   public final static String NUMERO_INCORRECTO = "Numero_incorrecto";
   
   protected int i = 0;
-  
-  @Check
-  public void checkGreetingStartsWithCapital(final Granja granja) {
-    String _name = granja.getName();
-    char _charAt = _name.charAt(0);
-    boolean _isUpperCase = Character.isUpperCase(_charAt);
-    boolean _not = (!_isUpperCase);
-    if (_not) {
-      this.warning("Nombre de la granja demasiado largo", GratextPackage.Literals.GRANJA__NAME, GratextValidator.INVALID_NAME);
-    }
-  }
   
   @Check
   public void checkDispositvoBarrerar(final Dispositivos dispositivo) {
@@ -182,16 +170,10 @@ public class GratextValidator extends AbstractGratextValidator {
     while ((this.i < numero.length())) {
       {
         char _charAt = numero.charAt(this.i);
-        boolean _equals = Character.valueOf(_charAt).equals(".");
-        if (_equals) {
+        boolean _isDigit = Character.isDigit(_charAt);
+        boolean _not = (!_isDigit);
+        if (_not) {
           return "float";
-        } else {
-          char _charAt_1 = numero.charAt(this.i);
-          boolean _isDigit = Character.isDigit(_charAt_1);
-          boolean _not = (!_isDigit);
-          if (_not) {
-            return "-";
-          }
         }
         this.i++;
       }

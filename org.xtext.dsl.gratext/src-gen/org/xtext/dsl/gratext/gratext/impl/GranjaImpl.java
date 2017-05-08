@@ -23,8 +23,7 @@ import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
 import org.xtext.dsl.gratext.gratext.Tipo;
-import org.xtext.dsl.gratext.gratext.contrasena;
-import org.xtext.dsl.gratext.gratext.usuario;
+import org.xtext.dsl.gratext.gratext.login;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,10 +33,9 @@ import org.xtext.dsl.gratext.gratext.usuario;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.dsl.gratext.gratext.impl.GranjaImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.dsl.gratext.gratext.impl.GranjaImpl#getNombreGranja <em>Nombre Granja</em>}</li>
  *   <li>{@link org.xtext.dsl.gratext.gratext.impl.GranjaImpl#getTipo <em>Tipo</em>}</li>
- *   <li>{@link org.xtext.dsl.gratext.gratext.impl.GranjaImpl#getUsuario <em>Usuario</em>}</li>
- *   <li>{@link org.xtext.dsl.gratext.gratext.impl.GranjaImpl#getContrasena <em>Contrasena</em>}</li>
+ *   <li>{@link org.xtext.dsl.gratext.gratext.impl.GranjaImpl#getLogin <em>Login</em>}</li>
  *   <li>{@link org.xtext.dsl.gratext.gratext.impl.GranjaImpl#getDispositivos <em>Dispositivos</em>}</li>
  * </ul>
  *
@@ -46,24 +44,24 @@ import org.xtext.dsl.gratext.gratext.usuario;
 public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getNombreGranja() <em>Nombre Granja</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getNombreGranja()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String NOMBRE_GRANJA_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getNombreGranja() <em>Nombre Granja</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getNombreGranja()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String nombreGranja = NOMBRE_GRANJA_EDEFAULT;
 
   /**
    * The default value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
@@ -86,24 +84,14 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
   protected Tipo tipo = TIPO_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getUsuario() <em>Usuario</em>}' containment reference.
+   * The cached value of the '{@link #getLogin() <em>Login</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUsuario()
+   * @see #getLogin()
    * @generated
    * @ordered
    */
-  protected usuario usuario;
-
-  /**
-   * The cached value of the '{@link #getContrasena() <em>Contrasena</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContrasena()
-   * @generated
-   * @ordered
-   */
-  protected contrasena contrasena;
+  protected login login;
 
   /**
    * The cached value of the '{@link #getDispositivos() <em>Dispositivos</em>}' containment reference list.
@@ -141,9 +129,9 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getNombreGranja()
   {
-    return name;
+    return nombreGranja;
   }
 
   /**
@@ -151,12 +139,12 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setNombreGranja(String newNombreGranja)
   {
-    String oldName = name;
-    name = newName;
+    String oldNombreGranja = nombreGranja;
+    nombreGranja = newNombreGranja;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__NOMBRE_GRANJA, oldNombreGranja, nombreGranja));
   }
 
   /**
@@ -187,9 +175,9 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
    * <!-- end-user-doc -->
    * @generated
    */
-  public usuario getUsuario()
+  public login getLogin()
   {
-    return usuario;
+    return login;
   }
 
   /**
@@ -197,13 +185,13 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetUsuario(usuario newUsuario, NotificationChain msgs)
+  public NotificationChain basicSetLogin(login newLogin, NotificationChain msgs)
   {
-    usuario oldUsuario = usuario;
-    usuario = newUsuario;
+    login oldLogin = login;
+    login = newLogin;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__USUARIO, oldUsuario, newUsuario);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__LOGIN, oldLogin, newLogin);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -214,68 +202,20 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUsuario(usuario newUsuario)
+  public void setLogin(login newLogin)
   {
-    if (newUsuario != usuario)
+    if (newLogin != login)
     {
       NotificationChain msgs = null;
-      if (usuario != null)
-        msgs = ((InternalEObject)usuario).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GratextPackage.GRANJA__USUARIO, null, msgs);
-      if (newUsuario != null)
-        msgs = ((InternalEObject)newUsuario).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GratextPackage.GRANJA__USUARIO, null, msgs);
-      msgs = basicSetUsuario(newUsuario, msgs);
+      if (login != null)
+        msgs = ((InternalEObject)login).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GratextPackage.GRANJA__LOGIN, null, msgs);
+      if (newLogin != null)
+        msgs = ((InternalEObject)newLogin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GratextPackage.GRANJA__LOGIN, null, msgs);
+      msgs = basicSetLogin(newLogin, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__USUARIO, newUsuario, newUsuario));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public contrasena getContrasena()
-  {
-    return contrasena;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetContrasena(contrasena newContrasena, NotificationChain msgs)
-  {
-    contrasena oldContrasena = contrasena;
-    contrasena = newContrasena;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__CONTRASENA, oldContrasena, newContrasena);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContrasena(contrasena newContrasena)
-  {
-    if (newContrasena != contrasena)
-    {
-      NotificationChain msgs = null;
-      if (contrasena != null)
-        msgs = ((InternalEObject)contrasena).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GratextPackage.GRANJA__CONTRASENA, null, msgs);
-      if (newContrasena != null)
-        msgs = ((InternalEObject)newContrasena).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GratextPackage.GRANJA__CONTRASENA, null, msgs);
-      msgs = basicSetContrasena(newContrasena, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__CONTRASENA, newContrasena, newContrasena));
+      eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.GRANJA__LOGIN, newLogin, newLogin));
   }
 
   /**
@@ -302,10 +242,8 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
   {
     switch (featureID)
     {
-      case GratextPackage.GRANJA__USUARIO:
-        return basicSetUsuario(null, msgs);
-      case GratextPackage.GRANJA__CONTRASENA:
-        return basicSetContrasena(null, msgs);
+      case GratextPackage.GRANJA__LOGIN:
+        return basicSetLogin(null, msgs);
       case GratextPackage.GRANJA__DISPOSITIVOS:
         return ((InternalEList<?>)getDispositivos()).basicRemove(otherEnd, msgs);
     }
@@ -322,14 +260,12 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
   {
     switch (featureID)
     {
-      case GratextPackage.GRANJA__NAME:
-        return getName();
+      case GratextPackage.GRANJA__NOMBRE_GRANJA:
+        return getNombreGranja();
       case GratextPackage.GRANJA__TIPO:
         return getTipo();
-      case GratextPackage.GRANJA__USUARIO:
-        return getUsuario();
-      case GratextPackage.GRANJA__CONTRASENA:
-        return getContrasena();
+      case GratextPackage.GRANJA__LOGIN:
+        return getLogin();
       case GratextPackage.GRANJA__DISPOSITIVOS:
         return getDispositivos();
     }
@@ -347,17 +283,14 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
   {
     switch (featureID)
     {
-      case GratextPackage.GRANJA__NAME:
-        setName((String)newValue);
+      case GratextPackage.GRANJA__NOMBRE_GRANJA:
+        setNombreGranja((String)newValue);
         return;
       case GratextPackage.GRANJA__TIPO:
         setTipo((Tipo)newValue);
         return;
-      case GratextPackage.GRANJA__USUARIO:
-        setUsuario((usuario)newValue);
-        return;
-      case GratextPackage.GRANJA__CONTRASENA:
-        setContrasena((contrasena)newValue);
+      case GratextPackage.GRANJA__LOGIN:
+        setLogin((login)newValue);
         return;
       case GratextPackage.GRANJA__DISPOSITIVOS:
         getDispositivos().clear();
@@ -377,17 +310,14 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
   {
     switch (featureID)
     {
-      case GratextPackage.GRANJA__NAME:
-        setName(NAME_EDEFAULT);
+      case GratextPackage.GRANJA__NOMBRE_GRANJA:
+        setNombreGranja(NOMBRE_GRANJA_EDEFAULT);
         return;
       case GratextPackage.GRANJA__TIPO:
         setTipo(TIPO_EDEFAULT);
         return;
-      case GratextPackage.GRANJA__USUARIO:
-        setUsuario((usuario)null);
-        return;
-      case GratextPackage.GRANJA__CONTRASENA:
-        setContrasena((contrasena)null);
+      case GratextPackage.GRANJA__LOGIN:
+        setLogin((login)null);
         return;
       case GratextPackage.GRANJA__DISPOSITIVOS:
         getDispositivos().clear();
@@ -406,14 +336,12 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
   {
     switch (featureID)
     {
-      case GratextPackage.GRANJA__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GratextPackage.GRANJA__NOMBRE_GRANJA:
+        return NOMBRE_GRANJA_EDEFAULT == null ? nombreGranja != null : !NOMBRE_GRANJA_EDEFAULT.equals(nombreGranja);
       case GratextPackage.GRANJA__TIPO:
         return tipo != TIPO_EDEFAULT;
-      case GratextPackage.GRANJA__USUARIO:
-        return usuario != null;
-      case GratextPackage.GRANJA__CONTRASENA:
-        return contrasena != null;
+      case GratextPackage.GRANJA__LOGIN:
+        return login != null;
       case GratextPackage.GRANJA__DISPOSITIVOS:
         return dispositivos != null && !dispositivos.isEmpty();
     }
@@ -431,8 +359,8 @@ public class GranjaImpl extends MinimalEObjectImpl.Container implements Granja
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (nombreGranja: ");
+    result.append(nombreGranja);
     result.append(", tipo: ");
     result.append(tipo);
     result.append(')');

@@ -13,6 +13,7 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
+import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
 
@@ -53,7 +54,7 @@ public class GeneradorWeb {
   public CharSequence compilarTexto(final Granja granja) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _compilarGranja = this.compilarGranja(granja);
-    this.fsa.generateFile("scripts/granja.xml", _compilarGranja);
+    this.fsa.generateFile("scripts/granja_gen.xml", _compilarGranja);
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -61,7 +62,7 @@ public class GeneradorWeb {
   
   public CharSequence compilarGranja(final Granja r) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("var code = \'<registro>\\");
+    _builder.append("<registro>");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<dispositivo>\\");
@@ -73,12 +74,12 @@ public class GeneradorWeb {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("<dispositivo_descripcion>Es el ");
-    String _name = r.getName();
-    _builder.append(_name, "\t");
+    Tipo _tipo = r.getTipo();
+    _builder.append(_tipo, "\t");
     _builder.append("</dispositivo_descripcion>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("</dispositivo>\\");
+    _builder.append("</dispositivo>");
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
@@ -89,7 +90,7 @@ public class GeneradorWeb {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("</registro>\'");
+    _builder.append("</registro>");
     _builder.newLine();
     return _builder;
   }
@@ -103,30 +104,30 @@ public class GeneradorWeb {
         {
           accion _accion = d.getAccion();
           NombreAccion _nombreAccion = _accion.getNombreAccion();
-          boolean _equals = _nombreAccion.equals("ESTADO");
+          String _name = _nombreAccion.getName();
+          boolean _equals = _name.equals("ESTADO");
           if (_equals) {
-            _builder.append("<servicio>/");
+            _builder.append("<servicio>");
             _builder.newLine();
             CharSequence _compilarDispositivo = this.compilarDispositivo(d);
             _builder.append(_compilarDispositivo, "");
             _builder.newLineIfNotEmpty();
-            int _plusPlus = this.identificador_servicio++;
-            _builder.append(_plusPlus, "");
-            _builder.newLineIfNotEmpty();
+            _builder.newLine();
             _builder.append("</servicio>");
+            _builder.newLine();
+          } else {
+            _builder.append("<action>");
+            _builder.newLine();
+            _builder.append("\t\t\t");
+            CharSequence _compilarAccion = this.compilarAccion(d);
+            _builder.append(_compilarAccion, "\t\t\t");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t\t\t");
+            _builder.newLine();
+            _builder.append("</action>");
             _builder.newLine();
           }
         }
-        _builder.append("<action>/");
-        _builder.newLine();
-        CharSequence _compilarAccion = this.compilarAccion(d);
-        _builder.append(_compilarAccion, "");
-        _builder.newLineIfNotEmpty();
-        int _plusPlus_1 = this.identificador_accion++;
-        _builder.append(_plusPlus_1, "");
-        _builder.newLineIfNotEmpty();
-        _builder.append("</action>");
-        _builder.newLine();
       }
     }
     _builder.newLine();
@@ -138,10 +139,11 @@ public class GeneradorWeb {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("<idservicio>dispositivo");
+    _builder.append("<idservicio>dispositivoServicio");
     _builder.append(this.identificadores, "\t");
     _builder.append("-");
-    _builder.append(this.identificador_servicio, "\t");
+    int _plusPlus = this.identificador_servicio++;
+    _builder.append(_plusPlus, "\t");
     _builder.append("</idservicio>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -183,43 +185,48 @@ public class GeneradorWeb {
   
   public CharSequence compilarAccion(final Dispositivos i) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<action>/");
     _builder.newLine();
-    _builder.append("<id_action> ");
+    _builder.append("<id_action> dispositivoAccion");
     _builder.append(this.identificadores, "");
     _builder.append("-");
-    _builder.append(this.identificador_accion, "");
+    int _plusPlus = this.identificador_accion++;
+    _builder.append(_plusPlus, "");
     _builder.append("</id_action>");
     _builder.newLineIfNotEmpty();
     _builder.append("<action_name>");
-    accion _accion = i.getAccion();
-    NombreAccion _nombreAccion = _accion.getNombreAccion();
-    _builder.append(_nombreAccion, "");
+    TiposDispositivo _nombre = i.getNombre();
+    _builder.append(_nombre, "");
     _builder.append("</action_name>");
     _builder.newLineIfNotEmpty();
     {
-      if (((!Objects.equal(i.getAccion().getDescripcion(), null)) || (!i.getAccion().getDescripcion().isEmpty()))) {
+      accion _accion = i.getAccion();
+      String _descripcion = _accion.getDescripcion();
+      boolean _notEquals = (!Objects.equal(_descripcion, null));
+      if (_notEquals) {
         _builder.append("<action_descripcion>");
         accion _accion_1 = i.getAccion();
-        String _descripcion = _accion_1.getDescripcion();
-        _builder.append(_descripcion, "");
+        String _descripcion_1 = _accion_1.getDescripcion();
+        _builder.append(_descripcion_1, "");
         _builder.append("</action_descripcion>");
         _builder.newLineIfNotEmpty();
       } else {
         _builder.append("<action_descripcion>");
         accion _accion_2 = i.getAccion();
-        NombreAccion _nombreAccion_1 = _accion_2.getNombreAccion();
-        _builder.append(_nombreAccion_1, "");
+        NombreAccion _nombreAccion = _accion_2.getNombreAccion();
+        _builder.append(_nombreAccion, "");
         _builder.append("</action_descripcion>");
         _builder.newLineIfNotEmpty();
       }
     }
     {
-      if (((!Objects.equal(i.getAccion().getNumero(), null)) || (!i.getAccion().getNumero().isEmpty()))) {
+      accion _accion_3 = i.getAccion();
+      String _numero = _accion_3.getNumero();
+      boolean _notEquals_1 = (!Objects.equal(_numero, null));
+      if (_notEquals_1) {
         _builder.append("<has_menssage>");
-        accion _accion_3 = i.getAccion();
-        String _numero = _accion_3.getNumero();
-        String _comprobarNumero = this.comprobarNumero(_numero);
+        accion _accion_4 = i.getAccion();
+        String _numero_1 = _accion_4.getNumero();
+        String _comprobarNumero = this.comprobarNumero(_numero_1);
         _builder.append(_comprobarNumero, "");
         _builder.append("</has_message>");
         _builder.newLineIfNotEmpty();
@@ -228,7 +235,6 @@ public class GeneradorWeb {
         _builder.newLine();
       }
     }
-    _builder.newLine();
     return _builder;
   }
   
@@ -236,16 +242,10 @@ public class GeneradorWeb {
     while ((this.i < numero.length())) {
       {
         char _charAt = numero.charAt(this.i);
-        boolean _equals = Character.valueOf(_charAt).equals(".");
-        if (_equals) {
+        boolean _isDigit = Character.isDigit(_charAt);
+        boolean _not = (!_isDigit);
+        if (_not) {
           return "float";
-        } else {
-          char _charAt_1 = numero.charAt(this.i);
-          boolean _isDigit = Character.isDigit(_charAt_1);
-          boolean _not = (!_isDigit);
-          if (_not) {
-            return "-";
-          }
         }
         this.i++;
       }

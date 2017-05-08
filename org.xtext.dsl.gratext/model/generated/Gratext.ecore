@@ -2,14 +2,16 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gratext" nsURI="http://www.xtext.org/dsl/gratext/Gratext" nsPrefix="gratext">
   <eClassifiers xsi:type="ecore:EClass" name="Granja">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreGranja" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" eType="#//Tipo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="usuario" eType="#//usuario"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contrasena" eType="#//contrasena"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="login" eType="#//login"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dispositivos" upperBound="-1"
         eType="#//Dispositivos" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="login">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usuario" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contrasena" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dispositivos">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="codigo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -22,12 +24,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreAccion" eType="#//NombreAccion"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="usuario">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usuario" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="contrasena">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contrasena" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Tipo">
     <eLiterals name="DELAVAL" literal="DELAVAL"/>

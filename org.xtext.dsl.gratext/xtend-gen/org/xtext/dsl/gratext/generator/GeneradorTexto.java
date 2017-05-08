@@ -2,6 +2,7 @@ package org.xtext.dsl.gratext.generator;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -9,9 +10,12 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
+import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
+import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
+import org.xtext.dsl.gratext.gratext.login;
 
 @SuppressWarnings("all")
 public class GeneradorTexto {
@@ -35,27 +39,71 @@ public class GeneradorTexto {
     StringBuilder sb = new StringBuilder();
     TreeIterator<EObject> _allContents = this.resource.getAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    Iterable<Dispositivos> _filter = Iterables.<Dispositivos>filter(_iterable, Dispositivos.class);
-    for (final Dispositivos i : _filter) {
-      CharSequence _compilarTexto = this.compilarTexto(i);
-      sb.append(_compilarTexto);
+    Iterable<Granja> _filter = Iterables.<Granja>filter(_iterable, Granja.class);
+    for (final Granja i : _filter) {
+      CharSequence _compilarGranja = this.compilarGranja(i);
+      sb.append(_compilarGranja);
     }
     String _string = sb.toString();
     this.fsa.generateFile("granja.txt", _string);
   }
   
+  public CharSequence compilarGranja(final Granja granja) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Nombre de la granja registrada: ");
+    String _nombreGranja = granja.getNombreGranja();
+    _builder.append(_nombreGranja, "");
+    _builder.append(" tipo de dispositivo o centralita:");
+    Tipo _tipo = granja.getTipo();
+    _builder.append(_tipo, "");
+    _builder.newLineIfNotEmpty();
+    {
+      login _login = granja.getLogin();
+      boolean _notEquals = (!Objects.equal(_login, null));
+      if (_notEquals) {
+        _builder.append("Su usuario es el siguiente:");
+        login _login_1 = granja.getLogin();
+        String _usuario = _login_1.getUsuario();
+        _builder.append(_usuario, "");
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+        _builder.append("Su contraseña es la siguiente: ");
+        login _login_2 = granja.getLogin();
+        String _contrasena = _login_2.getContrasena();
+        _builder.append(_contrasena, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("Los dispositivos conectados en la granja ");
+    String _nombreGranja_1 = granja.getNombreGranja();
+    _builder.append(_nombreGranja_1, "");
+    _builder.append(" son los siguientes:");
+    _builder.newLineIfNotEmpty();
+    _builder.append("LISTA DE DISPOSITIVOS");
+    _builder.newLine();
+    _builder.append("=========================================================");
+    _builder.newLine();
+    {
+      EList<Dispositivos> _dispositivos = granja.getDispositivos();
+      for(final Dispositivos i : _dispositivos) {
+        CharSequence _compilarTexto = this.compilarTexto(i);
+        _builder.append(_compilarTexto, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
   public CharSequence compilarTexto(final Dispositivos i) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
     _builder.append("Dispositivo: ");
     TiposDispositivo _nombre = i.getNombre();
-    _builder.append(_nombre, "\t");
+    _builder.append(_nombre, "");
     _builder.append(" con el siguiente codigo del dispositivo ");
     String _codigo = i.getCodigo();
-    _builder.append(_codigo, "\t");
-    _builder.newLineIfNotEmpty();
+    _builder.append(_codigo, "");
     _builder.append("\t");
-    _builder.newLine();
+    _builder.newLineIfNotEmpty();
     {
       String _temperatura = i.getTemperatura();
       boolean _notEquals = (!Objects.equal(_temperatura, null));

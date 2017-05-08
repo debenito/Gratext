@@ -80,6 +80,13 @@ public class GratextSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GratextPackage.LOGIN:
+      {
+        login login = (login)theEObject;
+        T result = caselogin(login);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GratextPackage.DISPOSITIVOS:
       {
         Dispositivos dispositivos = (Dispositivos)theEObject;
@@ -91,20 +98,6 @@ public class GratextSwitch<T> extends Switch<T>
       {
         accion accion = (accion)theEObject;
         T result = caseaccion(accion);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GratextPackage.USUARIO:
-      {
-        usuario usuario = (usuario)theEObject;
-        T result = caseusuario(usuario);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GratextPackage.CONTRASENA:
-      {
-        contrasena contrasena = (contrasena)theEObject;
-        T result = casecontrasena(contrasena);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -124,6 +117,22 @@ public class GratextSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGranja(Granja object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>login</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>login</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caselogin(login object)
   {
     return null;
   }
@@ -156,38 +165,6 @@ public class GratextSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseaccion(accion object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>usuario</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>usuario</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseusuario(usuario object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>contrasena</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>contrasena</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casecontrasena(contrasena object)
   {
     return null;
   }

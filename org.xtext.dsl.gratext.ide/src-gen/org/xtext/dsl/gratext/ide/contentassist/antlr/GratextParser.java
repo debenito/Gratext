@@ -39,14 +39,16 @@ public class GratextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTiposDispositivoAccess().getAlternatives(), "rule__TiposDispositivo__Alternatives");
 					put(grammarAccess.getNombreAccionAccess().getAlternatives(), "rule__NombreAccion__Alternatives");
 					put(grammarAccess.getGranjaAccess().getGroup(), "rule__Granja__Group__0");
+					put(grammarAccess.getLoginAccess().getGroup(), "rule__Login__Group__0");
 					put(grammarAccess.getDispositivosAccess().getGroup(), "rule__Dispositivos__Group__0");
 					put(grammarAccess.getAccionAccess().getGroup(), "rule__Accion__Group__0");
 					put(grammarAccess.getNumeroAccess().getGroup(), "rule__Numero__Group__0");
-					put(grammarAccess.getGranjaAccess().getNameAssignment_1(), "rule__Granja__NameAssignment_1");
+					put(grammarAccess.getGranjaAccess().getNombreGranjaAssignment_1(), "rule__Granja__NombreGranjaAssignment_1");
 					put(grammarAccess.getGranjaAccess().getTipoAssignment_3(), "rule__Granja__TipoAssignment_3");
-					put(grammarAccess.getGranjaAccess().getUsuarioAssignment_5(), "rule__Granja__UsuarioAssignment_5");
-					put(grammarAccess.getGranjaAccess().getContrasenaAssignment_7(), "rule__Granja__ContrasenaAssignment_7");
-					put(grammarAccess.getGranjaAccess().getDispositivosAssignment_9(), "rule__Granja__DispositivosAssignment_9");
+					put(grammarAccess.getGranjaAccess().getLoginAssignment_4(), "rule__Granja__LoginAssignment_4");
+					put(grammarAccess.getGranjaAccess().getDispositivosAssignment_6(), "rule__Granja__DispositivosAssignment_6");
+					put(grammarAccess.getLoginAccess().getUsuarioAssignment_1(), "rule__Login__UsuarioAssignment_1");
+					put(grammarAccess.getLoginAccess().getContrasenaAssignment_3(), "rule__Login__ContrasenaAssignment_3");
 					put(grammarAccess.getDispositivosAccess().getCodigoAssignment_1(), "rule__Dispositivos__CodigoAssignment_1");
 					put(grammarAccess.getDispositivosAccess().getNombreAssignment_3(), "rule__Dispositivos__NombreAssignment_3");
 					put(grammarAccess.getDispositivosAccess().getTemperaturaAssignment_4(), "rule__Dispositivos__TemperaturaAssignment_4");
@@ -54,8 +56,6 @@ public class GratextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAccionAccess().getNombreAccionAssignment_1(), "rule__Accion__NombreAccionAssignment_1");
 					put(grammarAccess.getAccionAccess().getNumeroAssignment_2(), "rule__Accion__NumeroAssignment_2");
 					put(grammarAccess.getAccionAccess().getDescripcionAssignment_3(), "rule__Accion__DescripcionAssignment_3");
-					put(grammarAccess.getUsuarioAccess().getUsuarioAssignment(), "rule__Usuario__UsuarioAssignment");
-					put(grammarAccess.getContrasenaAccess().getContrasenaAssignment(), "rule__Contrasena__ContrasenaAssignment");
 				}
 			};
 		}
