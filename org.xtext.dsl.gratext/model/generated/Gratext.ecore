@@ -57,6 +57,7 @@
     <eLiterals name="ROBOT_LIMPIADOR" value="21" literal="ROBOT_LIMPIADOR"/>
     <eLiterals name="NEVERAS" value="22" literal="NEVERAS"/>
     <eLiterals name="LUZ" value="23" literal="LUZ"/>
+    <eLiterals name="TERMOSTATO" value="24" literal="TERMOSTATO"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NombreAccion">
     <eLiterals name="ABRIR" literal="ABRIR"/>

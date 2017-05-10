@@ -47,6 +47,7 @@ public class InternalGratextLexer extends Lexer {
     public static final int T__62=62;
     public static final int T__63=63;
     public static final int T__20=20;
+    public static final int T__64=64;
     public static final int T__21=21;
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -701,10 +702,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:40:7: ( 'ABRIR' )
-            // InternalGratext.g:40:9: 'ABRIR'
+            // InternalGratext.g:40:7: ( 'TERMOSTATO' )
+            // InternalGratext.g:40:9: 'TERMOSTATO'
             {
-            match("ABRIR"); 
+            match("TERMOSTATO"); 
 
 
             }
@@ -722,10 +723,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:41:7: ( 'ENVIAR' )
-            // InternalGratext.g:41:9: 'ENVIAR'
+            // InternalGratext.g:41:7: ( 'ABRIR' )
+            // InternalGratext.g:41:9: 'ABRIR'
             {
-            match("ENVIAR"); 
+            match("ABRIR"); 
 
 
             }
@@ -743,10 +744,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:42:7: ( 'SACAR' )
-            // InternalGratext.g:42:9: 'SACAR'
+            // InternalGratext.g:42:7: ( 'ENVIAR' )
+            // InternalGratext.g:42:9: 'ENVIAR'
             {
-            match("SACAR"); 
+            match("ENVIAR"); 
 
 
             }
@@ -764,10 +765,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:43:7: ( 'CERRAR' )
-            // InternalGratext.g:43:9: 'CERRAR'
+            // InternalGratext.g:43:7: ( 'SACAR' )
+            // InternalGratext.g:43:9: 'SACAR'
             {
-            match("CERRAR"); 
+            match("SACAR"); 
 
 
             }
@@ -785,10 +786,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:44:7: ( 'ESTADO' )
-            // InternalGratext.g:44:9: 'ESTADO'
+            // InternalGratext.g:44:7: ( 'CERRAR' )
+            // InternalGratext.g:44:9: 'CERRAR'
             {
-            match("ESTADO"); 
+            match("CERRAR"); 
 
 
             }
@@ -806,10 +807,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:45:7: ( 'GRABAR' )
-            // InternalGratext.g:45:9: 'GRABAR'
+            // InternalGratext.g:45:7: ( 'ESTADO' )
+            // InternalGratext.g:45:9: 'ESTADO'
             {
-            match("GRABAR"); 
+            match("ESTADO"); 
 
 
             }
@@ -827,10 +828,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:46:7: ( 'DETECTAR' )
-            // InternalGratext.g:46:9: 'DETECTAR'
+            // InternalGratext.g:46:7: ( 'GRABAR' )
+            // InternalGratext.g:46:9: 'GRABAR'
             {
-            match("DETECTAR"); 
+            match("GRABAR"); 
 
 
             }
@@ -848,10 +849,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:47:7: ( 'ENCENDER' )
-            // InternalGratext.g:47:9: 'ENCENDER'
+            // InternalGratext.g:47:7: ( 'DETECTAR' )
+            // InternalGratext.g:47:9: 'DETECTAR'
             {
-            match("ENCENDER"); 
+            match("DETECTAR"); 
 
 
             }
@@ -869,10 +870,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:48:7: ( 'APAGAR' )
-            // InternalGratext.g:48:9: 'APAGAR'
+            // InternalGratext.g:48:7: ( 'ENCENDER' )
+            // InternalGratext.g:48:9: 'ENCENDER'
             {
-            match("APAGAR"); 
+            match("ENCENDER"); 
 
 
             }
@@ -890,10 +891,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:49:7: ( 'AUMENTAR' )
-            // InternalGratext.g:49:9: 'AUMENTAR'
+            // InternalGratext.g:49:7: ( 'APAGAR' )
+            // InternalGratext.g:49:9: 'APAGAR'
             {
-            match("AUMENTAR"); 
+            match("APAGAR"); 
 
 
             }
@@ -911,10 +912,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:50:7: ( 'DISMINUIR' )
-            // InternalGratext.g:50:9: 'DISMINUIR'
+            // InternalGratext.g:50:7: ( 'AUMENTAR' )
+            // InternalGratext.g:50:9: 'AUMENTAR'
             {
-            match("DISMINUIR"); 
+            match("AUMENTAR"); 
 
 
             }
@@ -932,10 +933,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:51:7: ( 'COMPROBAR' )
-            // InternalGratext.g:51:9: 'COMPROBAR'
+            // InternalGratext.g:51:7: ( 'DISMINUIR' )
+            // InternalGratext.g:51:9: 'DISMINUIR'
             {
-            match("COMPROBAR"); 
+            match("DISMINUIR"); 
 
 
             }
@@ -953,10 +954,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:52:7: ( 'ACTIVAR' )
-            // InternalGratext.g:52:9: 'ACTIVAR'
+            // InternalGratext.g:52:7: ( 'COMPROBAR' )
+            // InternalGratext.g:52:9: 'COMPROBAR'
             {
-            match("ACTIVAR"); 
+            match("COMPROBAR"); 
 
 
             }
@@ -974,10 +975,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:53:7: ( 'DESACTIVAR' )
-            // InternalGratext.g:53:9: 'DESACTIVAR'
+            // InternalGratext.g:53:7: ( 'ACTIVAR' )
+            // InternalGratext.g:53:9: 'ACTIVAR'
             {
-            match("DESACTIVAR"); 
+            match("ACTIVAR"); 
 
 
             }
@@ -995,10 +996,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:54:7: ( 'Granja:' )
-            // InternalGratext.g:54:9: 'Granja:'
+            // InternalGratext.g:54:7: ( 'DESACTIVAR' )
+            // InternalGratext.g:54:9: 'DESACTIVAR'
             {
-            match("Granja:"); 
+            match("DESACTIVAR"); 
 
 
             }
@@ -1016,10 +1017,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:55:7: ( 'Centralita:' )
-            // InternalGratext.g:55:9: 'Centralita:'
+            // InternalGratext.g:55:7: ( 'Granja:' )
+            // InternalGratext.g:55:9: 'Granja:'
             {
-            match("Centralita:"); 
+            match("Granja:"); 
 
 
             }
@@ -1037,10 +1038,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:56:7: ( 'Dispositivos{' )
-            // InternalGratext.g:56:9: 'Dispositivos{'
+            // InternalGratext.g:56:7: ( 'Centralita:' )
+            // InternalGratext.g:56:9: 'Centralita:'
             {
-            match("Dispositivos{"); 
+            match("Centralita:"); 
 
 
             }
@@ -1058,10 +1059,11 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:57:7: ( '}' )
-            // InternalGratext.g:57:9: '}'
+            // InternalGratext.g:57:7: ( 'Dispositivos{' )
+            // InternalGratext.g:57:9: 'Dispositivos{'
             {
-            match('}'); 
+            match("Dispositivos{"); 
+
 
             }
 
@@ -1078,11 +1080,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:58:7: ( 'Usuario:' )
-            // InternalGratext.g:58:9: 'Usuario:'
+            // InternalGratext.g:58:7: ( '}' )
+            // InternalGratext.g:58:9: '}'
             {
-            match("Usuario:"); 
-
+            match('}'); 
 
             }
 
@@ -1099,10 +1100,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:59:7: ( 'Contrase\\u00F1a:' )
-            // InternalGratext.g:59:9: 'Contrase\\u00F1a:'
+            // InternalGratext.g:59:7: ( 'Usuario:' )
+            // InternalGratext.g:59:9: 'Usuario:'
             {
-            match("Contrase\u00F1a:"); 
+            match("Usuario:"); 
 
 
             }
@@ -1120,10 +1121,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:60:7: ( 'Codigo:' )
-            // InternalGratext.g:60:9: 'Codigo:'
+            // InternalGratext.g:60:7: ( 'Contrase\\u00F1a:' )
+            // InternalGratext.g:60:9: 'Contrase\\u00F1a:'
             {
-            match("Codigo:"); 
+            match("Contrase\u00F1a:"); 
 
 
             }
@@ -1141,10 +1142,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:61:7: ( 'Sensor' )
-            // InternalGratext.g:61:9: 'Sensor'
+            // InternalGratext.g:61:7: ( 'Codigo:' )
+            // InternalGratext.g:61:9: 'Codigo:'
             {
-            match("Sensor"); 
+            match("Codigo:"); 
 
 
             }
@@ -1162,10 +1163,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:62:7: ( 'quiero' )
-            // InternalGratext.g:62:9: 'quiero'
+            // InternalGratext.g:62:7: ( 'Sensor' )
+            // InternalGratext.g:62:9: 'Sensor'
             {
-            match("quiero"); 
+            match("Sensor"); 
 
 
             }
@@ -1183,10 +1184,11 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:63:7: ( '.' )
-            // InternalGratext.g:63:9: '.'
+            // InternalGratext.g:63:7: ( 'quiero' )
+            // InternalGratext.g:63:9: 'quiero'
             {
-            match('.'); 
+            match("quiero"); 
+
 
             }
 
@@ -1198,15 +1200,35 @@ public class InternalGratextLexer extends Lexer {
     }
     // $ANTLR end "T__63"
 
+    // $ANTLR start "T__64"
+    public final void mT__64() throws RecognitionException {
+        try {
+            int _type = T__64;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalGratext.g:64:7: ( '.' )
+            // InternalGratext.g:64:9: '.'
+            {
+            match('.'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__64"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:1387:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalGratext.g:1387:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalGratext.g:1393:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalGratext.g:1393:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalGratext.g:1387:11: ( '^' )?
+            // InternalGratext.g:1393:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1215,7 +1237,7 @@ public class InternalGratextLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalGratext.g:1387:11: '^'
+                    // InternalGratext.g:1393:11: '^'
                     {
                     match('^'); 
 
@@ -1233,7 +1255,7 @@ public class InternalGratextLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalGratext.g:1387:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalGratext.g:1393:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1282,10 +1304,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:1389:10: ( ( '0' .. '9' )+ )
-            // InternalGratext.g:1389:12: ( '0' .. '9' )+
+            // InternalGratext.g:1395:10: ( ( '0' .. '9' )+ )
+            // InternalGratext.g:1395:12: ( '0' .. '9' )+
             {
-            // InternalGratext.g:1389:12: ( '0' .. '9' )+
+            // InternalGratext.g:1395:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1299,7 +1321,7 @@ public class InternalGratextLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalGratext.g:1389:13: '0' .. '9'
+            	    // InternalGratext.g:1395:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1331,10 +1353,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:1391:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalGratext.g:1391:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalGratext.g:1397:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalGratext.g:1397:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalGratext.g:1391:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalGratext.g:1397:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1352,10 +1374,10 @@ public class InternalGratextLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalGratext.g:1391:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalGratext.g:1397:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalGratext.g:1391:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalGratext.g:1397:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1371,7 +1393,7 @@ public class InternalGratextLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalGratext.g:1391:21: '\\\\' .
+                    	    // InternalGratext.g:1397:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1379,7 +1401,7 @@ public class InternalGratextLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalGratext.g:1391:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalGratext.g:1397:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1404,10 +1426,10 @@ public class InternalGratextLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalGratext.g:1391:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalGratext.g:1397:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalGratext.g:1391:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalGratext.g:1397:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1423,7 +1445,7 @@ public class InternalGratextLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalGratext.g:1391:54: '\\\\' .
+                    	    // InternalGratext.g:1397:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1431,7 +1453,7 @@ public class InternalGratextLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalGratext.g:1391:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalGratext.g:1397:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1474,12 +1496,12 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:1393:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalGratext.g:1393:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalGratext.g:1399:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalGratext.g:1399:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalGratext.g:1393:24: ( options {greedy=false; } : . )*
+            // InternalGratext.g:1399:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1504,7 +1526,7 @@ public class InternalGratextLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalGratext.g:1393:52: .
+            	    // InternalGratext.g:1399:52: .
             	    {
             	    matchAny(); 
 
@@ -1534,12 +1556,12 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:1395:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalGratext.g:1395:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalGratext.g:1401:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalGratext.g:1401:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalGratext.g:1395:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalGratext.g:1401:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1552,7 +1574,7 @@ public class InternalGratextLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalGratext.g:1395:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalGratext.g:1401:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1572,7 +1594,7 @@ public class InternalGratextLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalGratext.g:1395:40: ( ( '\\r' )? '\\n' )?
+            // InternalGratext.g:1401:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1581,9 +1603,9 @@ public class InternalGratextLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalGratext.g:1395:41: ( '\\r' )? '\\n'
+                    // InternalGratext.g:1401:41: ( '\\r' )? '\\n'
                     {
-                    // InternalGratext.g:1395:41: ( '\\r' )?
+                    // InternalGratext.g:1401:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1592,7 +1614,7 @@ public class InternalGratextLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalGratext.g:1395:41: '\\r'
+                            // InternalGratext.g:1401:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1624,10 +1646,10 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:1397:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalGratext.g:1397:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalGratext.g:1403:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalGratext.g:1403:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalGratext.g:1397:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalGratext.g:1403:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1681,8 +1703,8 @@ public class InternalGratextLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGratext.g:1399:16: ( . )
-            // InternalGratext.g:1399:18: .
+            // InternalGratext.g:1405:16: ( . )
+            // InternalGratext.g:1405:18: .
             {
             matchAny(); 
 
@@ -1697,8 +1719,8 @@ public class InternalGratextLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalGratext.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=60;
+        // InternalGratext.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=61;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -2073,49 +2095,56 @@ public class InternalGratextLexer extends Lexer {
                 }
                 break;
             case 54 :
-                // InternalGratext.g:1:328: RULE_ID
+                // InternalGratext.g:1:328: T__64
+                {
+                mT__64(); 
+
+                }
+                break;
+            case 55 :
+                // InternalGratext.g:1:334: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 55 :
-                // InternalGratext.g:1:336: RULE_INT
+            case 56 :
+                // InternalGratext.g:1:342: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 56 :
-                // InternalGratext.g:1:345: RULE_STRING
+            case 57 :
+                // InternalGratext.g:1:351: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 57 :
-                // InternalGratext.g:1:357: RULE_ML_COMMENT
+            case 58 :
+                // InternalGratext.g:1:363: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 58 :
-                // InternalGratext.g:1:373: RULE_SL_COMMENT
+            case 59 :
+                // InternalGratext.g:1:379: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 59 :
-                // InternalGratext.g:1:389: RULE_WS
+            case 60 :
+                // InternalGratext.g:1:395: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 60 :
-                // InternalGratext.g:1:397: RULE_ANY_OTHER
+            case 61 :
+                // InternalGratext.g:1:403: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2129,17 +2158,17 @@ public class InternalGratextLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\21\41\1\uffff\2\41\1\uffff\1\35\2\uffff\3\35\2\uffff\3\41\1\uffff\43\41\1\uffff\2\41\6\uffff\21\41\1\u0091\6\41\1\u0098\11\41\1\u00a2\40\41\1\uffff\6\41\1\uffff\11\41\1\uffff\27\41\1\u00ea\3\41\1\u00ee\35\41\1\u010c\15\41\1\uffff\1\u011a\1\u011b\1\41\1\uffff\3\41\1\u0120\1\41\1\u0122\4\41\1\u0127\10\41\1\u0130\2\41\1\u0133\1\u0134\3\41\1\u0138\1\41\1\uffff\1\u013a\3\41\1\u013e\1\u013f\5\41\1\u0145\1\41\2\uffff\4\41\1\uffff\1\41\1\uffff\2\41\1\uffff\1\41\2\uffff\7\41\1\uffff\2\41\2\uffff\3\41\1\uffff\1\u015b\1\uffff\1\41\1\u015d\1\41\2\uffff\1\41\1\u0160\3\41\1\uffff\3\41\1\u0167\16\41\1\u0176\2\41\1\uffff\1\u0179\2\uffff\1\41\1\uffff\1\41\1\u017c\3\41\1\u0180\1\uffff\1\u0181\1\u0182\1\41\1\uffff\1\41\1\u0185\10\41\1\uffff\2\41\1\uffff\1\41\1\u0191\1\uffff\3\41\3\uffff\1\41\1\u0196\1\uffff\6\41\1\u019d\1\41\1\u019f\2\41\1\uffff\2\41\1\u01a4\2\uffff\5\41\1\u01aa\1\uffff\1\41\1\uffff\1\u01ac\3\41\1\uffff\5\41\1\uffff\1\41\1\uffff\1\41\1\uffff\7\41\1\u01be\2\41\1\u01c1\4\41\1\uffff\2\41\1\uffff\1\u01c8\1\u01c9\4\41\2\uffff\3\41\1\u01d1\1\u01d2\2\41\2\uffff\7\41\1\u01dc\1\u01dd\2\uffff";
+        "\1\uffff\21\41\1\uffff\2\41\1\uffff\1\35\2\uffff\3\35\2\uffff\3\41\1\uffff\43\41\1\uffff\2\41\6\uffff\22\41\1\u0093\6\41\1\u009a\11\41\1\u00a4\41\41\1\uffff\6\41\1\uffff\11\41\1\uffff\27\41\1\u00ed\4\41\1\u00f2\35\41\1\u0110\15\41\1\uffff\1\u011e\1\u011f\2\41\1\uffff\3\41\1\u0125\1\41\1\u0127\4\41\1\u012c\10\41\1\u0135\2\41\1\u0138\1\u0139\3\41\1\u013d\1\41\1\uffff\1\u013f\3\41\1\u0143\1\u0144\5\41\1\u014a\1\41\2\uffff\5\41\1\uffff\1\41\1\uffff\2\41\1\uffff\1\41\2\uffff\7\41\1\uffff\2\41\2\uffff\3\41\1\uffff\1\u0161\1\uffff\1\41\1\u0163\1\41\2\uffff\1\41\1\u0166\3\41\1\uffff\4\41\1\u016e\16\41\1\u017d\2\41\1\uffff\1\u0180\2\uffff\1\41\1\uffff\1\41\1\u0183\4\41\1\u0188\1\uffff\1\u0189\1\u018a\1\41\1\uffff\1\41\1\u018d\10\41\1\uffff\2\41\1\uffff\1\41\1\u0199\1\uffff\3\41\1\u019d\3\uffff\1\41\1\u019f\1\uffff\6\41\1\u01a6\1\41\1\u01a8\2\41\1\uffff\2\41\1\u01ad\3\uffff\5\41\1\u01b3\1\uffff\1\41\1\uffff\1\u01b5\3\41\1\uffff\5\41\1\uffff\1\41\1\uffff\1\41\1\uffff\7\41\1\u01c7\2\41\1\u01ca\4\41\1\uffff\2\41\1\uffff\1\u01d1\1\u01d2\4\41\2\uffff\3\41\1\u01da\1\u01db\2\41\2\uffff\7\41\1\u01e5\1\u01e6\2\uffff";
     static final String DFA12_eofS =
-        "\u01de\uffff";
+        "\u01e7\uffff";
     static final String DFA12_minS =
-        "\1\0\1\105\3\101\1\122\1\101\1\125\1\101\1\122\2\101\1\114\1\115\1\116\1\111\1\105\1\102\1\uffff\1\163\1\165\1\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\114\1\123\1\163\1\uffff\1\105\1\103\1\156\1\102\1\115\1\126\1\107\1\103\1\104\1\115\1\62\1\122\1\156\1\144\1\105\1\123\1\101\1\141\1\105\1\114\1\102\1\104\1\122\1\115\1\125\1\105\1\124\1\103\1\106\1\105\1\126\1\122\1\101\1\115\1\124\1\uffff\1\165\1\151\6\uffff\1\101\1\117\1\105\1\101\1\115\1\160\1\115\1\124\1\101\1\163\1\114\1\120\1\111\1\116\2\105\1\101\1\60\1\120\1\122\2\164\1\151\1\107\1\60\1\102\1\156\2\123\1\125\1\117\1\111\1\122\1\111\1\60\1\126\1\122\1\101\1\111\1\105\1\116\1\122\1\116\1\105\1\111\1\107\1\105\1\111\1\141\1\145\1\126\1\123\2\103\1\111\1\157\2\105\1\122\1\157\2\105\1\114\1\105\1\104\1\116\1\122\1\uffff\1\122\1\101\2\162\1\147\1\117\1\uffff\1\101\1\152\1\105\1\117\1\122\1\124\1\117\1\105\1\116\1\uffff\1\111\1\107\1\103\1\101\1\116\1\104\1\101\1\124\2\122\1\101\1\116\1\126\2\162\1\101\1\111\2\124\1\116\1\163\1\116\1\115\1\60\1\162\1\124\1\122\1\60\1\124\1\117\2\101\1\117\1\122\2\141\1\157\1\137\1\122\1\141\1\116\1\115\1\101\1\137\1\106\1\122\1\117\1\101\1\105\1\111\1\117\1\122\1\104\1\101\1\122\1\117\1\101\1\60\1\122\1\124\1\101\1\151\1\157\1\114\1\124\1\101\1\111\1\125\1\151\1\123\1\101\1\uffff\2\60\1\101\1\uffff\1\111\1\122\1\104\1\60\1\102\1\60\1\154\1\163\1\72\1\110\1\60\1\72\1\103\1\105\1\137\1\114\1\122\1\101\1\123\1\60\1\116\1\117\2\60\1\105\1\103\1\122\1\60\1\123\1\uffff\1\60\1\101\1\122\1\157\2\60\1\117\1\122\1\126\1\111\1\164\1\60\1\137\2\uffff\1\124\1\103\1\101\1\117\1\uffff\1\101\1\uffff\1\151\1\145\1\uffff\1\125\2\uffff\1\111\1\124\1\103\1\111\1\105\1\137\1\111\1\uffff\1\103\1\116\2\uffff\1\122\1\111\1\117\1\uffff\1\60\1\uffff\1\122\1\60\1\72\2\uffff\1\137\1\60\1\101\1\122\1\151\1\uffff\1\111\1\125\1\117\1\60\2\122\1\164\1\u00f1\1\115\1\101\2\122\1\115\1\103\1\123\1\104\1\111\1\137\1\60\1\117\1\112\1\uffff\1\60\2\uffff\1\114\1\uffff\1\122\1\60\1\166\1\104\1\122\1\60\1\uffff\2\60\1\141\1\uffff\1\117\1\60\1\117\1\111\1\120\1\125\1\105\2\101\1\115\1\uffff\1\116\1\117\1\uffff\1\105\1\60\1\uffff\1\157\1\105\1\101\3\uffff\1\72\1\60\1\uffff\1\137\1\123\1\111\1\105\1\107\1\104\1\60\1\105\1\60\1\123\1\103\1\uffff\1\163\1\116\1\60\2\uffff\1\107\1\124\1\101\1\116\1\125\1\60\1\uffff\1\124\1\uffff\1\60\1\110\1\173\1\124\1\uffff\2\101\1\104\1\103\1\122\1\uffff\1\105\1\uffff\1\105\1\uffff\1\111\1\116\1\114\1\117\2\111\1\117\1\60\1\106\1\101\1\60\1\122\1\101\1\104\1\122\1\uffff\1\111\1\104\1\uffff\2\60\1\101\1\117\1\103\1\117\2\uffff\1\104\1\114\1\101\2\60\1\117\1\103\2\uffff\1\107\2\111\1\117\1\103\1\116\1\101\2\60\2\uffff";
+        "\1\0\1\105\3\101\1\122\1\101\1\125\1\101\1\122\2\101\1\114\1\115\1\116\1\111\1\105\1\102\1\uffff\1\163\1\165\1\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\114\1\123\1\163\1\uffff\1\105\1\103\1\156\1\102\1\115\1\126\1\107\1\103\1\104\1\115\1\62\1\122\1\156\1\144\1\105\1\123\1\101\1\141\1\105\1\114\1\102\1\104\1\122\1\115\1\125\1\105\1\124\1\103\1\106\1\105\1\126\1\122\1\101\1\115\1\124\1\uffff\1\165\1\151\6\uffff\1\101\1\117\1\105\1\101\1\115\1\160\1\115\1\124\1\101\1\163\1\114\1\120\1\115\1\111\1\116\2\105\1\101\1\60\1\120\1\122\2\164\1\151\1\107\1\60\1\102\1\156\2\123\1\125\1\117\1\111\1\122\1\111\1\60\1\126\1\122\1\101\1\111\1\105\1\116\1\122\1\116\1\105\1\111\1\107\1\105\1\111\1\141\1\145\1\126\1\123\2\103\1\111\1\157\2\105\1\122\1\157\2\105\1\117\1\114\1\105\1\104\1\116\1\122\1\uffff\1\122\1\101\2\162\1\147\1\117\1\uffff\1\101\1\152\1\105\1\117\1\122\1\124\1\117\1\105\1\116\1\uffff\1\111\1\107\1\103\1\101\1\116\1\104\1\101\1\124\2\122\1\101\1\116\1\126\2\162\1\101\1\111\2\124\1\116\1\163\1\116\1\115\1\60\1\162\1\124\1\122\1\123\1\60\1\124\1\117\2\101\1\117\1\122\2\141\1\157\1\137\1\122\1\141\1\116\1\115\1\101\1\137\1\106\1\122\1\117\1\101\1\105\1\111\1\117\1\122\1\104\1\101\1\122\1\117\1\101\1\60\1\122\1\124\1\101\1\151\1\157\1\114\1\124\1\101\1\111\1\125\1\151\1\123\1\101\1\uffff\2\60\1\101\1\124\1\uffff\1\111\1\122\1\104\1\60\1\102\1\60\1\154\1\163\1\72\1\110\1\60\1\72\1\103\1\105\1\137\1\114\1\122\1\101\1\123\1\60\1\116\1\117\2\60\1\105\1\103\1\122\1\60\1\123\1\uffff\1\60\1\101\1\122\1\157\2\60\1\117\1\122\1\126\1\111\1\164\1\60\1\137\2\uffff\1\124\1\101\1\103\1\101\1\117\1\uffff\1\101\1\uffff\1\151\1\145\1\uffff\1\125\2\uffff\1\111\1\124\1\103\1\111\1\105\1\137\1\111\1\uffff\1\103\1\116\2\uffff\1\122\1\111\1\117\1\uffff\1\60\1\uffff\1\122\1\60\1\72\2\uffff\1\137\1\60\1\101\1\122\1\151\1\uffff\1\111\1\125\1\124\1\117\1\60\2\122\1\164\1\u00f1\1\115\1\101\2\122\1\115\1\103\1\123\1\104\1\111\1\137\1\60\1\117\1\112\1\uffff\1\60\2\uffff\1\114\1\uffff\1\122\1\60\1\166\1\104\1\122\1\117\1\60\1\uffff\2\60\1\141\1\uffff\1\117\1\60\1\117\1\111\1\120\1\125\1\105\2\101\1\115\1\uffff\1\116\1\117\1\uffff\1\105\1\60\1\uffff\1\157\1\105\1\101\1\60\3\uffff\1\72\1\60\1\uffff\1\137\1\123\1\111\1\105\1\107\1\104\1\60\1\105\1\60\1\123\1\103\1\uffff\1\163\1\116\1\60\3\uffff\1\107\1\124\1\101\1\116\1\125\1\60\1\uffff\1\124\1\uffff\1\60\1\110\1\173\1\124\1\uffff\2\101\1\104\1\103\1\122\1\uffff\1\105\1\uffff\1\105\1\uffff\1\111\1\116\1\114\1\117\2\111\1\117\1\60\1\106\1\101\1\60\1\122\1\101\1\104\1\122\1\uffff\1\111\1\104\1\uffff\2\60\1\101\1\117\1\103\1\117\2\uffff\1\104\1\114\1\101\2\60\1\117\1\103\2\uffff\1\107\2\111\1\117\1\103\1\116\1\101\2\60\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\151\1\145\1\105\1\117\1\122\1\157\1\125\1\162\1\125\1\117\1\101\1\125\1\123\1\116\1\111\1\105\1\125\1\uffff\1\163\1\165\1\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\124\1\123\1\163\1\uffff\1\123\1\103\1\156\1\102\1\115\1\126\1\107\1\103\1\104\2\115\1\122\2\156\1\105\1\123\1\101\1\141\1\105\1\114\1\124\1\104\1\122\1\132\1\125\1\105\1\124\1\126\1\125\1\105\1\126\1\122\1\101\1\115\1\124\1\uffff\1\165\1\151\6\uffff\1\101\1\117\1\105\1\101\1\115\1\160\1\115\1\124\1\101\1\163\1\114\1\120\1\111\1\116\2\105\1\101\1\172\1\120\1\122\2\164\1\151\1\107\1\172\1\102\1\156\2\123\1\125\1\117\1\111\1\122\1\111\1\172\1\126\1\122\1\101\1\111\1\105\1\116\1\122\1\116\1\105\1\111\1\107\1\105\1\111\1\141\1\145\1\126\1\123\2\103\1\111\1\157\2\105\1\122\1\157\2\105\1\114\1\105\1\104\1\116\1\122\1\uffff\1\122\1\101\2\162\1\147\1\117\1\uffff\1\101\1\152\1\105\1\117\1\122\1\124\1\117\1\105\1\116\1\uffff\1\111\1\107\1\104\1\101\1\116\1\104\1\101\1\124\2\122\1\101\1\116\1\126\2\162\1\101\1\111\2\124\1\116\1\163\1\116\1\115\1\172\1\162\1\124\1\122\1\172\1\124\1\117\2\101\1\117\1\122\2\141\1\157\1\137\1\122\1\141\1\116\1\115\1\101\1\137\1\106\1\122\1\117\1\101\1\105\1\111\1\117\1\122\1\104\1\101\1\122\1\117\1\101\1\172\1\122\1\124\1\101\1\151\1\157\1\114\1\124\1\101\1\111\1\125\1\151\1\123\1\101\1\uffff\2\172\1\101\1\uffff\1\111\1\122\1\104\1\172\1\102\1\172\1\154\1\163\1\72\1\110\1\172\1\72\1\103\1\105\1\137\1\114\1\122\1\101\1\123\1\172\1\116\1\117\2\172\1\105\1\103\1\122\1\172\1\123\1\uffff\1\172\1\101\1\122\1\157\2\172\1\117\1\122\1\126\1\111\1\164\1\172\1\137\2\uffff\1\124\1\103\1\101\1\117\1\uffff\1\101\1\uffff\1\151\1\145\1\uffff\1\125\2\uffff\1\111\1\124\1\103\1\111\1\105\1\137\1\111\1\uffff\1\103\1\116\2\uffff\1\122\1\111\1\117\1\uffff\1\172\1\uffff\1\122\1\172\1\72\2\uffff\1\137\1\172\1\101\1\122\1\151\1\uffff\1\111\1\125\1\117\1\172\2\122\1\164\1\u00f1\1\115\1\101\2\122\1\115\1\103\1\123\1\104\1\111\1\137\1\172\1\117\1\112\1\uffff\1\172\2\uffff\1\114\1\uffff\1\122\1\172\1\166\1\104\1\122\1\172\1\uffff\2\172\1\141\1\uffff\1\117\1\172\1\117\1\111\1\120\1\125\1\105\2\101\1\115\1\uffff\1\116\1\117\1\uffff\1\105\1\172\1\uffff\1\157\1\105\1\101\3\uffff\1\72\1\172\1\uffff\1\137\1\123\1\111\1\105\1\107\1\104\1\172\1\105\1\172\1\123\1\103\1\uffff\1\163\1\116\1\172\2\uffff\1\107\1\124\1\101\1\116\1\125\1\172\1\uffff\1\124\1\uffff\1\172\1\110\1\173\1\124\1\uffff\2\101\1\104\1\103\1\122\1\uffff\1\105\1\uffff\1\105\1\uffff\1\111\1\116\1\114\1\117\2\111\1\117\1\172\1\106\1\101\1\172\1\122\1\101\1\104\1\122\1\uffff\1\111\1\104\1\uffff\2\172\1\101\1\117\1\103\1\117\2\uffff\1\104\1\114\1\101\2\172\1\117\1\103\2\uffff\1\107\2\111\1\117\1\103\1\116\1\101\2\172\2\uffff";
+        "\1\uffff\1\151\1\145\1\105\1\117\1\122\1\157\1\125\1\162\1\125\1\117\1\101\1\125\1\123\1\116\1\111\1\105\1\125\1\uffff\1\163\1\165\1\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\124\1\123\1\163\1\uffff\1\123\1\103\1\156\1\102\1\122\1\126\1\107\1\103\1\104\2\115\1\122\2\156\1\105\1\123\1\101\1\141\1\105\1\114\1\124\1\104\1\122\1\132\1\125\1\105\1\124\1\126\1\125\1\105\1\126\1\122\1\101\1\115\1\124\1\uffff\1\165\1\151\6\uffff\1\101\1\117\1\105\1\101\1\115\1\160\1\115\1\124\1\101\1\163\1\114\1\120\1\115\1\111\1\116\2\105\1\101\1\172\1\120\1\122\2\164\1\151\1\107\1\172\1\102\1\156\2\123\1\125\1\117\1\111\1\122\1\111\1\172\1\126\1\122\1\101\1\111\1\105\1\116\1\122\1\116\1\105\1\111\1\107\1\105\1\111\1\141\1\145\1\126\1\123\2\103\1\111\1\157\2\105\1\122\1\157\2\105\1\117\1\114\1\105\1\104\1\116\1\122\1\uffff\1\122\1\101\2\162\1\147\1\117\1\uffff\1\101\1\152\1\105\1\117\1\122\1\124\1\117\1\105\1\116\1\uffff\1\111\1\107\1\104\1\101\1\116\1\104\1\101\1\124\2\122\1\101\1\116\1\126\2\162\1\101\1\111\2\124\1\116\1\163\1\116\1\115\1\172\1\162\1\124\1\122\1\123\1\172\1\124\1\117\2\101\1\117\1\122\2\141\1\157\1\137\1\122\1\141\1\116\1\115\1\101\1\137\1\106\1\122\1\117\1\101\1\105\1\111\1\117\1\122\1\104\1\101\1\122\1\117\1\101\1\172\1\122\1\124\1\101\1\151\1\157\1\114\1\124\1\101\1\111\1\125\1\151\1\123\1\101\1\uffff\2\172\1\101\1\124\1\uffff\1\111\1\122\1\104\1\172\1\102\1\172\1\154\1\163\1\72\1\110\1\172\1\72\1\103\1\105\1\137\1\114\1\122\1\101\1\123\1\172\1\116\1\117\2\172\1\105\1\103\1\122\1\172\1\123\1\uffff\1\172\1\101\1\122\1\157\2\172\1\117\1\122\1\126\1\111\1\164\1\172\1\137\2\uffff\1\124\1\101\1\103\1\101\1\117\1\uffff\1\101\1\uffff\1\151\1\145\1\uffff\1\125\2\uffff\1\111\1\124\1\103\1\111\1\105\1\137\1\111\1\uffff\1\103\1\116\2\uffff\1\122\1\111\1\117\1\uffff\1\172\1\uffff\1\122\1\172\1\72\2\uffff\1\137\1\172\1\101\1\122\1\151\1\uffff\1\111\1\125\1\124\1\117\1\172\2\122\1\164\1\u00f1\1\115\1\101\2\122\1\115\1\103\1\123\1\104\1\111\1\137\1\172\1\117\1\112\1\uffff\1\172\2\uffff\1\114\1\uffff\1\122\1\172\1\166\1\104\1\122\1\117\1\172\1\uffff\2\172\1\141\1\uffff\1\117\1\172\1\117\1\111\1\120\1\125\1\105\2\101\1\115\1\uffff\1\116\1\117\1\uffff\1\105\1\172\1\uffff\1\157\1\105\1\101\1\172\3\uffff\1\72\1\172\1\uffff\1\137\1\123\1\111\1\105\1\107\1\104\1\172\1\105\1\172\1\123\1\103\1\uffff\1\163\1\116\1\172\3\uffff\1\107\1\124\1\101\1\116\1\125\1\172\1\uffff\1\124\1\uffff\1\172\1\110\1\173\1\124\1\uffff\2\101\1\104\1\103\1\122\1\uffff\1\105\1\uffff\1\105\1\uffff\1\111\1\116\1\114\1\117\2\111\1\117\1\172\1\106\1\101\1\172\1\122\1\101\1\104\1\122\1\uffff\1\111\1\104\1\uffff\2\172\1\101\1\117\1\103\1\117\2\uffff\1\104\1\114\1\101\2\172\1\117\1\103\2\uffff\1\107\2\111\1\117\1\103\1\116\1\101\2\172\2\uffff";
     static final String DFA12_acceptS =
-        "\22\uffff\1\57\2\uffff\1\65\1\uffff\1\66\1\67\3\uffff\1\73\1\74\3\uffff\1\66\43\uffff\1\57\2\uffff\1\65\1\67\1\70\1\71\1\72\1\73\103\uffff\1\11\6\uffff\1\12\11\uffff\1\35\107\uffff\1\40\3\uffff\1\4\35\uffff\1\36\15\uffff\1\63\1\3\4\uffff\1\6\1\uffff\1\41\2\uffff\1\62\1\uffff\1\43\1\54\7\uffff\1\23\2\uffff\1\42\1\37\3\uffff\1\22\1\uffff\1\46\3\uffff\1\64\1\1\5\uffff\1\2\25\uffff\1\34\1\uffff\1\52\1\60\1\uffff\1\44\6\uffff\1\30\3\uffff\1\61\12\uffff\1\45\2\uffff\1\47\2\uffff\1\50\3\uffff\1\14\1\5\1\51\2\uffff\1\13\13\uffff\1\53\3\uffff\1\55\1\10\6\uffff\1\20\1\uffff\1\21\4\uffff\1\7\5\uffff\1\17\1\uffff\1\26\1\uffff\1\56\17\uffff\1\32\2\uffff\1\15\6\uffff\1\33\1\27\7\uffff\1\31\1\16\11\uffff\1\25\1\24";
+        "\22\uffff\1\60\2\uffff\1\66\1\uffff\1\67\1\70\3\uffff\1\74\1\75\3\uffff\1\67\43\uffff\1\60\2\uffff\1\66\1\70\1\71\1\72\1\73\1\74\105\uffff\1\11\6\uffff\1\12\11\uffff\1\35\110\uffff\1\41\4\uffff\1\4\35\uffff\1\37\15\uffff\1\64\1\3\5\uffff\1\6\1\uffff\1\42\2\uffff\1\63\1\uffff\1\44\1\55\7\uffff\1\23\2\uffff\1\43\1\40\3\uffff\1\22\1\uffff\1\47\3\uffff\1\65\1\1\5\uffff\1\2\26\uffff\1\34\1\uffff\1\53\1\61\1\uffff\1\45\7\uffff\1\30\3\uffff\1\62\12\uffff\1\46\2\uffff\1\50\2\uffff\1\51\4\uffff\1\14\1\5\1\52\2\uffff\1\13\13\uffff\1\54\3\uffff\1\36\1\56\1\10\6\uffff\1\20\1\uffff\1\21\4\uffff\1\7\5\uffff\1\17\1\uffff\1\26\1\uffff\1\57\17\uffff\1\32\2\uffff\1\15\6\uffff\1\33\1\27\7\uffff\1\31\1\16\11\uffff\1\25\1\24";
     static final String DFA12_specialS =
-        "\1\0\30\uffff\1\1\1\2\u01c3\uffff}>";
+        "\1\0\30\uffff\1\1\1\2\u01cc\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\35\2\34\2\35\1\34\22\35\1\34\1\35\1\31\4\35\1\32\6\35\1\25\1\33\12\30\7\35\1\21\1\13\1\6\1\1\1\15\1\7\1\10\1\27\1\16\2\27\1\14\1\4\1\20\1\5\1\11\1\27\1\12\1\2\1\3\1\23\1\17\4\27\3\35\1\26\1\27\1\35\20\27\1\24\11\27\2\35\1\22\uff82\35",
             "\1\36\3\uffff\1\37\37\uffff\1\40",
@@ -2179,47 +2208,46 @@ public class InternalGratextLexer extends Lexer {
             "\1\126",
             "\1\127",
             "\1\130",
-            "\1\131",
-            "\1\132",
+            "\1\131\4\uffff\1\132",
             "\1\133",
             "\1\134",
             "\1\135",
             "\1\136",
-            "\1\137\32\uffff\1\140",
-            "\1\141",
+            "\1\137",
+            "\1\140\32\uffff\1\141",
             "\1\142",
-            "\1\144\11\uffff\1\143",
-            "\1\145",
+            "\1\143",
+            "\1\145\11\uffff\1\144",
             "\1\146",
             "\1\147",
             "\1\150",
             "\1\151",
             "\1\152",
-            "\1\154\21\uffff\1\153",
-            "\1\155",
+            "\1\153",
+            "\1\155\21\uffff\1\154",
             "\1\156",
-            "\1\157\14\uffff\1\160",
-            "\1\161",
+            "\1\157",
+            "\1\160\14\uffff\1\161",
             "\1\162",
             "\1\163",
-            "\1\165\22\uffff\1\164",
-            "\1\167\16\uffff\1\166",
-            "\1\170",
+            "\1\164",
+            "\1\166\22\uffff\1\165",
+            "\1\170\16\uffff\1\167",
             "\1\171",
             "\1\172",
             "\1\173",
             "\1\174",
             "\1\175",
-            "",
             "\1\176",
+            "",
             "\1\177",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u0080",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u0081",
             "\1\u0082",
             "\1\u0083",
@@ -2236,16 +2264,16 @@ public class InternalGratextLexer extends Lexer {
             "\1\u008e",
             "\1\u008f",
             "\1\u0090",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0091",
             "\1\u0092",
-            "\1\u0093",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u0094",
             "\1\u0095",
             "\1\u0096",
             "\1\u0097",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0098",
             "\1\u0099",
-            "\1\u009a",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u009b",
             "\1\u009c",
             "\1\u009d",
@@ -2253,9 +2281,9 @@ public class InternalGratextLexer extends Lexer {
             "\1\u009f",
             "\1\u00a0",
             "\1\u00a1",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00a2",
             "\1\u00a3",
-            "\1\u00a4",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u00a5",
             "\1\u00a6",
             "\1\u00a7",
@@ -2286,30 +2314,30 @@ public class InternalGratextLexer extends Lexer {
             "\1\u00c0",
             "\1\u00c1",
             "\1\u00c2",
-            "",
             "\1\u00c3",
             "\1\u00c4",
             "\1\u00c5",
+            "",
             "\1\u00c6",
             "\1\u00c7",
             "\1\u00c8",
-            "",
             "\1\u00c9",
             "\1\u00ca",
             "\1\u00cb",
+            "",
             "\1\u00cc",
             "\1\u00cd",
             "\1\u00ce",
             "\1\u00cf",
             "\1\u00d0",
             "\1\u00d1",
-            "",
             "\1\u00d2",
             "\1\u00d3",
-            "\1\u00d4\1\u00d5",
+            "\1\u00d4",
+            "",
+            "\1\u00d5",
             "\1\u00d6",
-            "\1\u00d7",
-            "\1\u00d8",
+            "\1\u00d7\1\u00d8",
             "\1\u00d9",
             "\1\u00da",
             "\1\u00db",
@@ -2327,15 +2355,15 @@ public class InternalGratextLexer extends Lexer {
             "\1\u00e7",
             "\1\u00e8",
             "\1\u00e9",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00ea",
             "\1\u00eb",
             "\1\u00ec",
-            "\1\u00ed",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00ee",
             "\1\u00ef",
             "\1\u00f0",
             "\1\u00f1",
-            "\1\u00f2",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u00f3",
             "\1\u00f4",
             "\1\u00f5",
@@ -2361,11 +2389,11 @@ public class InternalGratextLexer extends Lexer {
             "\1\u0109",
             "\1\u010a",
             "\1\u010b",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u010c",
             "\1\u010d",
             "\1\u010e",
             "\1\u010f",
-            "\1\u0110",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u0111",
             "\1\u0112",
             "\1\u0113",
@@ -2375,109 +2403,109 @@ public class InternalGratextLexer extends Lexer {
             "\1\u0117",
             "\1\u0118",
             "\1\u0119",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u011a",
+            "\1\u011b",
             "\1\u011c",
-            "",
             "\1\u011d",
-            "\1\u011e",
-            "\1\u011f",
+            "",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0120",
             "\1\u0121",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
+            "\1\u0122",
             "\1\u0123",
             "\1\u0124",
-            "\1\u0125",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u0126",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u0128",
             "\1\u0129",
             "\1\u012a",
             "\1\u012b",
-            "\1\u012c",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u012d",
             "\1\u012e",
             "\1\u012f",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0130",
             "\1\u0131",
             "\1\u0132",
+            "\1\u0133",
+            "\1\u0134",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u0135",
             "\1\u0136",
             "\1\u0137",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u0139",
-            "",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u013a",
             "\1\u013b",
             "\1\u013c",
-            "\1\u013d",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u013e",
+            "",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u0140",
             "\1\u0141",
             "\1\u0142",
-            "\1\u0143",
-            "\1\u0144",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0145",
             "\1\u0146",
-            "",
-            "",
             "\1\u0147",
             "\1\u0148",
             "\1\u0149",
-            "\1\u014a",
-            "",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u014b",
+            "",
             "",
             "\1\u014c",
             "\1\u014d",
-            "",
             "\1\u014e",
-            "",
-            "",
             "\1\u014f",
             "\1\u0150",
+            "",
             "\1\u0151",
+            "",
             "\1\u0152",
             "\1\u0153",
-            "\1\u0154",
-            "\1\u0155",
             "",
+            "\1\u0154",
+            "",
+            "",
+            "\1\u0155",
             "\1\u0156",
             "\1\u0157",
-            "",
-            "",
             "\1\u0158",
             "\1\u0159",
             "\1\u015a",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u015b",
             "",
             "\1\u015c",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u015d",
+            "",
+            "",
             "\1\u015e",
-            "",
-            "",
             "\1\u015f",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u0161",
-            "\1\u0162",
-            "\1\u0163",
+            "\1\u0160",
             "",
-            "\1\u0164",
-            "\1\u0165",
-            "\1\u0166",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
+            "\1\u0162",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0164",
+            "",
+            "",
+            "\1\u0165",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0167",
             "\1\u0168",
             "\1\u0169",
+            "",
             "\1\u016a",
             "\1\u016b",
             "\1\u016c",
             "\1\u016d",
-            "\1\u016e",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u016f",
             "\1\u0170",
             "\1\u0171",
@@ -2485,136 +2513,146 @@ public class InternalGratextLexer extends Lexer {
             "\1\u0173",
             "\1\u0174",
             "\1\u0175",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0176",
             "\1\u0177",
             "\1\u0178",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
-            "",
+            "\1\u0179",
             "\1\u017a",
-            "",
             "\1\u017b",
+            "\1\u017c",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u017d",
             "\1\u017e",
             "\1\u017f",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u0183",
             "",
+            "",
+            "\1\u0181",
+            "",
+            "\1\u0182",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u0184",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0185",
             "\1\u0186",
             "\1\u0187",
-            "\1\u0188",
-            "\1\u0189",
-            "\1\u018a",
-            "\1\u018b",
-            "\1\u018c",
-            "\1\u018d",
-            "",
-            "\1\u018e",
-            "\1\u018f",
-            "",
-            "\1\u0190",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u018b",
+            "",
+            "\1\u018c",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u018e",
+            "\1\u018f",
+            "\1\u0190",
+            "\1\u0191",
             "\1\u0192",
             "\1\u0193",
             "\1\u0194",
-            "",
-            "",
-            "",
             "\1\u0195",
+            "",
+            "\1\u0196",
+            "\1\u0197",
+            "",
+            "\1\u0198",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "",
-            "\1\u0197",
-            "\1\u0198",
-            "\1\u0199",
             "\1\u019a",
             "\1\u019b",
             "\1\u019c",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
+            "",
+            "",
             "\1\u019e",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
             "\1\u01a0",
             "\1\u01a1",
-            "",
             "\1\u01a2",
             "\1\u01a3",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
-            "",
+            "\1\u01a4",
             "\1\u01a5",
-            "\1\u01a6",
-            "\1\u01a7",
-            "\1\u01a8",
-            "\1\u01a9",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u01a7",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u01a9",
+            "\1\u01aa",
             "",
             "\1\u01ab",
-            "",
+            "\1\u01ac",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u01ad",
+            "",
+            "",
+            "",
             "\1\u01ae",
             "\1\u01af",
-            "",
             "\1\u01b0",
             "\1\u01b1",
             "\1\u01b2",
-            "\1\u01b3",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
             "\1\u01b4",
             "",
-            "\1\u01b5",
-            "",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u01b6",
-            "",
             "\1\u01b7",
             "\1\u01b8",
+            "",
             "\1\u01b9",
             "\1\u01ba",
             "\1\u01bb",
             "\1\u01bc",
             "\1\u01bd",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
+            "\1\u01be",
+            "",
             "\1\u01bf",
+            "",
             "\1\u01c0",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u01c1",
             "\1\u01c2",
             "\1\u01c3",
             "\1\u01c4",
             "\1\u01c5",
-            "",
             "\1\u01c6",
-            "\1\u01c7",
-            "",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u01c8",
+            "\1\u01c9",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u01ca",
             "\1\u01cb",
             "\1\u01cc",
             "\1\u01cd",
-            "",
-            "",
             "\1\u01ce",
+            "",
             "\1\u01cf",
             "\1\u01d0",
+            "",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u01d3",
             "\1\u01d4",
-            "",
-            "",
             "\1\u01d5",
             "\1\u01d6",
+            "",
+            "",
             "\1\u01d7",
             "\1\u01d8",
             "\1\u01d9",
-            "\1\u01da",
-            "\1\u01db",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u01dc",
+            "\1\u01dd",
+            "",
+            "",
+            "\1\u01de",
+            "\1\u01df",
+            "\1\u01e0",
+            "\1\u01e1",
+            "\1\u01e2",
+            "\1\u01e3",
+            "\1\u01e4",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "",
@@ -2651,7 +2689,7 @@ public class InternalGratextLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

@@ -409,6 +409,12 @@ rule__TiposDispositivo__Alternatives
 		('LUZ')
 		{ after(grammarAccess.getTiposDispositivoAccess().getLUZEnumLiteralDeclaration_23()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getTiposDispositivoAccess().getTERMOSTATOEnumLiteralDeclaration_24()); }
+		('TERMOSTATO')
+		{ after(grammarAccess.getTiposDispositivoAccess().getTERMOSTATOEnumLiteralDeclaration_24()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);

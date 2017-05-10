@@ -13,134 +13,110 @@ import org.xtext.dsl.gratext.gratext.accion
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class GratextValidator extends AbstractGratextValidator {
-public static val INVALID_NAME = 'invalidName'
-public static val NAME_LONG = 'Nombre_Largo'
-public static val ACCION_INCORRECTA = 'Accion_incorrecta'
-public static val TEMPERATURA_INCORRECTA = 'Temperatura_incorrecta'
-public static val NUMERO_INCORRECTO = 'Numero_incorrecto'
-protected int i = 0;
+	public static val INVALID_NAME = 'invalidName'
+	public static val NAME_LONG = 'Nombre_Largo'
+	public static val ACCION_INCORRECTA = 'Accion_incorrecta'
+	public static val TEMPERATURA_INCORRECTA = 'Temperatura_incorrecta'
+	public static val NUMERO_INCORRECTO = 'Numero_incorrecto'
+	protected int i = 0;
 
+	@Check
+	def checkDispositvoBarrerar(Dispositivos dispositivo) {
+		if (dispositivo.nombre.getName.equals("BARRERA_SEGURIDAD") && !checkBarrera(dispositivo.accion)) {
+			error("La accion no es la correcta para este dispositivo barrera",
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
 
+		}
 
-@Check
-def checkDispositvoBarrerar(Dispositivos dispositivo) {
-	if (dispositivo.nombre.getName.equals("BARRERA_SEGURIDAD") && !checkBarrera(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo barrera", GratextPackage.Literals.DISPOSITIVOS__ACCION,
-			ACCION_INCORRECTA)
+	}
+
+	@Check
+	def checkCodigo(Dispositivos dispositivo) {
+		if (dispositivo.codigo.length > 20) {
+			warning(
+				"No se recomiendan nombres de codigos de mas de 20 carcateres",
+				GratextPackage.Literals.DISPOSITIVOS__CODIGO,
+				NAME_LONG
+			)
+		}
 
 	}
 
-}
+	@Check
+	def checkDispositivoCamara(Dispositivos dispositivo) {
+		if (dispositivo.nombre.getName.equals("CAMARA") && !checkCamara(dispositivo.accion)) {
+			error("La accion no es la correcta para este dispositivo solo camara",
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
 
-@Check
-def checkCodigo(Dispositivos dispositivo) {
-	if (dispositivo.codigo.length > 20) {
-		warning(
-			"No se recomiendan nombres de codigos de mas de 20 carcateres",
-			GratextPackage.Literals.DISPOSITIVOS__CODIGO,
-			NAME_LONG
-		)
+		}
 	}
 
-}
-
-@Check
-def checkDispositivoCamara(Dispositivos dispositivo) {
-	if (dispositivo.nombre.getName.equals("CAMARA") && !checkCamara(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo solo camara", GratextPackage.Literals.DISPOSITIVOS__ACCION,
-			ACCION_INCORRECTA)
-
+	def checkCamara(accion accion) {
+		if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
+			accion.nombreAccion.getName.equals("SACAR") || accion.nombreAccion.getName.equals("GRABAR") ||
+			accion.nombreAccion.getName.equals("ACTIVAR") || accion.nombreAccion.getName.equals("DESACTIVAR"))
+			true
 	}
-}
 
-def checkCamara(accion accion) {
-	if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
-		accion.nombreAccion.getName.equals("SACAR") || accion.nombreAccion.getName.equals("GRABAR") ||
-		accion.nombreAccion.getName.equals("ACTIVAR") || accion.nombreAccion.getName.equals("DESACTIVAR"))
-		true
-}
+	@Check
+	def checkDispositivoEstado(Dispositivos dispositivo) {
+		if ((dispositivo.nombre.getName.equals("DEPOSITO_LECHE") || dispositivo.nombre.getName.equals("EMERGENCIA") ||
+			dispositivo.nombre.getName.equals("FUEGO_HUMO") || dispositivo.nombre.getName.equals("INUNDACION") ||
+			dispositivo.nombre.getName.equals("VIENTO") || dispositivo.nombre.getName.equals("ROTURA_CRISTAL") ||
+			dispositivo.nombre.getName.equals("CO2") || dispositivo.nombre.getName.equals("LLUVIA") ||
+			dispositivo.nombre.getName.equals("ESTACION_METEOROLOGICA") ) && !checkEstado(dispositivo.accion)) {
+			error("La accion no es la correcta para este dispositivo estados",
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
 
-@Check
-def checkDispositivoEstado(Dispositivos dispositivo) {
-	if ((dispositivo.nombre.getName.equals("DEPOSITO_LECHE") || dispositivo.nombre.getName.equals("EMERGENCIA") ||
-		dispositivo.nombre.getName.equals("FUEGO_HUMO") || dispositivo.nombre.getName.equals("INUNDACION") ||
-		dispositivo.nombre.getName.equals("VIENTO") || dispositivo.nombre.getName.equals("ROTURA_CRISTAL") ||
-		dispositivo.nombre.getName.equals("CO2") || dispositivo.nombre.getName.equals("LLUVIA") ||
-		dispositivo.nombre.getName.equals("ESTACION_METEOROLOGICA") ) && !checkEstado(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo estados", GratextPackage.Literals.DISPOSITIVOS__ACCION,
-			ACCION_INCORRECTA)
-
+		}
 	}
-}
 
-def checkEstado(accion accion) {
-	if (accion.nombreAccion.getName.equals("ESTADO"))
-		true
-}
-
-@Check
-def checkDispositivoADE(Dispositivos dispositivo) {
-	if ((dispositivo.nombre.getName.equals("ROBOT_LIMPIADOR") || dispositivo.nombre.getName.equals("LUMINOSIDAD") ||
-		dispositivo.nombre.getName.equals("NEVERAS") || dispositivo.nombre.getName.equals("RADIOFRECUENCIA") ) &&
-		!checkADE(dispositivo.accion)) {
-		error("La accion no es la correcta para este dispositivo ADE", GratextPackage.Literals.DISPOSITIVOS__ACCION,
-			ACCION_INCORRECTA)
-
+	def checkEstado(accion accion) {
+		if (accion.nombreAccion.getName.equals("ESTADO"))
+			true
 	}
-}
 
-def checkADE(accion accion) {
-	if (checkEstado(accion) || accion.nombreAccion.getName.equals("APAGAR") ||
-		accion.nombreAccion.getName.equals("ENCENDER") || accion.nombreAccion.getName.equals("ACTIVAR") ||
-		accion.nombreAccion.getName.equals("DESCATIVAR"))
-		true
-}
+	@Check
+	def checkDispositivoADE(Dispositivos dispositivo) {
+		if ((dispositivo.nombre.getName.equals("ROBOT_LIMPIADOR") || dispositivo.nombre.getName.equals("LUMINOSIDAD") ||
+			dispositivo.nombre.getName.equals("NEVERAS") || dispositivo.nombre.getName.equals("RADIOFRECUENCIA") ) &&
+			!checkADE(dispositivo.accion)) {
+			error("La accion no es la correcta para este dispositivo ADE", GratextPackage.Literals.DISPOSITIVOS__ACCION,
+				ACCION_INCORRECTA)
 
-def checkBarrera(accion accion) {
-	if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
-		accion.nombreAccion.getName.equals("ESTADO"))
-		true
-}
-
-@Check
-def checkDispositivoTemperatura(Dispositivos dispositivo) {
-	if (dispositivo.nombre.getName.equals("TEMPERATURA") && !checkTemperatura(dispositivo.temperatura))
-		warning("Recuerde que necesita el lugar AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE",
-			GratextPackage.Literals.DISPOSITIVOS__NOMBRE, TEMPERATURA_INCORRECTA)
-	else if (!dispositivo.nombre.getName.equals("TEMPERATURA") && checkTemperatura(dispositivo.temperatura)) {
-		error("No es posible poner estos valores para " + dispositivo.nombre,
-			GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_INCORRECTA)
+		}
 	}
-}
 
-def checkTemperatura(String estado) {
-	if (estado.equalsIgnoreCase("AMBIENTE") || estado.equalsIgnoreCase("INTERNA") ||
-		estado.equalsIgnoreCase("NEVERA") || estado.equalsIgnoreCase("MECEDORA") ||
-		estado.equalsIgnoreCase("DEPOSITO_LECHE") || estado.equalsIgnoreCase("EXTERNA"))
-		return true
-}
+	def checkADE(accion accion) {
+		if (checkEstado(accion) || accion.nombreAccion.getName.equals("APAGAR") ||
+			accion.nombreAccion.getName.equals("ENCENDER") || accion.nombreAccion.getName.equals("ACTIVAR") ||
+			accion.nombreAccion.getName.equals("DESCATIVAR"))
+			true
+	}
 
-@Check
-def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
-	if ( !comprobarDispositivosNumericos(dispositivo) &&
-			!dispositivo.accion.numero.isNullOrEmpty
-		){
+	def checkBarrera(accion accion) {
+		if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
+			accion.nombreAccion.getName.equals("ESTADO"))
+			true
+	}
+
+	@Check
+	def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
+		if (!comprobarDispositivosNumericos(dispositivo) && !dispositivo.accion.numero.isNullOrEmpty) {
 			error("No se pueden poner valores numericos " + dispositivo.nombre,
-			GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_INCORRECTO)
-	} else if( dispositivo.nombre.getName.equals("CAMARA") &&
-		comprobarNumero(dispositivo.accion.numero).equals("float")
-	){
-	error("El dispositivo " + dispositivo.nombre+ " no admite valores decimales",
-			GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_INCORRECTO)
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_INCORRECTO)
+		} else if (dispositivo.nombre.getName.equals("CAMARA") &&
+			comprobarNumero(dispositivo.accion.numero).equals("float")) {
+			error("El dispositivo " + dispositivo.nombre + " no admite valores decimales",
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_INCORRECTO)
+		}
+
 	}
-	
-	
-	}
-	
+
 	def comprobarNumero(String numero) {
-		
+
 		while (i < numero.length) {
-			 if (!Character.isDigit(numero.charAt(i))) {
+			if (!Character.isDigit(numero.charAt(i))) {
 
 				return "float";
 			}
@@ -150,27 +126,51 @@ def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
 
 		return "int"
 	}
- 
-	
-	def comprobarDispositivosNumericos(Dispositivos dispositivo){
-		if( dispositivo.nombre.getName.equals("TEMPERATURA")||
-			dispositivo.nombre.getName.equals("CAMARA")||
-			dispositivo.nombre.getName.equals("LUMINOSIDAD"))
+
+	def comprobarDispositivosNumericos(Dispositivos dispositivo) {
+		if (dispositivo.nombre.getName.equals("TERMOSTATO") || dispositivo.nombre.getName.equals("CAMARA") ||
+			dispositivo.nombre.getName.equals("LUZ"))
 			true
 	}
-	
-	
-		
-	
+
+	@Check
+	def checkDispositivoTemperatura(Dispositivos dispositivo) {
+		if (checkIsTemperatura(dispositivo) && dispositivo.temperatura==null){
+			warning("Recuerde que necesita el lugar AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE", GratextPackage.Literals.DISPOSITIVOS__NOMBRE, TEMPERATURA_INCORRECTA)
+		 if (!checkTemperatura(dispositivo.temperatura)){
+			error("Error existe el valor " + dispositivo.temperatura + " debe de poner  AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE",
+				GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_INCORRECTA)
+			}
+		}
+		else if (!checkIsTemperatura(dispositivo) && (dispositivo.temperatura!=null) ){
+			error("No es posible poner esto"+ dispositivo.temperatura +" para " + dispositivo.nombre + " solo se de poner para el dispositivo TEMPERATURA",
+				GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_INCORRECTA)
+		}
+	}
+
+	def checkTemperatura(String estado) {
+		if (estado.toUpperCase.equals("AMBIENTE") || estado.toUpperCase.equals("INTERNA") ||
+			estado.toUpperCase.equals("NEVERA") || estado.toUpperCase.equals("MECEDORA") ||
+			estado.toUpperCase.equals("DEPOSITO_LECHE") || estado.toUpperCase.equals("EXTERNA"))
+			return true
+		return false
+	}
+def checkIsTemperatura(Dispositivos dispositivo) {
+		if (dispositivo.nombre.getName.equals("TEMPERATURA")|| dispositivo.nombre.getName.equals("TERMOSTATO") )
+			return true
+		return false
+	}
+
 @Check
 def checkAumentarDisminuir(Dispositivos dispositivo){
-	if(checkDispositivosAumento(dispositivo) && !checkAumentoDisminu(dispositivo.accion)){
-			warning("Acuerdese del valor que quiere AUMENTAR/ DISMINUIR" + dispositivo.nombre,
+	if(checkDispositivosAumento(dispositivo) && checkAumentoDisminu(dispositivo.accion) && dispositivo.accion.numero==null){
+			warning("Acuerdese del valor que quiere AUMENTAR/ DISMINUIR " + dispositivo.nombre,
 			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
+			
 			}
 			
-			else if(!checkDispositivosAumento(dispositivo) == false && checkAumentoDisminu(dispositivo.accion)){
-			error("Error al realizar la accion solo es posible para temperatura y luminosidad",
+			else if(!checkDispositivosAumento(dispositivo) && checkAumentoDisminu(dispositivo.accion)){
+			error("Error al realizar la accion solo es posible para termostato y luz",
 			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
 			
 			}
@@ -178,15 +178,15 @@ def checkAumentarDisminuir(Dispositivos dispositivo){
 
 def checkAumentoDisminu(accion accion){
 	if(accion.nombreAccion.getName.equals("AUMENTAR")
-		|| accion.nombreAccion.getName.equals("DISMINUIR")
-	)
-	true
+		|| accion.nombreAccion.getName.equals("DISMINUIR"))
+	return true
+	return false
 }
 
 def checkDispositivosAumento(Dispositivos dispositivo){
-	 if(dispositivo.nombre.getName.equals("TEMPERATURA")||
+	 if(dispositivo.nombre.getName.equals("TERMOSTATO")||
 			dispositivo.nombre.getName.equals("LUZ"))
-			true
-			
+			return true
+	return	false
 }
 }
