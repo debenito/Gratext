@@ -30,14 +30,31 @@ public class GratextValidator extends AbstractGratextValidator {
   
   public final static String NUMERO_INCORRECTO = "Numero_incorrecto";
   
+  public final static String ACCION_ESTADO = "Accion_estado";
+  
+  public final static String NUMERO_ENTERO = "Numero_entero";
+  
+  public final static String ACCION_BARRERA = "Accion_Barrera";
+  
+  public final static String TEMPERATURA_LUGAR = "Temperatura_Lugar";
+  
   protected int i = 0;
   
   @Check
   public void checkDispositvoBarrerar(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("BARRERA_SEGURIDAD") && (!this.checkBarrera(dispositivo.getAccion())))) {
       this.error("La accion no es la correcta para este dispositivo barrera", 
-        GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_INCORRECTA);
+        GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_BARRERA);
     }
+  }
+  
+  public boolean checkBarrera(final accion accion) {
+    boolean _xifexpression = false;
+    if (((accion.getNombreAccion().getName().equals("ABRIR") || accion.getNombreAccion().getName().equals("CERRAR")) || 
+      accion.getNombreAccion().getName().equals("ESTADO"))) {
+      _xifexpression = true;
+    }
+    return _xifexpression;
   }
   
   @Check
@@ -79,7 +96,7 @@ public class GratextValidator extends AbstractGratextValidator {
       dispositivo.getNombre().getName().equals("CO2")) || dispositivo.getNombre().getName().equals("LLUVIA")) || 
       dispositivo.getNombre().getName().equals("ESTACION_METEOROLOGICA")) && (!this.checkEstado(dispositivo.getAccion())))) {
       this.error("La accion no es la correcta para este dispositivo estados", 
-        GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_INCORRECTA);
+        GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_ESTADO);
     }
   }
   
@@ -114,15 +131,6 @@ public class GratextValidator extends AbstractGratextValidator {
     return _xifexpression;
   }
   
-  public boolean checkBarrera(final accion accion) {
-    boolean _xifexpression = false;
-    if (((accion.getNombreAccion().getName().equals("ABRIR") || accion.getNombreAccion().getName().equals("CERRAR")) || 
-      accion.getNombreAccion().getName().equals("ESTADO"))) {
-      _xifexpression = true;
-    }
-    return _xifexpression;
-  }
-  
   @Check
   public void checkDispositivosNumerosEnteros(final Dispositivos dispositivo) {
     if (((!this.comprobarDispositivosNumericos(dispositivo)) && (!StringExtensions.isNullOrEmpty(dispositivo.getAccion().getNumero())))) {
@@ -137,7 +145,7 @@ public class GratextValidator extends AbstractGratextValidator {
         String _plus_1 = ("El dispositivo " + _nombre_1);
         String _plus_2 = (_plus_1 + " no admite valores decimales");
         this.error(_plus_2, 
-          GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.NUMERO_INCORRECTO);
+          GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.NUMERO_ENTERO);
       }
     }
   }
@@ -179,7 +187,7 @@ public class GratextValidator extends AbstractGratextValidator {
         String _plus = ("Error existe el valor " + _temperatura_1);
         String _plus_1 = (_plus + " debe de poner  AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE");
         this.error(_plus_1, 
-          GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, GratextValidator.TEMPERATURA_INCORRECTA);
+          GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, GratextValidator.TEMPERATURA_LUGAR);
       }
     } else {
       if (((!this.checkIsTemperatura(dispositivo)) && (!Objects.equal(dispositivo.getTemperatura(), null)))) {

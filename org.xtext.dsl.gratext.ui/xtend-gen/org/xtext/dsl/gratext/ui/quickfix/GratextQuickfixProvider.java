@@ -3,7 +3,14 @@
  */
 package org.xtext.dsl.gratext.ui.quickfix;
 
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.ui.editor.model.edit.IModification;
+import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
+import org.eclipse.xtext.ui.editor.quickfix.Fix;
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
+import org.eclipse.xtext.validation.Issue;
+import org.xtext.dsl.gratext.validation.GratextValidator;
 
 /**
  * Custom quickfixes.
@@ -12,4 +19,132 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
  */
 @SuppressWarnings("all")
 public class GratextQuickfixProvider extends DefaultQuickfixProvider {
+  /**
+   * @Fix(RestauranteValidator :: NOMBRE_MUY_LARGO)
+   * def arreglarNombre(Issue issue,IssueResolutionAcceptor acceptor){
+   * acceptor.accept(issue,'Reducir nombre', 'Se limitara el tamaño de nombre al maximo sugerido','ingrediente.ico')[
+   * context |
+   * val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+   * val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+   * xtextDocumente.replace(issue.offset, issue.length,nombreActual.substring(0,18)+ '\'');
+   * ]
+   * }
+   */
+  @Fix(GratextValidator.ACCION_ESTADO)
+  public void arreglarAccion(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero ESTADO");
+    };
+    acceptor.accept(issue, "modificar accion segun dispositivo", "Se modificara la accion a estado", "acciones.gif", _function);
+  }
+  
+  @Fix(GratextValidator.NUMERO_ENTERO)
+  public void arreglarNumero(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      final String nombreActual = xtextDocumente.get((_offset).intValue(), (_length).intValue());
+      Integer _offset_1 = issue.getOffset();
+      Integer _length_1 = issue.getLength();
+      String _replace = nombreActual.replace(".", "");
+      String _plus = ("" + _replace);
+      xtextDocumente.replace((_offset_1).intValue(), (_length_1).intValue(), _plus);
+    };
+    acceptor.accept(issue, "Modificacion del numero", "Se modificara numero dado que solo permite valores enteros", "dispositivos.gif", _function);
+  }
+  
+  @Fix(GratextValidator.ACCION_BARRERA)
+  public void arreglarBarreraAbrir(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "quiero ABRIR");
+    };
+    acceptor.accept(issue, "Modificacion de la barrera por abrir", "Se modificara por la accion de abrir", "acciones.gif", _function);
+  }
+  
+  @Fix(GratextValidator.ACCION_BARRERA)
+  public void arreglarBarreraCerrar(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "quiero CERRAR");
+    };
+    acceptor.accept(issue, "Modificacion de la barrera por cerrar", "Se modificara por la accion de cerrar", "acciones.gif", _function);
+  }
+  
+  @Fix(GratextValidator.ACCION_BARRERA)
+  public void arreglarBarreraEstado(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "quiero ESTADO");
+    };
+    acceptor.accept(issue, "Modificacion de la barrera por estado", "Se modificara por la accion de estado", "acciones.gif", _function);
+  }
+  
+  /**
+   * AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE
+   */
+  @Fix(GratextValidator.TEMPERATURA_LUGAR)
+  public void arreglarBarreraAmbiente(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "AMBIENTE");
+    };
+    acceptor.accept(issue, "Modificacion de la temperatura por AMBIENTE", "Se modificara por la temperatura AMBIENTE", "acciones.gif", _function);
+  }
+  
+  @Fix(GratextValidator.TEMPERATURA_LUGAR)
+  public void arreglarBarreraINTERNA(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "INTERNA");
+    };
+    acceptor.accept(issue, "Modificacion de la temperatura por INTERNA", "Se modificara por la temperatura INTERNA", "acciones.gif", _function);
+  }
+  
+  @Fix(GratextValidator.TEMPERATURA_LUGAR)
+  public void arreglarBarreraNEVERA(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "NEVERA");
+    };
+    acceptor.accept(issue, "Modificacion de la temperatura por NEVERA", "Se modificara por la temperatura NEVERA", "acciones.gif", _function);
+  }
+  
+  @Fix(GratextValidator.TEMPERATURA_LUGAR)
+  public void arreglarBarreraMECEDORA(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "MECEDORA");
+    };
+    acceptor.accept(issue, "Modificacion de la temperatura por MECEDORA", "Se modificara por la temperatura MECEDORA", "acciones.gif", _function);
+  }
+  
+  @Fix(GratextValidator.TEMPERATURA_LUGAR)
+  public void arreglarBarreraDEPOSITO_LECHE(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocumente = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "DEPOSITO_LECHE");
+    };
+    acceptor.accept(issue, "Modificacion de la temperatura por DEPOSITO de LECHE", "Se modificara por la temperatura DEPOSITO deLECHE", "acciones.gif", _function);
+  }
 }

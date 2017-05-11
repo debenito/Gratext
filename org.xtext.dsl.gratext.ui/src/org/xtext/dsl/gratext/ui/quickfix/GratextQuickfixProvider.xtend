@@ -4,6 +4,10 @@
 package org.xtext.dsl.gratext.ui.quickfix
 
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
+import org.eclipse.xtext.ui.editor.quickfix.Fix
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
+import org.eclipse.xtext.validation.Issue
+import org.xtext.dsl.gratext.validation.GratextValidator
 
 /**
  * Custom quickfixes.
@@ -12,13 +16,119 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
  */
 class GratextQuickfixProvider extends DefaultQuickfixProvider {
 
-//	@Fix(GratextValidator.INVALID_NAME)
-//	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
-//		acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
-//			context |
-//			val xtextDocument = context.xtextDocument
-//			val firstLetter = xtextDocument.get(issue.offset, 1)
-//			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
-//		]
-//	}
+/* @Fix(RestauranteValidator :: NOMBRE_MUY_LARGO)
+def arreglarNombre(Issue issue,IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Reducir nombre', 'Se limitara el tamaño de nombre al maximo sugerido','ingrediente.ico')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+		val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,nombreActual.substring(0,18)+ '\'');
+	]
+}*/
+
+
+@Fix(GratextValidator:: ACCION_ESTADO)
+def arreglarAccion(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'modificar accion segun dispositivo', 'Se modificara la accion a estado','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero ESTADO');
+		
+		]
+}
+
+@Fix(GratextValidator:: NUMERO_ENTERO)
+def arreglarNumero(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion del numero', 'Se modificara numero dado que solo permite valores enteros','dispositivos.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+		val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,""+nombreActual.replace(".",""));
+		]
+}
+@Fix(GratextValidator:: ACCION_BARRERA)
+def arreglarBarreraAbrir(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la barrera por abrir', 'Se modificara por la accion de abrir','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'quiero ABRIR');
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_BARRERA)
+def arreglarBarreraCerrar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la barrera por cerrar', 'Se modificara por la accion de cerrar','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'quiero CERRAR');
+		
+		]
+}
+@Fix(GratextValidator:: ACCION_BARRERA)
+def arreglarBarreraEstado(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la barrera por estado', 'Se modificara por la accion de estado','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'quiero ESTADO');
+		
+		]
+}
+
+/*AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE */
+
+@Fix(GratextValidator:: TEMPERATURA_LUGAR)
+def arreglarBarreraAmbiente(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la temperatura por AMBIENTE', 'Se modificara por la temperatura AMBIENTE','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'AMBIENTE');
+		
+		]
+}
+@Fix(GratextValidator:: TEMPERATURA_LUGAR)
+def arreglarBarreraINTERNA(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la temperatura por INTERNA', 'Se modificara por la temperatura INTERNA','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'INTERNA');
+		
+		]
+}
+@Fix(GratextValidator:: TEMPERATURA_LUGAR)
+def arreglarBarreraNEVERA(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la temperatura por NEVERA', 'Se modificara por la temperatura NEVERA','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'NEVERA');
+		
+		]
+}
+@Fix(GratextValidator:: TEMPERATURA_LUGAR)
+def arreglarBarreraMECEDORA(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la temperatura por MECEDORA', 'Se modificara por la temperatura MECEDORA','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'MECEDORA');
+		
+		]
+}
+@Fix(GratextValidator:: TEMPERATURA_LUGAR)
+def arreglarBarreraDEPOSITO_LECHE(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la temperatura por DEPOSITO de LECHE', 'Se modificara por la temperatura DEPOSITO deLECHE','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'DEPOSITO_LECHE');
+		
+		]
+}
 }

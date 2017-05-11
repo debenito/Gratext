@@ -3,6 +3,20 @@
  */
 package org.xtext.dsl.gratext.ui.contentassist;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.dsl.gratext.gratext.Dispositivos;
+import org.xtext.dsl.gratext.gratext.Granja;
+import org.xtext.dsl.gratext.gratext.NombreAccion;
+import org.xtext.dsl.gratext.gratext.TiposDispositivo;
+import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.ui.contentassist.AbstractGratextProposalProvider;
 
 /**
@@ -11,4 +25,71 @@ import org.xtext.dsl.gratext.ui.contentassist.AbstractGratextProposalProvider;
  */
 @SuppressWarnings("all")
 public class GratextProposalProvider extends AbstractGratextProposalProvider {
+  /**
+   * override complete_Ingrediente(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+   * 	//super.complete_Ingrediente(model, ruleCall, context, acceptor)
+   * 	var propuesta=
+   * 	createCompletionProposal("Ingrediente: CODIGO 'NOMBRE' infoUrl: http://www.ejemplo.com",context);
+   * 	acceptor.accept(propuesta);
+   * }
+   * 
+   * def void completeIngrediente_Name(Ingrediente i, Assignment a ,ContentAssistContext context, ICompletionProposalAcceptor acceptor){
+   * 	super.completeIngrediente_Name(i,a,context,acceptor);
+   * 	var r = i.eContainer as Restaurante;
+   * 	var id = "CODI"+ (r.ingredientes.filter(typeof (Ingrediente)).size);
+   * 	var propuesta = createCompletionProposal(id,context);
+   * 	acceptor.accept(propuesta);
+   * 
+   * }
+   */
+  @Override
+  public void complete_Granja(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    ICompletionProposal propuesta = this.createCompletionProposal("Granja: NOMBRE_GRANJA\r\n\t\t\tCentralita: TIPO_DISPOSITIVO", context);
+    acceptor.accept(propuesta);
+  }
+  
+  @Override
+  public void complete_login(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    ICompletionProposal propuesta = this.createCompletionProposal("Usuario: NOMBRE_USUARIO\r\n\t\t Contraseña: \'CONTRASEÑA\'", context);
+    acceptor.accept(propuesta);
+  }
+  
+  @Override
+  public void complete_Dispositivos(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    ICompletionProposal propuesta = this.createCompletionProposal("Codigo: CODIGO Sensor  NOMBRE_SENSOR quiero ACCION \'DESCRIPCION\' ", context);
+    acceptor.accept(propuesta);
+  }
+  
+  public void completeDispositivos_Codigo(final Dispositivos i, final Assignment a, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.completeDispositivos_Codigo(i, a, context, acceptor);
+    EObject _eContainer = i.eContainer();
+    Granja r = ((Granja) _eContainer);
+    EList<Dispositivos> _dispositivos = r.getDispositivos();
+    Iterable<Dispositivos> _filter = Iterables.<Dispositivos>filter(_dispositivos, Dispositivos.class);
+    int _size = IterableExtensions.size(_filter);
+    String id = ("CODI" + Integer.valueOf(_size));
+    ICompletionProposal propuesta = this.createCompletionProposal(id, context);
+    acceptor.accept(propuesta);
+  }
+  
+  public void completeAccion_Descripcion(final accion accion, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.completeAccion_Descripcion(accion, assignment, context, acceptor);
+    EObject _eContainer = accion.eContainer();
+    Dispositivos r = ((Dispositivos) _eContainer);
+    org.xtext.dsl.gratext.gratext.accion _accion = r.getAccion();
+    NombreAccion _nombreAccion = _accion.getNombreAccion();
+    String _plus = ("\' " + _nombreAccion);
+    String _plus_1 = (_plus + " el/la ");
+    TiposDispositivo _nombre = r.getNombre();
+    String _plus_2 = (_plus_1 + _nombre);
+    String descripcion = (_plus_2 + "\'");
+    ICompletionProposal propuesta = this.createCompletionProposal(descripcion, context);
+    acceptor.accept(propuesta);
+  }
+  
+  @Override
+  public void completeAccion_NombreAccion(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    ICompletionProposal propuesta = this.createCompletionProposal("0.0", context);
+    acceptor.accept(propuesta);
+  }
 }

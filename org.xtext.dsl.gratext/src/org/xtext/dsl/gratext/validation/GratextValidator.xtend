@@ -18,18 +18,27 @@ class GratextValidator extends AbstractGratextValidator {
 	public static val ACCION_INCORRECTA = 'Accion_incorrecta'
 	public static val TEMPERATURA_INCORRECTA = 'Temperatura_incorrecta'
 	public static val NUMERO_INCORRECTO = 'Numero_incorrecto'
+	public static val ACCION_ESTADO = 'Accion_estado'
+	public static val NUMERO_ENTERO="Numero_entero"
+	public static val ACCION_BARRERA="Accion_Barrera"
+	public static val TEMPERATURA_LUGAR="Temperatura_Lugar"
 	protected int i = 0;
 
 	@Check
 	def checkDispositvoBarrerar(Dispositivos dispositivo) {
 		if (dispositivo.nombre.getName.equals("BARRERA_SEGURIDAD") && !checkBarrera(dispositivo.accion)) {
 			error("La accion no es la correcta para este dispositivo barrera",
-				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_BARRERA)
 
 		}
 
 	}
 
+def checkBarrera(accion accion) {
+		if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
+			accion.nombreAccion.getName.equals("ESTADO"))
+			true
+	}
 	@Check
 	def checkCodigo(Dispositivos dispositivo) {
 		if (dispositivo.codigo.length > 20) {
@@ -66,7 +75,7 @@ class GratextValidator extends AbstractGratextValidator {
 			dispositivo.nombre.getName.equals("CO2") || dispositivo.nombre.getName.equals("LLUVIA") ||
 			dispositivo.nombre.getName.equals("ESTACION_METEOROLOGICA") ) && !checkEstado(dispositivo.accion)) {
 			error("La accion no es la correcta para este dispositivo estados",
-				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_ESTADO)
 
 		}
 	}
@@ -94,11 +103,7 @@ class GratextValidator extends AbstractGratextValidator {
 			true
 	}
 
-	def checkBarrera(accion accion) {
-		if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
-			accion.nombreAccion.getName.equals("ESTADO"))
-			true
-	}
+	
 
 	@Check
 	def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
@@ -108,7 +113,7 @@ class GratextValidator extends AbstractGratextValidator {
 		} else if (dispositivo.nombre.getName.equals("CAMARA") &&
 			comprobarNumero(dispositivo.accion.numero).equals("float")) {
 			error("El dispositivo " + dispositivo.nombre + " no admite valores decimales",
-				GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_INCORRECTO)
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_ENTERO)
 		}
 
 	}
@@ -139,7 +144,7 @@ class GratextValidator extends AbstractGratextValidator {
 			warning("Recuerde que necesita el lugar AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE", GratextPackage.Literals.DISPOSITIVOS__NOMBRE, TEMPERATURA_INCORRECTA)
 		 if (!checkTemperatura(dispositivo.temperatura)){
 			error("Error existe el valor " + dispositivo.temperatura + " debe de poner  AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE",
-				GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_INCORRECTA)
+				GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_LUGAR)
 			}
 		}
 		else if (!checkIsTemperatura(dispositivo) && (dispositivo.temperatura!=null) ){

@@ -3,10 +3,81 @@
  */
 package org.xtext.dsl.gratext.ui.contentassist
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import org.xtext.dsl.gratext.gratext.Dispositivos
+import org.xtext.dsl.gratext.gratext.Granja
+import org.xtext.dsl.gratext.gratext.accion
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class GratextProposalProvider extends AbstractGratextProposalProvider {
+
+	/*override complete_Ingrediente(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	 * 	//super.complete_Ingrediente(model, ruleCall, context, acceptor)
+	 * 	var propuesta=
+	 * 	createCompletionProposal("Ingrediente: CODIGO 'NOMBRE' infoUrl: http://www.ejemplo.com",context);
+	 * 	acceptor.accept(propuesta);
+	 * }
+	 * 
+	 * def void completeIngrediente_Name(Ingrediente i, Assignment a ,ContentAssistContext context, ICompletionProposalAcceptor acceptor){
+	 * 	super.completeIngrediente_Name(i,a,context,acceptor);
+	 * 	var r = i.eContainer as Restaurante;
+	 * 	var id = "CODI"+ (r.ingredientes.filter(typeof (Ingrediente)).size);
+	 * 	var propuesta = createCompletionProposal(id,context);
+	 * 	acceptor.accept(propuesta);
+	 * 	
+	 }*/
+	override complete_Granja(EObject model, RuleCall ruleCall, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		// super.complete_Granja(model, ruleCall, context, acceptor)
+		var propuesta = createCompletionProposal("Granja: NOMBRE_GRANJA
+			Centralita: TIPO_DISPOSITIVO", context)
+		acceptor.accept(propuesta)
+	}
+
+	override complete_login(EObject model, RuleCall ruleCall, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		// super.complete_login(model, ruleCall, context, acceptor)
+		var propuesta = createCompletionProposal("Usuario: NOMBRE_USUARIO
+		 Contraseña: 'CONTRASEÑA'", context)
+		acceptor.accept(propuesta)
+	}
+	
+	override complete_Dispositivos(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		//super.complete_Dispositivos(model, ruleCall, context, acceptor)
+		var propuesta = createCompletionProposal("Codigo: CODIGO Sensor  NOMBRE_SENSOR quiero ACCION 'DESCRIPCION' ", context)
+		acceptor.accept(propuesta)
+	}
+	
+	
+	
+def void completeDispositivos_Codigo(Dispositivos i, Assignment a ,ContentAssistContext context, ICompletionProposalAcceptor acceptor){
+		super.completeDispositivos_Codigo(i,a,context,acceptor);
+	  	var r = i.eContainer as Granja;
+	  	var id = "CODI"+ (r.dispositivos.filter(typeof (Dispositivos)).size);
+	  	var propuesta = createCompletionProposal(id,context);
+	  	acceptor.accept(propuesta);
+}
+
+	def void completeAccion_Descripcion(accion accion, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeAccion_Descripcion(accion, assignment, context, acceptor)
+		var r = accion.eContainer as Dispositivos
+		var descripcion = "' "+ r.accion.nombreAccion +" el/la " + r.nombre + "'"
+			var propuesta = createCompletionProposal(descripcion,context);
+	  	acceptor.accept(propuesta);
+	}
+	
+	override completeAccion_NombreAccion(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		//super.completeAccion_NombreAccion(model, assignment, context, acceptor)
+		var propuesta = createCompletionProposal("0.0", context)
+		acceptor.accept(propuesta)
+	}
+	
+	
 }
