@@ -42,8 +42,8 @@ class GeneradorWeb {
 
 	def compilarGranja(Granja r) '''
 		<registro>
-			<dispositivo>\
-			<dispositivo_id>dispositivo«identificadores»<dispositivo_id>
+			<dispositivo>
+			<dispositivo_id>dispositivo«identificadores»</dispositivo_id>
 			<dispositivo_descripcion>Es el «r.tipo»</dispositivo_descripcion>
 			</dispositivo>
 			

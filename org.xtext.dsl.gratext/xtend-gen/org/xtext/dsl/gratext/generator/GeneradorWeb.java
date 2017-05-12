@@ -65,12 +65,12 @@ public class GeneradorWeb {
     _builder.append("<registro>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("<dispositivo>\\");
+    _builder.append("<dispositivo>");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<dispositivo_id>dispositivo");
     _builder.append(this.identificadores, "\t");
-    _builder.append("<dispositivo_id>");
+    _builder.append("</dispositivo_id>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("<dispositivo_descripcion>Es el ");

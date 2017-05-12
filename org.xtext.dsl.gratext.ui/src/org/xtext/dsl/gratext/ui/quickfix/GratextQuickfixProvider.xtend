@@ -87,7 +87,7 @@ def arreglarBarreraAmbiente(Issue issue, IssueResolutionAcceptor acceptor){
 		context | 
 		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
 	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
-		xtextDocumente.replace(issue.offset, issue.length,'AMBIENTE');
+		xtextDocumente.replace(issue.offset, issue.length,"'AMBIENTE'");
 		
 		]
 }
@@ -97,7 +97,7 @@ def arreglarBarreraINTERNA(Issue issue, IssueResolutionAcceptor acceptor){
 		context | 
 		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
 	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
-		xtextDocumente.replace(issue.offset, issue.length,'INTERNA');
+		xtextDocumente.replace(issue.offset, issue.length,"'INTERNA'");
 		
 		]
 }
@@ -107,7 +107,7 @@ def arreglarBarreraNEVERA(Issue issue, IssueResolutionAcceptor acceptor){
 		context | 
 		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
 	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
-		xtextDocumente.replace(issue.offset, issue.length,'NEVERA');
+		xtextDocumente.replace(issue.offset, issue.length,"'NEVERA'");
 		
 		]
 }
@@ -117,7 +117,7 @@ def arreglarBarreraMECEDORA(Issue issue, IssueResolutionAcceptor acceptor){
 		context | 
 		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
 	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
-		xtextDocumente.replace(issue.offset, issue.length,'MECEDORA');
+		xtextDocumente.replace(issue.offset, issue.length,"'MECEDORA'");
 		
 		]
 }
@@ -127,7 +127,166 @@ def arreglarBarreraDEPOSITO_LECHE(Issue issue, IssueResolutionAcceptor acceptor)
 		context | 
 		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
 	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
-		xtextDocumente.replace(issue.offset, issue.length,'DEPOSITO_LECHE');
+		xtextDocumente.replace(issue.offset, issue.length,"'DEPOSITO_LECHE'");
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_ADE)
+def arreglarADEestado(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por ESTADO', 'Se modificara por la accion ESTADO','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero ESTADO');
+		
+		]
+}
+@Fix(GratextValidator:: ACCION_ADE)
+def arreglarADEactivar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por ACTIVAR', 'Se modificara por la accion ACTIVAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero ACTIVAR');
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_ADE)
+def arreglarADEdesactivar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por DESACTIVAR', 'Se modificara por la accion DESACTIVAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero DESACTIVAR');
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_ADE)
+def arreglarADEapagar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por APAGAR', 'Se modificara por la accion APAGAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero APAGAR');
+		
+		]
+}
+@Fix(GratextValidator:: ACCION_ADE)
+def arreglarADEencender(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por ENCENDER', 'Se modificara por la accion ENCENDER','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero ENCENDER');
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_AUMENTAR_DISMINUIR)
+def arreglarAumentar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por AUMENTAR', 'Se modificara por la accion AUMENTAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero AUMENTAR');
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_AUMENTAR_DISMINUIR)
+def arreglarDisminuir(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por DISMINUIR', 'Se modificara por la accion DISMINUIR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero DISMINUIR');
+		
+		]
+}
+@Fix(GratextValidator:: ACCION_CAMARA)
+def arreglarCamaraAbrir(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por ABRIR', 'Se modificara por la accion ABRIR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero ABRIR');
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_CAMARA)
+def arreglarCamaraCerrar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por CERRAR', 'Se modificara por la accion CERRAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero CERRAR');
+		
+		]
+}
+@Fix(GratextValidator:: ACCION_CAMARA)
+def arreglarCamaraSacar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por SACAR', 'Se modificara por la accion SACAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero SACAR');
+		
+		]
+}
+@Fix(GratextValidator:: ACCION_CAMARA)
+def arreglarCamaraGrabar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por GRABAR', 'Se modificara por la accion GRABAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero GRABAR');
+		
+		]
+}
+@Fix(GratextValidator:: ACCION_CAMARA)
+def arreglarCamaraActivar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por ACTIVAR', 'Se modificara por la accion ACTIVAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero ACTIVAR');
+		
+		]
+}
+
+@Fix(GratextValidator:: ACCION_CAMARA)
+def arreglarCamaraDesactivar(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion de la accion por DESACTIVAR', 'Se modificara por la accion DESACTIVAR','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,' quiero DESACTIVAR');
+		
+		]
+}
+
+@Fix(GratextValidator:: DISPOSITIVO_INCORRECTO)
+def arreglarDispositivoTermostato(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion del dispositivo por TERMOSTATO', 'Se modificara el dispositivo por TERMOSTATO','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'TERMOSTATO');
+		
+		]
+}
+
+@Fix(GratextValidator:: DISPOSITIVO_INCORRECTO)
+def arreglarDispositivoLuz(Issue issue, IssueResolutionAcceptor acceptor){
+	acceptor.accept(issue,'Modificacion del dispositivo por LUZ', 'Se modificara el dispositivo por LUZ','acciones.gif')[
+		context | 
+		val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
+	//	val nombreActual = xtextDocumente.get(issue.offset,issue.length);
+		xtextDocumente.replace(issue.offset, issue.length,'LUZ');
 		
 		]
 }

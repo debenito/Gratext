@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="org.xtext.dsl.gratext.Gratext.Dispositivos" deleted="false" description="Ayuda para crear dispositivos" enabled="true" name="Dispositivos">Codigo: CODI${numero} Sensor ${sensor} quiero ${accion} '${descripcion}'</template><template autoinsert="true" context="org.xtext.dsl.gratext.Gratext.Dispositivos" deleted="false" description="Ayuda para generar dispositivos numericos" enabled="true" name="DispositivosNumero">Codigo: CODI${numero} Sensor ${sensor} quiero ${accion}  ${dato} '${descripcion}'</template><template autoinsert="true" context="org.xtext.dsl.gratext.Gratext.Granja" deleted="false" description="Ayuda para crear Granja sin usuario" enabled="true" name="Granja">Granja: ${nombreGranja}&#13;
+ Centralita:${dispositivo}&#13;
+ Dispositivos{&#13;
+ 	&#13;
+ }</template><template autoinsert="true" context="org.xtext.dsl.gratext.Gratext.Granja" deleted="false" description="Ayuda para crear granja con usuario" enabled="true" name="GranjaUser">Granja: ${nombreGranja}&#13;
+ Centralita:${dispositivo}&#13;
+ Usuario: ${usuario}&#13;
+ Contraseña: ${contrasena}&#13;
+ Dispositivos{&#13;
+ 	&#13;
+ }&#13;
+ </template></templates>

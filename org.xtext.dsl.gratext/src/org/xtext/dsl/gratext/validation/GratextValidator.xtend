@@ -22,6 +22,10 @@ class GratextValidator extends AbstractGratextValidator {
 	public static val NUMERO_ENTERO="Numero_entero"
 	public static val ACCION_BARRERA="Accion_Barrera"
 	public static val TEMPERATURA_LUGAR="Temperatura_Lugar"
+	public static val ACCION_ADE ="Accion_ADE"
+	public static val ACCION_AUMENTAR_DISMINUIR= "Accion_aumentar_disminuir"
+	public static val ACCION_CAMARA= "Accion_camara"
+	public static val DISPOSITIVO_INCORRECTO= "Dispositivo_incorrecto"
 	protected int i = 0;
 
 	@Check
@@ -55,7 +59,7 @@ def checkBarrera(accion accion) {
 	def checkDispositivoCamara(Dispositivos dispositivo) {
 		if (dispositivo.nombre.getName.equals("CAMARA") && !checkCamara(dispositivo.accion)) {
 			error("La accion no es la correcta para este dispositivo solo camara",
-				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
+				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_CAMARA)
 
 		}
 	}
@@ -73,7 +77,8 @@ def checkBarrera(accion accion) {
 			dispositivo.nombre.getName.equals("FUEGO_HUMO") || dispositivo.nombre.getName.equals("INUNDACION") ||
 			dispositivo.nombre.getName.equals("VIENTO") || dispositivo.nombre.getName.equals("ROTURA_CRISTAL") ||
 			dispositivo.nombre.getName.equals("CO2") || dispositivo.nombre.getName.equals("LLUVIA") ||
-			dispositivo.nombre.getName.equals("ESTACION_METEOROLOGICA") ) && !checkEstado(dispositivo.accion)) {
+			dispositivo.nombre.getName.equals("ESTACION_METEOROLOGICA") ||
+			dispositivo.nombre.getName.equals("TEMPERATURA")  ) && !checkEstado(dispositivo.accion)) {
 			error("La accion no es la correcta para este dispositivo estados",
 				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_ESTADO)
 
@@ -91,7 +96,7 @@ def checkBarrera(accion accion) {
 			dispositivo.nombre.getName.equals("NEVERAS") || dispositivo.nombre.getName.equals("RADIOFRECUENCIA") ) &&
 			!checkADE(dispositivo.accion)) {
 			error("La accion no es la correcta para este dispositivo ADE", GratextPackage.Literals.DISPOSITIVOS__ACCION,
-				ACCION_INCORRECTA)
+				ACCION_ADE)
 
 		}
 	}
@@ -142,15 +147,15 @@ def checkBarrera(accion accion) {
 	def checkDispositivoTemperatura(Dispositivos dispositivo) {
 		if (checkIsTemperatura(dispositivo) && dispositivo.temperatura==null){
 			warning("Recuerde que necesita el lugar AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE", GratextPackage.Literals.DISPOSITIVOS__NOMBRE, TEMPERATURA_INCORRECTA)
-		 if (!checkTemperatura(dispositivo.temperatura)){
-			error("Error existe el valor " + dispositivo.temperatura + " debe de poner  AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE",
-				GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_LUGAR)
-			}
+			
 		}
 		else if (!checkIsTemperatura(dispositivo) && (dispositivo.temperatura!=null) ){
 			error("No es posible poner esto"+ dispositivo.temperatura +" para " + dispositivo.nombre + " solo se de poner para el dispositivo TEMPERATURA",
 				GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_INCORRECTA)
-		}
+		}else if (!checkTemperatura(dispositivo.temperatura)&& checkIsTemperatura(dispositivo) && (dispositivo.temperatura!=null) ){
+			error("Error existe el valor " + dispositivo.temperatura + " debe de poner  AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE",
+				GratextPackage.Literals.DISPOSITIVOS__TEMPERATURA, TEMPERATURA_LUGAR)
+			}
 	}
 
 	def checkTemperatura(String estado) {
@@ -175,9 +180,12 @@ def checkAumentarDisminuir(Dispositivos dispositivo){
 			}
 			
 			else if(!checkDispositivosAumento(dispositivo) && checkAumentoDisminu(dispositivo.accion)){
-			error("Error al realizar la accion solo es posible para termostato y luz",
-			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
+			error("Error al poner el dispositivo solo puede aumentar y disminuir el termostato o la luz",
+			GratextPackage.Literals.DISPOSITIVOS__NOMBRE, DISPOSITIVO_INCORRECTO)
 			
+			}else if(checkDispositivosAumento(dispositivo)&& !checkAumentoDisminu(dispositivo.accion) ){
+				error("Error al realizar la accion solo es aumentar o disminuir",
+			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_AUMENTAR_DISMINUIR)
 			}
 }
 
