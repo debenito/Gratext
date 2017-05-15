@@ -73,7 +73,7 @@ public class GratextHighlightConfiguration implements IHighlightingConfiguration
     
     private TextStyle EnumTextStyle() {
     	 TextStyle textStyle = defaultTextStyle().copy();
-		 textStyle.setColor(new RGB(255, 255, 0));
+		 textStyle.setColor(new RGB(128, 0, 128));
 	       return textStyle;
 	}
 
