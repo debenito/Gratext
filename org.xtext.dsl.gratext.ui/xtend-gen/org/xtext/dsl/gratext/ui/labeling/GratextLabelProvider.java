@@ -9,7 +9,7 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
-import org.xtext.dsl.gratext.gratext.TiposDispositivo;
+import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.gratext.login;
 
@@ -31,16 +31,16 @@ public class GratextLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final Granja gr) {
     String _nombreGranja = gr.getNombreGranja();
-    return ("Granja de" + _nombreGranja);
+    String _plus = ("Granja de" + _nombreGranja);
+    String _plus_1 = (_plus + " Tipo :");
+    Tipo _tipo = gr.getTipo();
+    return (_plus_1 + _tipo);
   }
   
   public String text(final Dispositivos i) {
-    TiposDispositivo _nombre = i.getNombre();
-    String _plus = ("Dispositivos" + _nombre);
-    String _plus_1 = (_plus + "(");
     String _codigo = i.getCodigo();
-    String _plus_2 = (_plus_1 + _codigo);
-    return (_plus_2 + ")");
+    String _plus = (("Dispositivos" + "(") + _codigo);
+    return (_plus + ")");
   }
   
   public String image(final Dispositivos i) {
@@ -53,7 +53,7 @@ public class GratextLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final accion accion) {
     NombreAccion _nombreAccion = accion.getNombreAccion();
-    return ("Accion :" + _nombreAccion);
+    return ("Accion : " + _nombreAccion);
   }
   
   public String image(final login user) {

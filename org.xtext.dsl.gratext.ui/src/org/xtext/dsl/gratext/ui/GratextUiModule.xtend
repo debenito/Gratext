@@ -11,5 +11,6 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 @FinalFieldsConstructor
 class GratextUiModule extends AbstractGratextUiModule {
 
+
 	
 }

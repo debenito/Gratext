@@ -27,33 +27,42 @@ class GratextLabelProvider extends DefaultEObjectLabelProvider {
 	def image(Granja gr) {
 		'granja.GIF'
 	}
-	def text(Granja gr){
-		'Granja de'+ gr.nombreGranja
+
+	def text(Granja gr) {
+		'Granja de' + gr.nombreGranja + ' Tipo :' + gr.tipo
+		
+		
 	}
 
 	def text(Dispositivos i) {
-		'Dispositivos' + i.nombre + '(' + i.codigo + ')'
+		 'Dispositivos' +'(' + i.codigo + ')'
 	}
+	
+	
 	def image(Dispositivos i) {
 		'dispositivos.GIF'
 	}
-	
-	def image(accion numero){
+
+	def image(accion numero) {
 		'acciones.gif'
 	}
-	
-	def text(accion accion){
-		'Accion :' + accion.nombreAccion
+
+	def text(accion accion) {
+		'Accion : ' + accion.nombreAccion
+		
+		
+
 	}
 	
-	def image(login user){
+
+	def image(login user) {
 		'usuario.gif'
 	}
-	
-	def text(login user){
-		'Usuario:'+user.usuario
+
+	def text(login user) {
+		'Usuario:' + user.usuario
 	}
-	
+
 //	def text(Greeting ele) {
 //		'A greeting to ' + ele.name
 //	}
