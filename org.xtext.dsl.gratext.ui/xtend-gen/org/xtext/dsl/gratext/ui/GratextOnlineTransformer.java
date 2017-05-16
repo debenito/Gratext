@@ -6,28 +6,27 @@ import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
-import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl;
 
 public class GratextOnlineTransformer extends DefaultOutlineTreeProvider {
 
 	@Override
 	protected void createNode(IOutlineNode parent, EObject modelElement) {
-		if(modelElement instanceof Granja){
-			createEObjectNode(parent, modelElement);
-	} else if(modelElement instanceof Dispositivos){
+		if(modelElement instanceof Granja)
+			createEObjectNode(parent,modelElement);
+	 if(modelElement instanceof Dispositivos){
 	
-		createEObjectNode(parent, modelElement);
+		 createEObjectNode(parent,modelElement);
 		int posicion = parent.getChildren().size()-1;
 		IOutlineNode nodoActual =parent.getChildren().get(posicion);
 		
 		Dispositivos dispositivo = (Dispositivos) modelElement;
+		
 		EAttribute codigo = GratextPackageImpl.eINSTANCE.getDispositivos_Codigo();
 		codigo.setDefaultValue(dispositivo.getCodigo());
 		codigo.setName("Codigo : "+ dispositivo.getCodigo());
 		createEObjectNode(nodoActual, codigo);
 		
-	
 
 		EAttribute nombre = GratextPackageImpl.eINSTANCE.getDispositivos_Nombre();
 		nombre.setDefaultValue(dispositivo.getNombre());
