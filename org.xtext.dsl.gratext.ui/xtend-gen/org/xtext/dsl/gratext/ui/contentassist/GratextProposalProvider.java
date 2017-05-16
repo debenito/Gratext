@@ -3,6 +3,7 @@
  */
 package org.xtext.dsl.gratext.ui.contentassist;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -77,14 +78,73 @@ public class GratextProposalProvider extends AbstractGratextProposalProvider {
     EObject _eContainer = accion.eContainer();
     Dispositivos r = ((Dispositivos) _eContainer);
     org.xtext.dsl.gratext.gratext.accion _accion = r.getAccion();
-    NombreAccion _nombreAccion = _accion.getNombreAccion();
-    String _plus = ("\' " + _nombreAccion);
-    String _plus_1 = (_plus + " el/la ");
-    TiposDispositivo _nombre = r.getNombre();
-    String _plus_2 = (_plus_1 + _nombre);
-    String descripcion = (_plus_2 + "\'");
-    ICompletionProposal propuesta = this.createCompletionProposal(descripcion, context);
-    acceptor.accept(propuesta);
+    String _numero = _accion.getNumero();
+    boolean _notEquals = (!Objects.equal(_numero, null));
+    if (_notEquals) {
+      TiposDispositivo _nombre = r.getNombre();
+      boolean _equals = _nombre.equals("CAMARA");
+      if (_equals) {
+        org.xtext.dsl.gratext.gratext.accion _accion_1 = r.getAccion();
+        NombreAccion _nombreAccion = _accion_1.getNombreAccion();
+        String _plus = ("\' " + _nombreAccion);
+        String _plus_1 = (_plus + " ");
+        org.xtext.dsl.gratext.gratext.accion _accion_2 = r.getAccion();
+        String _numero_1 = _accion_2.getNumero();
+        String _plus_2 = (_plus_1 + _numero_1);
+        String _plus_3 = (_plus_2 + " fotos de la ");
+        TiposDispositivo _nombre_1 = r.getNombre();
+        String _plus_4 = (_plus_3 + _nombre_1);
+        String descripcion = (_plus_4 + "\'");
+        ICompletionProposal propuesta = this.createCompletionProposal(descripcion, context);
+        acceptor.accept(propuesta);
+      } else {
+        TiposDispositivo _nombre_2 = r.getNombre();
+        boolean _equals_1 = _nombre_2.equals("TERMOSTATO");
+        if (_equals_1) {
+          org.xtext.dsl.gratext.gratext.accion _accion_3 = r.getAccion();
+          NombreAccion _nombreAccion_1 = _accion_3.getNombreAccion();
+          String _plus_5 = ("\' " + _nombreAccion_1);
+          String _plus_6 = (_plus_5 + " ");
+          org.xtext.dsl.gratext.gratext.accion _accion_4 = r.getAccion();
+          String _numero_2 = _accion_4.getNumero();
+          String _plus_7 = (_plus_6 + _numero_2);
+          String _plus_8 = (_plus_7 + "grados el ");
+          TiposDispositivo _nombre_3 = r.getNombre();
+          String _plus_9 = (_plus_8 + _nombre_3);
+          String descripcion_1 = (_plus_9 + "\'");
+          ICompletionProposal propuesta_1 = this.createCompletionProposal(descripcion_1, context);
+          acceptor.accept(propuesta_1);
+        } else {
+          TiposDispositivo _nombre_4 = r.getNombre();
+          boolean _equals_2 = _nombre_4.equals("LUZ");
+          if (_equals_2) {
+            org.xtext.dsl.gratext.gratext.accion _accion_5 = r.getAccion();
+            NombreAccion _nombreAccion_2 = _accion_5.getNombreAccion();
+            String _plus_10 = ("\' " + _nombreAccion_2);
+            String _plus_11 = (_plus_10 + " ");
+            org.xtext.dsl.gratext.gratext.accion _accion_6 = r.getAccion();
+            String _numero_3 = _accion_6.getNumero();
+            String _plus_12 = (_plus_11 + _numero_3);
+            String _plus_13 = (_plus_12 + "vatios la ");
+            TiposDispositivo _nombre_5 = r.getNombre();
+            String _plus_14 = (_plus_13 + _nombre_5);
+            String descripcion_2 = (_plus_14 + "\'");
+            ICompletionProposal propuesta_2 = this.createCompletionProposal(descripcion_2, context);
+            acceptor.accept(propuesta_2);
+          }
+        }
+      }
+    } else {
+      org.xtext.dsl.gratext.gratext.accion _accion_7 = r.getAccion();
+      NombreAccion _nombreAccion_3 = _accion_7.getNombreAccion();
+      String _plus_15 = ("\' " + _nombreAccion_3);
+      String _plus_16 = (_plus_15 + " el/la ");
+      TiposDispositivo _nombre_6 = r.getNombre();
+      String _plus_17 = (_plus_16 + _nombre_6);
+      String descripcion_3 = (_plus_17 + "\'");
+      ICompletionProposal propuesta_3 = this.createCompletionProposal(descripcion_3, context);
+      acceptor.accept(propuesta_3);
+    }
   }
   
   @Override

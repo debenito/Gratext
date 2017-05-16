@@ -48,36 +48,57 @@ class GratextProposalProvider extends AbstractGratextProposalProvider {
 		 Contraseña: 'CONTRASEÑA'", context)
 		acceptor.accept(propuesta)
 	}
-	
-	override complete_Dispositivos(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		//super.complete_Dispositivos(model, ruleCall, context, acceptor)
-		var propuesta = createCompletionProposal("Codigo: CODIGO Sensor  NOMBRE_SENSOR quiero ACCION 'DESCRIPCION' ", context)
+
+	override complete_Dispositivos(EObject model, RuleCall ruleCall, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		// super.complete_Dispositivos(model, ruleCall, context, acceptor)
+		var propuesta = createCompletionProposal("Codigo: CODIGO Sensor  NOMBRE_SENSOR quiero ACCION 'DESCRIPCION' ",
+			context)
 		acceptor.accept(propuesta)
 	}
-	
-	
-	
-def void completeDispositivos_Codigo(Dispositivos i, Assignment a ,ContentAssistContext context, ICompletionProposalAcceptor acceptor){
-		super.completeDispositivos_Codigo(i,a,context,acceptor);
-	  	var r = i.eContainer as Granja;
-	  	var id = "CODI"+ (r.dispositivos.filter(typeof (Dispositivos)).size);
-	  	var propuesta = createCompletionProposal(id,context);
-	  	acceptor.accept(propuesta);
-}
 
-	def void completeAccion_Descripcion(accion accion, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	def void completeDispositivos_Codigo(Dispositivos i, Assignment a, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		super.completeDispositivos_Codigo(i, a, context, acceptor);
+		var r = i.eContainer as Granja;
+		var id = "CODI" + (r.dispositivos.filter(typeof(Dispositivos)).size);
+		var propuesta = createCompletionProposal(id, context);
+		acceptor.accept(propuesta);
+	}
+
+	def void completeAccion_Descripcion(accion accion, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
 		super.completeAccion_Descripcion(accion, assignment, context, acceptor)
 		var r = accion.eContainer as Dispositivos
-		var descripcion = "' "+ r.accion.nombreAccion +" el/la " + r.nombre + "'"
-			var propuesta = createCompletionProposal(descripcion,context);
-	  	acceptor.accept(propuesta);
+		if (r.accion.numero !=null) {
+			if (r.nombre.equals("CAMARA")) {
+				var descripcion = "' " + r.accion.nombreAccion + " "+ r.accion.numero+ " fotos de la " + r.nombre + "'"
+				var propuesta = createCompletionProposal(descripcion, context);
+				acceptor.accept(propuesta);
+			} else if (r.nombre.equals("TERMOSTATO")) {
+				var descripcion = "' " + r.accion.nombreAccion +" "+ r.accion.numero+ "grados el " + r.nombre + "'"
+				var propuesta = createCompletionProposal(descripcion, context);
+				acceptor.accept(propuesta);
+			} else if (r.nombre.equals("LUZ")) {
+				var descripcion = "' " + r.accion.nombreAccion +" "+ r.accion.numero+ "vatios la " + r.nombre + "'"
+				var propuesta = createCompletionProposal(descripcion, context);
+				acceptor.accept(propuesta);
+			}
+		
+		} else {
+			var descripcion = "' " + r.accion.nombreAccion + " el/la " + r.nombre + "'"
+			var propuesta = createCompletionProposal(descripcion, context);
+			acceptor.accept(propuesta);
+			
+		}
+		
 	}
-	
-	override completeAccion_NombreAccion(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		//super.completeAccion_NombreAccion(model, assignment, context, acceptor)
+
+	override completeAccion_NombreAccion(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		// super.completeAccion_NombreAccion(model, assignment, context, acceptor)
 		var propuesta = createCompletionProposal("0.0", context)
 		acceptor.accept(propuesta)
 	}
-	
-	
+
 }

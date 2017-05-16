@@ -407,4 +407,15 @@
 			type="text">
 		</fileTypes>
 	</extension>
+	<!--Ojo modificado para wizard -->
+	<extension
+		point="org.eclipse.ui.newWizards">
+		<wizard
+			category="org.eclipse.xtext.projectwiz"
+			class="org.xtext.dsl.gratext.ui.GratextExecutableExtensionFactory:org.xtext.dsl.gratext.ui.wizard.GratextNewProjectWizard"
+			id="org.xtext.dsl.gratext.ui.wizard.GratextNewProjectWizard"
+			name="Gratext Project"
+				project="true">
+		</wizard>
+	</extension>
 </plugin>

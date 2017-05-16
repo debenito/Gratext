@@ -69,6 +69,7 @@ import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
+import org.eclipse.xtext.ui.wizard.IProjectCreator;
 import org.xtext.dsl.gratext.ide.contentassist.antlr.GratextParser;
 import org.xtext.dsl.gratext.ide.contentassist.antlr.PartialGratextContentAssistParser;
 import org.xtext.dsl.gratext.ide.contentassist.antlr.internal.InternalGratextLexer;
@@ -77,6 +78,7 @@ import org.xtext.dsl.gratext.ui.labeling.GratextDescriptionLabelProvider;
 import org.xtext.dsl.gratext.ui.labeling.GratextLabelProvider;
 import org.xtext.dsl.gratext.ui.outline.GratextOutlineTreeProvider;
 import org.xtext.dsl.gratext.ui.quickfix.GratextQuickfixProvider;
+import org.xtext.dsl.gratext.ui.wizard.GratextProjectCreator;
 
 /**
  * Manual modifications go to {@link GratextUiModule}.
@@ -282,6 +284,11 @@ public abstract class AbstractGratextUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public Class<? extends IViewerCreator> bindIViewerCreator() {
 		return DefaultViewerCreator.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.ui.projectWizard.SimpleProjectWizardFragment2
+	public Class<? extends IProjectCreator> bindIProjectCreator() {
+		return GratextProjectCreator.class;
 	}
 	
 }

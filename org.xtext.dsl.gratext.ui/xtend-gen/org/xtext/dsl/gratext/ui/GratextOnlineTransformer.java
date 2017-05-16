@@ -15,9 +15,8 @@ public class GratextOnlineTransformer extends DefaultOutlineTreeProvider {
 	protected void createNode(IOutlineNode parent, EObject modelElement) {
 		if(modelElement instanceof Granja){
 			createEObjectNode(parent, modelElement);
-			
-		//super.createNode(parent, modelElement);
 	} else if(modelElement instanceof Dispositivos){
+	
 		createEObjectNode(parent, modelElement);
 		int posicion = parent.getChildren().size()-1;
 		IOutlineNode nodoActual =parent.getChildren().get(posicion);
@@ -28,6 +27,7 @@ public class GratextOnlineTransformer extends DefaultOutlineTreeProvider {
 		codigo.setName("Codigo : "+ dispositivo.getCodigo());
 		createEObjectNode(nodoActual, codigo);
 		
+	
 
 		EAttribute nombre = GratextPackageImpl.eINSTANCE.getDispositivos_Nombre();
 		nombre.setDefaultValue(dispositivo.getNombre());
@@ -51,11 +51,15 @@ public class GratextOnlineTransformer extends DefaultOutlineTreeProvider {
 		nombreDescripcion.setDefaultValue(dispositivo.getAccion().getDescripcion());
 		nombreDescripcion.setName("Descripcion : "+ dispositivo.getAccion().getDescripcion());
 		createEObjectNode(nodoActual, nombreDescripcion);
+	
 		}
 		
+	
+	
+		
+	
+	
 	}
-	
-	
 	
 
 }

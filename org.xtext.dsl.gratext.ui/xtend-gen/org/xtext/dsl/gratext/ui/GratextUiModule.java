@@ -8,7 +8,6 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.outline.IOutlineTreeProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
-import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingHelper;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -19,8 +18,7 @@ public class GratextUiModule extends AbstractGratextUiModule {
   public GratextUiModule(final AbstractUIPlugin plugin) {
     super(plugin);
   }
-  
-	public Class<? extends IHighlightingConfiguration> bindIHighlightingConfiguration() {
+  public Class<? extends IHighlightingConfiguration> bindIHighlightingConfiguration() {
 		
 		return GratextHighlightConfiguration.class;
 	}
@@ -30,11 +28,13 @@ public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightin
 		return GratextHighlightCalculator.class;
 	}
 
-@Override
-	public Class<? extends IOutlineTreeProvider> bindIOutlineTreeProvider() {
-		// TODO Auto-generated method stub
-		return GratextOnlineTransformer.class;
 
+	public Class<? extends IOutlineTreeProvider> bindIOutlineTreeProvider() {
+		
+		
+		return GratextOnlineTransformer.class;
+	
+		
 
 	}
 }

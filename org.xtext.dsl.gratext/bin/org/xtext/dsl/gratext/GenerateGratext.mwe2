@@ -42,6 +42,11 @@ Workflow {
 				formatter={
    			 generateStub=true
 				}
+				// Generacion del projecto wizard
+				newProjectWizardForEclipse = {
+				generate= true
+				pluginProject=false
+	}
 		}
 	}
 }
