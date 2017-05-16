@@ -101,6 +101,13 @@ public class GratextSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GratextPackage.NUMERO:
+      {
+        numero numero = (numero)theEObject;
+        T result = casenumero(numero);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -165,6 +172,22 @@ public class GratextSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseaccion(accion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>numero</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>numero</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casenumero(numero object)
   {
     return null;
   }

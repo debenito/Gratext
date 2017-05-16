@@ -106,7 +106,7 @@ class GeneradorWeb {
 		<action_descripcion>«i.accion.nombreAccion»</action_descripcion>
 		«ENDIF»
 		«IF i.accion.numero!= null»
-		<has_menssage>«comprobarNumero(i.accion.numero)»</has_message>
+		<has_menssage>«comprobarNumero(i.accion.numero.idNumero)»</has_message>
 		«ELSE»
 			<has_menssage>-</has_message>
 		«ENDIF»

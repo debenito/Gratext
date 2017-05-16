@@ -15,7 +15,7 @@ public class GratextNewProjectWizardInitialContents {
   
   public void generateInitialContents(final IFileSystemAccess2 fsa) {
     String _primaryFileExtension = this.fileExtensionProvider.getPrimaryFileExtension();
-    String _plus = ("src/model/Model.gra" + _primaryFileExtension);
+    String _plus = ("src/model/Model." + _primaryFileExtension);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Granja: BENI1");
     _builder.newLine();
@@ -37,7 +37,7 @@ public class GratextNewProjectWizardInitialContents {
     _builder.append("Codigo: CODI2 Sensor TEMPERATURA \"AMBIENTE\"  quiero ESTADO \' ESTADO el/la TEMPERATURA\'");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("Codigo: CODI3 Sensor CAMARA quiero SACAR 20 \' SACAR el/la CAMARA\'");
+    _builder.append("Codigo: CODI3 Sensor CAMARA quiero SACAR 20 FOTOS\' SACAR 20 FOTOS del CAMARA\'");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();

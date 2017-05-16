@@ -14,7 +14,7 @@ class GratextNewProjectWizardInitialContents {
 
 	def generateInitialContents(IFileSystemAccess2 fsa) {
 		fsa.generateFile(
-			"src/model/Model.gra" + fileExtensionProvider.primaryFileExtension,
+			"src/model/Model." + fileExtensionProvider.primaryFileExtension,
 			'''
 			Granja: BENI1
 			 Centralita:DELAVAL 
@@ -23,7 +23,7 @@ class GratextNewProjectWizardInitialContents {
 			Dispositivos{
 				Codigo:CODI1 Sensor ROTURA_CRISTAL quiero ESTADO ' ESTADO el/la ROTURA_CRISTAL'
 				Codigo: CODI2 Sensor TEMPERATURA "AMBIENTE"  quiero ESTADO ' ESTADO el/la TEMPERATURA'
-				Codigo: CODI3 Sensor CAMARA quiero SACAR 20 ' SACAR el/la CAMARA'
+				Codigo: CODI3 Sensor CAMARA quiero SACAR 20 FOTOS' SACAR 20 FOTOS del CAMARA'
 			}
 			'''
 			)

@@ -22,8 +22,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="accion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreAccion" eType="#//NombreAccion"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numero" eType="#//numero"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="numero">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idNumero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="datos" eType="#//Datos"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Datos">
+    <eLiterals name="FOTOS" literal="FOTOS"/>
+    <eLiterals name="VOLTIOS" value="1" literal="VOLTIOS"/>
+    <eLiterals name="GRADOS" value="2" literal="GRADOS"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Tipo">
     <eLiterals name="DELAVAL" literal="DELAVAL"/>

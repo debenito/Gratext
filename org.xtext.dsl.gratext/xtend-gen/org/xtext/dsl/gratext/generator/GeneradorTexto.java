@@ -16,6 +16,7 @@ import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.gratext.login;
+import org.xtext.dsl.gratext.gratext.numero;
 
 @SuppressWarnings("all")
 public class GeneradorTexto {
@@ -133,12 +134,12 @@ public class GeneradorTexto {
     }
     {
       accion _accion_2 = i.getAccion();
-      String _numero = _accion_2.getNumero();
+      numero _numero = _accion_2.getNumero();
       boolean _notEquals_1 = (!Objects.equal(_numero, null));
       if (_notEquals_1) {
         _builder.append("\"Con el siguiente valor:\"");
         accion _accion_3 = i.getAccion();
-        String _numero_1 = _accion_3.getNumero();
+        numero _numero_1 = _accion_3.getNumero();
         _builder.append(_numero_1, "");
         _builder.newLineIfNotEmpty();
       }

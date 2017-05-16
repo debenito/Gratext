@@ -19,6 +19,7 @@ import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
 import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.gratext.login;
+import org.xtext.dsl.gratext.gratext.numero;
 import org.xtext.dsl.gratext.services.GratextGrammarAccess;
 
 @SuppressWarnings("all")
@@ -46,6 +47,9 @@ public class GratextSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case GratextPackage.LOGIN:
 				sequence_login(context, (login) semanticObject); 
+				return; 
+			case GratextPackage.NUMERO:
+				sequence_numero(context, (numero) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -105,6 +109,27 @@ public class GratextSemanticSequencer extends AbstractDelegatingSemanticSequence
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLoginAccess().getUsuarioIDTerminalRuleCall_1_0(), semanticObject.getUsuario());
 		feeder.accept(grammarAccess.getLoginAccess().getContrasenaSTRINGTerminalRuleCall_3_0(), semanticObject.getContrasena());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     numero returns numero
+	 *
+	 * Constraint:
+	 *     (idNumero=idNumero datos=Datos)
+	 */
+	protected void sequence_numero(ISerializationContext context, numero semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GratextPackage.Literals.NUMERO__ID_NUMERO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GratextPackage.Literals.NUMERO__ID_NUMERO));
+			if (transientValues.isValueTransient(semanticObject, GratextPackage.Literals.NUMERO__DATOS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GratextPackage.Literals.NUMERO__DATOS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNumeroAccess().getIdNumeroIdNumeroParserRuleCall_0_0(), semanticObject.getIdNumero());
+		feeder.accept(grammarAccess.getNumeroAccess().getDatosDatosEnumRuleCall_1_0(), semanticObject.getDatos());
 		feeder.finish();
 	}
 	

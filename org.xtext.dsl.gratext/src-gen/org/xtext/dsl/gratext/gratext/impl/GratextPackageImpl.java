@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.dsl.gratext.gratext.Datos;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.GratextFactory;
@@ -20,6 +21,7 @@ import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.gratext.login;
+import org.xtext.dsl.gratext.gratext.numero;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,6 +58,20 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * @generated
    */
   private EClass accionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass numeroEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum datosEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -296,9 +312,9 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getaccion_Numero()
+  public EReference getaccion_Numero()
   {
-    return (EAttribute)accionEClass.getEStructuralFeatures().get(1);
+    return (EReference)accionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -309,6 +325,46 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
   public EAttribute getaccion_Descripcion()
   {
     return (EAttribute)accionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getnumero()
+  {
+    return numeroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getnumero_IdNumero()
+  {
+    return (EAttribute)numeroEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getnumero_Datos()
+  {
+    return (EAttribute)numeroEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getDatos()
+  {
+    return datosEEnum;
   }
 
   /**
@@ -389,10 +445,15 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
 
     accionEClass = createEClass(ACCION);
     createEAttribute(accionEClass, ACCION__NOMBRE_ACCION);
-    createEAttribute(accionEClass, ACCION__NUMERO);
+    createEReference(accionEClass, ACCION__NUMERO);
     createEAttribute(accionEClass, ACCION__DESCRIPCION);
 
+    numeroEClass = createEClass(NUMERO);
+    createEAttribute(numeroEClass, NUMERO__ID_NUMERO);
+    createEAttribute(numeroEClass, NUMERO__DATOS);
+
     // Create enums
+    datosEEnum = createEEnum(DATOS);
     tipoEEnum = createEEnum(TIPO);
     tiposDispositivoEEnum = createEEnum(TIPOS_DISPOSITIVO);
     nombreAccionEEnum = createEEnum(NOMBRE_ACCION);
@@ -447,10 +508,19 @@ public class GratextPackageImpl extends EPackageImpl implements GratextPackage
 
     initEClass(accionEClass, accion.class, "accion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getaccion_NombreAccion(), this.getNombreAccion(), "nombreAccion", null, 0, 1, accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getaccion_Numero(), ecorePackage.getEString(), "numero", null, 0, 1, accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getaccion_Numero(), this.getnumero(), null, "numero", null, 0, 1, accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getaccion_Descripcion(), ecorePackage.getEString(), "descripcion", null, 0, 1, accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(numeroEClass, numero.class, "numero", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getnumero_IdNumero(), ecorePackage.getEString(), "idNumero", null, 0, 1, numero.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getnumero_Datos(), this.getDatos(), "datos", null, 0, 1, numero.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     // Initialize enums and add enum literals
+    initEEnum(datosEEnum, Datos.class, "Datos");
+    addEEnumLiteral(datosEEnum, Datos.FOTOS);
+    addEEnumLiteral(datosEEnum, Datos.VOLTIOS);
+    addEEnumLiteral(datosEEnum, Datos.GRADOS);
+
     initEEnum(tipoEEnum, Tipo.class, "Tipo");
     addEEnumLiteral(tipoEEnum, Tipo.DELAVAL);
     addEEnumLiteral(tipoEEnum, Tipo.SIEMENS);

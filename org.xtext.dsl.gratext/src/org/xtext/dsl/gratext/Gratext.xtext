@@ -26,11 +26,17 @@ accion:
 ;
 
 numero:
+	idNumero=idNumero datos=Datos
+;
+
+idNumero:
 	(INT)+ ('.')? (INT)*
 ;
 
 
 
+
+enum Datos : FOTOS | VOLTIOS | GRADOS;
 enum Tipo : DELAVAL | SIEMENS | TABLET | MOVIL | ORDENADOR;
 enum TiposDispositivo : CAMARA | TEMPERATURA | FUEGO_HUMO | CO2 | GAS | PRESENCIA | MAGNETICO| ROTURA_CRISTAL
 	| BARRERA_SEGURIDAD | LUMINOSIDAD | EMERGENCIA | INUNDACION | VIENTO | LLUVIA | ESTACION_METEOROLOGICA |

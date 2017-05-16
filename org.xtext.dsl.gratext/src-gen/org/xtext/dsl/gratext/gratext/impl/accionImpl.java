@@ -4,8 +4,10 @@
 package org.xtext.dsl.gratext.gratext.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -13,6 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
 import org.xtext.dsl.gratext.gratext.accion;
+import org.xtext.dsl.gratext.gratext.numero;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,24 +55,14 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
   protected NombreAccion nombreAccion = NOMBRE_ACCION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNumero() <em>Numero</em>}' attribute.
+   * The cached value of the '{@link #getNumero() <em>Numero</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getNumero()
    * @generated
    * @ordered
    */
-  protected static final String NUMERO_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getNumero() <em>Numero</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNumero()
-   * @generated
-   * @ordered
-   */
-  protected String numero = NUMERO_EDEFAULT;
+  protected numero numero;
 
   /**
    * The default value of the '{@link #getDescripcion() <em>Descripcion</em>}' attribute.
@@ -140,7 +133,7 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNumero()
+  public numero getNumero()
   {
     return numero;
   }
@@ -150,12 +143,37 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNumero(String newNumero)
+  public NotificationChain basicSetNumero(numero newNumero, NotificationChain msgs)
   {
-    String oldNumero = numero;
+    numero oldNumero = numero;
     numero = newNumero;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.ACCION__NUMERO, oldNumero, numero));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GratextPackage.ACCION__NUMERO, oldNumero, newNumero);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNumero(numero newNumero)
+  {
+    if (newNumero != numero)
+    {
+      NotificationChain msgs = null;
+      if (numero != null)
+        msgs = ((InternalEObject)numero).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GratextPackage.ACCION__NUMERO, null, msgs);
+      if (newNumero != null)
+        msgs = ((InternalEObject)newNumero).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GratextPackage.ACCION__NUMERO, null, msgs);
+      msgs = basicSetNumero(newNumero, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.ACCION__NUMERO, newNumero, newNumero));
   }
 
   /**
@@ -179,6 +197,22 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
     descripcion = newDescripcion;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GratextPackage.ACCION__DESCRIPCION, oldDescripcion, descripcion));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GratextPackage.ACCION__NUMERO:
+        return basicSetNumero(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -215,7 +249,7 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
         setNombreAccion((NombreAccion)newValue);
         return;
       case GratextPackage.ACCION__NUMERO:
-        setNumero((String)newValue);
+        setNumero((numero)newValue);
         return;
       case GratextPackage.ACCION__DESCRIPCION:
         setDescripcion((String)newValue);
@@ -238,7 +272,7 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
         setNombreAccion(NOMBRE_ACCION_EDEFAULT);
         return;
       case GratextPackage.ACCION__NUMERO:
-        setNumero(NUMERO_EDEFAULT);
+        setNumero((numero)null);
         return;
       case GratextPackage.ACCION__DESCRIPCION:
         setDescripcion(DESCRIPCION_EDEFAULT);
@@ -260,7 +294,7 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
       case GratextPackage.ACCION__NOMBRE_ACCION:
         return nombreAccion != NOMBRE_ACCION_EDEFAULT;
       case GratextPackage.ACCION__NUMERO:
-        return NUMERO_EDEFAULT == null ? numero != null : !NUMERO_EDEFAULT.equals(numero);
+        return numero != null;
       case GratextPackage.ACCION__DESCRIPCION:
         return DESCRIPCION_EDEFAULT == null ? descripcion != null : !DESCRIPCION_EDEFAULT.equals(descripcion);
     }
@@ -280,8 +314,6 @@ public class accionImpl extends MinimalEObjectImpl.Container implements accion
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (nombreAccion: ");
     result.append(nombreAccion);
-    result.append(", numero: ");
-    result.append(numero);
     result.append(", descripcion: ");
     result.append(descripcion);
     result.append(')');

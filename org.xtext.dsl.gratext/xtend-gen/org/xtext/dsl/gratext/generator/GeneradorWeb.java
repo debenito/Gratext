@@ -16,6 +16,7 @@ import org.xtext.dsl.gratext.gratext.NombreAccion;
 import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
+import org.xtext.dsl.gratext.gratext.numero;
 
 @SuppressWarnings("all")
 public class GeneradorWeb {
@@ -220,13 +221,14 @@ public class GeneradorWeb {
     }
     {
       accion _accion_3 = i.getAccion();
-      String _numero = _accion_3.getNumero();
+      numero _numero = _accion_3.getNumero();
       boolean _notEquals_1 = (!Objects.equal(_numero, null));
       if (_notEquals_1) {
         _builder.append("<has_menssage>");
         accion _accion_4 = i.getAccion();
-        String _numero_1 = _accion_4.getNumero();
-        String _comprobarNumero = this.comprobarNumero(_numero_1);
+        numero _numero_1 = _accion_4.getNumero();
+        String _idNumero = _numero_1.getIdNumero();
+        String _comprobarNumero = this.comprobarNumero(_idNumero);
         _builder.append(_comprobarNumero, "");
         _builder.append("</has_message>");
         _builder.newLineIfNotEmpty();

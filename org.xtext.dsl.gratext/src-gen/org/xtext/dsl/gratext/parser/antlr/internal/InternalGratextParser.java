@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalGratextParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Granja:'", "'Centralita:'", "'Dispositivos{'", "'}'", "'Usuario:'", "'Contrase\\u00F1a:'", "'Codigo:'", "'Sensor'", "'quiero'", "'.'", "'DELAVAL'", "'SIEMENS'", "'TABLET'", "'MOVIL'", "'ORDENADOR'", "'CAMARA'", "'TEMPERATURA'", "'FUEGO_HUMO'", "'CO2'", "'GAS'", "'PRESENCIA'", "'MAGNETICO'", "'ROTURA_CRISTAL'", "'BARRERA_SEGURIDAD'", "'LUMINOSIDAD'", "'EMERGENCIA'", "'INUNDACION'", "'VIENTO'", "'LLUVIA'", "'ESTACION_METEOROLOGICA'", "'SISTEMA_IDENTIFICACION'", "'INFRARROJOS'", "'RADIOFRECUENCIA'", "'MECEDORA'", "'PULSOMETRO_GANADO'", "'DEPOSITO_LECHE'", "'ROBOT_LIMPIADOR'", "'NEVERAS'", "'LUZ'", "'TERMOSTATO'", "'ABRIR'", "'ENVIAR'", "'SACAR'", "'CERRAR'", "'ESTADO'", "'GRABAR'", "'DETECTAR'", "'ENCENDER'", "'APAGAR'", "'AUMENTAR'", "'DISMINUIR'", "'COMPROBAR'", "'ACTIVAR'", "'DESACTIVAR'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Granja:'", "'Centralita:'", "'Dispositivos{'", "'}'", "'Usuario:'", "'Contrase\\u00F1a:'", "'Codigo:'", "'Sensor'", "'quiero'", "'.'", "'FOTOS'", "'VOLTIOS'", "'GRADOS'", "'DELAVAL'", "'SIEMENS'", "'TABLET'", "'MOVIL'", "'ORDENADOR'", "'CAMARA'", "'TEMPERATURA'", "'FUEGO_HUMO'", "'CO2'", "'GAS'", "'PRESENCIA'", "'MAGNETICO'", "'ROTURA_CRISTAL'", "'BARRERA_SEGURIDAD'", "'LUMINOSIDAD'", "'EMERGENCIA'", "'INUNDACION'", "'VIENTO'", "'LLUVIA'", "'ESTACION_METEOROLOGICA'", "'SISTEMA_IDENTIFICACION'", "'INFRARROJOS'", "'RADIOFRECUENCIA'", "'MECEDORA'", "'PULSOMETRO_GANADO'", "'DEPOSITO_LECHE'", "'ROBOT_LIMPIADOR'", "'NEVERAS'", "'LUZ'", "'TERMOSTATO'", "'ABRIR'", "'ENVIAR'", "'SACAR'", "'CERRAR'", "'ESTADO'", "'GRABAR'", "'DETECTAR'", "'ENCENDER'", "'APAGAR'", "'AUMENTAR'", "'DISMINUIR'", "'COMPROBAR'", "'ACTIVAR'", "'DESACTIVAR'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -52,8 +52,10 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
     public static final int RULE_INT=6;
     public static final int T__29=29;
     public static final int T__22=22;
+    public static final int T__66=66;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
+    public static final int T__67=67;
     public static final int T__24=24;
     public static final int T__25=25;
     public static final int T__62=62;
@@ -61,6 +63,7 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
     public static final int T__20=20;
     public static final int T__64=64;
     public static final int T__21=21;
+    public static final int T__65=65;
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__37=37;
@@ -773,7 +776,7 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
         Token lv_descripcion_3_0=null;
         Enumerator lv_nombreAccion_1_0 = null;
 
-        AntlrDatatypeRuleToken lv_numero_2_0 = null;
+        EObject lv_numero_2_0 = null;
 
 
 
@@ -923,15 +926,15 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulenumero"
-    // InternalGratext.g:418:1: entryRulenumero returns [String current=null] : iv_rulenumero= rulenumero EOF ;
-    public final String entryRulenumero() throws RecognitionException {
-        String current = null;
+    // InternalGratext.g:418:1: entryRulenumero returns [EObject current=null] : iv_rulenumero= rulenumero EOF ;
+    public final EObject entryRulenumero() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_rulenumero = null;
+        EObject iv_rulenumero = null;
 
 
         try {
-            // InternalGratext.g:418:46: (iv_rulenumero= rulenumero EOF )
+            // InternalGratext.g:418:47: (iv_rulenumero= rulenumero EOF )
             // InternalGratext.g:419:2: iv_rulenumero= rulenumero EOF
             {
              newCompositeNode(grammarAccess.getNumeroRule()); 
@@ -940,7 +943,7 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
             state._fsp--;
 
-             current =iv_rulenumero.getText(); 
+             current =iv_rulenumero; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -959,8 +962,148 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulenumero"
-    // InternalGratext.g:425:1: rulenumero returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* ) ;
-    public final AntlrDatatypeRuleToken rulenumero() throws RecognitionException {
+    // InternalGratext.g:425:1: rulenumero returns [EObject current=null] : ( ( (lv_idNumero_0_0= ruleidNumero ) ) ( (lv_datos_1_0= ruleDatos ) ) ) ;
+    public final EObject rulenumero() throws RecognitionException {
+        EObject current = null;
+
+        AntlrDatatypeRuleToken lv_idNumero_0_0 = null;
+
+        Enumerator lv_datos_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalGratext.g:431:2: ( ( ( (lv_idNumero_0_0= ruleidNumero ) ) ( (lv_datos_1_0= ruleDatos ) ) ) )
+            // InternalGratext.g:432:2: ( ( (lv_idNumero_0_0= ruleidNumero ) ) ( (lv_datos_1_0= ruleDatos ) ) )
+            {
+            // InternalGratext.g:432:2: ( ( (lv_idNumero_0_0= ruleidNumero ) ) ( (lv_datos_1_0= ruleDatos ) ) )
+            // InternalGratext.g:433:3: ( (lv_idNumero_0_0= ruleidNumero ) ) ( (lv_datos_1_0= ruleDatos ) )
+            {
+            // InternalGratext.g:433:3: ( (lv_idNumero_0_0= ruleidNumero ) )
+            // InternalGratext.g:434:4: (lv_idNumero_0_0= ruleidNumero )
+            {
+            // InternalGratext.g:434:4: (lv_idNumero_0_0= ruleidNumero )
+            // InternalGratext.g:435:5: lv_idNumero_0_0= ruleidNumero
+            {
+
+            					newCompositeNode(grammarAccess.getNumeroAccess().getIdNumeroIdNumeroParserRuleCall_0_0());
+            				
+            pushFollow(FOLLOW_17);
+            lv_idNumero_0_0=ruleidNumero();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getNumeroRule());
+            					}
+            					set(
+            						current,
+            						"idNumero",
+            						lv_idNumero_0_0,
+            						"org.xtext.dsl.gratext.Gratext.idNumero");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalGratext.g:452:3: ( (lv_datos_1_0= ruleDatos ) )
+            // InternalGratext.g:453:4: (lv_datos_1_0= ruleDatos )
+            {
+            // InternalGratext.g:453:4: (lv_datos_1_0= ruleDatos )
+            // InternalGratext.g:454:5: lv_datos_1_0= ruleDatos
+            {
+
+            					newCompositeNode(grammarAccess.getNumeroAccess().getDatosDatosEnumRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_datos_1_0=ruleDatos();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getNumeroRule());
+            					}
+            					set(
+            						current,
+            						"datos",
+            						lv_datos_1_0,
+            						"org.xtext.dsl.gratext.Gratext.Datos");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulenumero"
+
+
+    // $ANTLR start "entryRuleidNumero"
+    // InternalGratext.g:475:1: entryRuleidNumero returns [String current=null] : iv_ruleidNumero= ruleidNumero EOF ;
+    public final String entryRuleidNumero() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleidNumero = null;
+
+
+        try {
+            // InternalGratext.g:475:48: (iv_ruleidNumero= ruleidNumero EOF )
+            // InternalGratext.g:476:2: iv_ruleidNumero= ruleidNumero EOF
+            {
+             newCompositeNode(grammarAccess.getIdNumeroRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleidNumero=ruleidNumero();
+
+            state._fsp--;
+
+             current =iv_ruleidNumero.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleidNumero"
+
+
+    // $ANTLR start "ruleidNumero"
+    // InternalGratext.g:482:1: ruleidNumero returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* ) ;
+    public final AntlrDatatypeRuleToken ruleidNumero() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token this_INT_0=null;
@@ -971,13 +1114,13 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGratext.g:431:2: ( ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* ) )
-            // InternalGratext.g:432:2: ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* )
+            // InternalGratext.g:488:2: ( ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* ) )
+            // InternalGratext.g:489:2: ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* )
             {
-            // InternalGratext.g:432:2: ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* )
-            // InternalGratext.g:433:3: (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )*
+            // InternalGratext.g:489:2: ( (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )* )
+            // InternalGratext.g:490:3: (this_INT_0= RULE_INT )+ (kw= '.' )? (this_INT_2= RULE_INT )*
             {
-            // InternalGratext.g:433:3: (this_INT_0= RULE_INT )+
+            // InternalGratext.g:490:3: (this_INT_0= RULE_INT )+
             int cnt6=0;
             loop6:
             do {
@@ -991,14 +1134,14 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalGratext.g:434:4: this_INT_0= RULE_INT
+            	    // InternalGratext.g:491:4: this_INT_0= RULE_INT
             	    {
-            	    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_17); 
+            	    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_18); 
 
             	    				current.merge(this_INT_0);
             	    			
 
-            	    				newLeafNode(this_INT_0, grammarAccess.getNumeroAccess().getINTTerminalRuleCall_0());
+            	    				newLeafNode(this_INT_0, grammarAccess.getIdNumeroAccess().getINTTerminalRuleCall_0());
             	    			
 
             	    }
@@ -1013,7 +1156,7 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                 cnt6++;
             } while (true);
 
-            // InternalGratext.g:442:3: (kw= '.' )?
+            // InternalGratext.g:499:3: (kw= '.' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1022,12 +1165,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalGratext.g:443:4: kw= '.'
+                    // InternalGratext.g:500:4: kw= '.'
                     {
-                    kw=(Token)match(input,20,FOLLOW_18); 
+                    kw=(Token)match(input,20,FOLLOW_19); 
 
                     				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getNumeroAccess().getFullStopKeyword_1());
+                    				newLeafNode(kw, grammarAccess.getIdNumeroAccess().getFullStopKeyword_1());
                     			
 
                     }
@@ -1035,7 +1178,7 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGratext.g:449:3: (this_INT_2= RULE_INT )*
+            // InternalGratext.g:506:3: (this_INT_2= RULE_INT )*
             loop8:
             do {
                 int alt8=2;
@@ -1048,14 +1191,14 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalGratext.g:450:4: this_INT_2= RULE_INT
+            	    // InternalGratext.g:507:4: this_INT_2= RULE_INT
             	    {
-            	    this_INT_2=(Token)match(input,RULE_INT,FOLLOW_18); 
+            	    this_INT_2=(Token)match(input,RULE_INT,FOLLOW_19); 
 
             	    				current.merge(this_INT_2);
             	    			
 
-            	    				newLeafNode(this_INT_2, grammarAccess.getNumeroAccess().getINTTerminalRuleCall_2());
+            	    				newLeafNode(this_INT_2, grammarAccess.getIdNumeroAccess().getINTTerminalRuleCall_2());
             	    			
 
             	    }
@@ -1085,29 +1228,27 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "rulenumero"
+    // $ANTLR end "ruleidNumero"
 
 
-    // $ANTLR start "ruleTipo"
-    // InternalGratext.g:462:1: ruleTipo returns [Enumerator current=null] : ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) ) ;
-    public final Enumerator ruleTipo() throws RecognitionException {
+    // $ANTLR start "ruleDatos"
+    // InternalGratext.g:519:1: ruleDatos returns [Enumerator current=null] : ( (enumLiteral_0= 'FOTOS' ) | (enumLiteral_1= 'VOLTIOS' ) | (enumLiteral_2= 'GRADOS' ) ) ;
+    public final Enumerator ruleDatos() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
         Token enumLiteral_1=null;
         Token enumLiteral_2=null;
-        Token enumLiteral_3=null;
-        Token enumLiteral_4=null;
 
 
         	enterRule();
 
         try {
-            // InternalGratext.g:468:2: ( ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) ) )
-            // InternalGratext.g:469:2: ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) )
+            // InternalGratext.g:525:2: ( ( (enumLiteral_0= 'FOTOS' ) | (enumLiteral_1= 'VOLTIOS' ) | (enumLiteral_2= 'GRADOS' ) ) )
+            // InternalGratext.g:526:2: ( (enumLiteral_0= 'FOTOS' ) | (enumLiteral_1= 'VOLTIOS' ) | (enumLiteral_2= 'GRADOS' ) )
             {
-            // InternalGratext.g:469:2: ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) )
-            int alt9=5;
+            // InternalGratext.g:526:2: ( (enumLiteral_0= 'FOTOS' ) | (enumLiteral_1= 'VOLTIOS' ) | (enumLiteral_2= 'GRADOS' ) )
+            int alt9=3;
             switch ( input.LA(1) ) {
             case 21:
                 {
@@ -1124,16 +1265,6 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                 alt9=3;
                 }
                 break;
-            case 24:
-                {
-                alt9=4;
-                }
-                break;
-            case 25:
-                {
-                alt9=5;
-                }
-                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 9, 0, input);
@@ -1143,12 +1274,139 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
             switch (alt9) {
                 case 1 :
-                    // InternalGratext.g:470:3: (enumLiteral_0= 'DELAVAL' )
+                    // InternalGratext.g:527:3: (enumLiteral_0= 'FOTOS' )
                     {
-                    // InternalGratext.g:470:3: (enumLiteral_0= 'DELAVAL' )
-                    // InternalGratext.g:471:4: enumLiteral_0= 'DELAVAL'
+                    // InternalGratext.g:527:3: (enumLiteral_0= 'FOTOS' )
+                    // InternalGratext.g:528:4: enumLiteral_0= 'FOTOS'
                     {
                     enumLiteral_0=(Token)match(input,21,FOLLOW_2); 
+
+                    				current = grammarAccess.getDatosAccess().getFOTOSEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getDatosAccess().getFOTOSEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalGratext.g:535:3: (enumLiteral_1= 'VOLTIOS' )
+                    {
+                    // InternalGratext.g:535:3: (enumLiteral_1= 'VOLTIOS' )
+                    // InternalGratext.g:536:4: enumLiteral_1= 'VOLTIOS'
+                    {
+                    enumLiteral_1=(Token)match(input,22,FOLLOW_2); 
+
+                    				current = grammarAccess.getDatosAccess().getVOLTIOSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getDatosAccess().getVOLTIOSEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalGratext.g:543:3: (enumLiteral_2= 'GRADOS' )
+                    {
+                    // InternalGratext.g:543:3: (enumLiteral_2= 'GRADOS' )
+                    // InternalGratext.g:544:4: enumLiteral_2= 'GRADOS'
+                    {
+                    enumLiteral_2=(Token)match(input,23,FOLLOW_2); 
+
+                    				current = grammarAccess.getDatosAccess().getGRADOSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getDatosAccess().getGRADOSEnumLiteralDeclaration_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDatos"
+
+
+    // $ANTLR start "ruleTipo"
+    // InternalGratext.g:554:1: ruleTipo returns [Enumerator current=null] : ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) ) ;
+    public final Enumerator ruleTipo() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+        Token enumLiteral_3=null;
+        Token enumLiteral_4=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalGratext.g:560:2: ( ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) ) )
+            // InternalGratext.g:561:2: ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) )
+            {
+            // InternalGratext.g:561:2: ( (enumLiteral_0= 'DELAVAL' ) | (enumLiteral_1= 'SIEMENS' ) | (enumLiteral_2= 'TABLET' ) | (enumLiteral_3= 'MOVIL' ) | (enumLiteral_4= 'ORDENADOR' ) )
+            int alt10=5;
+            switch ( input.LA(1) ) {
+            case 24:
+                {
+                alt10=1;
+                }
+                break;
+            case 25:
+                {
+                alt10=2;
+                }
+                break;
+            case 26:
+                {
+                alt10=3;
+                }
+                break;
+            case 27:
+                {
+                alt10=4;
+                }
+                break;
+            case 28:
+                {
+                alt10=5;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 10, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt10) {
+                case 1 :
+                    // InternalGratext.g:562:3: (enumLiteral_0= 'DELAVAL' )
+                    {
+                    // InternalGratext.g:562:3: (enumLiteral_0= 'DELAVAL' )
+                    // InternalGratext.g:563:4: enumLiteral_0= 'DELAVAL'
+                    {
+                    enumLiteral_0=(Token)match(input,24,FOLLOW_2); 
 
                     				current = grammarAccess.getTipoAccess().getDELAVALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getTipoAccess().getDELAVALEnumLiteralDeclaration_0());
@@ -1160,12 +1418,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalGratext.g:478:3: (enumLiteral_1= 'SIEMENS' )
+                    // InternalGratext.g:570:3: (enumLiteral_1= 'SIEMENS' )
                     {
-                    // InternalGratext.g:478:3: (enumLiteral_1= 'SIEMENS' )
-                    // InternalGratext.g:479:4: enumLiteral_1= 'SIEMENS'
+                    // InternalGratext.g:570:3: (enumLiteral_1= 'SIEMENS' )
+                    // InternalGratext.g:571:4: enumLiteral_1= 'SIEMENS'
                     {
-                    enumLiteral_1=(Token)match(input,22,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,25,FOLLOW_2); 
 
                     				current = grammarAccess.getTipoAccess().getSIEMENSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getTipoAccess().getSIEMENSEnumLiteralDeclaration_1());
@@ -1177,12 +1435,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalGratext.g:486:3: (enumLiteral_2= 'TABLET' )
+                    // InternalGratext.g:578:3: (enumLiteral_2= 'TABLET' )
                     {
-                    // InternalGratext.g:486:3: (enumLiteral_2= 'TABLET' )
-                    // InternalGratext.g:487:4: enumLiteral_2= 'TABLET'
+                    // InternalGratext.g:578:3: (enumLiteral_2= 'TABLET' )
+                    // InternalGratext.g:579:4: enumLiteral_2= 'TABLET'
                     {
-                    enumLiteral_2=(Token)match(input,23,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,26,FOLLOW_2); 
 
                     				current = grammarAccess.getTipoAccess().getTABLETEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getTipoAccess().getTABLETEnumLiteralDeclaration_2());
@@ -1194,12 +1452,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalGratext.g:494:3: (enumLiteral_3= 'MOVIL' )
+                    // InternalGratext.g:586:3: (enumLiteral_3= 'MOVIL' )
                     {
-                    // InternalGratext.g:494:3: (enumLiteral_3= 'MOVIL' )
-                    // InternalGratext.g:495:4: enumLiteral_3= 'MOVIL'
+                    // InternalGratext.g:586:3: (enumLiteral_3= 'MOVIL' )
+                    // InternalGratext.g:587:4: enumLiteral_3= 'MOVIL'
                     {
-                    enumLiteral_3=(Token)match(input,24,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,27,FOLLOW_2); 
 
                     				current = grammarAccess.getTipoAccess().getMOVILEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getTipoAccess().getMOVILEnumLiteralDeclaration_3());
@@ -1211,12 +1469,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalGratext.g:502:3: (enumLiteral_4= 'ORDENADOR' )
+                    // InternalGratext.g:594:3: (enumLiteral_4= 'ORDENADOR' )
                     {
-                    // InternalGratext.g:502:3: (enumLiteral_4= 'ORDENADOR' )
-                    // InternalGratext.g:503:4: enumLiteral_4= 'ORDENADOR'
+                    // InternalGratext.g:594:3: (enumLiteral_4= 'ORDENADOR' )
+                    // InternalGratext.g:595:4: enumLiteral_4= 'ORDENADOR'
                     {
-                    enumLiteral_4=(Token)match(input,25,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,28,FOLLOW_2); 
 
                     				current = grammarAccess.getTipoAccess().getORDENADOREnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getTipoAccess().getORDENADOREnumLiteralDeclaration_4());
@@ -1250,7 +1508,7 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTiposDispositivo"
-    // InternalGratext.g:513:1: ruleTiposDispositivo returns [Enumerator current=null] : ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) ) ;
+    // InternalGratext.g:605:1: ruleTiposDispositivo returns [Enumerator current=null] : ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) ) ;
     public final Enumerator ruleTiposDispositivo() throws RecognitionException {
         Enumerator current = null;
 
@@ -1284,152 +1542,152 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGratext.g:519:2: ( ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) ) )
-            // InternalGratext.g:520:2: ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) )
+            // InternalGratext.g:611:2: ( ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) ) )
+            // InternalGratext.g:612:2: ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) )
             {
-            // InternalGratext.g:520:2: ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) )
-            int alt10=25;
+            // InternalGratext.g:612:2: ( (enumLiteral_0= 'CAMARA' ) | (enumLiteral_1= 'TEMPERATURA' ) | (enumLiteral_2= 'FUEGO_HUMO' ) | (enumLiteral_3= 'CO2' ) | (enumLiteral_4= 'GAS' ) | (enumLiteral_5= 'PRESENCIA' ) | (enumLiteral_6= 'MAGNETICO' ) | (enumLiteral_7= 'ROTURA_CRISTAL' ) | (enumLiteral_8= 'BARRERA_SEGURIDAD' ) | (enumLiteral_9= 'LUMINOSIDAD' ) | (enumLiteral_10= 'EMERGENCIA' ) | (enumLiteral_11= 'INUNDACION' ) | (enumLiteral_12= 'VIENTO' ) | (enumLiteral_13= 'LLUVIA' ) | (enumLiteral_14= 'ESTACION_METEOROLOGICA' ) | (enumLiteral_15= 'SISTEMA_IDENTIFICACION' ) | (enumLiteral_16= 'INFRARROJOS' ) | (enumLiteral_17= 'RADIOFRECUENCIA' ) | (enumLiteral_18= 'MECEDORA' ) | (enumLiteral_19= 'PULSOMETRO_GANADO' ) | (enumLiteral_20= 'DEPOSITO_LECHE' ) | (enumLiteral_21= 'ROBOT_LIMPIADOR' ) | (enumLiteral_22= 'NEVERAS' ) | (enumLiteral_23= 'LUZ' ) | (enumLiteral_24= 'TERMOSTATO' ) )
+            int alt11=25;
             switch ( input.LA(1) ) {
-            case 26:
-                {
-                alt10=1;
-                }
-                break;
-            case 27:
-                {
-                alt10=2;
-                }
-                break;
-            case 28:
-                {
-                alt10=3;
-                }
-                break;
             case 29:
                 {
-                alt10=4;
+                alt11=1;
                 }
                 break;
             case 30:
                 {
-                alt10=5;
+                alt11=2;
                 }
                 break;
             case 31:
                 {
-                alt10=6;
+                alt11=3;
                 }
                 break;
             case 32:
                 {
-                alt10=7;
+                alt11=4;
                 }
                 break;
             case 33:
                 {
-                alt10=8;
+                alt11=5;
                 }
                 break;
             case 34:
                 {
-                alt10=9;
+                alt11=6;
                 }
                 break;
             case 35:
                 {
-                alt10=10;
+                alt11=7;
                 }
                 break;
             case 36:
                 {
-                alt10=11;
+                alt11=8;
                 }
                 break;
             case 37:
                 {
-                alt10=12;
+                alt11=9;
                 }
                 break;
             case 38:
                 {
-                alt10=13;
+                alt11=10;
                 }
                 break;
             case 39:
                 {
-                alt10=14;
+                alt11=11;
                 }
                 break;
             case 40:
                 {
-                alt10=15;
+                alt11=12;
                 }
                 break;
             case 41:
                 {
-                alt10=16;
+                alt11=13;
                 }
                 break;
             case 42:
                 {
-                alt10=17;
+                alt11=14;
                 }
                 break;
             case 43:
                 {
-                alt10=18;
+                alt11=15;
                 }
                 break;
             case 44:
                 {
-                alt10=19;
+                alt11=16;
                 }
                 break;
             case 45:
                 {
-                alt10=20;
+                alt11=17;
                 }
                 break;
             case 46:
                 {
-                alt10=21;
+                alt11=18;
                 }
                 break;
             case 47:
                 {
-                alt10=22;
+                alt11=19;
                 }
                 break;
             case 48:
                 {
-                alt10=23;
+                alt11=20;
                 }
                 break;
             case 49:
                 {
-                alt10=24;
+                alt11=21;
                 }
                 break;
             case 50:
                 {
-                alt10=25;
+                alt11=22;
+                }
+                break;
+            case 51:
+                {
+                alt11=23;
+                }
+                break;
+            case 52:
+                {
+                alt11=24;
+                }
+                break;
+            case 53:
+                {
+                alt11=25;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // InternalGratext.g:521:3: (enumLiteral_0= 'CAMARA' )
+                    // InternalGratext.g:613:3: (enumLiteral_0= 'CAMARA' )
                     {
-                    // InternalGratext.g:521:3: (enumLiteral_0= 'CAMARA' )
-                    // InternalGratext.g:522:4: enumLiteral_0= 'CAMARA'
+                    // InternalGratext.g:613:3: (enumLiteral_0= 'CAMARA' )
+                    // InternalGratext.g:614:4: enumLiteral_0= 'CAMARA'
                     {
-                    enumLiteral_0=(Token)match(input,26,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,29,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getCAMARAEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getTiposDispositivoAccess().getCAMARAEnumLiteralDeclaration_0());
@@ -1441,12 +1699,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalGratext.g:529:3: (enumLiteral_1= 'TEMPERATURA' )
+                    // InternalGratext.g:621:3: (enumLiteral_1= 'TEMPERATURA' )
                     {
-                    // InternalGratext.g:529:3: (enumLiteral_1= 'TEMPERATURA' )
-                    // InternalGratext.g:530:4: enumLiteral_1= 'TEMPERATURA'
+                    // InternalGratext.g:621:3: (enumLiteral_1= 'TEMPERATURA' )
+                    // InternalGratext.g:622:4: enumLiteral_1= 'TEMPERATURA'
                     {
-                    enumLiteral_1=(Token)match(input,27,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,30,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getTEMPERATURAEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getTiposDispositivoAccess().getTEMPERATURAEnumLiteralDeclaration_1());
@@ -1458,12 +1716,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalGratext.g:537:3: (enumLiteral_2= 'FUEGO_HUMO' )
+                    // InternalGratext.g:629:3: (enumLiteral_2= 'FUEGO_HUMO' )
                     {
-                    // InternalGratext.g:537:3: (enumLiteral_2= 'FUEGO_HUMO' )
-                    // InternalGratext.g:538:4: enumLiteral_2= 'FUEGO_HUMO'
+                    // InternalGratext.g:629:3: (enumLiteral_2= 'FUEGO_HUMO' )
+                    // InternalGratext.g:630:4: enumLiteral_2= 'FUEGO_HUMO'
                     {
-                    enumLiteral_2=(Token)match(input,28,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,31,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getFUEGO_HUMOEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getTiposDispositivoAccess().getFUEGO_HUMOEnumLiteralDeclaration_2());
@@ -1475,12 +1733,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalGratext.g:545:3: (enumLiteral_3= 'CO2' )
+                    // InternalGratext.g:637:3: (enumLiteral_3= 'CO2' )
                     {
-                    // InternalGratext.g:545:3: (enumLiteral_3= 'CO2' )
-                    // InternalGratext.g:546:4: enumLiteral_3= 'CO2'
+                    // InternalGratext.g:637:3: (enumLiteral_3= 'CO2' )
+                    // InternalGratext.g:638:4: enumLiteral_3= 'CO2'
                     {
-                    enumLiteral_3=(Token)match(input,29,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,32,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getCO2EnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getTiposDispositivoAccess().getCO2EnumLiteralDeclaration_3());
@@ -1492,12 +1750,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalGratext.g:553:3: (enumLiteral_4= 'GAS' )
+                    // InternalGratext.g:645:3: (enumLiteral_4= 'GAS' )
                     {
-                    // InternalGratext.g:553:3: (enumLiteral_4= 'GAS' )
-                    // InternalGratext.g:554:4: enumLiteral_4= 'GAS'
+                    // InternalGratext.g:645:3: (enumLiteral_4= 'GAS' )
+                    // InternalGratext.g:646:4: enumLiteral_4= 'GAS'
                     {
-                    enumLiteral_4=(Token)match(input,30,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,33,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getGASEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getTiposDispositivoAccess().getGASEnumLiteralDeclaration_4());
@@ -1509,12 +1767,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalGratext.g:561:3: (enumLiteral_5= 'PRESENCIA' )
+                    // InternalGratext.g:653:3: (enumLiteral_5= 'PRESENCIA' )
                     {
-                    // InternalGratext.g:561:3: (enumLiteral_5= 'PRESENCIA' )
-                    // InternalGratext.g:562:4: enumLiteral_5= 'PRESENCIA'
+                    // InternalGratext.g:653:3: (enumLiteral_5= 'PRESENCIA' )
+                    // InternalGratext.g:654:4: enumLiteral_5= 'PRESENCIA'
                     {
-                    enumLiteral_5=(Token)match(input,31,FOLLOW_2); 
+                    enumLiteral_5=(Token)match(input,34,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getPRESENCIAEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_5, grammarAccess.getTiposDispositivoAccess().getPRESENCIAEnumLiteralDeclaration_5());
@@ -1526,12 +1784,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalGratext.g:569:3: (enumLiteral_6= 'MAGNETICO' )
+                    // InternalGratext.g:661:3: (enumLiteral_6= 'MAGNETICO' )
                     {
-                    // InternalGratext.g:569:3: (enumLiteral_6= 'MAGNETICO' )
-                    // InternalGratext.g:570:4: enumLiteral_6= 'MAGNETICO'
+                    // InternalGratext.g:661:3: (enumLiteral_6= 'MAGNETICO' )
+                    // InternalGratext.g:662:4: enumLiteral_6= 'MAGNETICO'
                     {
-                    enumLiteral_6=(Token)match(input,32,FOLLOW_2); 
+                    enumLiteral_6=(Token)match(input,35,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getMAGNETICOEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_6, grammarAccess.getTiposDispositivoAccess().getMAGNETICOEnumLiteralDeclaration_6());
@@ -1543,12 +1801,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalGratext.g:577:3: (enumLiteral_7= 'ROTURA_CRISTAL' )
+                    // InternalGratext.g:669:3: (enumLiteral_7= 'ROTURA_CRISTAL' )
                     {
-                    // InternalGratext.g:577:3: (enumLiteral_7= 'ROTURA_CRISTAL' )
-                    // InternalGratext.g:578:4: enumLiteral_7= 'ROTURA_CRISTAL'
+                    // InternalGratext.g:669:3: (enumLiteral_7= 'ROTURA_CRISTAL' )
+                    // InternalGratext.g:670:4: enumLiteral_7= 'ROTURA_CRISTAL'
                     {
-                    enumLiteral_7=(Token)match(input,33,FOLLOW_2); 
+                    enumLiteral_7=(Token)match(input,36,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getROTURA_CRISTALEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_7, grammarAccess.getTiposDispositivoAccess().getROTURA_CRISTALEnumLiteralDeclaration_7());
@@ -1560,12 +1818,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalGratext.g:585:3: (enumLiteral_8= 'BARRERA_SEGURIDAD' )
+                    // InternalGratext.g:677:3: (enumLiteral_8= 'BARRERA_SEGURIDAD' )
                     {
-                    // InternalGratext.g:585:3: (enumLiteral_8= 'BARRERA_SEGURIDAD' )
-                    // InternalGratext.g:586:4: enumLiteral_8= 'BARRERA_SEGURIDAD'
+                    // InternalGratext.g:677:3: (enumLiteral_8= 'BARRERA_SEGURIDAD' )
+                    // InternalGratext.g:678:4: enumLiteral_8= 'BARRERA_SEGURIDAD'
                     {
-                    enumLiteral_8=(Token)match(input,34,FOLLOW_2); 
+                    enumLiteral_8=(Token)match(input,37,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getBARRERA_SEGURIDADEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_8, grammarAccess.getTiposDispositivoAccess().getBARRERA_SEGURIDADEnumLiteralDeclaration_8());
@@ -1577,12 +1835,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalGratext.g:593:3: (enumLiteral_9= 'LUMINOSIDAD' )
+                    // InternalGratext.g:685:3: (enumLiteral_9= 'LUMINOSIDAD' )
                     {
-                    // InternalGratext.g:593:3: (enumLiteral_9= 'LUMINOSIDAD' )
-                    // InternalGratext.g:594:4: enumLiteral_9= 'LUMINOSIDAD'
+                    // InternalGratext.g:685:3: (enumLiteral_9= 'LUMINOSIDAD' )
+                    // InternalGratext.g:686:4: enumLiteral_9= 'LUMINOSIDAD'
                     {
-                    enumLiteral_9=(Token)match(input,35,FOLLOW_2); 
+                    enumLiteral_9=(Token)match(input,38,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getLUMINOSIDADEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_9, grammarAccess.getTiposDispositivoAccess().getLUMINOSIDADEnumLiteralDeclaration_9());
@@ -1594,12 +1852,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalGratext.g:601:3: (enumLiteral_10= 'EMERGENCIA' )
+                    // InternalGratext.g:693:3: (enumLiteral_10= 'EMERGENCIA' )
                     {
-                    // InternalGratext.g:601:3: (enumLiteral_10= 'EMERGENCIA' )
-                    // InternalGratext.g:602:4: enumLiteral_10= 'EMERGENCIA'
+                    // InternalGratext.g:693:3: (enumLiteral_10= 'EMERGENCIA' )
+                    // InternalGratext.g:694:4: enumLiteral_10= 'EMERGENCIA'
                     {
-                    enumLiteral_10=(Token)match(input,36,FOLLOW_2); 
+                    enumLiteral_10=(Token)match(input,39,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getEMERGENCIAEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_10, grammarAccess.getTiposDispositivoAccess().getEMERGENCIAEnumLiteralDeclaration_10());
@@ -1611,12 +1869,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // InternalGratext.g:609:3: (enumLiteral_11= 'INUNDACION' )
+                    // InternalGratext.g:701:3: (enumLiteral_11= 'INUNDACION' )
                     {
-                    // InternalGratext.g:609:3: (enumLiteral_11= 'INUNDACION' )
-                    // InternalGratext.g:610:4: enumLiteral_11= 'INUNDACION'
+                    // InternalGratext.g:701:3: (enumLiteral_11= 'INUNDACION' )
+                    // InternalGratext.g:702:4: enumLiteral_11= 'INUNDACION'
                     {
-                    enumLiteral_11=(Token)match(input,37,FOLLOW_2); 
+                    enumLiteral_11=(Token)match(input,40,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getINUNDACIONEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_11, grammarAccess.getTiposDispositivoAccess().getINUNDACIONEnumLiteralDeclaration_11());
@@ -1628,12 +1886,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // InternalGratext.g:617:3: (enumLiteral_12= 'VIENTO' )
+                    // InternalGratext.g:709:3: (enumLiteral_12= 'VIENTO' )
                     {
-                    // InternalGratext.g:617:3: (enumLiteral_12= 'VIENTO' )
-                    // InternalGratext.g:618:4: enumLiteral_12= 'VIENTO'
+                    // InternalGratext.g:709:3: (enumLiteral_12= 'VIENTO' )
+                    // InternalGratext.g:710:4: enumLiteral_12= 'VIENTO'
                     {
-                    enumLiteral_12=(Token)match(input,38,FOLLOW_2); 
+                    enumLiteral_12=(Token)match(input,41,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getVIENTOEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_12, grammarAccess.getTiposDispositivoAccess().getVIENTOEnumLiteralDeclaration_12());
@@ -1645,12 +1903,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // InternalGratext.g:625:3: (enumLiteral_13= 'LLUVIA' )
+                    // InternalGratext.g:717:3: (enumLiteral_13= 'LLUVIA' )
                     {
-                    // InternalGratext.g:625:3: (enumLiteral_13= 'LLUVIA' )
-                    // InternalGratext.g:626:4: enumLiteral_13= 'LLUVIA'
+                    // InternalGratext.g:717:3: (enumLiteral_13= 'LLUVIA' )
+                    // InternalGratext.g:718:4: enumLiteral_13= 'LLUVIA'
                     {
-                    enumLiteral_13=(Token)match(input,39,FOLLOW_2); 
+                    enumLiteral_13=(Token)match(input,42,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getLLUVIAEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_13, grammarAccess.getTiposDispositivoAccess().getLLUVIAEnumLiteralDeclaration_13());
@@ -1662,12 +1920,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // InternalGratext.g:633:3: (enumLiteral_14= 'ESTACION_METEOROLOGICA' )
+                    // InternalGratext.g:725:3: (enumLiteral_14= 'ESTACION_METEOROLOGICA' )
                     {
-                    // InternalGratext.g:633:3: (enumLiteral_14= 'ESTACION_METEOROLOGICA' )
-                    // InternalGratext.g:634:4: enumLiteral_14= 'ESTACION_METEOROLOGICA'
+                    // InternalGratext.g:725:3: (enumLiteral_14= 'ESTACION_METEOROLOGICA' )
+                    // InternalGratext.g:726:4: enumLiteral_14= 'ESTACION_METEOROLOGICA'
                     {
-                    enumLiteral_14=(Token)match(input,40,FOLLOW_2); 
+                    enumLiteral_14=(Token)match(input,43,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getESTACION_METEOROLOGICAEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_14, grammarAccess.getTiposDispositivoAccess().getESTACION_METEOROLOGICAEnumLiteralDeclaration_14());
@@ -1679,12 +1937,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // InternalGratext.g:641:3: (enumLiteral_15= 'SISTEMA_IDENTIFICACION' )
+                    // InternalGratext.g:733:3: (enumLiteral_15= 'SISTEMA_IDENTIFICACION' )
                     {
-                    // InternalGratext.g:641:3: (enumLiteral_15= 'SISTEMA_IDENTIFICACION' )
-                    // InternalGratext.g:642:4: enumLiteral_15= 'SISTEMA_IDENTIFICACION'
+                    // InternalGratext.g:733:3: (enumLiteral_15= 'SISTEMA_IDENTIFICACION' )
+                    // InternalGratext.g:734:4: enumLiteral_15= 'SISTEMA_IDENTIFICACION'
                     {
-                    enumLiteral_15=(Token)match(input,41,FOLLOW_2); 
+                    enumLiteral_15=(Token)match(input,44,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getSISTEMA_IDENTIFICACIONEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_15, grammarAccess.getTiposDispositivoAccess().getSISTEMA_IDENTIFICACIONEnumLiteralDeclaration_15());
@@ -1696,12 +1954,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 17 :
-                    // InternalGratext.g:649:3: (enumLiteral_16= 'INFRARROJOS' )
+                    // InternalGratext.g:741:3: (enumLiteral_16= 'INFRARROJOS' )
                     {
-                    // InternalGratext.g:649:3: (enumLiteral_16= 'INFRARROJOS' )
-                    // InternalGratext.g:650:4: enumLiteral_16= 'INFRARROJOS'
+                    // InternalGratext.g:741:3: (enumLiteral_16= 'INFRARROJOS' )
+                    // InternalGratext.g:742:4: enumLiteral_16= 'INFRARROJOS'
                     {
-                    enumLiteral_16=(Token)match(input,42,FOLLOW_2); 
+                    enumLiteral_16=(Token)match(input,45,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getINFRARROJOSEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_16, grammarAccess.getTiposDispositivoAccess().getINFRARROJOSEnumLiteralDeclaration_16());
@@ -1713,12 +1971,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 18 :
-                    // InternalGratext.g:657:3: (enumLiteral_17= 'RADIOFRECUENCIA' )
+                    // InternalGratext.g:749:3: (enumLiteral_17= 'RADIOFRECUENCIA' )
                     {
-                    // InternalGratext.g:657:3: (enumLiteral_17= 'RADIOFRECUENCIA' )
-                    // InternalGratext.g:658:4: enumLiteral_17= 'RADIOFRECUENCIA'
+                    // InternalGratext.g:749:3: (enumLiteral_17= 'RADIOFRECUENCIA' )
+                    // InternalGratext.g:750:4: enumLiteral_17= 'RADIOFRECUENCIA'
                     {
-                    enumLiteral_17=(Token)match(input,43,FOLLOW_2); 
+                    enumLiteral_17=(Token)match(input,46,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getRADIOFRECUENCIAEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_17, grammarAccess.getTiposDispositivoAccess().getRADIOFRECUENCIAEnumLiteralDeclaration_17());
@@ -1730,12 +1988,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 19 :
-                    // InternalGratext.g:665:3: (enumLiteral_18= 'MECEDORA' )
+                    // InternalGratext.g:757:3: (enumLiteral_18= 'MECEDORA' )
                     {
-                    // InternalGratext.g:665:3: (enumLiteral_18= 'MECEDORA' )
-                    // InternalGratext.g:666:4: enumLiteral_18= 'MECEDORA'
+                    // InternalGratext.g:757:3: (enumLiteral_18= 'MECEDORA' )
+                    // InternalGratext.g:758:4: enumLiteral_18= 'MECEDORA'
                     {
-                    enumLiteral_18=(Token)match(input,44,FOLLOW_2); 
+                    enumLiteral_18=(Token)match(input,47,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getMECEDORAEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_18, grammarAccess.getTiposDispositivoAccess().getMECEDORAEnumLiteralDeclaration_18());
@@ -1747,12 +2005,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 20 :
-                    // InternalGratext.g:673:3: (enumLiteral_19= 'PULSOMETRO_GANADO' )
+                    // InternalGratext.g:765:3: (enumLiteral_19= 'PULSOMETRO_GANADO' )
                     {
-                    // InternalGratext.g:673:3: (enumLiteral_19= 'PULSOMETRO_GANADO' )
-                    // InternalGratext.g:674:4: enumLiteral_19= 'PULSOMETRO_GANADO'
+                    // InternalGratext.g:765:3: (enumLiteral_19= 'PULSOMETRO_GANADO' )
+                    // InternalGratext.g:766:4: enumLiteral_19= 'PULSOMETRO_GANADO'
                     {
-                    enumLiteral_19=(Token)match(input,45,FOLLOW_2); 
+                    enumLiteral_19=(Token)match(input,48,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getPULSOMETRO_GANADOEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_19, grammarAccess.getTiposDispositivoAccess().getPULSOMETRO_GANADOEnumLiteralDeclaration_19());
@@ -1764,12 +2022,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 21 :
-                    // InternalGratext.g:681:3: (enumLiteral_20= 'DEPOSITO_LECHE' )
+                    // InternalGratext.g:773:3: (enumLiteral_20= 'DEPOSITO_LECHE' )
                     {
-                    // InternalGratext.g:681:3: (enumLiteral_20= 'DEPOSITO_LECHE' )
-                    // InternalGratext.g:682:4: enumLiteral_20= 'DEPOSITO_LECHE'
+                    // InternalGratext.g:773:3: (enumLiteral_20= 'DEPOSITO_LECHE' )
+                    // InternalGratext.g:774:4: enumLiteral_20= 'DEPOSITO_LECHE'
                     {
-                    enumLiteral_20=(Token)match(input,46,FOLLOW_2); 
+                    enumLiteral_20=(Token)match(input,49,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getDEPOSITO_LECHEEnumLiteralDeclaration_20().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_20, grammarAccess.getTiposDispositivoAccess().getDEPOSITO_LECHEEnumLiteralDeclaration_20());
@@ -1781,12 +2039,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 22 :
-                    // InternalGratext.g:689:3: (enumLiteral_21= 'ROBOT_LIMPIADOR' )
+                    // InternalGratext.g:781:3: (enumLiteral_21= 'ROBOT_LIMPIADOR' )
                     {
-                    // InternalGratext.g:689:3: (enumLiteral_21= 'ROBOT_LIMPIADOR' )
-                    // InternalGratext.g:690:4: enumLiteral_21= 'ROBOT_LIMPIADOR'
+                    // InternalGratext.g:781:3: (enumLiteral_21= 'ROBOT_LIMPIADOR' )
+                    // InternalGratext.g:782:4: enumLiteral_21= 'ROBOT_LIMPIADOR'
                     {
-                    enumLiteral_21=(Token)match(input,47,FOLLOW_2); 
+                    enumLiteral_21=(Token)match(input,50,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getROBOT_LIMPIADOREnumLiteralDeclaration_21().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_21, grammarAccess.getTiposDispositivoAccess().getROBOT_LIMPIADOREnumLiteralDeclaration_21());
@@ -1798,12 +2056,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 23 :
-                    // InternalGratext.g:697:3: (enumLiteral_22= 'NEVERAS' )
+                    // InternalGratext.g:789:3: (enumLiteral_22= 'NEVERAS' )
                     {
-                    // InternalGratext.g:697:3: (enumLiteral_22= 'NEVERAS' )
-                    // InternalGratext.g:698:4: enumLiteral_22= 'NEVERAS'
+                    // InternalGratext.g:789:3: (enumLiteral_22= 'NEVERAS' )
+                    // InternalGratext.g:790:4: enumLiteral_22= 'NEVERAS'
                     {
-                    enumLiteral_22=(Token)match(input,48,FOLLOW_2); 
+                    enumLiteral_22=(Token)match(input,51,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getNEVERASEnumLiteralDeclaration_22().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_22, grammarAccess.getTiposDispositivoAccess().getNEVERASEnumLiteralDeclaration_22());
@@ -1815,12 +2073,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 24 :
-                    // InternalGratext.g:705:3: (enumLiteral_23= 'LUZ' )
+                    // InternalGratext.g:797:3: (enumLiteral_23= 'LUZ' )
                     {
-                    // InternalGratext.g:705:3: (enumLiteral_23= 'LUZ' )
-                    // InternalGratext.g:706:4: enumLiteral_23= 'LUZ'
+                    // InternalGratext.g:797:3: (enumLiteral_23= 'LUZ' )
+                    // InternalGratext.g:798:4: enumLiteral_23= 'LUZ'
                     {
-                    enumLiteral_23=(Token)match(input,49,FOLLOW_2); 
+                    enumLiteral_23=(Token)match(input,52,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getLUZEnumLiteralDeclaration_23().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_23, grammarAccess.getTiposDispositivoAccess().getLUZEnumLiteralDeclaration_23());
@@ -1832,12 +2090,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 25 :
-                    // InternalGratext.g:713:3: (enumLiteral_24= 'TERMOSTATO' )
+                    // InternalGratext.g:805:3: (enumLiteral_24= 'TERMOSTATO' )
                     {
-                    // InternalGratext.g:713:3: (enumLiteral_24= 'TERMOSTATO' )
-                    // InternalGratext.g:714:4: enumLiteral_24= 'TERMOSTATO'
+                    // InternalGratext.g:805:3: (enumLiteral_24= 'TERMOSTATO' )
+                    // InternalGratext.g:806:4: enumLiteral_24= 'TERMOSTATO'
                     {
-                    enumLiteral_24=(Token)match(input,50,FOLLOW_2); 
+                    enumLiteral_24=(Token)match(input,53,FOLLOW_2); 
 
                     				current = grammarAccess.getTiposDispositivoAccess().getTERMOSTATOEnumLiteralDeclaration_24().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_24, grammarAccess.getTiposDispositivoAccess().getTERMOSTATOEnumLiteralDeclaration_24());
@@ -1871,7 +2129,7 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNombreAccion"
-    // InternalGratext.g:724:1: ruleNombreAccion returns [Enumerator current=null] : ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) ) ;
+    // InternalGratext.g:816:1: ruleNombreAccion returns [Enumerator current=null] : ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) ) ;
     public final Enumerator ruleNombreAccion() throws RecognitionException {
         Enumerator current = null;
 
@@ -1894,97 +2152,97 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGratext.g:730:2: ( ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) ) )
-            // InternalGratext.g:731:2: ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) )
+            // InternalGratext.g:822:2: ( ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) ) )
+            // InternalGratext.g:823:2: ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) )
             {
-            // InternalGratext.g:731:2: ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) )
-            int alt11=14;
+            // InternalGratext.g:823:2: ( (enumLiteral_0= 'ABRIR' ) | (enumLiteral_1= 'ENVIAR' ) | (enumLiteral_2= 'SACAR' ) | (enumLiteral_3= 'CERRAR' ) | (enumLiteral_4= 'ESTADO' ) | (enumLiteral_5= 'GRABAR' ) | (enumLiteral_6= 'DETECTAR' ) | (enumLiteral_7= 'ENCENDER' ) | (enumLiteral_8= 'APAGAR' ) | (enumLiteral_9= 'AUMENTAR' ) | (enumLiteral_10= 'DISMINUIR' ) | (enumLiteral_11= 'COMPROBAR' ) | (enumLiteral_12= 'ACTIVAR' ) | (enumLiteral_13= 'DESACTIVAR' ) )
+            int alt12=14;
             switch ( input.LA(1) ) {
-            case 51:
-                {
-                alt11=1;
-                }
-                break;
-            case 52:
-                {
-                alt11=2;
-                }
-                break;
-            case 53:
-                {
-                alt11=3;
-                }
-                break;
             case 54:
                 {
-                alt11=4;
+                alt12=1;
                 }
                 break;
             case 55:
                 {
-                alt11=5;
+                alt12=2;
                 }
                 break;
             case 56:
                 {
-                alt11=6;
+                alt12=3;
                 }
                 break;
             case 57:
                 {
-                alt11=7;
+                alt12=4;
                 }
                 break;
             case 58:
                 {
-                alt11=8;
+                alt12=5;
                 }
                 break;
             case 59:
                 {
-                alt11=9;
+                alt12=6;
                 }
                 break;
             case 60:
                 {
-                alt11=10;
+                alt12=7;
                 }
                 break;
             case 61:
                 {
-                alt11=11;
+                alt12=8;
                 }
                 break;
             case 62:
                 {
-                alt11=12;
+                alt12=9;
                 }
                 break;
             case 63:
                 {
-                alt11=13;
+                alt12=10;
                 }
                 break;
             case 64:
                 {
-                alt11=14;
+                alt12=11;
+                }
+                break;
+            case 65:
+                {
+                alt12=12;
+                }
+                break;
+            case 66:
+                {
+                alt12=13;
+                }
+                break;
+            case 67:
+                {
+                alt12=14;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalGratext.g:732:3: (enumLiteral_0= 'ABRIR' )
+                    // InternalGratext.g:824:3: (enumLiteral_0= 'ABRIR' )
                     {
-                    // InternalGratext.g:732:3: (enumLiteral_0= 'ABRIR' )
-                    // InternalGratext.g:733:4: enumLiteral_0= 'ABRIR'
+                    // InternalGratext.g:824:3: (enumLiteral_0= 'ABRIR' )
+                    // InternalGratext.g:825:4: enumLiteral_0= 'ABRIR'
                     {
-                    enumLiteral_0=(Token)match(input,51,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,54,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getABRIREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getNombreAccionAccess().getABRIREnumLiteralDeclaration_0());
@@ -1996,12 +2254,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalGratext.g:740:3: (enumLiteral_1= 'ENVIAR' )
+                    // InternalGratext.g:832:3: (enumLiteral_1= 'ENVIAR' )
                     {
-                    // InternalGratext.g:740:3: (enumLiteral_1= 'ENVIAR' )
-                    // InternalGratext.g:741:4: enumLiteral_1= 'ENVIAR'
+                    // InternalGratext.g:832:3: (enumLiteral_1= 'ENVIAR' )
+                    // InternalGratext.g:833:4: enumLiteral_1= 'ENVIAR'
                     {
-                    enumLiteral_1=(Token)match(input,52,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,55,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getENVIAREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getNombreAccionAccess().getENVIAREnumLiteralDeclaration_1());
@@ -2013,12 +2271,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalGratext.g:748:3: (enumLiteral_2= 'SACAR' )
+                    // InternalGratext.g:840:3: (enumLiteral_2= 'SACAR' )
                     {
-                    // InternalGratext.g:748:3: (enumLiteral_2= 'SACAR' )
-                    // InternalGratext.g:749:4: enumLiteral_2= 'SACAR'
+                    // InternalGratext.g:840:3: (enumLiteral_2= 'SACAR' )
+                    // InternalGratext.g:841:4: enumLiteral_2= 'SACAR'
                     {
-                    enumLiteral_2=(Token)match(input,53,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,56,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getSACAREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getNombreAccionAccess().getSACAREnumLiteralDeclaration_2());
@@ -2030,12 +2288,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalGratext.g:756:3: (enumLiteral_3= 'CERRAR' )
+                    // InternalGratext.g:848:3: (enumLiteral_3= 'CERRAR' )
                     {
-                    // InternalGratext.g:756:3: (enumLiteral_3= 'CERRAR' )
-                    // InternalGratext.g:757:4: enumLiteral_3= 'CERRAR'
+                    // InternalGratext.g:848:3: (enumLiteral_3= 'CERRAR' )
+                    // InternalGratext.g:849:4: enumLiteral_3= 'CERRAR'
                     {
-                    enumLiteral_3=(Token)match(input,54,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,57,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getCERRAREnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getNombreAccionAccess().getCERRAREnumLiteralDeclaration_3());
@@ -2047,12 +2305,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalGratext.g:764:3: (enumLiteral_4= 'ESTADO' )
+                    // InternalGratext.g:856:3: (enumLiteral_4= 'ESTADO' )
                     {
-                    // InternalGratext.g:764:3: (enumLiteral_4= 'ESTADO' )
-                    // InternalGratext.g:765:4: enumLiteral_4= 'ESTADO'
+                    // InternalGratext.g:856:3: (enumLiteral_4= 'ESTADO' )
+                    // InternalGratext.g:857:4: enumLiteral_4= 'ESTADO'
                     {
-                    enumLiteral_4=(Token)match(input,55,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,58,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getESTADOEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getNombreAccionAccess().getESTADOEnumLiteralDeclaration_4());
@@ -2064,12 +2322,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalGratext.g:772:3: (enumLiteral_5= 'GRABAR' )
+                    // InternalGratext.g:864:3: (enumLiteral_5= 'GRABAR' )
                     {
-                    // InternalGratext.g:772:3: (enumLiteral_5= 'GRABAR' )
-                    // InternalGratext.g:773:4: enumLiteral_5= 'GRABAR'
+                    // InternalGratext.g:864:3: (enumLiteral_5= 'GRABAR' )
+                    // InternalGratext.g:865:4: enumLiteral_5= 'GRABAR'
                     {
-                    enumLiteral_5=(Token)match(input,56,FOLLOW_2); 
+                    enumLiteral_5=(Token)match(input,59,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getGRABAREnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_5, grammarAccess.getNombreAccionAccess().getGRABAREnumLiteralDeclaration_5());
@@ -2081,12 +2339,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalGratext.g:780:3: (enumLiteral_6= 'DETECTAR' )
+                    // InternalGratext.g:872:3: (enumLiteral_6= 'DETECTAR' )
                     {
-                    // InternalGratext.g:780:3: (enumLiteral_6= 'DETECTAR' )
-                    // InternalGratext.g:781:4: enumLiteral_6= 'DETECTAR'
+                    // InternalGratext.g:872:3: (enumLiteral_6= 'DETECTAR' )
+                    // InternalGratext.g:873:4: enumLiteral_6= 'DETECTAR'
                     {
-                    enumLiteral_6=(Token)match(input,57,FOLLOW_2); 
+                    enumLiteral_6=(Token)match(input,60,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getDETECTAREnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_6, grammarAccess.getNombreAccionAccess().getDETECTAREnumLiteralDeclaration_6());
@@ -2098,12 +2356,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalGratext.g:788:3: (enumLiteral_7= 'ENCENDER' )
+                    // InternalGratext.g:880:3: (enumLiteral_7= 'ENCENDER' )
                     {
-                    // InternalGratext.g:788:3: (enumLiteral_7= 'ENCENDER' )
-                    // InternalGratext.g:789:4: enumLiteral_7= 'ENCENDER'
+                    // InternalGratext.g:880:3: (enumLiteral_7= 'ENCENDER' )
+                    // InternalGratext.g:881:4: enumLiteral_7= 'ENCENDER'
                     {
-                    enumLiteral_7=(Token)match(input,58,FOLLOW_2); 
+                    enumLiteral_7=(Token)match(input,61,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getENCENDEREnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_7, grammarAccess.getNombreAccionAccess().getENCENDEREnumLiteralDeclaration_7());
@@ -2115,12 +2373,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalGratext.g:796:3: (enumLiteral_8= 'APAGAR' )
+                    // InternalGratext.g:888:3: (enumLiteral_8= 'APAGAR' )
                     {
-                    // InternalGratext.g:796:3: (enumLiteral_8= 'APAGAR' )
-                    // InternalGratext.g:797:4: enumLiteral_8= 'APAGAR'
+                    // InternalGratext.g:888:3: (enumLiteral_8= 'APAGAR' )
+                    // InternalGratext.g:889:4: enumLiteral_8= 'APAGAR'
                     {
-                    enumLiteral_8=(Token)match(input,59,FOLLOW_2); 
+                    enumLiteral_8=(Token)match(input,62,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getAPAGAREnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_8, grammarAccess.getNombreAccionAccess().getAPAGAREnumLiteralDeclaration_8());
@@ -2132,12 +2390,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalGratext.g:804:3: (enumLiteral_9= 'AUMENTAR' )
+                    // InternalGratext.g:896:3: (enumLiteral_9= 'AUMENTAR' )
                     {
-                    // InternalGratext.g:804:3: (enumLiteral_9= 'AUMENTAR' )
-                    // InternalGratext.g:805:4: enumLiteral_9= 'AUMENTAR'
+                    // InternalGratext.g:896:3: (enumLiteral_9= 'AUMENTAR' )
+                    // InternalGratext.g:897:4: enumLiteral_9= 'AUMENTAR'
                     {
-                    enumLiteral_9=(Token)match(input,60,FOLLOW_2); 
+                    enumLiteral_9=(Token)match(input,63,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getAUMENTAREnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_9, grammarAccess.getNombreAccionAccess().getAUMENTAREnumLiteralDeclaration_9());
@@ -2149,12 +2407,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalGratext.g:812:3: (enumLiteral_10= 'DISMINUIR' )
+                    // InternalGratext.g:904:3: (enumLiteral_10= 'DISMINUIR' )
                     {
-                    // InternalGratext.g:812:3: (enumLiteral_10= 'DISMINUIR' )
-                    // InternalGratext.g:813:4: enumLiteral_10= 'DISMINUIR'
+                    // InternalGratext.g:904:3: (enumLiteral_10= 'DISMINUIR' )
+                    // InternalGratext.g:905:4: enumLiteral_10= 'DISMINUIR'
                     {
-                    enumLiteral_10=(Token)match(input,61,FOLLOW_2); 
+                    enumLiteral_10=(Token)match(input,64,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getDISMINUIREnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_10, grammarAccess.getNombreAccionAccess().getDISMINUIREnumLiteralDeclaration_10());
@@ -2166,12 +2424,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // InternalGratext.g:820:3: (enumLiteral_11= 'COMPROBAR' )
+                    // InternalGratext.g:912:3: (enumLiteral_11= 'COMPROBAR' )
                     {
-                    // InternalGratext.g:820:3: (enumLiteral_11= 'COMPROBAR' )
-                    // InternalGratext.g:821:4: enumLiteral_11= 'COMPROBAR'
+                    // InternalGratext.g:912:3: (enumLiteral_11= 'COMPROBAR' )
+                    // InternalGratext.g:913:4: enumLiteral_11= 'COMPROBAR'
                     {
-                    enumLiteral_11=(Token)match(input,62,FOLLOW_2); 
+                    enumLiteral_11=(Token)match(input,65,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getCOMPROBAREnumLiteralDeclaration_11().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_11, grammarAccess.getNombreAccionAccess().getCOMPROBAREnumLiteralDeclaration_11());
@@ -2183,12 +2441,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // InternalGratext.g:828:3: (enumLiteral_12= 'ACTIVAR' )
+                    // InternalGratext.g:920:3: (enumLiteral_12= 'ACTIVAR' )
                     {
-                    // InternalGratext.g:828:3: (enumLiteral_12= 'ACTIVAR' )
-                    // InternalGratext.g:829:4: enumLiteral_12= 'ACTIVAR'
+                    // InternalGratext.g:920:3: (enumLiteral_12= 'ACTIVAR' )
+                    // InternalGratext.g:921:4: enumLiteral_12= 'ACTIVAR'
                     {
-                    enumLiteral_12=(Token)match(input,63,FOLLOW_2); 
+                    enumLiteral_12=(Token)match(input,66,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getACTIVAREnumLiteralDeclaration_12().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_12, grammarAccess.getNombreAccionAccess().getACTIVAREnumLiteralDeclaration_12());
@@ -2200,12 +2458,12 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // InternalGratext.g:836:3: (enumLiteral_13= 'DESACTIVAR' )
+                    // InternalGratext.g:928:3: (enumLiteral_13= 'DESACTIVAR' )
                     {
-                    // InternalGratext.g:836:3: (enumLiteral_13= 'DESACTIVAR' )
-                    // InternalGratext.g:837:4: enumLiteral_13= 'DESACTIVAR'
+                    // InternalGratext.g:928:3: (enumLiteral_13= 'DESACTIVAR' )
+                    // InternalGratext.g:929:4: enumLiteral_13= 'DESACTIVAR'
                     {
-                    enumLiteral_13=(Token)match(input,64,FOLLOW_2); 
+                    enumLiteral_13=(Token)match(input,67,FOLLOW_2); 
 
                     				current = grammarAccess.getNombreAccionAccess().getDESACTIVAREnumLiteralDeclaration_13().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_13, grammarAccess.getNombreAccionAccess().getDESACTIVAREnumLiteralDeclaration_13());
@@ -2246,19 +2504,20 @@ public class InternalGratextParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000003E00000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x000000001F000000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000000A000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000024000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0007FFFFFC000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x003FFFFFE0000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080020L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0xFFF8000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0xFFC0000000000000L,0x000000000000000FL});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000062L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000100042L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000E00000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000100042L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000042L});
 
 }

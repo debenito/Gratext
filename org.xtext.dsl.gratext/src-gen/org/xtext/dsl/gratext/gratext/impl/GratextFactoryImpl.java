@@ -70,6 +70,7 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
       case GratextPackage.LOGIN: return createlogin();
       case GratextPackage.DISPOSITIVOS: return createDispositivos();
       case GratextPackage.ACCION: return createaccion();
+      case GratextPackage.NUMERO: return createnumero();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -85,6 +86,8 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case GratextPackage.DATOS:
+        return createDatosFromString(eDataType, initialValue);
       case GratextPackage.TIPO:
         return createTipoFromString(eDataType, initialValue);
       case GratextPackage.TIPOS_DISPOSITIVO:
@@ -106,6 +109,8 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case GratextPackage.DATOS:
+        return convertDatosToString(eDataType, instanceValue);
       case GratextPackage.TIPO:
         return convertTipoToString(eDataType, instanceValue);
       case GratextPackage.TIPOS_DISPOSITIVO:
@@ -159,6 +164,39 @@ public class GratextFactoryImpl extends EFactoryImpl implements GratextFactory
   {
     accionImpl accion = new accionImpl();
     return accion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public numero createnumero()
+  {
+    numeroImpl numero = new numeroImpl();
+    return numero;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Datos createDatosFromString(EDataType eDataType, String initialValue)
+  {
+    Datos result = Datos.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertDatosToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

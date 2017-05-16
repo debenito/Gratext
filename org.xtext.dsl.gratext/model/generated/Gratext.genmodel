@@ -6,6 +6,11 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="Gratext" basePackage="org.xtext.dsl.gratext" disposableProviderFactory="true"
       fileExtensions="gra" ecorePackage="Gratext.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gratext.ecore#//Datos">
+      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Datos/FOTOS"/>
+      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Datos/VOLTIOS"/>
+      <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Datos/GRADOS"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gratext.ecore#//Tipo">
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Tipo/DELAVAL"/>
       <genEnumLiterals ecoreEnumLiteral="Gratext.ecore#//Tipo/SIEMENS"/>
@@ -74,8 +79,12 @@
     </genClasses>
     <genClasses ecoreClass="Gratext.ecore#//accion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//accion/nombreAccion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//accion/numero"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gratext.ecore#//accion/numero"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//accion/descripcion"/>
+    </genClasses>
+    <genClasses ecoreClass="Gratext.ecore#//numero">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//numero/idNumero"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gratext.ecore#//numero/datos"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

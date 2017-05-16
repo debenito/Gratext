@@ -60,6 +60,15 @@ public interface GratextFactory extends EFactory
   accion createaccion();
 
   /**
+   * Returns a new object of class '<em>numero</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>numero</em>'.
+   * @generated
+   */
+  numero createnumero();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

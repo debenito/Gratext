@@ -414,6 +414,7 @@
 			category="org.eclipse.xtext.projectwiz"
 			class="org.xtext.dsl.gratext.ui.GratextExecutableExtensionFactory:org.xtext.dsl.gratext.ui.wizard.GratextNewProjectWizard"
 			id="org.xtext.dsl.gratext.ui.wizard.GratextNewProjectWizard"
+			icon="icons/granja.gif"
 			name="Gratext Project"
 				project="true">
 		</wizard>

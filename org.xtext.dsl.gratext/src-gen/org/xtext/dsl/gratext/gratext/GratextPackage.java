@@ -225,7 +225,7 @@ public interface GratextPackage extends EPackage
   int ACCION__NOMBRE_ACCION = 0;
 
   /**
-   * The feature id for the '<em><b>Numero</b></em>' attribute.
+   * The feature id for the '<em><b>Numero</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -252,6 +252,53 @@ public interface GratextPackage extends EPackage
   int ACCION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.impl.numeroImpl <em>numero</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.dsl.gratext.gratext.impl.numeroImpl
+   * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getnumero()
+   * @generated
+   */
+  int NUMERO = 4;
+
+  /**
+   * The feature id for the '<em><b>Id Numero</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMERO__ID_NUMERO = 0;
+
+  /**
+   * The feature id for the '<em><b>Datos</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMERO__DATOS = 1;
+
+  /**
+   * The number of structural features of the '<em>numero</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMERO_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.Datos <em>Datos</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.dsl.gratext.gratext.Datos
+   * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getDatos()
+   * @generated
+   */
+  int DATOS = 5;
+
+  /**
    * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.Tipo <em>Tipo</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -259,7 +306,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getTipo()
    * @generated
    */
-  int TIPO = 4;
+  int TIPO = 6;
 
   /**
    * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.TiposDispositivo <em>Tipos Dispositivo</em>}' enum.
@@ -269,7 +316,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getTiposDispositivo()
    * @generated
    */
-  int TIPOS_DISPOSITIVO = 5;
+  int TIPOS_DISPOSITIVO = 7;
 
   /**
    * The meta object id for the '{@link org.xtext.dsl.gratext.gratext.NombreAccion <em>Nombre Accion</em>}' enum.
@@ -279,7 +326,7 @@ public interface GratextPackage extends EPackage
    * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getNombreAccion()
    * @generated
    */
-  int NOMBRE_ACCION = 6;
+  int NOMBRE_ACCION = 8;
 
 
   /**
@@ -444,15 +491,15 @@ public interface GratextPackage extends EPackage
   EAttribute getaccion_NombreAccion();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.accion#getNumero <em>Numero</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.dsl.gratext.gratext.accion#getNumero <em>Numero</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Numero</em>'.
+   * @return the meta object for the containment reference '<em>Numero</em>'.
    * @see org.xtext.dsl.gratext.gratext.accion#getNumero()
    * @see #getaccion()
    * @generated
    */
-  EAttribute getaccion_Numero();
+  EReference getaccion_Numero();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.accion#getDescripcion <em>Descripcion</em>}'.
@@ -464,6 +511,48 @@ public interface GratextPackage extends EPackage
    * @generated
    */
   EAttribute getaccion_Descripcion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.dsl.gratext.gratext.numero <em>numero</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>numero</em>'.
+   * @see org.xtext.dsl.gratext.gratext.numero
+   * @generated
+   */
+  EClass getnumero();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.numero#getIdNumero <em>Id Numero</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id Numero</em>'.
+   * @see org.xtext.dsl.gratext.gratext.numero#getIdNumero()
+   * @see #getnumero()
+   * @generated
+   */
+  EAttribute getnumero_IdNumero();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.dsl.gratext.gratext.numero#getDatos <em>Datos</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Datos</em>'.
+   * @see org.xtext.dsl.gratext.gratext.numero#getDatos()
+   * @see #getnumero()
+   * @generated
+   */
+  EAttribute getnumero_Datos();
+
+  /**
+   * Returns the meta object for enum '{@link org.xtext.dsl.gratext.gratext.Datos <em>Datos</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Datos</em>'.
+   * @see org.xtext.dsl.gratext.gratext.Datos
+   * @generated
+   */
+  EEnum getDatos();
 
   /**
    * Returns the meta object for enum '{@link org.xtext.dsl.gratext.gratext.Tipo <em>Tipo</em>}'.
@@ -647,12 +736,12 @@ public interface GratextPackage extends EPackage
     EAttribute ACCION__NOMBRE_ACCION = eINSTANCE.getaccion_NombreAccion();
 
     /**
-     * The meta object literal for the '<em><b>Numero</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Numero</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACCION__NUMERO = eINSTANCE.getaccion_Numero();
+    EReference ACCION__NUMERO = eINSTANCE.getaccion_Numero();
 
     /**
      * The meta object literal for the '<em><b>Descripcion</b></em>' attribute feature.
@@ -661,6 +750,42 @@ public interface GratextPackage extends EPackage
      * @generated
      */
     EAttribute ACCION__DESCRIPCION = eINSTANCE.getaccion_Descripcion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.impl.numeroImpl <em>numero</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.dsl.gratext.gratext.impl.numeroImpl
+     * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getnumero()
+     * @generated
+     */
+    EClass NUMERO = eINSTANCE.getnumero();
+
+    /**
+     * The meta object literal for the '<em><b>Id Numero</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMERO__ID_NUMERO = eINSTANCE.getnumero_IdNumero();
+
+    /**
+     * The meta object literal for the '<em><b>Datos</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMERO__DATOS = eINSTANCE.getnumero_Datos();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.Datos <em>Datos</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.dsl.gratext.gratext.Datos
+     * @see org.xtext.dsl.gratext.gratext.impl.GratextPackageImpl#getDatos()
+     * @generated
+     */
+    EEnum DATOS = eINSTANCE.getDatos();
 
     /**
      * The meta object literal for the '{@link org.xtext.dsl.gratext.gratext.Tipo <em>Tipo</em>}' enum.

@@ -35,6 +35,7 @@ public class GratextParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getDatosAccess().getAlternatives(), "rule__Datos__Alternatives");
 					put(grammarAccess.getTipoAccess().getAlternatives(), "rule__Tipo__Alternatives");
 					put(grammarAccess.getTiposDispositivoAccess().getAlternatives(), "rule__TiposDispositivo__Alternatives");
 					put(grammarAccess.getNombreAccionAccess().getAlternatives(), "rule__NombreAccion__Alternatives");
@@ -43,6 +44,7 @@ public class GratextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDispositivosAccess().getGroup(), "rule__Dispositivos__Group__0");
 					put(grammarAccess.getAccionAccess().getGroup(), "rule__Accion__Group__0");
 					put(grammarAccess.getNumeroAccess().getGroup(), "rule__Numero__Group__0");
+					put(grammarAccess.getIdNumeroAccess().getGroup(), "rule__IdNumero__Group__0");
 					put(grammarAccess.getGranjaAccess().getNombreGranjaAssignment_1(), "rule__Granja__NombreGranjaAssignment_1");
 					put(grammarAccess.getGranjaAccess().getTipoAssignment_3(), "rule__Granja__TipoAssignment_3");
 					put(grammarAccess.getGranjaAccess().getLoginAssignment_4(), "rule__Granja__LoginAssignment_4");
@@ -56,6 +58,8 @@ public class GratextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAccionAccess().getNombreAccionAssignment_1(), "rule__Accion__NombreAccionAssignment_1");
 					put(grammarAccess.getAccionAccess().getNumeroAssignment_2(), "rule__Accion__NumeroAssignment_2");
 					put(grammarAccess.getAccionAccess().getDescripcionAssignment_3(), "rule__Accion__DescripcionAssignment_3");
+					put(grammarAccess.getNumeroAccess().getIdNumeroAssignment_0(), "rule__Numero__IdNumeroAssignment_0");
+					put(grammarAccess.getNumeroAccess().getDatosAssignment_1(), "rule__Numero__DatosAssignment_1");
 				}
 			};
 		}

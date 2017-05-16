@@ -112,11 +112,11 @@ def checkBarrera(accion accion) {
 
 	@Check
 	def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
-		if (!comprobarDispositivosNumericos(dispositivo) && !dispositivo.accion.numero.isNullOrEmpty) {
+		if (!comprobarDispositivosNumericos(dispositivo) && !dispositivo.accion.numero.idNumero.isNullOrEmpty) {
 			error("No se pueden poner valores numericos " + dispositivo.nombre,
 				GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_INCORRECTO)
 		} else if (dispositivo.nombre.getName.equals("CAMARA") &&
-			comprobarNumero(dispositivo.accion.numero).equals("float")) {
+			comprobarNumero(dispositivo.accion.numero.idNumero).equals("float")) {
 			error("El dispositivo " + dispositivo.nombre + " no admite valores decimales",
 				GratextPackage.Literals.DISPOSITIVOS__ACCION, NUMERO_ENTERO)
 		}
@@ -201,5 +201,22 @@ def checkDispositivosAumento(Dispositivos dispositivo){
 			dispositivo.nombre.getName.equals("LUZ"))
 			return true
 	return	false
+}
+
+@Check
+def checkDatos(Dispositivos dispositivo){
+	if(dispositivo.accion.numero.datos!= null && !checkDato(dispositivo))
+		error("Error en el dato ",
+			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
+}
+def checkDato(Dispositivos dispositivo){
+
+	if((dispositivo.nombre.getName.equals("CAMARA") && dispositivo.accion.numero.datos.getName.equals("FOTOS") )||
+		(dispositivo.nombre.getName.equals("TERMOSTATO")&& dispositivo.accion.numero.datos.getName.equals("GRADOS") ) ||
+			(dispositivo.nombre.getName.equals("LUZ")&& dispositivo.accion.numero.datos.getName.equals("VOLTIOS") ))
+				return true
+	else 
+		return false
+
 }
 }

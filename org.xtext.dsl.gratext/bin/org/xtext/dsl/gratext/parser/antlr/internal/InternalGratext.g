@@ -415,14 +415,71 @@ ruleaccion returns [EObject current=null]
 ;
 
 // Entry rule entryRulenumero
-entryRulenumero returns [String current=null]:
+entryRulenumero returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getNumeroRule()); }
 	iv_rulenumero=rulenumero
-	{ $current=$iv_rulenumero.current.getText(); }
+	{ $current=$iv_rulenumero.current; }
 	EOF;
 
 // Rule numero
-rulenumero returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+rulenumero returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNumeroAccess().getIdNumeroIdNumeroParserRuleCall_0_0());
+				}
+				lv_idNumero_0_0=ruleidNumero
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNumeroRule());
+					}
+					set(
+						$current,
+						"idNumero",
+						lv_idNumero_0_0,
+						"org.xtext.dsl.gratext.Gratext.idNumero");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNumeroAccess().getDatosDatosEnumRuleCall_1_0());
+				}
+				lv_datos_1_0=ruleDatos
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNumeroRule());
+					}
+					set(
+						$current,
+						"datos",
+						lv_datos_1_0,
+						"org.xtext.dsl.gratext.Gratext.Datos");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleidNumero
+entryRuleidNumero returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getIdNumeroRule()); }
+	iv_ruleidNumero=ruleidNumero
+	{ $current=$iv_ruleidNumero.current.getText(); }
+	EOF;
+
+// Rule idNumero
+ruleidNumero returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 }
@@ -436,14 +493,14 @@ rulenumero returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				$current.merge(this_INT_0);
 			}
 			{
-				newLeafNode(this_INT_0, grammarAccess.getNumeroAccess().getINTTerminalRuleCall_0());
+				newLeafNode(this_INT_0, grammarAccess.getIdNumeroAccess().getINTTerminalRuleCall_0());
 			}
 		)+
 		(
 			kw='.'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getNumeroAccess().getFullStopKeyword_1());
+				newLeafNode(kw, grammarAccess.getIdNumeroAccess().getFullStopKeyword_1());
 			}
 		)?
 		(
@@ -452,9 +509,44 @@ rulenumero returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				$current.merge(this_INT_2);
 			}
 			{
-				newLeafNode(this_INT_2, grammarAccess.getNumeroAccess().getINTTerminalRuleCall_2());
+				newLeafNode(this_INT_2, grammarAccess.getIdNumeroAccess().getINTTerminalRuleCall_2());
 			}
 		)*
+	)
+;
+
+// Rule Datos
+ruleDatos returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='FOTOS'
+			{
+				$current = grammarAccess.getDatosAccess().getFOTOSEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDatosAccess().getFOTOSEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='VOLTIOS'
+			{
+				$current = grammarAccess.getDatosAccess().getVOLTIOSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDatosAccess().getVOLTIOSEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='GRADOS'
+			{
+				$current = grammarAccess.getDatosAccess().getGRADOSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDatosAccess().getGRADOSEnumLiteralDeclaration_2());
+			}
+		)
 	)
 ;
 

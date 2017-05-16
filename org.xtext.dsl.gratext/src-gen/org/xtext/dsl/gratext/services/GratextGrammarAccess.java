@@ -216,11 +216,38 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	public class NumeroElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.numero");
 		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cIdNumeroAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cIdNumeroIdNumeroParserRuleCall_0_0 = (RuleCall)cIdNumeroAssignment_0.eContents().get(0);
+		private final Assignment cDatosAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDatosDatosEnumRuleCall_1_0 = (RuleCall)cDatosAssignment_1.eContents().get(0);
+		
+		//numero:
+		//	idNumero=idNumero datos=Datos;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//idNumero=idNumero datos=Datos
+		public Group getGroup() { return cGroup; }
+		
+		//idNumero=idNumero
+		public Assignment getIdNumeroAssignment_0() { return cIdNumeroAssignment_0; }
+		
+		//idNumero
+		public RuleCall getIdNumeroIdNumeroParserRuleCall_0_0() { return cIdNumeroIdNumeroParserRuleCall_0_0; }
+		
+		//datos=Datos
+		public Assignment getDatosAssignment_1() { return cDatosAssignment_1; }
+		
+		//Datos
+		public RuleCall getDatosDatosEnumRuleCall_1_0() { return cDatosDatosEnumRuleCall_1_0; }
+	}
+	public class IdNumeroElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.idNumero");
+		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
-		//numero:
+		//idNumero:
 		//	INT+ '.'? INT*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -237,6 +264,41 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 	}
 	
+	public class DatosElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.Datos");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cFOTOSEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cFOTOSFOTOSKeyword_0_0 = (Keyword)cFOTOSEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cVOLTIOSEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cVOLTIOSVOLTIOSKeyword_1_0 = (Keyword)cVOLTIOSEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cGRADOSEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cGRADOSGRADOSKeyword_2_0 = (Keyword)cGRADOSEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum Datos:
+		//	FOTOS | VOLTIOS | GRADOS;
+		public EnumRule getRule() { return rule; }
+		
+		//FOTOS | VOLTIOS | GRADOS
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//FOTOS
+		public EnumLiteralDeclaration getFOTOSEnumLiteralDeclaration_0() { return cFOTOSEnumLiteralDeclaration_0; }
+		
+		//"FOTOS"
+		public Keyword getFOTOSFOTOSKeyword_0_0() { return cFOTOSFOTOSKeyword_0_0; }
+		
+		//VOLTIOS
+		public EnumLiteralDeclaration getVOLTIOSEnumLiteralDeclaration_1() { return cVOLTIOSEnumLiteralDeclaration_1; }
+		
+		//"VOLTIOS"
+		public Keyword getVOLTIOSVOLTIOSKeyword_1_0() { return cVOLTIOSVOLTIOSKeyword_1_0; }
+		
+		//GRADOS
+		public EnumLiteralDeclaration getGRADOSEnumLiteralDeclaration_2() { return cGRADOSEnumLiteralDeclaration_2; }
+		
+		//"GRADOS"
+		public Keyword getGRADOSGRADOSKeyword_2_0() { return cGRADOSGRADOSKeyword_2_0; }
+	}
 	public class TipoElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.dsl.gratext.Gratext.Tipo");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -635,6 +697,8 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	private final DispositivosElements pDispositivos;
 	private final AccionElements pAccion;
 	private final NumeroElements pNumero;
+	private final IdNumeroElements pIdNumero;
+	private final DatosElements eDatos;
 	private final TipoElements eTipo;
 	private final TiposDispositivoElements eTiposDispositivo;
 	private final NombreAccionElements eNombreAccion;
@@ -653,6 +717,8 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDispositivos = new DispositivosElements();
 		this.pAccion = new AccionElements();
 		this.pNumero = new NumeroElements();
+		this.pIdNumero = new IdNumeroElements();
+		this.eDatos = new DatosElements();
 		this.eTipo = new TipoElements();
 		this.eTiposDispositivo = new TiposDispositivoElements();
 		this.eNombreAccion = new NombreAccionElements();
@@ -730,13 +796,33 @@ public class GratextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//numero:
-	//	INT+ '.'? INT*;
+	//	idNumero=idNumero datos=Datos;
 	public NumeroElements getNumeroAccess() {
 		return pNumero;
 	}
 	
 	public ParserRule getNumeroRule() {
 		return getNumeroAccess().getRule();
+	}
+	
+	//idNumero:
+	//	INT+ '.'? INT*;
+	public IdNumeroElements getIdNumeroAccess() {
+		return pIdNumero;
+	}
+	
+	public ParserRule getIdNumeroRule() {
+		return getIdNumeroAccess().getRule();
+	}
+	
+	//enum Datos:
+	//	FOTOS | VOLTIOS | GRADOS;
+	public DatosElements getDatosAccess() {
+		return eDatos;
+	}
+	
+	public EnumRule getDatosRule() {
+		return getDatosAccess().getRule();
 	}
 	
 	//enum Tipo:

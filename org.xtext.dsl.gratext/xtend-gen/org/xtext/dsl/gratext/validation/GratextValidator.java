@@ -142,14 +142,14 @@ public class GratextValidator extends AbstractGratextValidator {
   
   @Check
   public void checkDispositivosNumerosEnteros(final Dispositivos dispositivo) {
-    if (((!this.comprobarDispositivosNumericos(dispositivo)) && (!StringExtensions.isNullOrEmpty(dispositivo.getAccion().getNumero())))) {
+    if (((!this.comprobarDispositivosNumericos(dispositivo)) && (!StringExtensions.isNullOrEmpty(dispositivo.getAccion().getNumero().getIdNumero())))) {
       TiposDispositivo _nombre = dispositivo.getNombre();
       String _plus = ("No se pueden poner valores numericos " + _nombre);
       this.error(_plus, 
         GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.NUMERO_INCORRECTO);
     } else {
       if ((dispositivo.getNombre().getName().equals("CAMARA") && 
-        this.comprobarNumero(dispositivo.getAccion().getNumero()).equals("float"))) {
+        this.comprobarNumero(dispositivo.getAccion().getNumero().getIdNumero()).equals("float"))) {
         TiposDispositivo _nombre_1 = dispositivo.getNombre();
         String _plus_1 = ("El dispositivo " + _nombre_1);
         String _plus_2 = (_plus_1 + " no admite valores decimales");
@@ -259,5 +259,21 @@ public class GratextValidator extends AbstractGratextValidator {
       return true;
     }
     return false;
+  }
+  
+  @Check
+  public void checkDatos(final Dispositivos dispositivo) {
+    if (((!Objects.equal(dispositivo.getAccion().getNumero().getDatos(), null)) && (!this.checkDato(dispositivo)))) {
+      this.error("Error en el dato ", 
+        GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_INCORRECTA);
+    }
+  }
+  
+  public boolean checkDato(final Dispositivos dispositivo) {
+    if ((((dispositivo.getNombre().getName().equals("CAMARA") && dispositivo.getAccion().getNumero().getDatos().getName().equals("FOTOS")) || (dispositivo.getNombre().getName().equals("TERMOSTATO") && dispositivo.getAccion().getNumero().getDatos().getName().equals("GRADOS"))) || (dispositivo.getNombre().getName().equals("LUZ") && dispositivo.getAccion().getNumero().getDatos().getName().equals("VOLTIOS")))) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
