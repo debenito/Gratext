@@ -11,7 +11,6 @@ import org.xtext.dsl.gratext.GratextStandaloneSetupGenerated;
 @SuppressWarnings("all")
 public class GratextStandaloneSetup extends GratextStandaloneSetupGenerated {
   public static void doSetup() {
-    GratextStandaloneSetup _gratextStandaloneSetup = new GratextStandaloneSetup();
-    _gratextStandaloneSetup.createInjectorAndDoEMFRegistration();
+    new GratextStandaloneSetup().createInjectorAndDoEMFRegistration();
   }
 }

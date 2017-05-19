@@ -3,8 +3,6 @@ package org.xtext.dsl.gratext.generator;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.util.List;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -15,7 +13,6 @@ import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
 import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
-import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.gratext.numero;
 
 @SuppressWarnings("all")
@@ -41,9 +38,7 @@ public class GeneradorWeb {
   }
   
   public void compilar() {
-    TreeIterator<EObject> _allContents = this.resource.getAllContents();
-    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    Iterable<Granja> _filter = Iterables.<Granja>filter(_iterable, Granja.class);
+    Iterable<Granja> _filter = Iterables.<Granja>filter(IteratorExtensions.<EObject>toIterable(this.resource.getAllContents()), Granja.class);
     for (final Granja r : _filter) {
       {
         this.compilarTexto(r);
@@ -54,8 +49,7 @@ public class GeneradorWeb {
   
   public CharSequence compilarTexto(final Granja granja) {
     StringConcatenation _builder = new StringConcatenation();
-    CharSequence _compilarGranja = this.compilarGranja(granja);
-    this.fsa.generateFile("scripts/granja_gen.xml", _compilarGranja);
+    this.fsa.generateFile("scripts/granja_gen.xml", this.compilarGranja(granja));
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -85,8 +79,7 @@ public class GeneradorWeb {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t\t");
-    EList<Dispositivos> _dispositivos = r.getDispositivos();
-    CharSequence _compilarDispositivos = this.compilarDispositivos(_dispositivos);
+    CharSequence _compilarDispositivos = this.compilarDispositivos(r.getDispositivos());
     _builder.append(_compilarDispositivos, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -103,15 +96,12 @@ public class GeneradorWeb {
     {
       for(final Dispositivos d : dispositivos) {
         {
-          accion _accion = d.getAccion();
-          NombreAccion _nombreAccion = _accion.getNombreAccion();
-          String _name = _nombreAccion.getName();
-          boolean _equals = _name.equals("ESTADO");
+          boolean _equals = d.getAccion().getNombreAccion().getName().equals("ESTADO");
           if (_equals) {
             _builder.append("<servicio>");
             _builder.newLine();
             CharSequence _compilarDispositivo = this.compilarDispositivo(d);
-            _builder.append(_compilarDispositivo, "");
+            _builder.append(_compilarDispositivo);
             _builder.newLineIfNotEmpty();
             _builder.newLine();
             _builder.append("</servicio>");
@@ -188,48 +178,41 @@ public class GeneradorWeb {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
     _builder.append("<id_action> dispositivoAccion");
-    _builder.append(this.identificadores, "");
+    _builder.append(this.identificadores);
     _builder.append("-");
     int _plusPlus = this.identificador_accion++;
-    _builder.append(_plusPlus, "");
+    _builder.append(_plusPlus);
     _builder.append("</id_action>");
     _builder.newLineIfNotEmpty();
     _builder.append("<action_name>");
     TiposDispositivo _nombre = i.getNombre();
-    _builder.append(_nombre, "");
+    _builder.append(_nombre);
     _builder.append("</action_name>");
     _builder.newLineIfNotEmpty();
     {
-      accion _accion = i.getAccion();
-      String _descripcion = _accion.getDescripcion();
+      String _descripcion = i.getAccion().getDescripcion();
       boolean _notEquals = (!Objects.equal(_descripcion, null));
       if (_notEquals) {
         _builder.append("<action_descripcion>");
-        accion _accion_1 = i.getAccion();
-        String _descripcion_1 = _accion_1.getDescripcion();
-        _builder.append(_descripcion_1, "");
+        String _descripcion_1 = i.getAccion().getDescripcion();
+        _builder.append(_descripcion_1);
         _builder.append("</action_descripcion>");
         _builder.newLineIfNotEmpty();
       } else {
         _builder.append("<action_descripcion>");
-        accion _accion_2 = i.getAccion();
-        NombreAccion _nombreAccion = _accion_2.getNombreAccion();
-        _builder.append(_nombreAccion, "");
+        NombreAccion _nombreAccion = i.getAccion().getNombreAccion();
+        _builder.append(_nombreAccion);
         _builder.append("</action_descripcion>");
         _builder.newLineIfNotEmpty();
       }
     }
     {
-      accion _accion_3 = i.getAccion();
-      numero _numero = _accion_3.getNumero();
+      numero _numero = i.getAccion().getNumero();
       boolean _notEquals_1 = (!Objects.equal(_numero, null));
       if (_notEquals_1) {
         _builder.append("<has_menssage>");
-        accion _accion_4 = i.getAccion();
-        numero _numero_1 = _accion_4.getNumero();
-        String _idNumero = _numero_1.getIdNumero();
-        String _comprobarNumero = this.comprobarNumero(_idNumero);
-        _builder.append(_comprobarNumero, "");
+        String _comprobarNumero = this.comprobarNumero(i.getAccion().getNumero().getIdNumero());
+        _builder.append(_comprobarNumero);
         _builder.append("</has_message>");
         _builder.newLineIfNotEmpty();
       } else {
@@ -243,8 +226,7 @@ public class GeneradorWeb {
   public String comprobarNumero(final String numero) {
     while ((this.i < numero.length())) {
       {
-        char _charAt = numero.charAt(this.i);
-        boolean _isDigit = Character.isDigit(_charAt);
+        boolean _isDigit = Character.isDigit(numero.charAt(this.i));
         boolean _not = (!_isDigit);
         if (_not) {
           return "float";

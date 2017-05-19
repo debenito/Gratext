@@ -8,7 +8,6 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.GratextPackage;
-import org.xtext.dsl.gratext.gratext.NombreAccion;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.validation.AbstractGratextValidator;
@@ -67,8 +66,7 @@ public class GratextValidator extends AbstractGratextValidator {
   
   @Check
   public void checkCodigo(final Dispositivos dispositivo) {
-    String _codigo = dispositivo.getCodigo();
-    int _length = _codigo.length();
+    int _length = dispositivo.getCodigo().length();
     boolean _greaterThan = (_length > 20);
     if (_greaterThan) {
       this.warning(
@@ -111,9 +109,7 @@ public class GratextValidator extends AbstractGratextValidator {
   
   public boolean checkEstado(final accion accion) {
     boolean _xifexpression = false;
-    NombreAccion _nombreAccion = accion.getNombreAccion();
-    String _name = _nombreAccion.getName();
-    boolean _equals = _name.equals("ESTADO");
+    boolean _equals = accion.getNombreAccion().getName().equals("ESTADO");
     if (_equals) {
       _xifexpression = true;
     }
@@ -162,8 +158,7 @@ public class GratextValidator extends AbstractGratextValidator {
   public String comprobarNumero(final String numero) {
     while ((this.i < numero.length())) {
       {
-        char _charAt = numero.charAt(this.i);
-        boolean _isDigit = Character.isDigit(_charAt);
+        boolean _isDigit = Character.isDigit(numero.charAt(this.i));
         boolean _not = (!_isDigit);
         if (_not) {
           return "float";

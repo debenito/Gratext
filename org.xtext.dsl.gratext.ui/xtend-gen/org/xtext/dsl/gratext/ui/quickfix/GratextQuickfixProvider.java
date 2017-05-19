@@ -34,9 +34,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarAccion(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero ESTADO");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero ESTADO");
     };
     acceptor.accept(issue, "modificar accion segun dispositivo", "Se modificara la accion a estado", "acciones.gif", _function);
   }
@@ -45,14 +43,12 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarNumero(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
+      final String nombreActual = xtextDocumente.get((issue.getOffset()).intValue(), (issue.getLength()).intValue());
       Integer _offset = issue.getOffset();
       Integer _length = issue.getLength();
-      final String nombreActual = xtextDocumente.get((_offset).intValue(), (_length).intValue());
-      Integer _offset_1 = issue.getOffset();
-      Integer _length_1 = issue.getLength();
       String _replace = nombreActual.replace(".", "");
       String _plus = ("" + _replace);
-      xtextDocumente.replace((_offset_1).intValue(), (_length_1).intValue(), _plus);
+      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), _plus);
     };
     acceptor.accept(issue, "Modificacion del numero", "Se modificara numero dado que solo permite valores enteros", "dispositivos.gif", _function);
   }
@@ -61,9 +57,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraAbrir(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "quiero ABRIR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "quiero ABRIR");
     };
     acceptor.accept(issue, "Modificacion de la barrera por abrir", "Se modificara por la accion de abrir", "acciones.gif", _function);
   }
@@ -72,9 +66,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraCerrar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "quiero CERRAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "quiero CERRAR");
     };
     acceptor.accept(issue, "Modificacion de la barrera por cerrar", "Se modificara por la accion de cerrar", "acciones.gif", _function);
   }
@@ -83,9 +75,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraEstado(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "quiero ESTADO");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "quiero ESTADO");
     };
     acceptor.accept(issue, "Modificacion de la barrera por estado", "Se modificara por la accion de estado", "acciones.gif", _function);
   }
@@ -97,9 +87,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraAmbiente(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "\'AMBIENTE\'");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "\'AMBIENTE\'");
     };
     acceptor.accept(issue, "Modificacion de la temperatura por AMBIENTE", "Se modificara por la temperatura AMBIENTE", "acciones.gif", _function);
   }
@@ -108,9 +96,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraINTERNA(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "\'INTERNA\'");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "\'INTERNA\'");
     };
     acceptor.accept(issue, "Modificacion de la temperatura por INTERNA", "Se modificara por la temperatura INTERNA", "acciones.gif", _function);
   }
@@ -119,9 +105,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraNEVERA(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "\'NEVERA\'");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "\'NEVERA\'");
     };
     acceptor.accept(issue, "Modificacion de la temperatura por NEVERA", "Se modificara por la temperatura NEVERA", "acciones.gif", _function);
   }
@@ -130,9 +114,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraMECEDORA(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "\'MECEDORA\'");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "\'MECEDORA\'");
     };
     acceptor.accept(issue, "Modificacion de la temperatura por MECEDORA", "Se modificara por la temperatura MECEDORA", "acciones.gif", _function);
   }
@@ -141,9 +123,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarBarreraDEPOSITO_LECHE(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "\'DEPOSITO_LECHE\'");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "\'DEPOSITO_LECHE\'");
     };
     acceptor.accept(issue, "Modificacion de la temperatura por DEPOSITO de LECHE", "Se modificara por la temperatura DEPOSITO deLECHE", "acciones.gif", _function);
   }
@@ -152,9 +132,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarADEestado(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero ESTADO");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero ESTADO");
     };
     acceptor.accept(issue, "Modificacion de la accion por ESTADO", "Se modificara por la accion ESTADO", "acciones.gif", _function);
   }
@@ -163,9 +141,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarADEactivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero ACTIVAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero ACTIVAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por ACTIVAR", "Se modificara por la accion ACTIVAR", "acciones.gif", _function);
   }
@@ -174,9 +150,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarADEdesactivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero DESACTIVAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero DESACTIVAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por DESACTIVAR", "Se modificara por la accion DESACTIVAR", "acciones.gif", _function);
   }
@@ -185,9 +159,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarADEapagar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero APAGAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero APAGAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por APAGAR", "Se modificara por la accion APAGAR", "acciones.gif", _function);
   }
@@ -196,9 +168,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarADEencender(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero ENCENDER");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero ENCENDER");
     };
     acceptor.accept(issue, "Modificacion de la accion por ENCENDER", "Se modificara por la accion ENCENDER", "acciones.gif", _function);
   }
@@ -207,9 +177,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarAumentar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero AUMENTAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero AUMENTAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por AUMENTAR", "Se modificara por la accion AUMENTAR", "acciones.gif", _function);
   }
@@ -218,9 +186,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarDisminuir(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero DISMINUIR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero DISMINUIR");
     };
     acceptor.accept(issue, "Modificacion de la accion por DISMINUIR", "Se modificara por la accion DISMINUIR", "acciones.gif", _function);
   }
@@ -229,9 +195,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarCamaraAbrir(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero ABRIR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero ABRIR");
     };
     acceptor.accept(issue, "Modificacion de la accion por ABRIR", "Se modificara por la accion ABRIR", "acciones.gif", _function);
   }
@@ -240,9 +204,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarCamaraCerrar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero CERRAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero CERRAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por CERRAR", "Se modificara por la accion CERRAR", "acciones.gif", _function);
   }
@@ -251,9 +213,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarCamaraSacar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero SACAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero SACAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por SACAR", "Se modificara por la accion SACAR", "acciones.gif", _function);
   }
@@ -262,9 +222,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarCamaraGrabar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero GRABAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero GRABAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por GRABAR", "Se modificara por la accion GRABAR", "acciones.gif", _function);
   }
@@ -273,9 +231,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarCamaraActivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero ACTIVAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero ACTIVAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por ACTIVAR", "Se modificara por la accion ACTIVAR", "acciones.gif", _function);
   }
@@ -284,9 +240,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarCamaraDesactivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), " quiero DESACTIVAR");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), " quiero DESACTIVAR");
     };
     acceptor.accept(issue, "Modificacion de la accion por DESACTIVAR", "Se modificara por la accion DESACTIVAR", "acciones.gif", _function);
   }
@@ -295,9 +249,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarDispositivoTermostato(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "TERMOSTATO");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "TERMOSTATO");
     };
     acceptor.accept(issue, "Modificacion del dispositivo por TERMOSTATO", "Se modificara el dispositivo por TERMOSTATO", "acciones.gif", _function);
   }
@@ -306,9 +258,7 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   public void arreglarDispositivoLuz(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocumente = context.getXtextDocument();
-      Integer _offset = issue.getOffset();
-      Integer _length = issue.getLength();
-      xtextDocumente.replace((_offset).intValue(), (_length).intValue(), "LUZ");
+      xtextDocumente.replace((issue.getOffset()).intValue(), (issue.getLength()).intValue(), "LUZ");
     };
     acceptor.accept(issue, "Modificacion del dispositivo por LUZ", "Se modificara el dispositivo por LUZ", "acciones.gif", _function);
   }

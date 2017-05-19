@@ -10,15 +10,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.formatting2.IHiddenRegionFormatter;
-import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
-import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegionsFinder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.accion;
-import org.xtext.dsl.gratext.gratext.login;
 import org.xtext.dsl.gratext.services.GratextGrammarAccess;
 
 @SuppressWarnings("all")
@@ -32,20 +29,15 @@ public class GratextFormatter extends AbstractFormatter2 {
       it.autowrap(30);
     };
     document.<Granja>append(granja, _function);
-    login _login = granja.getLogin();
-    String _usuario = _login.getUsuario();
-    document.<String>format(_usuario);
-    login _login_1 = granja.getLogin();
-    String _contrasena = _login_1.getContrasena();
-    document.<String>format(_contrasena);
+    document.<String>format(granja.getLogin().getUsuario());
+    document.<String>format(granja.getLogin().getContrasena());
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       this._gratextGrammarAccess.getML_COMMENTRule();
     };
-    Granja _append = document.<Granja>append(granja, _function_1);
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<Granja>append(_append, _function_2);
+    document.<Granja>append(document.<Granja>append(granja, _function_1), _function_2);
     EList<Dispositivos> _dispositivos = granja.getDispositivos();
     for (final Dispositivos dispositivos : _dispositivos) {
       document.<Dispositivos>format(dispositivos);
@@ -53,14 +45,11 @@ public class GratextFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final Dispositivos dispositivos, @Extension final IFormattableDocument document) {
-    ISemanticRegionsFinder _regionFor = this.textRegionExtensions.regionFor(dispositivos);
-    ISemanticRegion _keyword = _regionFor.keyword("Codigo :");
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.append(_keyword, _function);
-    accion _accion = dispositivos.getAccion();
-    document.<accion>format(_accion);
+    document.append(this.textRegionExtensions.regionFor(dispositivos).keyword("Codigo :"), _function);
+    document.<accion>format(dispositivos.getAccion());
   }
   
   public void format(final Object dispositivos, final IFormattableDocument document) {

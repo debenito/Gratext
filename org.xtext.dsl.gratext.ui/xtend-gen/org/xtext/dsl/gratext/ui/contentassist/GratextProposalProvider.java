@@ -5,7 +5,6 @@ package org.xtext.dsl.gratext.ui.contentassist;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
@@ -18,7 +17,6 @@ import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
-import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.gratext.numero;
 import org.xtext.dsl.gratext.ui.contentassist.AbstractGratextProposalProvider;
 
@@ -66,9 +64,7 @@ public class GratextProposalProvider extends AbstractGratextProposalProvider {
   public void completeDispositivos_Codigo(final Dispositivos i, final Assignment a, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _eContainer = i.eContainer();
     Granja r = ((Granja) _eContainer);
-    EList<Dispositivos> _dispositivos = r.getDispositivos();
-    Iterable<Dispositivos> _filter = Iterables.<Dispositivos>filter(_dispositivos, Dispositivos.class);
-    int _size = IterableExtensions.size(_filter);
+    int _size = IterableExtensions.size(Iterables.<Dispositivos>filter(r.getDispositivos(), Dispositivos.class));
     String id = ("CODI" + Integer.valueOf(_size));
     ICompletionProposal propuesta = this.createCompletionProposal(id, context);
     acceptor.accept(propuesta);
@@ -90,28 +86,21 @@ public class GratextProposalProvider extends AbstractGratextProposalProvider {
   public void completeAccion_Descripcion(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _eContainer = model.eContainer();
     Dispositivos r = ((Dispositivos) _eContainer);
-    accion _accion = r.getAccion();
-    NombreAccion _nombreAccion = _accion.getNombreAccion();
+    NombreAccion _nombreAccion = r.getAccion().getNombreAccion();
     String _plus = ("\' " + _nombreAccion);
     String _plus_1 = (_plus + " el/la ");
     TiposDispositivo _nombre = r.getNombre();
     String _plus_2 = (_plus_1 + _nombre);
     String descripcion = (_plus_2 + "\'");
-    accion _accion_1 = r.getAccion();
-    numero _numero = _accion_1.getNumero();
+    numero _numero = r.getAccion().getNumero();
     boolean _notEquals = (!Objects.equal(_numero, null));
     if (_notEquals) {
-      accion _accion_2 = r.getAccion();
-      NombreAccion _nombreAccion_1 = _accion_2.getNombreAccion();
+      NombreAccion _nombreAccion_1 = r.getAccion().getNombreAccion();
       String _plus_3 = ("\' " + _nombreAccion_1);
-      accion _accion_3 = r.getAccion();
-      numero _numero_1 = _accion_3.getNumero();
-      String _idNumero = _numero_1.getIdNumero();
+      String _idNumero = r.getAccion().getNumero().getIdNumero();
       String _plus_4 = (_plus_3 + _idNumero);
       String _plus_5 = (_plus_4 + " ");
-      accion _accion_4 = r.getAccion();
-      numero _numero_2 = _accion_4.getNumero();
-      Datos _datos = _numero_2.getDatos();
+      Datos _datos = r.getAccion().getNumero().getDatos();
       String _plus_6 = (_plus_5 + _datos);
       String _plus_7 = (_plus_6 + " del dispositivo ");
       TiposDispositivo _nombre_1 = r.getNombre();
