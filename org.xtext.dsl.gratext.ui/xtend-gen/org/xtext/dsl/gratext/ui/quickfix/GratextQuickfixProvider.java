@@ -16,19 +16,14 @@ import org.xtext.dsl.gratext.validation.GratextValidator;
  * Custom quickfixes.
  * 
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#quick-fixes
+ * 
+ * * @author :Jose antonio de Benito Suarez
+ * Clase utilizada para el menu de contexto que ayuda al usuario a crear un dispositivo correctamente
  */
 @SuppressWarnings("all")
 public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   /**
-   * @Fix(RestauranteValidator :: NOMBRE_MUY_LARGO)
-   * def arreglarNombre(Issue issue,IssueResolutionAcceptor acceptor){
-   * acceptor.accept(issue,'Reducir nombre', 'Se limitara el tamaño de nombre al maximo sugerido','ingrediente.ico')[
-   * context |
-   * val xtextDocumente = context.xtextDocument;// documento donde esta el modelo
-   * val nombreActual = xtextDocumente.get(issue.offset,issue.length);
-   * xtextDocumente.replace(issue.offset, issue.length,nombreActual.substring(0,18)+ '\'');
-   * ]
-   * }
+   * Metodo para la correcion de un dispositivo cuando su accion es incorrecta
    */
   @Fix(GratextValidator.ACCION_ESTADO)
   public void arreglarAccion(final Issue issue, final IssueResolutionAcceptor acceptor) {
@@ -39,6 +34,9 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "modificar accion segun dispositivo", "Se modificara la accion a estado", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo cuando su numero es incorrecta
+   */
   @Fix(GratextValidator.NUMERO_ENTERO)
   public void arreglarNumero(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -53,6 +51,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion del numero", "Se modificara numero dado que solo permite valores enteros", "dispositivos.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo barrera tiene una
+   * accion incorrecta modificandola por abrir
+   */
   @Fix(GratextValidator.ACCION_BARRERA)
   public void arreglarBarreraAbrir(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -62,6 +64,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la barrera por abrir", "Se modificara por la accion de abrir", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo barrera tiene una
+   * accion incorrecta modificandola por cerrar
+   */
   @Fix(GratextValidator.ACCION_BARRERA)
   public void arreglarBarreraCerrar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -71,6 +77,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la barrera por cerrar", "Se modificara por la accion de cerrar", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo barrera tiene una
+   * accion incorrecta modificandola por estado
+   */
   @Fix(GratextValidator.ACCION_BARRERA)
   public void arreglarBarreraEstado(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -81,7 +91,8 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
   }
   
   /**
-   * AMBIENTE/INTERNA/NEVERA/MECEDORA/DEPOSITO_LECHE
+   * Metodo para la correcion de un dispositivo temperatura tiene un
+   * lugar de tempertara incorrecto modificandola por ambiente
    */
   @Fix(GratextValidator.TEMPERATURA_LUGAR)
   public void arreglarBarreraAmbiente(final Issue issue, final IssueResolutionAcceptor acceptor) {
@@ -92,6 +103,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la temperatura por AMBIENTE", "Se modificara por la temperatura AMBIENTE", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo temperatura tiene un
+   * lugar de tempertara incorrecto modificandola por interna
+   */
   @Fix(GratextValidator.TEMPERATURA_LUGAR)
   public void arreglarBarreraINTERNA(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -101,6 +116,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la temperatura por INTERNA", "Se modificara por la temperatura INTERNA", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo temperatura tiene un
+   * lugar de tempertara incorrecto modificandola por nevera
+   */
   @Fix(GratextValidator.TEMPERATURA_LUGAR)
   public void arreglarBarreraNEVERA(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -110,6 +129,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la temperatura por NEVERA", "Se modificara por la temperatura NEVERA", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo temperatura tiene un
+   * lugar de tempertara incorrecto modificandola por mecedora
+   */
   @Fix(GratextValidator.TEMPERATURA_LUGAR)
   public void arreglarBarreraMECEDORA(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -119,6 +142,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la temperatura por MECEDORA", "Se modificara por la temperatura MECEDORA", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo temperatura tiene un
+   * lugar de tempertara incorrecto modificandola por deposito de leche
+   */
   @Fix(GratextValidator.TEMPERATURA_LUGAR)
   public void arreglarBarreraDEPOSITO_LECHE(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -128,6 +155,11 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la temperatura por DEPOSITO de LECHE", "Se modificara por la temperatura DEPOSITO deLECHE", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo que tiene una accion de las
+   * denominadas ADE (abrir,cerrar,activar,desactivar,apagar,encender estado) modificandola por la accion
+   * correcta de estado
+   */
   @Fix(GratextValidator.ACCION_ADE)
   public void arreglarADEestado(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -137,6 +169,11 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por ESTADO", "Se modificara por la accion ESTADO", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo que tiene una accion de las
+   * denominadas ADE (abrir,cerrar,activar,desactivar,apagar,encender, estado) modificandola por la accion
+   * correcta de activar
+   */
   @Fix(GratextValidator.ACCION_ADE)
   public void arreglarADEactivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -146,6 +183,11 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por ACTIVAR", "Se modificara por la accion ACTIVAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo que tiene una accion de las
+   * denominadas ADE (abrir,cerrar,activar,desactivar,apagar,encender estado) modificandola por la accion
+   * correcta de descativar
+   */
   @Fix(GratextValidator.ACCION_ADE)
   public void arreglarADEdesactivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -155,6 +197,11 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por DESACTIVAR", "Se modificara por la accion DESACTIVAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo que tiene una accion de las
+   * denominadas ADE (abrir,cerrar,activar,desactivar,apagar,encender, estado) modificandola por la accion
+   * correcta de apagar
+   */
   @Fix(GratextValidator.ACCION_ADE)
   public void arreglarADEapagar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -164,6 +211,11 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por APAGAR", "Se modificara por la accion APAGAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo que tiene una accion de las
+   * denominadas ADE (abrir,cerrar,activar,desactivar,apagar,encender, estado) modificandola por la accion
+   * correcta de encender
+   */
   @Fix(GratextValidator.ACCION_ADE)
   public void arreglarADEencender(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -173,6 +225,11 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por ENCENDER", "Se modificara por la accion ENCENDER", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo que tiene una accion de las
+   * de aumento o disminucion modificandola por la accion
+   * correcta de aumentar
+   */
   @Fix(GratextValidator.ACCION_AUMENTAR_DISMINUIR)
   public void arreglarAumentar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -182,6 +239,11 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por AUMENTAR", "Se modificara por la accion AUMENTAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo que tiene una accion de las
+   * de aumento o disminucion modificandola por la accion
+   * correcta de disminuir
+   */
   @Fix(GratextValidator.ACCION_AUMENTAR_DISMINUIR)
   public void arreglarDisminuir(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -191,6 +253,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por DISMINUIR", "Se modificara por la accion DISMINUIR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo de tipo camara que tiene una accion incorrecta
+   * modificandola por la accion abrir
+   */
   @Fix(GratextValidator.ACCION_CAMARA)
   public void arreglarCamaraAbrir(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -200,6 +266,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por ABRIR", "Se modificara por la accion ABRIR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo de tipo camara que tiene una accion incorrecta
+   * modificandola por la accion cerrar
+   */
   @Fix(GratextValidator.ACCION_CAMARA)
   public void arreglarCamaraCerrar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -209,6 +279,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por CERRAR", "Se modificara por la accion CERRAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo de tipo camara que tiene una accion incorrecta
+   * modificandola por la accion sacar
+   */
   @Fix(GratextValidator.ACCION_CAMARA)
   public void arreglarCamaraSacar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -218,6 +292,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por SACAR", "Se modificara por la accion SACAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo de tipo camara que tiene una accion incorrecta
+   * modificandola por la accion grabar
+   */
   @Fix(GratextValidator.ACCION_CAMARA)
   public void arreglarCamaraGrabar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -227,6 +305,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por GRABAR", "Se modificara por la accion GRABAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo de tipo camara que tiene una accion incorrecta
+   * modificandola por la accion activar
+   */
   @Fix(GratextValidator.ACCION_CAMARA)
   public void arreglarCamaraActivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -236,6 +318,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por ACTIVAR", "Se modificara por la accion ACTIVAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de un dispositivo de tipo camara que tiene una accion incorrecta
+   * modificandola por la accion desactivar
+   */
   @Fix(GratextValidator.ACCION_CAMARA)
   public void arreglarCamaraDesactivar(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -245,6 +331,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion de la accion por DESACTIVAR", "Se modificara por la accion DESACTIVAR", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de otro dispositivo que no sea termostato y que tiene una accion
+   * de aumento/disminucion modificando este dispositivo por termostato
+   */
   @Fix(GratextValidator.DISPOSITIVO_INCORRECTO)
   public void arreglarDispositivoTermostato(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {
@@ -254,6 +344,10 @@ public class GratextQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Modificacion del dispositivo por TERMOSTATO", "Se modificara el dispositivo por TERMOSTATO", "acciones.gif", _function);
   }
   
+  /**
+   * Metodo para la correcion de otro dispositivo que no sea luz y que tiene una accion
+   * de aumento/disminucion modificando este dispositivo por luz
+   */
   @Fix(GratextValidator.DISPOSITIVO_INCORRECTO)
   public void arreglarDispositivoLuz(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {

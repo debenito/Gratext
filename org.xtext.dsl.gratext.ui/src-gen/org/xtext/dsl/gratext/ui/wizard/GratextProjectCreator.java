@@ -3,7 +3,7 @@
  */
 package org.xtext.dsl.gratext.ui.wizard;
 
-import org.eclipse.xtext.ui.wizard.AbstractProjectCreator;
+import org.eclipse.xtext.ui.wizard.AbstractPluginProjectCreator;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,12 +18,13 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 import org.eclipse.xtext.generator.OutputConfiguration;
-import org.eclipse.xtext.ui.util.ProjectFactory;
+import org.eclipse.xtext.ui.util.PluginProjectFactory;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-public class GratextProjectCreator extends AbstractProjectCreator {
+public class GratextProjectCreator extends AbstractPluginProjectCreator {
 	protected static final String DSL_PROJECT_NAME = "org.xtext.dsl.gratext";
 
 	@Inject
@@ -35,12 +36,11 @@ public class GratextProjectCreator extends AbstractProjectCreator {
 	@Inject
 	private IOutputConfigurationProvider outputConfigurationProvider;
 
-	@Inject
-	private Provider<ProjectFactory> projectFactoryProvider;
-	
 	@Override
-	protected ProjectFactory createProjectFactory() {
-		return projectFactoryProvider.get();
+	protected PluginProjectFactory createProjectFactory() {
+		PluginProjectFactory projectFactory = super.createProjectFactory();
+		projectFactory.setWithPluginXml(false);
+		return projectFactory;
 	}
 
 	@Override
@@ -64,6 +64,11 @@ public class GratextProjectCreator extends AbstractProjectCreator {
 			}
 		}
 		return ImmutableList.of(getModelFolderName(), outputFolder);
+	}
+
+	@Override
+	protected List<String> getRequiredBundles() {
+		return Lists.newArrayList(DSL_PROJECT_NAME);
 	}
 
 	@Override

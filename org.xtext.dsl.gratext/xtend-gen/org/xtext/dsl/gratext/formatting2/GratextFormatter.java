@@ -18,12 +18,19 @@ import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.accion;
 import org.xtext.dsl.gratext.services.GratextGrammarAccess;
 
+/**
+ * @author : Jose antonio de Benito Suarez
+ * Clase predefinida para el formateo de codigo
+ */
 @SuppressWarnings("all")
 public class GratextFormatter extends AbstractFormatter2 {
   @Inject
   @Extension
   private GratextGrammarAccess _gratextGrammarAccess;
   
+  /**
+   * Metodo extendido de la clase AbstractFormatter2 para formatear el codigo de la granja
+   */
   protected void _format(final Granja granja, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.autowrap(30);
@@ -44,6 +51,10 @@ public class GratextFormatter extends AbstractFormatter2 {
     }
   }
   
+  /**
+   * Metodo
+   * extendido de la clase AbstractFormatter2 para modificar el formato de los dispositivos
+   */
   protected void _format(final Dispositivos dispositivos, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();

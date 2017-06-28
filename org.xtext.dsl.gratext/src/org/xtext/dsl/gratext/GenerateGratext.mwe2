@@ -45,7 +45,7 @@ Workflow {
 				// Generacion del projecto wizard
 				newProjectWizardForEclipse = {
 				generate= true
-				pluginProject=false
+				pluginProject=true
 	}
 		}
 	}

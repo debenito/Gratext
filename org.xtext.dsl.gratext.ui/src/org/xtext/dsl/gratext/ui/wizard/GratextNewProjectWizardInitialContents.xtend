@@ -7,7 +7,11 @@ package org.xtext.dsl.gratext.ui.wizard
 import com.google.inject.Inject
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.resource.FileExtensionProvider
+/**
 
+ *  @author :Jose antonio de Benito Suarez
+ * Clase utilizada para que el usuario pueda crear un nuevo proyecto de este tipo de forma sencilla
+ */
 class GratextNewProjectWizardInitialContents {
 	@Inject
 	FileExtensionProvider fileExtensionProvider
@@ -27,5 +31,7 @@ class GratextNewProjectWizardInitialContents {
 			}
 			'''
 			)
+			
+		
 	}
 }

@@ -8,6 +8,10 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.resource.FileExtensionProvider;
 
+/**
+ * @author :Jose antonio de Benito Suarez
+ * Clase utilizada para que el usuario pueda crear un nuevo proyecto de este tipo de forma sencilla
+ */
 @SuppressWarnings("all")
 public class GratextNewProjectWizardInitialContents {
   @Inject

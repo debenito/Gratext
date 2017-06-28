@@ -35,13 +35,13 @@ public class GratextHighlightConfiguration implements IHighlightingConfiguration
 	protected TextStyle defaultTextStyle() {
         TextStyle textStyle = new TextStyle();
        
-        textStyle.setColor(new RGB(0, 255, 64));
+        textStyle.setColor(new RGB(255, 0, 128));
         return textStyle;
     }
 
     protected TextStyle keywordTextStyle() {
         TextStyle textStyle = defaultTextStyle().copy();
-        textStyle.setColor(new RGB(255, 0, 0));
+        textStyle.setColor(new RGB(128, 0, 128));
         textStyle.setStyle(SWT.BOLD);
         return textStyle;
     }

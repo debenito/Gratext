@@ -1,0 +1,7 @@
+org.xtext.dsl.gratext.ui
+org.xtext.dsl.gratext.ui.contentassist
+org.xtext.dsl.gratext.ui.internal
+org.xtext.dsl.gratext.ui.labeling
+org.xtext.dsl.gratext.ui.outline
+org.xtext.dsl.gratext.ui.quickfix
+org.xtext.dsl.gratext.ui.wizard

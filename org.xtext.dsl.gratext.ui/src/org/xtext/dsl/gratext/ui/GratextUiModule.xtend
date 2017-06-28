@@ -6,6 +6,8 @@ package org.xtext.dsl.gratext.ui
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
 /**
+ * @author :Jose antonio de Benito Suarez
+ * Utilizada para modificar componentes dentro de la interface
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor

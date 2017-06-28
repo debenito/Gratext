@@ -1,0 +1,12 @@
+org.xtext.dsl.gratext
+org.xtext.dsl.gratext.formatting2
+org.xtext.dsl.gratext.generator
+org.xtext.dsl.gratext.gratext
+org.xtext.dsl.gratext.gratext.impl
+org.xtext.dsl.gratext.gratext.util
+org.xtext.dsl.gratext.parser.antlr
+org.xtext.dsl.gratext.parser.antlr.internal
+org.xtext.dsl.gratext.scoping
+org.xtext.dsl.gratext.serializer
+org.xtext.dsl.gratext.services
+org.xtext.dsl.gratext.validation

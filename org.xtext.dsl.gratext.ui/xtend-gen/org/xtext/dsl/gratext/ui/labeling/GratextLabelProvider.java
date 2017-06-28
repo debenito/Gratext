@@ -17,6 +17,9 @@ import org.xtext.dsl.gratext.gratext.login;
  * Provides labels for EObjects.
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
+ * 
+ * @author :Jose antonio de Benito Suarez
+ * Clase utilizada para el esquema en linea que se muestra a la izquierda
  */
 @SuppressWarnings("all")
 public class GratextLabelProvider extends DefaultEObjectLabelProvider {
@@ -25,41 +28,65 @@ public class GratextLabelProvider extends DefaultEObjectLabelProvider {
     super(delegate);
   }
   
+  /**
+   * Metodo para la inserccion de una imagen de la granja
+   */
   public String image(final Granja gr) {
     return "granja.GIF";
   }
   
+  /**
+   * Metodo para la inserccion de una texto de la granja
+   */
   public String text(final Granja gr) {
     String _nombreGranja = gr.getNombreGranja();
-    String _plus = ("Granja de" + _nombreGranja);
+    String _plus = ("Granja de " + _nombreGranja);
     String _plus_1 = (_plus + " Tipo :");
     Tipo _tipo = gr.getTipo();
     return (_plus_1 + _tipo);
   }
   
+  /**
+   * Metodo para la inserccion del texto de dispositivo
+   */
   public String text(final Dispositivos i) {
     String _codigo = i.getCodigo();
     String _plus = (("Dispositivos" + "(") + _codigo);
     return (_plus + ")");
   }
   
+  /**
+   * Metodo para la inserccion de una imagen de dispositivo
+   */
   public String image(final Dispositivos i) {
     return "dispositivos.GIF";
   }
   
+  /**
+   * Metodo para la inserccion de una imagen de accion
+   */
   public String image(final accion numero) {
     return "acciones.gif";
   }
   
+  /**
+   * Metodo para la inserccion de un texto de accion
+   */
   public String text(final accion accion) {
     NombreAccion _nombreAccion = accion.getNombreAccion();
     return ("Accion : " + _nombreAccion);
   }
   
+  /**
+   * Metodo para la inserccion de una imagen de usuario o login
+   */
   public String image(final login user) {
     return "usuario.gif";
   }
   
+  /**
+   * Metodo para la inserccion el texto de login o usuario
+   */
   public String text(final login user) {
     String _usuario = user.getUsuario();
     return ("Usuario:" + _usuario);

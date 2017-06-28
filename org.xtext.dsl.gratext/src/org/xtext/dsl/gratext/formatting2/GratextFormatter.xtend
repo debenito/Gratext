@@ -9,21 +9,30 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 import org.xtext.dsl.gratext.gratext.Dispositivos
 import org.xtext.dsl.gratext.gratext.Granja
 import org.xtext.dsl.gratext.services.GratextGrammarAccess
-
-class GratextFormatter extends AbstractFormatter2 {
+/**
+ * @author : Jose antonio de Benito Suarez
+ *Clase predefinida para el formateo de codigo
+ *
+ */
+ class GratextFormatter extends AbstractFormatter2 {
 	
 	@Inject extension GratextGrammarAccess
-
+/**
+ * Metodo extendido de la clase AbstractFormatter2 para formatear el codigo de la granja
+ */
 	def dispatch void format(Granja granja, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		granja.append[autowrap(30)]
 		granja.login.usuario.format		
 		granja.login.getContrasena.format;
-		granja.append[ML_COMMENTRule].append[newLines = 2];
+		granja.append[getML_COMMENTRule].append[newLines = 2];
 		for (Dispositivos dispositivos : granja.getDispositivos()) {
 			dispositivos.format;
 		}
 	}
+	/** Metodo
+	 * extendido de la clase AbstractFormatter2 para modificar el formato de los dispositivos
+	 */
 
 	def dispatch void format(Dispositivos dispositivos, extension IFormattableDocument document) {
 	 

@@ -1,7 +1,10 @@
 grammar org.xtext.dsl.gratext.Gratext with org.eclipse.xtext.common.Terminals
 
 generate gratext "http://www.xtext.org/dsl/gratext/Gratext"
-
+/**
+ * @author : Jose antonio de Benito Suarez
+ * Generacion de sintaxis utilzada para el dsl
+ */
 Granja:
 	'Granja:' nombreGranja=ID
 	'Centralita:' tipo=Tipo
@@ -46,4 +49,3 @@ enum TiposDispositivo : CAMARA | TEMPERATURA | FUEGO_HUMO | CO2 | GAS | PRESENCI
 enum NombreAccion : ABRIR | ENVIAR | SACAR | CERRAR | ESTADO | GRABAR |DETECTAR | ENCENDER | APAGAR | AUMENTAR | DISMINUIR 
 	| COMPROBAR | ACTIVAR | DESACTIVAR 
 ;
-

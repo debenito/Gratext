@@ -9,10 +9,13 @@ import org.xtext.dsl.gratext.gratext.accion
 
 /**
  * This class contains custom validation rules. 
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
+ * @author : Jose antonio de Benito Suarez
+ * Esta clase contiene los validadores necesarios para  el programa funcione correctamente
  */
 class GratextValidator extends AbstractGratextValidator {
+	/**
+	 * Parametros estaticos que sirven para diferenciar los errores
+	 */
 	public static val INVALID_NAME = 'invalidName'
 	public static val NAME_LONG = 'Nombre_Largo'
 	public static val ACCION_INCORRECTA = 'Accion_incorrecta'
@@ -28,6 +31,9 @@ class GratextValidator extends AbstractGratextValidator {
 	public static val DISPOSITIVO_INCORRECTO= "Dispositivo_incorrecto"
 	protected int i = 0;
 
+/**
+ * Metodo que checkea si el dispositivo es la barrera y la accion es correcta
+ */
 	@Check
 	def checkDispositvoBarrerar(Dispositivos dispositivo) {
 		if (dispositivo.nombre.getName.equals("BARRERA_SEGURIDAD") && !checkBarrera(dispositivo.accion)) {
@@ -37,12 +43,17 @@ class GratextValidator extends AbstractGratextValidator {
 		}
 
 	}
-
+/**
+ * Metodo que checkea  la accion es correcta de la barrera
+ */
 def checkBarrera(accion accion) {
 		if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
 			accion.nombreAccion.getName.equals("ESTADO"))
 			true
 	}
+	/**
+ * Metodo que checkea si el codigo del dispositivo 
+ */
 	@Check
 	def checkCodigo(Dispositivos dispositivo) {
 		if (dispositivo.codigo.length > 20) {
@@ -54,7 +65,11 @@ def checkBarrera(accion accion) {
 		}
 
 	}
-
+	
+	
+/**
+ * Metodo que checkea si el dispositivo es la camara y la accion es correcta
+ */
 	@Check
 	def checkDispositivoCamara(Dispositivos dispositivo) {
 		if (dispositivo.nombre.getName.equals("CAMARA") && !checkCamara(dispositivo.accion)) {
@@ -63,14 +78,18 @@ def checkBarrera(accion accion) {
 
 		}
 	}
-
+/**
+ * Metodo que checkea  la accion es correcta de la carmara
+ */
 	def checkCamara(accion accion) {
 		if (accion.nombreAccion.getName.equals("ABRIR") || accion.nombreAccion.getName.equals("CERRAR") ||
 			accion.nombreAccion.getName.equals("SACAR") || accion.nombreAccion.getName.equals("GRABAR") ||
 			accion.nombreAccion.getName.equals("ACTIVAR") || accion.nombreAccion.getName.equals("DESACTIVAR"))
 			true
 	}
-
+/**
+ * Metodo que checkea los dispositivo que solo pueden tener la accion de estado
+ */
 	@Check
 	def checkDispositivoEstado(Dispositivos dispositivo) {
 		if ((dispositivo.nombre.getName.equals("DEPOSITO_LECHE") || dispositivo.nombre.getName.equals("EMERGENCIA") ||
@@ -78,18 +97,27 @@ def checkBarrera(accion accion) {
 			dispositivo.nombre.getName.equals("VIENTO") || dispositivo.nombre.getName.equals("ROTURA_CRISTAL") ||
 			dispositivo.nombre.getName.equals("CO2") || dispositivo.nombre.getName.equals("LLUVIA") ||
 			dispositivo.nombre.getName.equals("ESTACION_METEOROLOGICA") ||
-			dispositivo.nombre.getName.equals("TEMPERATURA")  ) && !checkEstado(dispositivo.accion)) {
+			dispositivo.nombre.getName.equals("TEMPERATURA")  ||
+			dispositivo.nombre.getName.equals("GAS")||
+			dispositivo.nombre.getName.equals("PRESENCIA")||
+			dispositivo.nombre.getName.equals("MECEDORA")||
+			dispositivo.nombre.getName.equals("PULSOMETRO_GANADO")) && !checkEstado(dispositivo.accion)) {
 			error("La accion no es la correcta para este dispositivo estados",
 				GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_ESTADO)
 
 		}
 	}
-
+/**
+ * Metodo que checkea la accion de estado
+ */
 	def checkEstado(accion accion) {
 		if (accion.nombreAccion.getName.equals("ESTADO"))
 			true
 	}
 
+/**
+ * Metodo que checkea los dispositivos con acciones de abrir, cerrar, desactivar, activar
+ */
 	@Check
 	def checkDispositivoADE(Dispositivos dispositivo) {
 		if ((dispositivo.nombre.getName.equals("ROBOT_LIMPIADOR") || dispositivo.nombre.getName.equals("LUMINOSIDAD") ||
@@ -101,6 +129,10 @@ def checkBarrera(accion accion) {
 		}
 	}
 
+
+/**
+ * Metodo que checkea las acciones de abrir, cerrar, desactivar, activar
+ */
 	def checkADE(accion accion) {
 		if (checkEstado(accion) || accion.nombreAccion.getName.equals("APAGAR") ||
 			accion.nombreAccion.getName.equals("ENCENDER") || accion.nombreAccion.getName.equals("ACTIVAR") ||
@@ -110,6 +142,9 @@ def checkBarrera(accion accion) {
 
 	
 
+/**
+ * Metodo que checkea los dispositivos con datos numericos
+ */
 	@Check
 	def checkDispositivosNumerosEnteros(Dispositivos dispositivo) {
 		if (!comprobarDispositivosNumericos(dispositivo) && !dispositivo.accion.numero.idNumero.isNullOrEmpty) {
@@ -123,6 +158,9 @@ def checkBarrera(accion accion) {
 
 	}
 
+/**
+ * Metodo que comrpueba el tipo de dato que se transmite
+ */
 	def comprobarNumero(String numero) {
 
 		while (i < numero.length) {
@@ -137,12 +175,18 @@ def checkBarrera(accion accion) {
 		return "int"
 	}
 
+/**
+ * Metodo que checkea los dispositivos con datos numericos
+ */
 	def comprobarDispositivosNumericos(Dispositivos dispositivo) {
 		if (dispositivo.nombre.getName.equals("TERMOSTATO") || dispositivo.nombre.getName.equals("CAMARA") ||
 			dispositivo.nombre.getName.equals("LUZ"))
 			true
 	}
 
+/**
+ * Metodo que checkea el dispositivo temperatura 
+ */
 	@Check
 	def checkDispositivoTemperatura(Dispositivos dispositivo) {
 		if (checkIsTemperatura(dispositivo) && dispositivo.temperatura==null){
@@ -158,6 +202,9 @@ def checkBarrera(accion accion) {
 			}
 	}
 
+/**
+ * Metodo que checkea los lugares donde se puede medir la temperatura
+ */
 	def checkTemperatura(String estado) {
 		if (estado.toUpperCase.equals("AMBIENTE") || estado.toUpperCase.equals("INTERNA") ||
 			estado.toUpperCase.equals("NEVERA") || estado.toUpperCase.equals("MECEDORA") ||
@@ -165,12 +212,19 @@ def checkBarrera(accion accion) {
 			return true
 		return false
 	}
+	
+/**
+ * Metodo que checkea los dispositivos de temperatura o termostato
+ */
 def checkIsTemperatura(Dispositivos dispositivo) {
 		if (dispositivo.nombre.getName.equals("TEMPERATURA")|| dispositivo.nombre.getName.equals("TERMOSTATO") )
 			return true
 		return false
 	}
 
+/**
+ * Metodo que checkea los dispositivos con acciones de amuento y disminucion
+ */
 @Check
 def checkAumentarDisminuir(Dispositivos dispositivo){
 	if(checkDispositivosAumento(dispositivo) && checkAumentoDisminu(dispositivo.accion) && dispositivo.accion.numero==null){
@@ -189,6 +243,10 @@ def checkAumentarDisminuir(Dispositivos dispositivo){
 			}
 }
 
+
+/**
+ * Metodo que checkea las  acciones de aumento y disminucion
+ */
 def checkAumentoDisminu(accion accion){
 	if(accion.nombreAccion.getName.equals("AUMENTAR")
 		|| accion.nombreAccion.getName.equals("DISMINUIR"))
@@ -196,6 +254,10 @@ def checkAumentoDisminu(accion accion){
 	return false
 }
 
+
+/**
+ * Metodo que checkea los dispositivos con acciones de aumento y disminucion
+ */
 def checkDispositivosAumento(Dispositivos dispositivo){
 	 if(dispositivo.nombre.getName.equals("TERMOSTATO")||
 			dispositivo.nombre.getName.equals("LUZ"))
@@ -203,12 +265,20 @@ def checkDispositivosAumento(Dispositivos dispositivo){
 	return	false
 }
 
+
+/**
+ * Metodo que checkea los tipo de datos enviados por el dispositivo
+ */
 @Check
 def checkDatos(Dispositivos dispositivo){
 	if(dispositivo.accion.numero.datos!= null && !checkDato(dispositivo))
 		error("Error en el dato ",
 			GratextPackage.Literals.DISPOSITIVOS__ACCION, ACCION_INCORRECTA)
 }
+
+/**
+ * Metodo que checkea los dispositivos con posiblidad de mandar datos
+ */
 def checkDato(Dispositivos dispositivo){
 
 	if((dispositivo.nombre.getName.equals("CAMARA") && dispositivo.accion.numero.datos.getName.equals("FOTOS") )||

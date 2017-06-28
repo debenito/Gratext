@@ -23,25 +23,14 @@ import org.xtext.dsl.gratext.ui.contentassist.AbstractGratextProposalProvider;
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
+ * 
+ * @author :Jose antonio de Benito Suarez
+ * Clase utilizada para el asistente de codigo completando
  */
 @SuppressWarnings("all")
 public class GratextProposalProvider extends AbstractGratextProposalProvider {
   /**
-   * override complete_Ingrediente(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-   * 	//super.complete_Ingrediente(model, ruleCall, context, acceptor)
-   * 	var propuesta=
-   * 	createCompletionProposal("Ingrediente: CODIGO 'NOMBRE' infoUrl: http://www.ejemplo.com",context);
-   * 	acceptor.accept(propuesta);
-   * }
-   * 
-   * def void completeIngrediente_Name(Ingrediente i, Assignment a ,ContentAssistContext context, ICompletionProposalAcceptor acceptor){
-   * 	super.completeIngrediente_Name(i,a,context,acceptor);
-   * 	var r = i.eContainer as Restaurante;
-   * 	var id = "CODI"+ (r.ingredientes.filter(typeof (Ingrediente)).size);
-   * 	var propuesta = createCompletionProposal(id,context);
-   * 	acceptor.accept(propuesta);
-   * 
-   * }
+   * Metodo para completar el nombre de la granja y el tipo de centralita
    */
   @Override
   public void complete_Granja(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
@@ -49,18 +38,27 @@ public class GratextProposalProvider extends AbstractGratextProposalProvider {
     acceptor.accept(propuesta);
   }
   
+  /**
+   * Metodo para completar el login de un usuario
+   */
   @Override
   public void complete_login(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     ICompletionProposal propuesta = this.createCompletionProposal("Usuario: NOMBRE_USUARIO\r\n\t\t Contraseña: \'CONTRASEÑA\'", context);
     acceptor.accept(propuesta);
   }
   
+  /**
+   * Metodo para completar los dispositivos simples sin numeros
+   */
   @Override
   public void complete_Dispositivos(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     ICompletionProposal propuesta = this.createCompletionProposal("Codigo: CODIGO Sensor  NOMBRE_SENSOR quiero ACCION \'DESCRIPCION\' ", context);
     acceptor.accept(propuesta);
   }
   
+  /**
+   * Metodo para completar el codigo y ayudar a la generacion del siguiente formato CODI1
+   */
   public void completeDispositivos_Codigo(final Dispositivos i, final Assignment a, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _eContainer = i.eContainer();
     Granja r = ((Granja) _eContainer);
@@ -70,18 +68,27 @@ public class GratextProposalProvider extends AbstractGratextProposalProvider {
     acceptor.accept(propuesta);
   }
   
+  /**
+   * Metodo para completar el numero y el dato
+   */
   @Override
   public void complete_numero(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     ICompletionProposal propuesta = this.createCompletionProposal(" 0  DATO", context);
     acceptor.accept(propuesta);
   }
   
+  /**
+   * Metodo para insertar un numero
+   */
   @Override
   public void complete_idNumero(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     ICompletionProposal propuesta = this.createCompletionProposal("0.0", context);
     acceptor.accept(propuesta);
   }
   
+  /**
+   * Metodo para completar la descripcion de un dispositivo
+   */
   @Override
   public void completeAccion_Descripcion(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _eContainer = model.eContainer();

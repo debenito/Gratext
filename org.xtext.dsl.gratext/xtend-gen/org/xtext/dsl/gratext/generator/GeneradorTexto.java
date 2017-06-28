@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.dsl.gratext.gratext.Datos;
 import org.xtext.dsl.gratext.gratext.Dispositivos;
 import org.xtext.dsl.gratext.gratext.Granja;
 import org.xtext.dsl.gratext.gratext.NombreAccion;
@@ -16,8 +17,15 @@ import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.login;
 import org.xtext.dsl.gratext.gratext.numero;
 
+/**
+ * @author : Jose antonio de Benito Suarez
+ * Clase creada para generar el fichero de salida de texto
+ */
 @SuppressWarnings("all")
 public class GeneradorTexto {
+  /**
+   * Componentes Resource y IFileSystem acces extendidos del generator
+   */
   private Resource resource;
   
   private IFileSystemAccess2 fsa;
@@ -28,54 +36,51 @@ public class GeneradorTexto {
   }
   
   /**
-   * fsa.generateFile('granja.txt', 'Dispositivos de la granja: ' +
-   * resource.allContents
-   * .filter(typeof(Granja))
-   * .map[name]
-   * .join(', '))
+   * Metodo compilar definido para la generacion del fichero de salida recorriendo el arbol
+   * generado por el programa y llamando a compilarGranja
    */
   public void compilar() {
     StringBuilder sb = new StringBuilder();
+    long time_start = System.currentTimeMillis();
     Iterable<Granja> _filter = Iterables.<Granja>filter(IteratorExtensions.<EObject>toIterable(this.resource.getAllContents()), Granja.class);
     for (final Granja i : _filter) {
       sb.append(this.compilarGranja(i));
     }
     this.fsa.generateFile("granja.txt", sb.toString());
+    long time_end = System.currentTimeMillis();
+    System.out.println((("the task has taken " + Long.valueOf((time_end - time_start))) + " milliseconds"));
   }
   
+  /**
+   * Metodo compilar granja el cual recibe un argumento de tipo granja y saca los valores  de la misma.
+   */
   public CharSequence compilarGranja(final Granja granja) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Nombre de la granja registrada: ");
+    _builder.append(" ");
+    _builder.append("nombre:");
     String _nombreGranja = granja.getNombreGranja();
-    _builder.append(_nombreGranja);
-    _builder.append(" tipo de dispositivo o centralita:");
+    _builder.append(_nombreGranja, " ");
+    _builder.newLineIfNotEmpty();
+    _builder.append(" ");
+    _builder.append("centralita:");
     Tipo _tipo = granja.getTipo();
-    _builder.append(_tipo);
+    _builder.append(_tipo, " ");
     _builder.newLineIfNotEmpty();
     {
       login _login = granja.getLogin();
       boolean _notEquals = (!Objects.equal(_login, null));
       if (_notEquals) {
-        _builder.append("Su usuario es el siguiente:");
+        _builder.append("usuario:");
         String _usuario = granja.getLogin().getUsuario();
         _builder.append(_usuario);
         _builder.append(" ");
         _builder.newLineIfNotEmpty();
-        _builder.append("Su contraseña es la siguiente: ");
+        _builder.append("contraseña: ");
         String _contrasena = granja.getLogin().getContrasena();
         _builder.append(_contrasena);
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("Los dispositivos conectados en la granja ");
-    String _nombreGranja_1 = granja.getNombreGranja();
-    _builder.append(_nombreGranja_1);
-    _builder.append(" son los siguientes:");
-    _builder.newLineIfNotEmpty();
-    _builder.append("LISTA DE DISPOSITIVOS");
-    _builder.newLine();
-    _builder.append("=========================================================");
-    _builder.newLine();
     {
       EList<Dispositivos> _dispositivos = granja.getDispositivos();
       for(final Dispositivos i : _dispositivos) {
@@ -87,12 +92,18 @@ public class GeneradorTexto {
     return _builder;
   }
   
+  /**
+   * Metodo definido para sacar los valores de un dispositivo.
+   * Tiene un parametro de entrada que es de tipo dispotitivo
+   */
   public CharSequence compilarTexto(final Dispositivos i) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Dispositivo: ");
     TiposDispositivo _nombre = i.getNombre();
     _builder.append(_nombre);
-    _builder.append(" con el siguiente codigo del dispositivo ");
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("codigo: ");
     String _codigo = i.getCodigo();
     _builder.append(_codigo);
     _builder.append("\t");
@@ -101,10 +112,12 @@ public class GeneradorTexto {
       String _temperatura = i.getTemperatura();
       boolean _notEquals = (!Objects.equal(_temperatura, null));
       if (_notEquals) {
-        _builder.append("Se desea ");
+        _builder.append("accion: ");
         NombreAccion _nombreAccion = i.getAccion().getNombreAccion();
         _builder.append(_nombreAccion);
-        _builder.append(" la temperatura del : ");
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+        _builder.append("temperatura : ");
         String _temperatura_1 = i.getTemperatura();
         _builder.append(_temperatura_1);
         _builder.append(" ");
@@ -115,7 +128,7 @@ public class GeneradorTexto {
       String _temperatura_2 = i.getTemperatura();
       boolean _equals = Objects.equal(_temperatura_2, null);
       if (_equals) {
-        _builder.append("Se desea la siguiente accion ");
+        _builder.append("accion: ");
         NombreAccion _nombreAccion_1 = i.getAccion().getNombreAccion();
         _builder.append(_nombreAccion_1);
         _builder.append("  ");
@@ -126,9 +139,14 @@ public class GeneradorTexto {
       numero _numero = i.getAccion().getNumero();
       boolean _notEquals_1 = (!Objects.equal(_numero, null));
       if (_notEquals_1) {
-        _builder.append("\"Con el siguiente valor:\"");
-        numero _numero_1 = i.getAccion().getNumero();
-        _builder.append(_numero_1);
+        _builder.append("numero: ");
+        String _idNumero = i.getAccion().getNumero().getIdNumero();
+        _builder.append(_idNumero);
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+        _builder.append("datos:");
+        Datos _datos = i.getAccion().getNumero().getDatos();
+        _builder.append(_datos);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -137,7 +155,7 @@ public class GeneradorTexto {
       boolean _notEquals_2 = (!Objects.equal(_descripcion, null));
       if (_notEquals_2) {
         _builder.append("\t");
-        _builder.append("El dispositivo contiene la siguiente descripcion: ");
+        _builder.append("descripcion: ");
         String _descripcion_1 = i.getAccion().getDescripcion();
         _builder.append(_descripcion_1, "\t");
         _builder.newLineIfNotEmpty();

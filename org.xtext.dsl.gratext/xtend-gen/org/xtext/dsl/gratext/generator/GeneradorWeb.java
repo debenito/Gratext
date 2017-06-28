@@ -15,12 +15,22 @@ import org.xtext.dsl.gratext.gratext.Tipo;
 import org.xtext.dsl.gratext.gratext.TiposDispositivo;
 import org.xtext.dsl.gratext.gratext.numero;
 
+/**
+ * @author : Jose antonio de Benito Suarez
+ * Clase creada para generar el fichero de salida de xml
+ */
 @SuppressWarnings("all")
 public class GeneradorWeb {
+  /**
+   * Componentes Resource y IFileSystem acces extendidos del generator
+   */
   private Resource resource;
   
   private IFileSystemAccess2 fsa;
   
+  /**
+   * Atributos necesarios para transmitir fichero xml
+   */
   private int identificadores;
   
   private int identificador_servicio;
@@ -37,6 +47,10 @@ public class GeneradorWeb {
     this.identificador_accion = 0;
   }
   
+  /**
+   * Metodo compilar definido para la generacion del fichero de salida recorriendo el arbol
+   * generado por el programa y llamando a compilarGranja
+   */
   public void compilar() {
     Iterable<Granja> _filter = Iterables.<Granja>filter(IteratorExtensions.<EObject>toIterable(this.resource.getAllContents()), Granja.class);
     for (final Granja r : _filter) {
@@ -47,6 +61,10 @@ public class GeneradorWeb {
     }
   }
   
+  /**
+   * Metodo compilar granja el cual recibe un argumento de tipo granja para generar la ruta de salida
+   * del fichero y llamar otro metodo que saque los valores
+   */
   public CharSequence compilarTexto(final Granja granja) {
     StringConcatenation _builder = new StringConcatenation();
     this.fsa.generateFile("scripts/granja_gen.xml", this.compilarGranja(granja));
@@ -55,6 +73,9 @@ public class GeneradorWeb {
     return _builder;
   }
   
+  /**
+   * Metodo compilar granja el cual recibe un argumento de tipo granja y saca los valores de los dispositivos.
+   */
   public CharSequence compilarGranja(final Granja r) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<registro>");
@@ -89,6 +110,9 @@ public class GeneradorWeb {
     return _builder;
   }
   
+  /**
+   * Metodo encargado de sacar las acciones o servidos de los dispositivos
+   */
   public CharSequence compilarDispositivos(final List<Dispositivos> dispositivos) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
@@ -126,6 +150,9 @@ public class GeneradorWeb {
     return _builder;
   }
   
+  /**
+   * Metodo encargado de sacar servicios
+   */
   public CharSequence compilarDispositivo(final Dispositivos i) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
@@ -156,6 +183,9 @@ public class GeneradorWeb {
     return _builder;
   }
   
+  /**
+   * Metodo que comprueba el tipo de datos a sacar por el servicio
+   */
   public String serviciosConDatos(final Dispositivos dispositivo) {
     if ((((dispositivo.getNombre().getName().equals("DEPOSITO_LECHE") || dispositivo.getNombre().getName().equals("FUEGO_HUMO")) || 
       dispositivo.getNombre().getName().equals("ESTACION_METEOROLOGICA")) || dispositivo.getNombre().getName().equals("CO2"))) {
@@ -174,6 +204,9 @@ public class GeneradorWeb {
     }
   }
   
+  /**
+   * Metodo que saca las acciones de los dispositivos
+   */
   public CharSequence compilarAccion(final Dispositivos i) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
@@ -223,6 +256,9 @@ public class GeneradorWeb {
     return _builder;
   }
   
+  /**
+   * Comprobador de numeros si son de tipo flotante o entero
+   */
   public String comprobarNumero(final String numero) {
     while ((this.i < numero.length())) {
       {

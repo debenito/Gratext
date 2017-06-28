@@ -14,11 +14,14 @@ import org.xtext.dsl.gratext.validation.AbstractGratextValidator;
 
 /**
  * This class contains custom validation rules.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
+ * @author : Jose antonio de Benito Suarez
+ * Esta clase contiene los validadores necesarios para  el programa funcione correctamente
  */
 @SuppressWarnings("all")
 public class GratextValidator extends AbstractGratextValidator {
+  /**
+   * Parametros estaticos que sirven para diferenciar los errores
+   */
   public final static String INVALID_NAME = "invalidName";
   
   public final static String NAME_LONG = "Nombre_Largo";
@@ -47,6 +50,9 @@ public class GratextValidator extends AbstractGratextValidator {
   
   protected int i = 0;
   
+  /**
+   * Metodo que checkea si el dispositivo es la barrera y la accion es correcta
+   */
   @Check
   public void checkDispositvoBarrerar(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("BARRERA_SEGURIDAD") && (!this.checkBarrera(dispositivo.getAccion())))) {
@@ -55,6 +61,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que checkea  la accion es correcta de la barrera
+   */
   public boolean checkBarrera(final accion accion) {
     boolean _xifexpression = false;
     if (((accion.getNombreAccion().getName().equals("ABRIR") || accion.getNombreAccion().getName().equals("CERRAR")) || 
@@ -64,6 +73,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return _xifexpression;
   }
   
+  /**
+   * Metodo que checkea si el codigo del dispositivo
+   */
   @Check
   public void checkCodigo(final Dispositivos dispositivo) {
     int _length = dispositivo.getCodigo().length();
@@ -76,6 +88,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que checkea si el dispositivo es la camara y la accion es correcta
+   */
   @Check
   public void checkDispositivoCamara(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("CAMARA") && (!this.checkCamara(dispositivo.getAccion())))) {
@@ -84,6 +99,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que checkea  la accion es correcta de la carmara
+   */
   public boolean checkCamara(final accion accion) {
     boolean _xifexpression = false;
     if ((((((accion.getNombreAccion().getName().equals("ABRIR") || accion.getNombreAccion().getName().equals("CERRAR")) || 
@@ -94,19 +112,29 @@ public class GratextValidator extends AbstractGratextValidator {
     return _xifexpression;
   }
   
+  /**
+   * Metodo que checkea los dispositivo que solo pueden tener la accion de estado
+   */
   @Check
   public void checkDispositivoEstado(final Dispositivos dispositivo) {
-    if (((((((((((dispositivo.getNombre().getName().equals("DEPOSITO_LECHE") || dispositivo.getNombre().getName().equals("EMERGENCIA")) || 
+    if (((((((((((((((dispositivo.getNombre().getName().equals("DEPOSITO_LECHE") || dispositivo.getNombre().getName().equals("EMERGENCIA")) || 
       dispositivo.getNombre().getName().equals("FUEGO_HUMO")) || dispositivo.getNombre().getName().equals("INUNDACION")) || 
       dispositivo.getNombre().getName().equals("VIENTO")) || dispositivo.getNombre().getName().equals("ROTURA_CRISTAL")) || 
       dispositivo.getNombre().getName().equals("CO2")) || dispositivo.getNombre().getName().equals("LLUVIA")) || 
       dispositivo.getNombre().getName().equals("ESTACION_METEOROLOGICA")) || 
-      dispositivo.getNombre().getName().equals("TEMPERATURA")) && (!this.checkEstado(dispositivo.getAccion())))) {
+      dispositivo.getNombre().getName().equals("TEMPERATURA")) || 
+      dispositivo.getNombre().getName().equals("GAS")) || 
+      dispositivo.getNombre().getName().equals("PRESENCIA")) || 
+      dispositivo.getNombre().getName().equals("MECEDORA")) || 
+      dispositivo.getNombre().getName().equals("PULSOMETRO_GANADO")) && (!this.checkEstado(dispositivo.getAccion())))) {
       this.error("La accion no es la correcta para este dispositivo estados", 
         GratextPackage.Literals.DISPOSITIVOS__ACCION, GratextValidator.ACCION_ESTADO);
     }
   }
   
+  /**
+   * Metodo que checkea la accion de estado
+   */
   public boolean checkEstado(final accion accion) {
     boolean _xifexpression = false;
     boolean _equals = accion.getNombreAccion().getName().equals("ESTADO");
@@ -116,6 +144,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return _xifexpression;
   }
   
+  /**
+   * Metodo que checkea los dispositivos con acciones de abrir, cerrar, desactivar, activar
+   */
   @Check
   public void checkDispositivoADE(final Dispositivos dispositivo) {
     if (((((dispositivo.getNombre().getName().equals("ROBOT_LIMPIADOR") || dispositivo.getNombre().getName().equals("LUMINOSIDAD")) || 
@@ -126,6 +157,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que checkea las acciones de abrir, cerrar, desactivar, activar
+   */
   public boolean checkADE(final accion accion) {
     boolean _xifexpression = false;
     if (((((this.checkEstado(accion) || accion.getNombreAccion().getName().equals("APAGAR")) || 
@@ -136,6 +170,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return _xifexpression;
   }
   
+  /**
+   * Metodo que checkea los dispositivos con datos numericos
+   */
   @Check
   public void checkDispositivosNumerosEnteros(final Dispositivos dispositivo) {
     if (((!this.comprobarDispositivosNumericos(dispositivo)) && (!StringExtensions.isNullOrEmpty(dispositivo.getAccion().getNumero().getIdNumero())))) {
@@ -155,6 +192,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que comrpueba el tipo de dato que se transmite
+   */
   public String comprobarNumero(final String numero) {
     while ((this.i < numero.length())) {
       {
@@ -170,6 +210,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return "int";
   }
   
+  /**
+   * Metodo que checkea los dispositivos con datos numericos
+   */
   public boolean comprobarDispositivosNumericos(final Dispositivos dispositivo) {
     boolean _xifexpression = false;
     if (((dispositivo.getNombre().getName().equals("TERMOSTATO") || dispositivo.getNombre().getName().equals("CAMARA")) || 
@@ -179,6 +222,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return _xifexpression;
   }
   
+  /**
+   * Metodo que checkea el dispositivo temperatura
+   */
   @Check
   public void checkDispositivoTemperatura(final Dispositivos dispositivo) {
     if ((this.checkIsTemperatura(dispositivo) && Objects.equal(dispositivo.getTemperatura(), null))) {
@@ -205,6 +251,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que checkea los lugares donde se puede medir la temperatura
+   */
   public boolean checkTemperatura(final String estado) {
     if ((((((estado.toUpperCase().equals("AMBIENTE") || estado.toUpperCase().equals("INTERNA")) || 
       estado.toUpperCase().equals("NEVERA")) || estado.toUpperCase().equals("MECEDORA")) || 
@@ -214,6 +263,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return false;
   }
   
+  /**
+   * Metodo que checkea los dispositivos de temperatura o termostato
+   */
   public boolean checkIsTemperatura(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("TEMPERATURA") || dispositivo.getNombre().getName().equals("TERMOSTATO"))) {
       return true;
@@ -221,6 +273,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return false;
   }
   
+  /**
+   * Metodo que checkea los dispositivos con acciones de amuento y disminucion
+   */
   @Check
   public void checkAumentarDisminuir(final Dispositivos dispositivo) {
     if (((this.checkDispositivosAumento(dispositivo) && this.checkAumentoDisminu(dispositivo.getAccion())) && Objects.equal(dispositivo.getAccion().getNumero(), null))) {
@@ -241,6 +296,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que checkea las  acciones de aumento y disminucion
+   */
   public boolean checkAumentoDisminu(final accion accion) {
     if ((accion.getNombreAccion().getName().equals("AUMENTAR") || accion.getNombreAccion().getName().equals("DISMINUIR"))) {
       return true;
@@ -248,6 +306,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return false;
   }
   
+  /**
+   * Metodo que checkea los dispositivos con acciones de aumento y disminucion
+   */
   public boolean checkDispositivosAumento(final Dispositivos dispositivo) {
     if ((dispositivo.getNombre().getName().equals("TERMOSTATO") || 
       dispositivo.getNombre().getName().equals("LUZ"))) {
@@ -256,6 +317,9 @@ public class GratextValidator extends AbstractGratextValidator {
     return false;
   }
   
+  /**
+   * Metodo que checkea los tipo de datos enviados por el dispositivo
+   */
   @Check
   public void checkDatos(final Dispositivos dispositivo) {
     if (((!Objects.equal(dispositivo.getAccion().getNumero().getDatos(), null)) && (!this.checkDato(dispositivo)))) {
@@ -264,6 +328,9 @@ public class GratextValidator extends AbstractGratextValidator {
     }
   }
   
+  /**
+   * Metodo que checkea los dispositivos con posiblidad de mandar datos
+   */
   public boolean checkDato(final Dispositivos dispositivo) {
     if ((((dispositivo.getNombre().getName().equals("CAMARA") && dispositivo.getAccion().getNumero().getDatos().getName().equals("FOTOS")) || (dispositivo.getNombre().getName().equals("TERMOSTATO") && dispositivo.getAccion().getNumero().getDatos().getName().equals("GRADOS"))) || (dispositivo.getNombre().getName().equals("LUZ") && dispositivo.getAccion().getNumero().getDatos().getName().equals("VOLTIOS")))) {
       return true;

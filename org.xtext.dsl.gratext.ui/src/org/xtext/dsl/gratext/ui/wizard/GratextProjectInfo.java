@@ -7,4 +7,5 @@ import org.eclipse.xtext.ui.wizard.DefaultProjectInfo;
 
 public class GratextProjectInfo extends DefaultProjectInfo {
 
+	
 }
